@@ -7,6 +7,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        black: '#0A0A0A',
+        blue: {
+          600: '#2E58A1',
+        },
+        yellow: {
+          400: '#F7D747',
+        },
+        zinc: {
+          50: '#FAFAFA',
+          500: '#737482',
+        },
+      },
+
       container: {
         center: true,
         padding: '20px',
