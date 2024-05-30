@@ -2,17 +2,16 @@
 
 import React, { FC } from 'react';
 
-import { Button } from '@/components/ui/Button';
-import { MobileMenu } from '@/components/ui/MobileMenu';
-import { Navbar } from '@/components/navigation/Navbar';
-import { useBrowser } from '@/hooks/useBrowser';
-import { useToggleMenu } from '@/hooks/useToggleMenu';
+import { Button } from '@/app/(shared)/components/ui/Button';
+import { Navbar } from '@/app/(shared)/components/navigation/Navbar';
+import { useBrowser } from '@/app/(shared)/hooks/useBrowser';
+import { useToggleMenu } from '@/app/(shared)/hooks/useToggleMenu';
 
 import Logo from '@/public/vercel.svg';
 
 export const Header: FC = ({ ...props }) => {
   const { isBrowser } = useBrowser();
-  const { isMenuOpen, toggleMenu, isMobile, isTablet } = useToggleMenu();
+  const { isMenuOpen, toggleMenu } = useToggleMenu();
 
   return (
     <header
@@ -33,9 +32,7 @@ export const Header: FC = ({ ...props }) => {
           </Button>
         )}
 
-        {isBrowser && isMenuOpen && <MobileMenu />}
-
-        {/*{isBrowser && isTablet && <Navbar />}*/}
+        {isBrowser && isMenuOpen && <Navbar />}
       </div>
     </header>
   );

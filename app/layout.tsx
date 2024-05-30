@@ -1,27 +1,23 @@
 import './globals.css';
 
-import React, { ReactNode } from 'react';
 import { Inter } from 'next/font/google';
 import { NextFont } from 'next/dist/compiled/@next/font';
 
-import { classnames } from '@/utils/classnames';
-import { Header } from '../components/ui/Header';
-import { Footer } from '../components/ui/Footer';
+import { Footer } from '@/app/(shared)/components/layout/Footer';
+import { Header } from '@/app/(shared)/components/layout/Header';
+import { classnames } from '@/app/(shared)/utils/classnames';
 
 import type { Metadata } from 'next';
+import type { WithChildren } from '@/app/(shared)/types/common.types';
 
 const inter: NextFont = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Next.js Starter',
+  title: 'Ukraina Keskus',
   description: 'A starter for Next.js projects.',
 };
 
-type Props = {
-  children: ReactNode;
-};
-
-export default function RootLayout({ children }: Props) {
+export default function RootLayout({ children }: WithChildren) {
   return (
     <html lang="en">
       <body

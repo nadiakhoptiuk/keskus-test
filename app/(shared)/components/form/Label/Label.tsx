@@ -1,12 +1,13 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
-import { classnames } from '@/utils/classnames';
+import { classnames } from '@/app/(shared)/utils/classnames';
 
-type Props = {
-  children: React.ReactNode;
-  className?: string;
-  labelText?: string;
-};
+import { WithChildren, WithClassName } from '@/app/(shared)/types/common.types';
+
+type Props = WithChildren &
+  WithClassName & {
+    labelText?: string;
+  };
 
 export const Label: FC<Props> = ({ labelText, children, className }) => {
   return (

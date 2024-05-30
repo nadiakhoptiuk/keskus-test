@@ -1,7 +1,8 @@
 import React from 'react';
-import { NextPage } from 'next/types';
 
-import { Form } from '../components/ui/Form';
+import { Form } from '@/app/(shared)/components/ui/Form';
+
+import { NextPage } from 'next/types';
 
 const Page: NextPage = () => {
   return (

@@ -1,17 +1,17 @@
 'use client';
 
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { Button } from '@/components/ui/Button';
-import { Checkbox } from '@/components/form/Checkbox';
-import { Input } from '@/components/form/Input';
-import { Label } from '@/components/form/Label';
-import { TextArea } from '@/components/form/TextArea';
-import { schema } from '@/utils/validationSchema';
+import { Button } from '@/app/(shared)/components/ui/Button';
+import { Checkbox } from '@/app/(shared)/components/form/Checkbox';
+import { Input } from '@/app/(shared)/components/form/Input';
+import { Label } from '@/app/(shared)/components/form/Label';
+import { TextArea } from '@/app/(shared)/components/form/TextArea';
+import { schema } from '@/app/(shared)/utils/validationSchema';
 
-type Inputs = Record<string, object>;
+import type { Inputs } from '@/app/(shared)/types/common.types';
 
 const onSubmit: SubmitHandler<Inputs> = data => console.info(data);
 

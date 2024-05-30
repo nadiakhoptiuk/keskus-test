@@ -1,16 +1,9 @@
-import React, { DetailedHTMLProps, ForwardedRef, forwardRef } from 'react';
+import { ForwardedRef, forwardRef } from 'react';
 
-import { classnames } from '@/utils/classnames';
-import { ErrorMessage } from '@/components/form/ErrorMessage';
+import { ErrorMessage } from '@/app/(shared)/components/form/ErrorMessage';
+import { classnames } from '@/app/(shared)/utils/classnames';
 
-interface TextAreaProps
-  extends DetailedHTMLProps<
-    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-    HTMLTextAreaElement
-  > {
-  error?: string;
-  className?: string;
-}
+import type { TextAreaProps } from '@/app/(shared)/types/common.types';
 
 export const TextArea = forwardRef(
   (
@@ -29,7 +22,7 @@ export const TextArea = forwardRef(
             className,
           )}
           {...props}
-        ></textarea>
+        />
 
         {error && <ErrorMessage>{error}</ErrorMessage>}
       </>

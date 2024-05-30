@@ -3,8 +3,8 @@ import React, { FC } from 'react';
 import {
   NavbarLink,
   NavbarLinkProps,
-} from '@/components/navigation/NavbarLink';
-import { menuItems } from '@/components/navigation/Navbar/Navbar.constants';
+} from '@/app/(shared)/components/navigation/NavbarLink';
+import { menuItems } from '@/app/(shared)/components/navigation/Navbar/Navbar.constants';
 
 export const Navbar: FC = () => {
   return (

@@ -1,16 +1,9 @@
-import React, { DetailedHTMLProps, ForwardedRef, forwardRef } from 'react';
+import { ForwardedRef, forwardRef } from 'react';
 
-import { classnames } from '@/utils/classnames';
-import { ErrorMessage } from '@/components/form/ErrorMessage';
+import { ErrorMessage } from '@/app/(shared)/components/form/ErrorMessage';
+import { classnames } from '@/app/(shared)/utils/classnames';
 
-export interface InputProps
-  extends DetailedHTMLProps<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    HTMLInputElement
-  > {
-  error?: string;
-  className?: string;
-}
+import { InputProps } from '@/app/(shared)/types/common.types';
 
 export const Input = forwardRef(
   (

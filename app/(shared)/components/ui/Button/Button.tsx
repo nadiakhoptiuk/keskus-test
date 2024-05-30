@@ -1,20 +1,8 @@
-import React, {
-  Children,
-  ButtonHTMLAttributes,
-  DetailedHTMLProps,
-  FC,
-} from 'react';
+import React, { Children, FC } from 'react';
 
-import { classnames } from '@/utils/classnames';
+import { classnames } from '@/app/(shared)/utils/classnames';
 
-export interface ButtonProps
-  extends DetailedHTMLProps<
-    ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > {
-  children: React.ReactNode;
-  className?: string;
-}
+import { ButtonProps } from '@/app/(shared)/types/common.types';
 
 export const Button: FC<ButtonProps> = ({ children, className, ...props }) => {
   const childrenCount = Children.count(children);
