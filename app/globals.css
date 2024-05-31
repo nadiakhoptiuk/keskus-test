@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply font-fixel font-normal text-black bg-zinc-50;
+    @apply bg-zinc-50 font-fixel font-normal text-black;
   }
 }
 
