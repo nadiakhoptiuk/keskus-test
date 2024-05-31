@@ -2,15 +2,35 @@ import { NavbarLinkProps } from '@/app/(shared)/components/navigation/NavbarLink
 
 export const menuItems: NavbarLinkProps[] = [
   {
-    title: 'Link 1',
+    title: 'Головна',
     href: '#',
   },
   {
-    title: 'Link 2',
+    title: 'Про нас',
     href: '#',
   },
   {
-    title: 'Link 3',
+    title: 'Галерея',
+    href: '#',
+  },
+  {
+    title: 'Послуги',
+    href: '#',
+  },
+  {
+    title: 'Заходи',
+    href: '#',
+  },
+  {
+    title: 'Новини',
+    href: '#',
+  },
+  {
+    title: 'Вакансії',
+    href: '#',
+  },
+  {
+    title: 'Контакти',
     href: '#',
   },
 ];

@@ -19,7 +19,7 @@ export const Header: FC = ({ ...props }) => {
 
         {isBrowser && (
           <Button
-            className="px-4 py-2 text-sm text-gray-700 transition-all duration-300 hover:bg-gray-100"
+            className="relative z-40 px-4 py-2 text-sm text-gray-700 transition-all duration-300 hover:bg-gray-100"
             type="button"
             onClick={toggleMenu}
           >
