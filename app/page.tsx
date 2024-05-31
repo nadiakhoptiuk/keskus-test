@@ -9,9 +9,11 @@ const Page: NextPage = () => {
     <section className="pb-40 pt-40">
       <div className="container">
         <div className="grid gap-10 text-center">
-          <h1 className="text-3xl font-bold text-gray-700">Next js starter</h1>
+          <h1 className="font-kyiv-type-sans text-3xl font-bold text-gray-700">
+            Next js starter
+          </h1>
 
-          <p className="text-base text-gray-800">
+          <p className="font-fixel text-base font-normal text-gray-800">
             This is a starter for Next js with Typescript, ESLint, Prettier,
             Husky,
             <br />
