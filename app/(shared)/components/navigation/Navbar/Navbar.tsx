@@ -9,7 +9,7 @@ import { menuItems } from '@/app/(shared)/components/navigation/Navbar/Navbar.co
 export const Navbar: FC = () => {
   return (
     <>
-      <div className="fixed inset-0 bg-black/25 backdrop-blur-sm" />
+      <div className="fixed inset-0 z-30 bg-black/25 backdrop-blur-sm" />
 
       <div className="fixed right-0 top-0 z-30">
         <nav className="grid max-w-[600px] bg-blue-600 p-6 backdrop-blur-2xl">
