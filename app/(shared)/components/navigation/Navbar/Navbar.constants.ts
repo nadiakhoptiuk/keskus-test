@@ -1,36 +1,38 @@
 import { NavbarLinkProps } from '@/app/(shared)/components/navigation/NavbarLink';
 
+import { RoutesEnum } from '@/app/(shared)/types/enums';
+
 export const menuItems: NavbarLinkProps[] = [
   {
     title: 'Головна',
-    href: '#',
+    href: RoutesEnum.HOME,
   },
   {
     title: 'Про нас',
-    href: '#',
+    href: RoutesEnum.ABOUT_US,
   },
   {
     title: 'Галерея',
-    href: '#',
+    href: RoutesEnum.GALLERY,
   },
   {
     title: 'Послуги',
-    href: '#',
+    href: RoutesEnum.SERVICES,
   },
   {
     title: 'Заходи',
-    href: '#',
+    href: RoutesEnum.EVENTS,
   },
   {
     title: 'Новини',
-    href: '#',
+    href: RoutesEnum.NEWS,
   },
   {
     title: 'Вакансії',
-    href: '#',
+    href: RoutesEnum.VACANCIES,
   },
   {
     title: 'Контакти',
-    href: '#',
+    href: RoutesEnum.CONTACTS,
   },
 ];
