@@ -2,9 +2,11 @@ import { FC } from 'react';
 
 import { Button } from '@/app/(shared)/components/ui/Button';
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
-import { TransitionDropdown } from '@/app/(shared)/components/ui/Transitions';
+import { TransitionDropdown } from '../animations/Transitions';
 import { classnames } from '@/app/(shared)/utils/classnames';
 import { useLanguageToggle } from '@/app/(shared)/hooks/useLanguageToggle';
+
+import { WithClassName } from '@/app/(shared)/types/common.types';
 
 const languages = [
   { name: 'Ukrainian', code: 'uk' },
@@ -12,15 +14,15 @@ const languages = [
   { name: 'English', code: 'en' },
 ];
 
-type Props = {
+type Props = WithClassName & {
   color: 'blue' | 'white';
 };
 
-export const LanguageToggle: FC<Props> = ({ color }) => {
+export const LanguageToggle: FC<Props> = ({ color, className }) => {
   const { dropdownRef, isOpen, selected, setIsOpen, setLanguage } = useLanguageToggle();
 
   return (
-    <div className="relative">
+    <div className={classnames('relative', className)}>
       <Button
         onClick={setIsOpen}
         className={classnames(

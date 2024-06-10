@@ -5,6 +5,7 @@ import ArrowSm from '@/public/icons/arrow-sm.svg';
 import Burger from '@/public/icons/burger.svg';
 import CloseMenu from '@/public/icons/close-menu.svg';
 import Logo from '@/public/icons/logo.svg';
+import LogoSm from '@/public/icons/logo-sm.svg';
 
 export const icons = {
   arrow: Arrow,
@@ -12,6 +13,7 @@ export const icons = {
   burger: Burger,
   closeMenu: CloseMenu,
   logo: Logo,
+  'logo-sm': LogoSm,
 };
 
 export type CustomIconProps = WithClassName & {

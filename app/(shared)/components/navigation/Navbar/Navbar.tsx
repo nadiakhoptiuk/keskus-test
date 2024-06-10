@@ -1,12 +1,12 @@
-import { LanguageToggle } from '@/app/(shared)/components/ui/LanguageToggle';
 import { FC, useState } from 'react';
 import { Dialog, DialogPanel, Transition } from '@headlessui/react';
 
 import { Button } from '@/app/(shared)/components/ui/Button';
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
+import { LanguageToggle } from '@/app/(shared)/components/ui/LanguageToggle';
 import { NavbarLink } from '@/app/(shared)/components/navigation/NavbarLink';
 import { Overlay } from '@/app/(shared)/components/ui/Overlay';
-import { TransitionNavbarChild } from '@/app/(shared)/components/ui/Transitions';
+import { TransitionNavbarChild } from '../../ui/animations/Transitions';
 import { menuItems } from '@/app/(shared)/components/navigation/Navbar/Navbar.constants';
 
 import { NavbarLinkProps } from '@/app/(shared)/types/common.types';
@@ -32,8 +32,8 @@ export const Navbar: FC = () => {
 
           <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
             <TransitionNavbarChild>
-              <DialogPanel className="ml-auto h-screen w-full max-w-[600px] bg-blue-600 pb-[50px] pl-36 pt-[42px]">
-                <div className="relative z-40 mb-4 flex items-center justify-end gap-x-10">
+              <DialogPanel className="ml-auto h-full min-h-max w-full max-w-[600px] bg-blue-600 pl-[84px] pr-5 pt-[42px] xl:pb-[50px] xl:pl-36">
+                <div className="relative z-40 mb-[60px] flex items-center justify-end gap-x-10">
                   <LanguageToggle color="white" />
 
                   <Button
