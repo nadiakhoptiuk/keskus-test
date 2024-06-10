@@ -25,3 +25,8 @@ export type InputProps = ComponentPropsWithoutRef<'input'> &
 export type TextAreaProps = ComponentPropsWithoutRef<'textarea'> &
   WithClassName &
   WithError;
+
+export interface NavbarLinkProps {
+  title: string;
+  href: string;
+}

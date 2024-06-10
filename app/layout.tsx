@@ -25,6 +25,11 @@ const kyivSans = localFont({
       weight: '700',
       style: 'normal',
     },
+    {
+      path: '../public/fonts/kyiv-type-sans/KyivTypeSans-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
   ],
   variable: '--fonts-kyiv-type-sans',
 });

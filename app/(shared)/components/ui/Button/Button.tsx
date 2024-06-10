@@ -16,6 +16,7 @@ export const Button: FC<ButtonProps> = ({ children, className, ...props }) => {
         },
         className,
       )}
+      type={props.type || 'button'}
       {...props}
     >
       {children}

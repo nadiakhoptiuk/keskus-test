@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss';
 
+require('tailwindcss/colors');
+
 const config: Config = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
