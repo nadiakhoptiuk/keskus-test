@@ -1,5 +1,4 @@
-import { NavbarLinkProps } from '@/app/(shared)/components/navigation/NavbarLink';
-
+import { NavbarLinkProps } from '@/app/(shared)/types/common.types';
 import { RoutesEnum } from '@/app/(shared)/types/enums';
 
 export const menuItems: NavbarLinkProps[] = [

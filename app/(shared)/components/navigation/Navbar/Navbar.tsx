@@ -1,4 +1,3 @@
-import { Overlay } from '@/app/(shared)/components/ui/Overlay';
 import { useState } from 'react';
 import {
   Dialog,
@@ -10,6 +9,7 @@ import {
 import { Button } from '@/app/(shared)/components/ui/Button';
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
 import { NavbarLink } from '@/app/(shared)/components/navigation/NavbarLink';
+import { Overlay } from '@/app/(shared)/components/ui/Overlay';
 import { menuItems } from '@/app/(shared)/components/navigation/Navbar/Navbar.constants';
 
 import { NavbarLinkProps } from '@/app/(shared)/types/common.types';
