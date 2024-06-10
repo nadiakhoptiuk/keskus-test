@@ -32,7 +32,7 @@ export const Navbar: FC = () => {
 
           <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
             <TransitionNavbarChild>
-              <DialogPanel className="ml-auto h-full min-h-max w-full max-w-[600px] bg-blue-600 pl-[84px] pr-5 pt-[42px] xl:pb-[50px] xl:pl-36">
+              <DialogPanel className="ml-auto h-full w-full max-w-[600px] bg-blue-600 pb-12 pl-[84px] pr-5 pt-6 md:pt-[42px] xl:pb-[50px] xl:pl-36 landscape:h-max">
                 <div className="relative z-40 mb-[60px] flex items-center justify-end gap-x-10">
                   <LanguageToggle color="white" />
 
@@ -44,12 +44,13 @@ export const Navbar: FC = () => {
                   </Button>
                 </div>
 
-                <nav className="relative z-10 grid gap-y-10">
+                <nav className="relative z-10 grid gap-y-8 md:gap-y-10">
                   {menuItems.map((item: NavbarLinkProps) => (
                     <NavbarLink
                       key={item.title.toLowerCase()}
                       href={item.href}
                       title={item.title}
+                      onClick={closeMenu}
                     />
                   ))}
                 </nav>
