@@ -6,10 +6,7 @@ import { classnames } from '@/app/(shared)/utils/classnames';
 import { InputProps } from '@/app/(shared)/types/common.types';
 
 export const Input = forwardRef(
-  (
-    { error, className, ...props }: InputProps,
-    ref: ForwardedRef<HTMLInputElement>,
-  ) => {
+  ({ error, className, ...props }: InputProps, ref: ForwardedRef<HTMLInputElement>) => {
     return (
       <>
         <input

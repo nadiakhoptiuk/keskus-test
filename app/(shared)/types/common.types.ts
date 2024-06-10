@@ -14,17 +14,11 @@ export type WithError = {
 
 export type Inputs = Record<string, string>;
 
-export type ButtonProps = ComponentPropsWithoutRef<'button'> &
-  WithChildren &
-  WithClassName;
+export type ButtonProps = ComponentPropsWithoutRef<'button'> & WithChildren & WithClassName;
 
-export type InputProps = ComponentPropsWithoutRef<'input'> &
-  WithClassName &
-  WithError;
+export type InputProps = ComponentPropsWithoutRef<'input'> & WithClassName & WithError;
 
-export type TextAreaProps = ComponentPropsWithoutRef<'textarea'> &
-  WithClassName &
-  WithError;
+export type TextAreaProps = ComponentPropsWithoutRef<'textarea'> & WithClassName & WithError;
 
 export interface NavbarLinkProps {
   title: string;

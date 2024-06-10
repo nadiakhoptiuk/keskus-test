@@ -30,11 +30,7 @@ export const Form: FC = () => {
     <form className="mx-auto w-full max-w-md" onSubmit={handleSubmit(onSubmit)}>
       <div className="grid w-full grid-cols-1 gap-6">
         <Label labelText={'Full name'} className="text-left">
-          <Input
-            {...register('name')}
-            error={errors.name?.message}
-            placeholder="John Doe"
-          />
+          <Input {...register('name')} error={errors.name?.message} placeholder="John Doe" />
         </Label>
 
         <Label labelText={'Email address'} className="text-left">

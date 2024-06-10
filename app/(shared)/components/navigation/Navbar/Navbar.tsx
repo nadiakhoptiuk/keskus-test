@@ -1,20 +1,17 @@
-import { useState } from 'react';
-import {
-  Dialog,
-  DialogPanel,
-  Transition,
-  TransitionChild,
-} from '@headlessui/react';
+import { LanguageToggle } from '@/app/(shared)/components/ui/LanguageToggle';
+import { FC, useState } from 'react';
+import { Dialog, DialogPanel, Transition } from '@headlessui/react';
 
 import { Button } from '@/app/(shared)/components/ui/Button';
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
 import { NavbarLink } from '@/app/(shared)/components/navigation/NavbarLink';
 import { Overlay } from '@/app/(shared)/components/ui/Overlay';
+import { TransitionNavbarChild } from '@/app/(shared)/components/ui/Transitions';
 import { menuItems } from '@/app/(shared)/components/navigation/Navbar/Navbar.constants';
 
 import { NavbarLinkProps } from '@/app/(shared)/types/common.types';
 
-export const Navbar = () => {
+export const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const openMenu = () => setIsOpen(true);
@@ -23,31 +20,22 @@ export const Navbar = () => {
   return (
     <>
       <Button
-        className="size-8 py-0.5 leading-none text-blue-600 transition-all duration-300 hover:text-yellow-400"
+        className="transition-color size-8 py-0.5 leading-none text-blue-600 hover:text-yellow-400"
         onClick={openMenu}
       >
         <CustomIcon icon="burger" />
       </Button>
 
       <Transition appear show={isOpen}>
-        <Dialog
-          as="div"
-          className="relative z-10 focus:outline-none"
-          onClose={closeMenu}
-        >
+        <Dialog as="div" className="relative z-10 focus:outline-none" onClose={closeMenu}>
           <Overlay />
 
           <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-            <TransitionChild
-              enter="ease-out duration-300"
-              enterFrom="opacity-0  translate-x-full"
-              enterTo="opacity-100 translate-x-0"
-              leave="ease-in duration-300"
-              leaveFrom="opacity-100 translate-x-0"
-              leaveTo="opacity-0 translate-x-full"
-            >
+            <TransitionNavbarChild>
               <DialogPanel className="ml-auto h-screen w-full max-w-[600px] bg-blue-600 pb-[50px] pl-36 pt-[42px]">
-                <div className="mb-4 flex items-center justify-end">
+                <div className="relative z-40 mb-4 flex items-center justify-end gap-x-10">
+                  <LanguageToggle color="white" />
+
                   <Button
                     className="text-zinc-50 transition-all duration-300 hover:text-yellow-400 focus:text-yellow-400"
                     onClick={closeMenu}
@@ -56,7 +44,7 @@ export const Navbar = () => {
                   </Button>
                 </div>
 
-                <nav className="grid gap-y-10">
+                <nav className="relative z-10 grid gap-y-10">
                   {menuItems.map((item: NavbarLinkProps) => (
                     <NavbarLink
                       key={item.title.toLowerCase()}
@@ -66,7 +54,7 @@ export const Navbar = () => {
                   ))}
                 </nav>
               </DialogPanel>
-            </TransitionChild>
+            </TransitionNavbarChild>
           </div>
         </Dialog>
       </Transition>

@@ -6,10 +6,7 @@ import { classnames } from '@/app/(shared)/utils/classnames';
 import type { TextAreaProps } from '@/app/(shared)/types/common.types';
 
 export const TextArea = forwardRef(
-  (
-    { error, className, ...props }: TextAreaProps,
-    ref: ForwardedRef<HTMLTextAreaElement>,
-  ) => {
+  ({ error, className, ...props }: TextAreaProps, ref: ForwardedRef<HTMLTextAreaElement>) => {
     return (
       <>
         <textarea

@@ -12,28 +12,27 @@
 
 ## Overview
 
-This is a comprehensive Next.js boilerplate that provides a solid foundation for
-starting your web development projects. It includes essential configurations,
-tools, and libraries to streamline the development process.
+This is a comprehensive Next.js boilerplate that provides a solid foundation for starting your web
+development projects. It includes essential configurations, tools, and libraries to streamline the
+development process.
 
-- [Next.js](https://nextjs.org/) - A React framework for building production
-  grade applications that scale.
-- [TypeScript](https://www.typescriptlang.org/) - A typed superset of JavaScript
-  that compiles to plain JavaScript.
-- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for
-  rapidly building custom designs.
-- [React Hook Form](https://react-hook-form.com/) - A performant and flexible
-  library for building forms.
+- [Next.js](https://nextjs.org/) - A React framework for building production grade applications that
+  scale.
+- [TypeScript](https://www.typescriptlang.org/) - A typed superset of JavaScript that compiles to
+  plain JavaScript.
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building
+  custom designs.
+- [React Hook Form](https://react-hook-form.com/) - A performant and flexible library for building
+  forms.
 - [Zod](https://zod.dev/) - A TypeScript-first schema validation library.
-- [ESLint](https://eslint.org/docs/latest/) - A pluggable and configurable
-  linter tool for identifying and reporting on patterns in JavaScript.
+- [ESLint](https://eslint.org/docs/latest/) - A pluggable and configurable linter tool for
+  identifying and reporting on patterns in JavaScript.
 - [Prettier](https://prettier.io/docs/en/) - An opinionated code formatter.
-- [Husky](https://typicode.github.io/husky/) - A tool that makes it easy to use
-  githooks as if they are npm scripts.
-- [React-use](https://streamich.github.io/react-use/) - A collection of
-  essential hooks for React.
-- [clsx](https://github.com/lukeed/clsx#readme) - A tiny utility for
-  constructing className strings conditionally.
+- [Husky](https://typicode.github.io/husky/) - A tool that makes it easy to use githooks as if they
+  are npm scripts.
+- [React-use](https://streamich.github.io/react-use/) - A collection of essential hooks for React.
+- [clsx](https://github.com/lukeed/clsx#readme) - A tiny utility for constructing className strings
+  conditionally.
 
 ## Requirements
 
@@ -79,8 +78,8 @@ Start the development server:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the
-result. Congratulations! You've successfully started your Next.js project.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Congratulations! You've successfully started your Next.js project.
 
 ## Project Structure
 
@@ -138,8 +137,7 @@ result. Congratulations! You've successfully started your Next.js project.
 
 ---
 
-**Global and reusable css classes should be placed in the
-[globals.css](app%2Fglobals.css).**
+**Global and reusable css classes should be placed in the [globals.css](app%2Fglobals.css).**
 
 <details>
 
@@ -168,12 +166,11 @@ result. Congratulations! You've successfully started your Next.js project.
 
 ### Common components
 
-This project has a [folder](components) with common components that are used in
-more than one module. You can use them in your project or update them if you
-don't need them.
+This project has a [folder](components) with common components that are used in more than one
+module. You can use them in your project or update them if you don't need them.
 
 ## Add Prisma
 
 If you want to add Prisma to your project, you can use this
-[guide](https://codevoweb.com/how-to-setup-prisma-orm-in-nextjs-13-app-directory/)
-or [official documentation](https://www.prisma.io/nextjs).
+[guide](https://codevoweb.com/how-to-setup-prisma-orm-in-nextjs-13-app-directory/) or
+[official documentation](https://www.prisma.io/nextjs).

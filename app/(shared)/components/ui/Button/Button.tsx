@@ -10,7 +10,7 @@ export const Button: FC<ButtonProps> = ({ children, className, ...props }) => {
   return (
     <button
       className={classnames(
-        'inline-flex items-center justify-center gap-x-4',
+        'baseTransition inline-flex items-center justify-center gap-x-4',
         {
           'gap-4': childrenCount > 1,
         },

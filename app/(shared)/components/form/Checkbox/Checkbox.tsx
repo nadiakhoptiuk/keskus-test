@@ -6,12 +6,7 @@ import { InputProps } from '@/app/(shared)/types/common.types';
 
 export const Checkbox = forwardRef(
   (
-    {
-      error,
-      className,
-      labelText,
-      ...props
-    }: InputProps & { labelText?: string },
+    { error, className, labelText, ...props }: InputProps & { labelText?: string },
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     return (
@@ -22,8 +17,7 @@ export const Checkbox = forwardRef(
           className={classnames(
             'rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:ring-offset-0',
             {
-              'border-rose-500 focus:border-rose-300 focus:ring-rose-200':
-                error,
+              'border-rose-500 focus:border-rose-300 focus:ring-rose-200': error,
             },
             className,
           )}

@@ -31,14 +31,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    'react-refresh',
-    '@typescript-eslint',
-    'jsx-a11y',
-    'unicorn',
-    'react',
-    'sonarjs',
-  ],
+  plugins: ['react-refresh', '@typescript-eslint', 'jsx-a11y', 'unicorn', 'react', 'sonarjs'],
   rules: {
     '@typescript-eslint/no-unused-vars': [
       'error',

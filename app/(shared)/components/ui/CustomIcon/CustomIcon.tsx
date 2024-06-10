@@ -2,10 +2,7 @@ import { FC } from 'react';
 
 import { classnames } from '@/app/(shared)/utils/classnames';
 
-import {
-  CustomIconProps,
-  icons,
-} from '@/app/(shared)/components/ui/CustomIcon/CustomIcon.types';
+import { CustomIconProps, icons } from '@/app/(shared)/components/ui/CustomIcon/CustomIcon.types';
 
 export const CustomIcon: FC<CustomIconProps> = ({ icon, className }) => {
   const Icon = icons[icon];
