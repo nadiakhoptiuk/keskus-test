@@ -1,7 +1,6 @@
-import { NavbarLinkProps } from '@/app/(shared)/types/common.types';
 import { RoutesEnum } from '@/app/(shared)/types/enums';
 
-export const menuItems: NavbarLinkProps[] = [
+export const menuItems = [
   {
     title: 'Головна',
     href: RoutesEnum.HOME,

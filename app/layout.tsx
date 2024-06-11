@@ -56,6 +56,11 @@ const fixel = localFont({
       weight: '400',
       style: 'normal',
     },
+    {
+      path: '../public/fonts/fixel/FixelText-Light.woff2',
+      weight: '300',
+      style: 'normal',
+    },
   ],
   variable: '--fonts-fixel',
 });

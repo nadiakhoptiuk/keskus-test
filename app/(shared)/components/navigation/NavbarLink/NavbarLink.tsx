@@ -7,9 +7,24 @@ import { classnames } from '@/app/(shared)/utils/classnames';
 
 import { NavbarLinkProps } from '@/app/(shared)/types/common.types';
 
-export const NavbarLink: FC<NavbarLinkProps & LinkProps> = ({ title, href, ...props }) => {
+export const NavbarLink: FC<NavbarLinkProps & LinkProps> = ({ title, href, variant, ...props }) => {
   const pathname = usePathname();
   const isCurrent = pathname === href;
+
+  if (variant === 'footer') {
+    return (
+      <Link
+        href={href}
+        className={classnames(
+          'baseTransition text-base font-medium hover:text-yellow-400 focus:text-yellow-400',
+          isCurrent && 'pointer-events-none',
+        )}
+        {...props}
+      >
+        {title}
+      </Link>
+    );
+  }
 
   return (
     <Link

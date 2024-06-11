@@ -4,6 +4,7 @@ require('tailwindcss/colors');
 
 const config: Config = {
   content: ['./app/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}'],
+
   theme: {
     extend: {
       colors: {
@@ -29,8 +30,25 @@ const config: Config = {
         'kyiv-type-sans': ['var(--fonts-kyiv-type-sans)'],
         fixel: ['var(--fonts-fixel)'],
       },
+
+      gridTemplateAreas: {
+        sm: ['footerLogo', 'footerNav', 'contacts', 'socialLink', 'copyright'],
+        md: ['footerLogo footerNav', 'contacts footerNav', 'socialLink copyright'],
+        xl: ['footerLogo footerNav contacts', 'copyright footerNav socialLink'],
+      },
+      gridTemplateColumns: {
+        sm: '1fr',
+        md: 'auto 1fr',
+        xl: '1fr 1fr 1fr',
+      },
+      gridTemplateRows: {
+        sm: 'auto auto auto auto auto',
+        md: 'auto auto auto auto',
+        xl: 'auto auto auto',
+      },
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+
+  plugins: [require('@tailwindcss/forms'), require('@savvywombat/tailwindcss-grid-areas')],
 };
 export default config;

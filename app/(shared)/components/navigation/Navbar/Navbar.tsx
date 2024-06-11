@@ -9,8 +9,6 @@ import { Overlay } from '@/app/(shared)/components/ui/Overlay';
 import { TransitionNavbarChild } from '../../ui/animations/Transitions';
 import { menuItems } from '@/app/(shared)/components/navigation/Navbar/Navbar.constants';
 
-import { NavbarLinkProps } from '@/app/(shared)/types/common.types';
-
 export const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -45,11 +43,12 @@ export const Navbar: FC = () => {
                 </div>
 
                 <nav className="relative z-10 grid gap-y-8 md:gap-y-10">
-                  {menuItems.map((item: NavbarLinkProps) => (
+                  {menuItems.map(({ title, href }) => (
                     <NavbarLink
-                      key={item.title.toLowerCase()}
-                      href={item.href}
-                      title={item.title}
+                      key={title.toLowerCase()}
+                      href={href}
+                      title={title}
+                      variant="header"
                       onClick={closeMenu}
                     />
                   ))}

@@ -23,4 +23,5 @@ export type TextAreaProps = ComponentPropsWithoutRef<'textarea'> & WithClassName
 export interface NavbarLinkProps {
   title: string;
   href: string;
+  variant: 'header' | 'footer';
 }

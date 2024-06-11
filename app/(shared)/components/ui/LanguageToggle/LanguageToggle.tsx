@@ -26,7 +26,7 @@ export const LanguageToggle: FC<Props> = ({ color, className }) => {
       <Button
         onClick={setIsOpen}
         className={classnames(
-          'inline-flex items-center justify-center gap-x-1 rounded-full border px-5 py-1 text-base font-medium uppercase',
+          'inline-flex w-20 items-center justify-center gap-x-1 rounded-full border px-5 py-1 text-base font-medium uppercase',
           isOpen && 'pointer-events-none',
           color === 'blue' && 'border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-zinc-50',
           color === 'white' && 'border-zinc-50 text-zinc-50 hover:bg-zinc-50 hover:text-blue-600',
