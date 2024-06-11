@@ -43,8 +43,8 @@ const config: Config = {
       },
       gridTemplateRows: {
         sm: 'auto auto auto auto auto',
-        md: 'auto auto auto auto',
-        xl: 'auto auto auto',
+        md: 'auto auto auto',
+        xl: 'auto auto',
       },
     },
   },
