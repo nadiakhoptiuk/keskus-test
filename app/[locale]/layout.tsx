@@ -1,12 +1,15 @@
 import localFont from 'next/font/local';
-import './globals.css';
+import '@/app/globals.css';
+
+import { dir } from 'i18next';
 
 import { Footer } from '@/app/(shared)/components/layout/Footer';
 import { Header } from '@/app/(shared)/components/layout/Header';
 import { classnames } from '@/app/(shared)/utils/classnames';
+import { i18nConfig } from '@/app/i18n/config';
 
 import type { Metadata } from 'next';
-import type { WithChildren } from '@/app/(shared)/types/common.types';
+import type { RootLayoutProps } from '@/app/(shared)/types/common.types';
 
 export const metadata: Metadata = {
   title: 'Ukraina Keskus',
@@ -21,12 +24,12 @@ export const metadata: Metadata = {
 const kyivSans = localFont({
   src: [
     {
-      path: '../public/fonts/kyiv-type-sans/KyivTypeSans-Bold.ttf',
+      path: '../../public/fonts/kyiv-type-sans/KyivTypeSans-Bold.ttf',
       weight: '700',
       style: 'normal',
     },
     {
-      path: '../public/fonts/kyiv-type-sans/KyivTypeSans-Medium.ttf',
+      path: '../../public/fonts/kyiv-type-sans/KyivTypeSans-Medium.ttf',
       weight: '500',
       style: 'normal',
     },
@@ -37,27 +40,27 @@ const kyivSans = localFont({
 const fixel = localFont({
   src: [
     {
-      path: '../public/fonts/fixel/FixelText-Bold.woff2',
+      path: '../../public/fonts/fixel/FixelText-Bold.woff2',
       weight: '700',
       style: 'normal',
     },
     {
-      path: '../public/fonts/fixel/FixelText-SemiBold.woff2',
+      path: '../../public/fonts/fixel/FixelText-SemiBold.woff2',
       weight: '600',
       style: 'normal',
     },
     {
-      path: '../public/fonts/fixel/FixelText-Medium.woff2',
+      path: '../../public/fonts/fixel/FixelText-Medium.woff2',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../public/fonts/fixel/FixelText-Regular.woff2',
+      path: '../../public/fonts/fixel/FixelText-Regular.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../public/fonts/fixel/FixelText-Light.woff2',
+      path: '../../public/fonts/fixel/FixelText-Light.woff2',
       weight: '300',
       style: 'normal',
     },
@@ -65,9 +68,13 @@ const fixel = localFont({
   variable: '--fonts-fixel',
 });
 
-export default function RootLayout({ children }: Readonly<WithChildren>) {
+export function generateStaticParams() {
+  return i18nConfig.locales.map(locale => ({ locale }));
+}
+
+export default function RootLayout({ children, params: { locale } }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang={locale} dir={dir(locale)}>
       <body
         className={classnames(
           kyivSans.variable,
@@ -75,7 +82,7 @@ export default function RootLayout({ children }: Readonly<WithChildren>) {
           'flex h-full min-h-screen flex-col bg-slate-50',
         )}
       >
-        <Header />
+        <Header locale={locale} />
 
         <main className="flex-grow" role="main">
           {children}

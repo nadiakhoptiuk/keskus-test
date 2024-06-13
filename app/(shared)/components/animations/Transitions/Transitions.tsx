@@ -18,16 +18,9 @@ export const TransitionNavbarChild: FC<WithChildren> = ({ children }) => {
   );
 };
 
-export const TransitionDropdown: FC<
-  WithChildren & {
-    isOpen: boolean;
-  }
-> = ({ children, isOpen }) => {
+export const TransitionDropdown: FC<WithChildren> = ({ children }) => {
   return (
     <Transition
-      as="div"
-      appear
-      show={isOpen}
       enter="transition ease-out duration-300"
       enterFrom="opacity-0 scale-95"
       enterTo="opacity-100 scale-100"

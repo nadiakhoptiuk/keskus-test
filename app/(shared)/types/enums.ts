@@ -8,3 +8,9 @@ export enum RoutesEnum {
   VACANCIES = '/vacancies',
   CONTACTS = '/contacts',
 }
+
+export enum LocaleEnum {
+  UK = 'uk',
+  EN = 'en',
+  ET = 'et',
+}

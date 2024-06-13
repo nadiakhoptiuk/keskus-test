@@ -123,13 +123,13 @@ Congratulations! You've successfully started your Next.js project.
 ├── components
     ├── layout
         ├── Header
-            ├── index.ts -> file for re->export
+            ├── initTranslations.ts -> file for re->export
             ├── Header.tsx -> main component
             ├── Logo -> folder with component for this module
-                ├── index.ts
+                ├── initTranslations.ts
                 ├── Logo.tsx
         ├── Footer
-            ├── index.ts
+            ├── initTranslations.ts
             ├── Footer.tsx
 ```
 
