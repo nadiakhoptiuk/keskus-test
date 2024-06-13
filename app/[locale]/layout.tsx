@@ -5,10 +5,13 @@ import { dir } from 'i18next';
 
 import { Footer } from '@/app/(shared)/components/layout/Footer';
 import { Header } from '@/app/(shared)/components/layout/Header';
+import { TranslationsProvider } from '@/app/i18n/extensions/TranslationsProvider';
 import { classnames } from '@/app/(shared)/utils/classnames';
 import { i18nConfig } from '@/app/i18n/config';
+import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
 import type { Metadata } from 'next';
+import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 import type { RootLayoutProps } from '@/app/(shared)/types/common.types';
 
 export const metadata: Metadata = {
@@ -72,7 +75,12 @@ export function generateStaticParams() {
   return i18nConfig.locales.map(locale => ({ locale }));
 }
 
-export default function RootLayout({ children, params: { locale } }: RootLayoutProps) {
+export default async function RootLayout({ children, params: { locale } }: RootLayoutProps) {
+  const { resources } = await initTranslations(locale, [
+    i18nNamespaces.HEADER,
+    i18nNamespaces.FOOTER,
+  ]);
+
   return (
     <html lang={locale} dir={dir(locale)}>
       <body
@@ -82,13 +90,25 @@ export default function RootLayout({ children, params: { locale } }: RootLayoutP
           'flex h-full min-h-screen flex-col bg-slate-50',
         )}
       >
-        <Header locale={locale} />
+        <TranslationsProvider
+          namespaces={[i18nNamespaces.HEADER]}
+          locale={locale}
+          resources={resources}
+        >
+          <Header />
+        </TranslationsProvider>
 
         <main className="flex-grow" role="main">
           {children}
         </main>
 
-        <Footer />
+        <TranslationsProvider
+          namespaces={[i18nNamespaces.FOOTER]}
+          locale={locale}
+          resources={resources}
+        >
+          <Footer />
+        </TranslationsProvider>
       </body>
     </html>
   );

@@ -1,0 +1,13 @@
+{
+  "headerButton": "Contact us",
+  "navbar": {
+    "home": "Home",
+    "about_us": "About us",
+    "gallery": "Gallery",
+    "services": "Services",
+    "events": "Events",
+    "news": "News",
+    "vacancies": "Vacancies",
+    "contacts": "Contacts"
+  }
+}

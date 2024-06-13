@@ -4,10 +4,12 @@ import { setCookie, getCookie } from '@/app/(shared)/utils/locale-cookie';
 import { i18nConfig } from '@/app/i18n/config';
 
 import { LocaleProps } from '@/app/(shared)/types/i18n.types';
-import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
+import { RoutesEnum } from '@/app/(shared)/types/enums';
+import { useTranslation } from 'react-i18next';
 
-export const useLanguageToggle = (locale: LocaleEnum) => {
-  const currentLocale = locale ?? getCookie();
+export const useLanguageToggle = () => {
+  const { i18n } = useTranslation();
+  const currentLocale = i18n.language ?? getCookie();
   const router = useRouter();
   const currentPathname = usePathname();
 

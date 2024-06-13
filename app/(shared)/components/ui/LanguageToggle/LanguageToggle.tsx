@@ -7,7 +7,6 @@ import { classnames } from '@/app/(shared)/utils/classnames';
 import { useLanguageToggle } from '@/app/(shared)/hooks/useLanguageToggle';
 
 import { LocaleEnum } from '@/app/(shared)/types/enums';
-import { LocaleProps } from '@/app/(shared)/types/i18n.types';
 import { WithClassName } from '@/app/(shared)/types/common.types';
 
 const options = [
@@ -16,13 +15,12 @@ const options = [
   { id: 'estonian', locale: LocaleEnum.ET, value: 'et', unavailable: false },
 ];
 
-type Props = WithClassName &
-  LocaleProps & {
-    color: 'blue' | 'white';
-  };
+type Props = WithClassName & {
+  color: 'blue' | 'white';
+};
 
-export const LanguageToggle: FC<Props> = ({ locale, color, className }) => {
-  const { currentLocale, handleChange } = useLanguageToggle(locale);
+export const LanguageToggle: FC<Props> = ({ color, className }) => {
+  const { currentLocale, handleChange } = useLanguageToggle();
 
   return (
     <Listbox value={{ locale: currentLocale }} onChange={handleChange}>

@@ -1,0 +1,13 @@
+{
+  "headerButton": "Звʼязатися",
+  "navbar": {
+    "home": "Головна",
+    "about_us": "Про нас",
+    "gallery": "Галерея",
+    "services": "Послуги",
+    "events": "Заходи",
+    "news": "Новини",
+    "vacancies": "Вакансії",
+    "contacts": "Контакти"
+  }
+}
