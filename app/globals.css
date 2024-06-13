@@ -35,4 +35,9 @@
   .btnOutline {
     @apply rounded border border-blue-600 px-6 py-2 text-lg font-semibold text-blue-600 hover:bg-blue-600 hover:text-zinc-50;
   }
+
+  /* Decor Border*/
+  .decorBorder {
+    @apply before:absolute before:-top-10 before:left-1/2 before:block before:h-[1px] before:w-full before:-translate-x-1/2 before:bg-black/20 before:content-[''] md:before:-top-[60px];
+  }
 }

@@ -1,11 +1,13 @@
 'use client';
 
-import { useNavbarItems } from '@/app/(shared)/hooks/useNavbarItems';
 import { FC } from 'react';
 
+import { Container } from '@/app/(shared)/components/ui/Container/Container';
 import { NavbarLink } from '@/app/(shared)/components/navigation/NavbarLink';
 import { SiteLogo } from '@/app/(shared)/components/navigation/SiteLogo';
 import { SocialLink } from '@/app/(shared)/components/navigation/SocialLink';
+import { Typography } from '@/app/(shared)/components/ui/Typography';
+import { useNavbarItems } from '@/app/(shared)/hooks/useNavbarItems';
 import { useTranslation } from 'react-i18next';
 
 export const Footer: FC = ({ ...props }) => {
@@ -14,7 +16,7 @@ export const Footer: FC = ({ ...props }) => {
 
   return (
     <footer className="py-10 md:py-[60px]" {...props}>
-      <div className="container relative grid grid-cols-sm grid-rows-sm justify-items-center gap-x-10 gap-y-10 text-center grid-areas-sm before:absolute before:-top-10 before:left-1/2 before:block before:h-[1px] before:w-11/12 before:-translate-x-1/2 before:bg-black/20 before:content-[''] md:grid-cols-md md:grid-rows-md md:items-start md:justify-items-stretch md:gap-x-[134px] md:text-left md:grid-areas-md md:before:-top-[60px] xl:md:gap-x-[290px] xl:grid-cols-xl xl:grid-rows-xl xl:grid-areas-xl xl:before:w-full">
+      <Container className="decorBorder relative grid grid-cols-sm grid-rows-sm justify-items-center gap-x-10 gap-y-10 text-center grid-areas-sm md:grid-cols-md md:grid-rows-md md:items-start md:justify-items-stretch md:gap-x-[134px] md:text-left md:grid-areas-md xl:md:gap-x-[290px] xl:grid-cols-xl xl:grid-rows-xl xl:grid-areas-xl">
         <SiteLogo className="grid-in-footerLogo" />
 
         <nav className="grid w-full grid-cols-2 grid-rows-4 items-center justify-center gap-y-3.5  grid-in-footerNav md:gap-x-10">
@@ -52,10 +54,10 @@ export const Footer: FC = ({ ...props }) => {
           </li>
         </ul>
 
-        <p className="inline-flex font-fixel text-sm font-light text-black grid-in-copyright md:self-end">
+        <Typography className="inline-flex font-fixel text-sm font-light text-black grid-in-copyright md:self-end">
           &copy; {new Date().getFullYear()} {t('copyright')}
-        </p>
-      </div>
+        </Typography>
+      </Container>
     </footer>
   );
 };

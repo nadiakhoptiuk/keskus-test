@@ -36,7 +36,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
-        varsIgnorePattern: '^React$',
+        varsIgnorePattern: '^_',
       },
     ],
     'no-undef': 'off',

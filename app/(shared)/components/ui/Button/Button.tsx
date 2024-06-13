@@ -14,7 +14,7 @@ export const Button: FC<Props> = ({ children, className, variant = 'custom', ...
   return (
     <button
       className={classnames(
-        'baseTransition inline-flex items-center justify-center gap-x-4',
+        'baseTransition inline-flex items-center justify-center gap-x-4 text-wrap',
         childrenCount > 1 && 'gap-4',
         variant === 'primary' && 'btnPrimary',
         variant === 'outline' && 'btnOutline',

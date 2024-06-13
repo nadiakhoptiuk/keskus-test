@@ -1,22 +1,27 @@
-import { Button } from '@/app/(shared)/components/ui/Button';
-import { Section } from '@/app/(shared)/components/ui/Section';
+import { Hero } from '@/app/[locale]/components/Hero';
+import { Scroller } from '@/app/[locale]/components/Scroller';
+import { Support } from '@/app/[locale]/components/Support';
+
+import { PageProps } from '@/app/(shared)/types/common.types';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
+import { TranslationsProvider } from '@/app/i18n/extensions/TranslationsProvider';
 
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
-import { PageProps } from '@/app/(shared)/types/common.types';
 
 export default async function Page({ params: { locale } }: PageProps) {
-  const { t } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE]);
+  const { resources } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE]);
 
   return (
-    <Section className="pb-40 pt-40">
-      <div className="container">
-        <h1 className="text-center text-4xl font-bold">{t('heroTitle')}</h1>
-        <p>{t('heroSubtitle')}</p>
-        <p>{t('heroDescription')}</p>
-
-        <Button>{t('heroButton')}</Button>
-      </div>
-    </Section>
+    <TranslationsProvider
+      namespaces={[i18nNamespaces.HOMEPAGE]}
+      locale={locale}
+      resources={resources}
+    >
+      <Hero locale={locale} />
+      <Scroller />
+      <Support locale={locale} />
+      {/*<Announcement locale={locale} />*/}
+      {/*<News locale={locale} />*/}
+    </TranslationsProvider>
   );
 }

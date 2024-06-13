@@ -21,11 +21,6 @@ const config: Config = {
         },
       },
 
-      container: {
-        center: true,
-        padding: '20px',
-      },
-
       fontFamily: {
         'kyiv-type-sans': ['var(--fonts-kyiv-type-sans)'],
         fixel: ['var(--fonts-fixel)'],

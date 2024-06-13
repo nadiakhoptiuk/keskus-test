@@ -14,6 +14,7 @@ export const CustomIcon: FC<CustomIconProps> = ({ icon, className }) => {
         icon === 'logo' && 'hidden h-9 w-[234px] md:inline-block',
         icon === 'logo-sm' && 'h-7 w-[182px] md:hidden',
         icon === 'burger' && 'h-5/6 w-8',
+        icon === 'clipboard' && 'h-5 w-4',
         icon === 'closeMenu' && 'size-8',
         icon === 'arrow' && 'size-6',
         (icon === 'facebook' || icon === 'telegram' || icon === 'viber') && 'size-8',

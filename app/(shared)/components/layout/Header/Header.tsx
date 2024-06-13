@@ -4,6 +4,7 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/app/(shared)/components/ui/Button';
+import { Container } from '@/app/(shared)/components/ui/Container/Container';
 import { LanguageToggle } from '@/app/(shared)/components/ui/LanguageToggle';
 import { Navbar } from '@/app/(shared)/components/navigation/Navbar';
 import { SiteLogo } from '@/app/(shared)/components/navigation/SiteLogo';
@@ -13,11 +14,11 @@ export const Header: FC = () => {
 
   return (
     <header className="relative py-10" role="banner">
-      <div className="container flex items-center justify-between">
+      <Container className="flex items-center justify-between">
         <SiteLogo />
 
         <div className="flex items-center gap-x-10">
-          <Button className="hidden py-3 xl:inline-flex" variant="primary">
+          <Button className="hidden w-[156px] py-3 xl:inline-flex" variant="primary">
             {t('headerButton')}
           </Button>
 
@@ -25,7 +26,7 @@ export const Header: FC = () => {
 
           <Navbar />
         </div>
-      </div>
+      </Container>
     </header>
   );
 };
