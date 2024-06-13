@@ -51,7 +51,10 @@ module.exports = {
     'no-duplicate-imports': 'error',
     'react-refresh/only-export-components': [
       'warn',
-      { allowConstantExport: true, allowExportNames: ['metadata', 'generateStaticParams'] },
+      {
+        allowConstantExport: true,
+        allowExportNames: ['metadata', 'generateStaticParams', 'generateMetadata'],
+      },
     ],
     'react-hooks/exhaustive-deps': 'error',
     'react-hooks/rules-of-hooks': 'error',
@@ -83,7 +86,7 @@ module.exports = {
           ref: false,
           refs: false,
         },
-        ignore: ['semVer', 'SemVer', 'generateStaticParams'],
+        ignore: ['semVer', 'SemVer', 'generateStaticParams', 'generateMetadata', 'params'],
       },
     ],
   },

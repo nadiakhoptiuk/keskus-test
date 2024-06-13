@@ -8,4 +8,5 @@ export enum i18nNamespaces {
   HOMEPAGE = 'homepage',
   HEADER = 'header',
   FOOTER = 'footer',
+  METADATA = 'metadata',
 }

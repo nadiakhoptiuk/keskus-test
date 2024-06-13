@@ -10,19 +10,8 @@ import { classnames } from '@/app/(shared)/utils/classnames';
 import { i18nConfig } from '@/app/i18n/config';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
-import type { Metadata } from 'next';
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
-import type { RootLayoutProps } from '@/app/(shared)/types/common.types';
-
-export const metadata: Metadata = {
-  title: 'Ukraina Keskus',
-  description:
-    "Український Центр - це об'єднання, створене українками для підтримки та допомоги українцям в Естоні. \n" +
-    '\n' +
-    "Ми об'єдналися для збереження української мови, культури та традицій, покращення життя української спільноти \n" +
-    'в Естонії та пошуку кращих шляхів в самовизначенні, \n' +
-    'творчій реалізації українців за кордоном.',
-};
+import { PageProps, RootLayoutProps } from '@/app/(shared)/types/common.types';
 
 const kyivSans = localFont({
   src: [
@@ -74,6 +63,17 @@ const fixel = localFont({
 export function generateStaticParams() {
   return i18nConfig.locales.map(locale => ({ locale }));
 }
+
+export const generateMetadata = async ({ params: { locale } }: PageProps) => {
+  const { t } = await initTranslations(locale, [i18nNamespaces.METADATA]);
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    // image: '/images/og-image.jpg',
+    // canonical: 'https://ukrainakeskus.ee',
+  };
+};
 
 export default async function RootLayout({ children, params: { locale } }: RootLayoutProps) {
   const { resources } = await initTranslations(locale, [
