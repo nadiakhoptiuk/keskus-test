@@ -16,7 +16,7 @@ export const Footer: FC = ({ ...props }) => {
 
   return (
     <footer className="py-10 md:py-[60px]" {...props}>
-      <Container className="decorBorderTop grid-areas-footerSm md:grid-areas-footerMd xl:grid-areas-footerXl relative grid grid-cols-sm grid-rows-sm justify-items-center gap-x-10 gap-y-10 text-center md:grid-cols-md md:grid-rows-md md:items-start md:justify-items-stretch md:gap-x-[134px] md:text-left xl:md:gap-x-[290px] xl:grid-cols-xl xl:grid-rows-xl">
+      <Container className="decorBorderTop relative grid grid-cols-sm grid-rows-sm justify-items-center gap-x-10 gap-y-10 text-center grid-areas-footerSm md:grid-cols-md md:grid-rows-md md:items-start md:justify-items-stretch md:gap-x-[134px] md:text-left md:grid-areas-footerMd xl:md:gap-x-[290px] xl:grid-cols-xl xl:grid-rows-xl xl:grid-areas-footerXl">
         <SiteLogo className="grid-in-footerLogo" />
 
         <nav className="grid w-full grid-cols-2 grid-rows-4 items-center justify-center gap-y-3.5  grid-in-footerNav md:gap-x-10">
