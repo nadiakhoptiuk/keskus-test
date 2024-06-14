@@ -27,19 +27,31 @@ const config: Config = {
       },
 
       gridTemplateAreas: {
-        sm: ['footerLogo', 'footerNav', 'contacts', 'socialLink', 'copyright'],
-        md: ['footerLogo footerNav', 'contacts footerNav', 'socialLink copyright'],
-        xl: ['footerLogo footerNav contacts', 'copyright footerNav socialLink'],
+        footerSm: ['footerLogo', 'footerNav', 'contacts', 'socialLink', 'copyright'],
+        footerMd: ['footerLogo footerNav', 'contacts footerNav', 'socialLink copyright'],
+        footerXl: ['footerLogo footerNav contacts', 'copyright footerNav socialLink'],
+
+        announcementSm: ['title', 'calendar', 'announcements'],
+        announcementMd: ['title calendar', 'announcements announcements'],
+        announcementXl: ['title title', 'announcements calendar'],
       },
       gridTemplateColumns: {
         sm: '1fr',
         md: 'auto 1fr',
-        xl: '1fr 1fr 1fr',
+        xl: '1fr 1fr',
+
+        announcementSm: '1fr',
+        announcementMd: '1fr 1fr',
+        announcementXl: '1fr auto',
       },
       gridTemplateRows: {
         sm: 'auto auto auto auto auto',
         md: 'auto auto auto',
         xl: 'auto auto',
+
+        announcementSm: 'auto auto auto',
+        announcementMd: 'auto auto',
+        announcementXl: 'auto auto',
       },
     },
   },

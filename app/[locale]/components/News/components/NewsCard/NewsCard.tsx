@@ -19,16 +19,18 @@ type Props = {
   link?: string;
 };
 
-export const NewsCard: FC<Props> = async ({
-  locale,
-  image = NewsImage,
-  date = '12.02.2024',
-  title = 'Золоті руки',
-  description = `Спільні творчі проекти, з метою подальшого розвитку дрібного бізнесу: навчання
+export const NewsCard: FC<Props> = async (
+  {
+    locale,
+    image = NewsImage,
+    date = '12.02.2024',
+    title = 'Золоті руки',
+    description = `Спільні творчі проекти, з метою подальшого розвитку дрібного бізнесу: навчання
   бісероплетіння, виготовлення сувенірів, свічок, підготовки та участь у ярмарках народної
   творчості. За відповідних умов можливість отримання грантів для розвитку свого бізнесу.`,
-  link = RoutesEnum.HOME,
-}) => {
+    link = RoutesEnum.HOME,
+  },
+) => {
   const { t } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE]);
 
   return (
@@ -53,7 +55,7 @@ export const NewsCard: FC<Props> = async ({
 
         <Typography as="h3">{title}</Typography>
 
-        <Typography className="line-clamp-5">{description}</Typography>
+        <Typography className="line-clamp-4">{description}</Typography>
 
         <Link
           className="baseTransition ml-auto inline-flex items-center gap-x-1 hover:text-blue-600 focus:text-blue-600"

@@ -60,7 +60,7 @@
 }
 
 .react-calendar__tile {
-  @apply pointer-events-none border-b border-r border-zinc-200 py-3;
+  @apply pointer-events-none border-b border-r border-zinc-200 py-3 xl:py-5;
 }
 
 .react-calendar__month-view__days {
