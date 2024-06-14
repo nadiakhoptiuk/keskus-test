@@ -14,7 +14,7 @@ export const Announcement: FC<LocaleProps> = async ({ locale }) => {
 
   return (
     <Section>
-      <Container className="decorBorderBottom grid-cols-announcementSm grid-rows-announcementSm grid-areas-announcementSm md:grid-cols-announcementMd  md:grid-rows-announcementMd md:grid-areas-announcementMd xl:grid-cols-announcementXl xl:grid-rows-announcementXl xl:grid-areas-announcementXl relative grid xl:gap-x-[78px] ">
+      <Container className="decorBorderBottom relative grid grid-cols-announcementSm grid-rows-announcementSm  grid-areas-announcementSm md:grid-cols-announcementMd md:grid-rows-announcementMd md:grid-areas-announcementMd xl:grid-cols-announcementXl xl:grid-rows-announcementXl xl:gap-x-[78px] xl:grid-areas-announcementXl ">
         <div className="grid-in-title md:mr-8 xl:mr-0">
           <Typography as="h2" className="mb-10 md:mb-[60px]">
             {t('announcementTitle')}
@@ -22,9 +22,9 @@ export const Announcement: FC<LocaleProps> = async ({ locale }) => {
           <span className="block w-full border-b border-black/20 xl:max-w-[920px]" />
         </div>
 
-        <Calendar className="grid-in-calendar shrink-0 md:ml-auto" locale={locale} />
+        <Calendar className="shrink-0 grid-in-calendar md:ml-auto" locale={locale} />
 
-        <ul className="grid-in-announcements grid w-full gap-y-10 md:mt-[60px] ">
+        <ul className="grid w-full gap-y-10 grid-in-announcements md:mt-[60px] ">
           <AnnouncementCard />
           <AnnouncementCard />
 
