@@ -25,7 +25,8 @@
     "types": "tsc --pretty --noEmit",
     "format": "prettier --write .",
     "lint": "eslint . --ext ts --ext tsx --ext js --fix",
-    "test-all": "npm run format && npm run lint && npm run types && npm run build && npm run test",
+    "test:base": "npm run format && npm run lint && npm run types",
+    "test:all": "npm run format && npm run lint && npm run types && npm run build && npm run test",
     "prepare": "husky install",
     "test": "jest --coverage",
     "test:w": "jest --watch"

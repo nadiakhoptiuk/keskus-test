@@ -8,7 +8,7 @@ import { LocaleProps } from '@/app/(shared)/types/i18n.types';
 export const Announcement: FC<LocaleProps> = ({ locale }) => {
   return (
     <Section>
-      <Container>Announcement</Container>
+      <Container>{locale}</Container>
     </Section>
   );
 };
