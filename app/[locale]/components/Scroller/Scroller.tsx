@@ -1,14 +1,20 @@
 'use client';
 
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 
 import { Section } from '@/app/(shared)/components/ui/Section';
 
+import { LocaleEnum } from '@/app/(shared)/types/enums';
 import PartnerLogo from '@/public/icons/partner-logo.svg';
 
 export const Scroller: FC = () => {
+  const { i18n } = useTranslation();
+
+  if (i18n.language === LocaleEnum.UK) return <div className="py-14" />;
+
   return (
     <Section>
       <Swiper
