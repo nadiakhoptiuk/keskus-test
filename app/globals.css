@@ -48,19 +48,19 @@
 
 /*React Calendar*/
 .react-calendar__viewContainer {
-  @apply text-center w-full  border-none bg-transparent font-kyiv-type-sans text-sm font-normal text-black max-w-[336px] xl:max-w-[442px] ;
+  @apply w-full max-w-[336px]  border-none bg-transparent text-center font-kyiv-type-sans text-sm font-normal text-black xl:max-w-[442px];
 }
 
 .react-calendar__month-view__weekdays {
-  @apply py-5
+  @apply py-5;
 }
 
 .react-calendar__month-view__weekdays abbr {
-  @apply no-underline	text-sm font-semibold first:capitalize;
+  @apply text-sm	font-semibold no-underline first:capitalize;
 }
 
 .react-calendar__tile {
-  @apply py-3 border-r border-b border-zinc-200 pointer-events-none;
+  @apply pointer-events-none border-b border-r border-zinc-200 py-3;
 }
 
 .react-calendar__month-view__days {
@@ -72,5 +72,5 @@
 }
 
 .react-calendar__month-view__days__day--neighboringMonth {
-  @apply text-zinc-400 bg-blue-50;
+  @apply bg-blue-50 text-zinc-400;
 }
