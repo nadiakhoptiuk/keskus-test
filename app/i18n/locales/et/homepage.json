@@ -7,5 +7,10 @@
   "supportTitle": "Toetage meid",
   "supportDescriptionOne": "Liitu meie kogukonnaga ja liitu liikumisega, mille eesmärk on toetada Ukraina kultuuripärandit ja kultuurilist arengut!",
   "supportDescriptionTwo": "Teie rahaline toetus saab energiaallikaks ukraina keele, kultuuri ja traditsioonide säilitamiseks väljaspool Ukrainat. Iga annetus aitab meil korraldada üritusi, hõlbustada ukrainlaste integreerumist uues keskkonnas ja toetada pagulasi nende hädaajal. Teie suuremeelne toetus muudab paljude inimeste elu ja aitab säilitada ukraina identiteeti. Ehitame koos tulevikku, kus ukraina kultuur õitseb ja inspireerib.",
-  "supportDescriptionThree": "Täname teid toetuse eest!"
+  "supportDescriptionThree": "Täname teid toetuse eest!",
+
+  "clipboardSuccess": "Kopeeritud aadressilt",
+  "recipient": "Saaja:",
+  "accountNumber": "Kontonumber:",
+  "explanationOfPayment": "Selgitus makse kohta:"
 }

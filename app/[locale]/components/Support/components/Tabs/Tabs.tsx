@@ -1,6 +1,7 @@
 'use client';
 
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Clipboard } from '@/app/[locale]/components/Support/components/Clipboard';
 import { TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
@@ -9,6 +10,8 @@ import { Tab } from '@/app/[locale]/components/Support/components/Tab';
 import { paymentType } from '@/app/[locale]/components/Support/Support.constants';
 
 export const Tabs: FC = () => {
+  const { t } = useTranslation();
+
   return (
     <TabGroup className="grid w-full gap-y-10 md:gap-y-[60px]">
       <TabList className="flex gap-2.5 md:gap-3">
@@ -19,17 +22,17 @@ export const Tabs: FC = () => {
         ))}
       </TabList>
 
-      <TabPanels className="mt-3">
+      <TabPanels>
         <TabPanel>
           <div className="grid gap-y-5">
-            <Clipboard label="Отримувач" value="MTÜ Ukraina Keskus" />
+            <Clipboard label={t('recipient')} value="MTÜ Ukraina Keskus" />
 
-            <Clipboard label="Номер рахунку:" value="EE711010220300696227" />
+            <Clipboard label={t('accountNumber')} value="EE711010220300696227" />
 
             <Clipboard
-              className="w-full md:w-[500px]"
-              label="Пояснення платежу:"
-              value="Toetus MTÜ põhikirjaliste eesmärkide saavutamiseks"
+              className="max-w-[500px]"
+              label={t('explanationOfPayment')}
+              value="Toetus MTÜ põhikirjaliste eesmärkide saavutamiseks test"
             />
           </div>
         </TabPanel>

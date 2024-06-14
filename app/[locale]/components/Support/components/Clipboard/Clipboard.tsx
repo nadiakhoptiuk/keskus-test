@@ -1,10 +1,10 @@
-import { FC, useState, useEffect } from 'react';
-import { useCopyToClipboard } from 'react-use';
+import { FC } from 'react';
 
 import { Button } from '@/app/(shared)/components/ui/Button';
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { classnames } from '@/app/(shared)/utils/classnames';
+import { useClipboard } from '@/app/[locale]/components/Support/Support.hook';
 
 import { WithClassName } from '@/app/(shared)/types/common.types';
 
@@ -13,36 +13,18 @@ type Props = WithClassName & {
   value: string;
 };
 
-const INTERVAL = 2500;
-
 export const Clipboard: FC<Props> = ({ label, value, className }) => {
-  const [_, copyToClipboard] = useCopyToClipboard();
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-
-  const handleCopy = () => {
-    copyToClipboard(value);
-    setIsVisible(true);
-  };
-
-  useEffect(() => {
-    if (isVisible) {
-      const timer = setTimeout(() => {
-        setIsVisible(false);
-      }, INTERVAL);
-
-      return () => clearTimeout(timer);
-    }
-  }, [isVisible]);
+  const { handleCopy, isVisible, t } = useClipboard(value);
 
   return (
-    <div className={classnames('w-[230px] space-y-1 md:w-[280px]', className)}>
+    <div className={classnames('w-full max-w-[280px] space-y-1', className)}>
       <Typography as="span" className="text-base text-zinc-500">
         {label}
       </Typography>
 
       <div className="relative">
         <input
-          className="block w-full text-wrap border-transparent bg-blue-50 py-3 pl-4 pr-14 text-base font-normal text-black focus:border-blue-50 focus:ring-0"
+          className="block w-full text-wrap border-transparent bg-blue-50 py-3 pl-4 pr-14 text-base font-normal text-black shadow-sm focus:border-blue-50 focus:ring-0"
           type="text"
           defaultValue={value}
           disabled
@@ -63,7 +45,7 @@ export const Clipboard: FC<Props> = ({ label, value, className }) => {
             )}
             role="tooltip"
           >
-            Скопійовано
+            {t('clipboardSuccess')}
           </span>
         )}
       </div>

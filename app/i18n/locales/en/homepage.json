@@ -7,5 +7,10 @@
   "supportTitle": "Support us",
   "supportDescriptionOne": "Join our community and join the movement aimed at supporting Ukrainian heritage and cultural development!",
   "supportDescriptionTwo": "Your financial support will become a source of energy for preserving the Ukrainian language, culture and traditions outside Ukraine. Every donation helps us to organise events, facilitate the integration of Ukrainians in a new environment and support refugees in their time of need. Your generous support will make a difference in the lives of many people and help preserve Ukrainian identity. Let's build a future where Ukrainian culture thrives and inspires together.",
-  "supportDescriptionThree": "Thank you for your support!"
+  "supportDescriptionThree": "Thank you for your support!",
+
+  "clipboardSuccess": "Copied",
+  "recipient": "Recipient:",
+  "accountNumber": "Account number:",
+  "explanationOfPayment": "Explanation of payment:"
 }

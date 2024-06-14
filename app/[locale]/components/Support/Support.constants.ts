@@ -7,11 +7,11 @@ export const paymentType = [
   {
     id: 'swift',
     name: 'SWIFT',
-    disabled: false,
+    disabled: true,
   },
   {
     id: 'paypal',
     name: 'PayPal',
-    disabled: false,
+    disabled: true,
   },
 ];
