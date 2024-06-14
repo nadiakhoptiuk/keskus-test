@@ -71,8 +71,6 @@ export const generateMetadata = async ({ params: { locale } }: PageProps) => {
   return {
     title: t('title'),
     description: t('description'),
-    // image: '/images/og-image.jpg',
-    // canonical: 'https://ukrainakeskus.ee',
   };
 };
 
@@ -91,6 +89,8 @@ export default async function RootLayout({ children, params: { locale } }: RootL
           'flex h-full min-h-screen flex-col bg-slate-50',
         )}
       >
+        <link rel="icon" href="/favicon.png" sizes="any" />
+
         <TranslationsProvider
           namespaces={[i18nNamespaces.HEADER]}
           locale={locale}
