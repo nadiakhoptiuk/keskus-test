@@ -14,17 +14,18 @@ export const Announcement: FC<LocaleProps> = async ({ locale }) => {
 
   return (
     <Section>
-      <Container className="decorBorderBottom relative grid grid-cols-announcementSm grid-rows-announcementSm  grid-areas-announcementSm md:grid-cols-announcementMd md:grid-rows-announcementMd md:grid-areas-announcementMd xl:grid-cols-announcementXl xl:grid-rows-announcementXl xl:gap-x-[78px] xl:grid-areas-announcementXl ">
+      <Container className="decorBorderBottom relative grid grid-cols-announcementSm grid-rows-announcementSm grid-areas-announcementSm md:grid-cols-announcementMd md:grid-rows-announcementMd md:gap-y-[60px] md:grid-areas-announcementMd xl:grid-cols-announcementXl xl:grid-rows-announcementXl xl:gap-x-[78px] xl:grid-areas-announcementXl">
         <div className="grid-in-title md:mr-8 xl:mr-0">
           <Typography as="h2" className="mb-10 md:mb-[60px]">
             {t('announcementTitle')}
           </Typography>
-          <span className="block w-full border-b border-black/20 xl:max-w-[920px]" />
+
+          <span className="block w-full border-b border-black/20 xl:max-w-[696px] 2xl:max-w-[920px]" />
         </div>
 
-        <Calendar className="shrink-0 grid-in-calendar md:ml-auto" locale={locale} />
+        <Calendar className="max-h-[442px] shrink-0 grid-in-calendar md:ml-auto" locale={locale} />
 
-        <ul className="grid w-full gap-y-10 grid-in-announcements md:mt-[60px] ">
+        <ul className="grid w-full gap-y-10 grid-in-announcements">
           <AnnouncementCard />
           <AnnouncementCard />
         </ul>
