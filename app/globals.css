@@ -38,10 +38,10 @@
 
   /* Decor Border*/
   .decorBorderTop {
-    @apply before:absolute before:-top-10 before:left-1/2 before:block before:h-[1px] before:w-full before:-translate-x-1/2 before:bg-black/20 before:content-[''] md:before:-top-[60px];
+    @apply before:absolute before:-top-10 before:left-1/2 before:block before:h-[1px] before:w-[calc(100%-40px)] xl:before:w-full before:-translate-x-1/2 before:bg-black/20 before:content-[''] md:before:-top-[60px];
   }
 
   .decorBorderBottom {
-    @apply after:absolute after:-bottom-[60px] after:left-1/2 after:block after:h-[1px] after:w-full after:-translate-x-1/2 after:bg-black/20 after:content-[''] md:after:-bottom-[100px];
+    @apply after:absolute after:-bottom-[60px] after:left-1/2 after:block after:h-[1px] after:w-[calc(100%-40px)] after:-translate-x-1/2 after:bg-black/20 after:content-[''] md:after:-bottom-[100px] xl:after:w-full;
   }
 }

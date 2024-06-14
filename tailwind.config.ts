@@ -44,6 +44,10 @@ const config: Config = {
     },
   },
 
-  plugins: [require('@tailwindcss/forms'), require('@savvywombat/tailwindcss-grid-areas')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@savvywombat/tailwindcss-grid-areas'),
+    require('@tailwindcss/line-clamp'),
+  ],
 };
 export default config;

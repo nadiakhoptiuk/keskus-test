@@ -17,6 +17,8 @@ export const Announcement: FC<LocaleProps> = async ({ locale }) => {
           {t('announcementTitle')}
         </Typography>
 
+        <span className="block w-full border-b border-black/20" />
+
         <div className="grid gap-10 md:grid-cols-2 md:gap-[60px]"></div>
       </Container>
     </Section>
