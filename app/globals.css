@@ -38,7 +38,7 @@
 
   /* Decor Border*/
   .decorBorderTop {
-    @apply before:absolute before:-top-10 before:left-1/2 before:block before:h-[1px] before:w-[calc(100%-40px)] xl:before:w-full before:-translate-x-1/2 before:bg-black/20 before:content-[''] md:before:-top-[60px];
+    @apply before:absolute before:-top-10 before:left-1/2 before:block before:h-[1px] before:w-[calc(100%-40px)] before:-translate-x-1/2 before:bg-black/20 before:content-[''] md:before:-top-[60px] xl:before:w-full;
   }
 
   .decorBorderBottom {
