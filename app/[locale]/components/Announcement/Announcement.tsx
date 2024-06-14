@@ -1,9 +1,10 @@
-import { Typography } from '@/app/(shared)/components/ui/Typography';
-import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 import { FC } from 'react';
 
+import { Calendar } from '@/app/[locale]/components/Announcement/components/Calendar';
 import { Container } from '@/app/(shared)/components/ui/Container/Container';
 import { Section } from '@/app/(shared)/components/ui/Section';
+import { Typography } from '@/app/(shared)/components/ui/Typography';
+import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
 import { i18nNamespaces, LocaleProps } from '@/app/(shared)/types/i18n.types';
 
@@ -18,6 +19,8 @@ export const Announcement: FC<LocaleProps> = async ({ locale }) => {
         </Typography>
 
         <span className="block w-full border-b border-black/20" />
+
+        <Calendar locale={locale} />
 
         <div className="grid gap-10 md:grid-cols-2 md:gap-[60px]"></div>
       </Container>

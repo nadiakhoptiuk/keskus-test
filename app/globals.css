@@ -45,3 +45,32 @@
     @apply after:absolute after:-bottom-[60px] after:left-1/2 after:block after:h-[1px] after:w-[calc(100%-40px)] after:-translate-x-1/2 after:bg-black/20 after:content-[''] md:after:-bottom-[100px] xl:after:w-full;
   }
 }
+
+/*React Calendar*/
+.react-calendar__viewContainer {
+  @apply text-center w-full  border-none bg-transparent font-kyiv-type-sans text-sm font-normal text-black max-w-[336px] xl:max-w-[442px] ;
+}
+
+.react-calendar__month-view__weekdays {
+  @apply py-5
+}
+
+.react-calendar__month-view__weekdays abbr {
+  @apply no-underline	text-sm font-semibold first:capitalize;
+}
+
+.react-calendar__tile {
+  @apply py-3 border-r border-b border-zinc-200 pointer-events-none;
+}
+
+.react-calendar__month-view__days {
+  @apply border border-b-0 border-r-0 border-zinc-200;
+}
+
+.react-calendar__tile--now {
+  @apply bg-blue-600 text-zinc-50;
+}
+
+.react-calendar__month-view__days__day--neighboringMonth {
+  @apply text-zinc-400 bg-blue-50;
+}
