@@ -12,5 +12,9 @@
   "clipboardSuccess": "Kopeeritud aadressilt",
   "recipient": "Saaja:",
   "accountNumber": "Kontonumber:",
-  "explanationOfPayment": "Selgitus makse kohta:"
+  "explanationOfPayment": "Selgitus makse kohta:",
+
+  "announcementTitle": "Ürituste ja tegevuste väljakuulutamine",
+
+  "news": "Uudised"
 }

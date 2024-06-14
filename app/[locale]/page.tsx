@@ -1,4 +1,6 @@
+import { Announcement } from '@/app/[locale]/components/Announcement';
 import { Hero } from '@/app/[locale]/components/Hero';
+import { News } from '@/app/[locale]/components/News';
 import { Scroller } from '@/app/[locale]/components/Scroller';
 import { Support } from '@/app/[locale]/components/Support';
 
@@ -20,8 +22,8 @@ export default async function Page({ params: { locale } }: PageProps) {
       <Hero locale={locale} />
       <Scroller />
       <Support locale={locale} />
-      {/*<Announcement locale={locale} />*/}
-      {/*<News locale={locale} />*/}
+      <Announcement locale={locale} />
+      <News locale={locale} />
     </TranslationsProvider>
   );
 }

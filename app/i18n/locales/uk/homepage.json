@@ -12,5 +12,9 @@
   "clipboardSuccess": "Скопійовано",
   "recipient": "Отримувач:",
   "accountNumber": "Номер рахунку:",
-  "explanationOfPayment": "Пояснення платежу:"
+  "explanationOfPayment": "Пояснення платежу:",
+
+  "announcementTitle": "Анонс подій та заходів",
+
+  "news": "Новини"
 }

@@ -12,5 +12,9 @@
   "clipboardSuccess": "Copied",
   "recipient": "Recipient:",
   "accountNumber": "Account number:",
-  "explanationOfPayment": "Explanation of payment:"
+  "explanationOfPayment": "Explanation of payment:",
+
+  "announcementTitle": "Announcement of events and activities",
+
+  "news": "News"
 }
