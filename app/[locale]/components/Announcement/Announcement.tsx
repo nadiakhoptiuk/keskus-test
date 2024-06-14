@@ -27,9 +27,6 @@ export const Announcement: FC<LocaleProps> = async ({ locale }) => {
         <ul className="grid w-full gap-y-10 grid-in-announcements md:mt-[60px] ">
           <AnnouncementCard />
           <AnnouncementCard />
-
-          <AnnouncementCard />
-          <AnnouncementCard />
         </ul>
       </Container>
     </Section>
