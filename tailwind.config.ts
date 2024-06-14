@@ -53,6 +53,10 @@ const config: Config = {
         announcementMd: 'auto auto',
         announcementXl: 'auto auto',
       },
+
+      screens: {
+        sm: '480px',
+      },
     },
   },
 
