@@ -5,10 +5,11 @@ export type LocaleProps = {
 };
 
 export enum i18nNamespaces {
-  HOMEPAGE = 'homepage',
-  HEADER = 'header',
   FOOTER = 'footer',
+  GALLERY = 'gallery',
+  HEADER = 'header',
+  HOMEPAGE = 'homepage',
   METADATA = 'metadata',
-  NOT_FOUND = 'not-found',
   NEWS = 'news',
+  NOT_FOUND = 'not-found',
 }
