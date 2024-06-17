@@ -9,4 +9,5 @@ export enum i18nNamespaces {
   HEADER = 'header',
   FOOTER = 'footer',
   METADATA = 'metadata',
+  NOT_FOUND = 'not-found',
 }

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { AnnouncementCard } from '@/app/[locale]/components/Announcement/components/AnnouncementCard/AnnouncementCard';
+import { AnnouncementCard } from '@/app/[locale]/components/Announcement/components/AnnouncementCard';
 import { Calendar } from '@/app/[locale]/components/Announcement/components/Calendar';
-import { Container } from '@/app/(shared)/components/ui/Container/Container';
+import { Container } from '@/app/(shared)/components/ui/Container';
 import { Section } from '@/app/(shared)/components/ui/Section';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
@@ -14,9 +14,9 @@ export const Announcement: FC<LocaleProps> = async ({ locale }) => {
 
   return (
     <Section>
-      <Container className="decorBorderBottom relative grid grid-cols-announcementSm grid-rows-announcementSm grid-areas-announcementSm md:grid-cols-announcementMd md:grid-rows-announcementMd md:gap-y-[60px] md:grid-areas-announcementMd xl:grid-cols-announcementXl xl:grid-rows-announcementXl xl:gap-x-[78px] xl:grid-areas-announcementXl">
+      <Container className="decorBorderBottom md:gap-y-15 relative grid grid-cols-announcementSm grid-rows-announcementSm grid-areas-announcementSm md:grid-cols-announcementMd md:grid-rows-announcementMd md:grid-areas-announcementMd xl:grid-cols-announcementXl xl:grid-rows-announcementXl xl:gap-x-[78px] xl:grid-areas-announcementXl">
         <div className="grid-in-title md:mr-8 xl:mr-0">
-          <Typography as="h2" className="mb-10 md:mb-[60px]">
+          <Typography as="h2" className="md:mb-15 mb-10">
             {t('announcementTitle')}
           </Typography>
 

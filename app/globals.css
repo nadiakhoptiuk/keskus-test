@@ -4,11 +4,11 @@
 
 @layer base {
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth h-full;
   }
 
   body {
-    @apply bg-zinc-50 font-fixel font-normal text-black;
+    @apply bg-zinc-50 font-fixel font-normal text-black h-full;
   }
 }
 
@@ -38,11 +38,11 @@
 
   /* Decor Border*/
   .decorBorderTop {
-    @apply before:absolute before:-top-10 before:left-1/2 before:block before:h-[1px] before:w-[calc(100%-40px)] before:-translate-x-1/2 before:bg-black/20 before:content-[''] md:before:-top-[60px] xl:before:w-full;
+    @apply before:absolute before:-top-10 before:left-1/2 before:block before:h-[1px] before:w-[calc(100%-40px)] before:-translate-x-1/2 before:bg-black/20 before:content-[''] md:before:-top-15 xl:before:w-full;
   }
 
   .decorBorderBottom {
-    @apply after:absolute after:-bottom-[60px] after:left-1/2 after:block after:h-[1px] after:w-[calc(100%-40px)] after:-translate-x-1/2 after:bg-black/20 after:content-[''] md:after:-bottom-[100px] xl:after:w-full;
+    @apply after:absolute after:-bottom-15 after:left-1/2 after:block after:h-[1px] after:w-[calc(100%-40px)] after:-translate-x-1/2 after:bg-black/20 after:content-[''] md:after:-bottom-25 xl:after:w-full;
   }
 }
 

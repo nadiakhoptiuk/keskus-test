@@ -33,7 +33,7 @@ export const Navbar: FC = () => {
           <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
             <TransitionNavbarChild>
               <DialogPanel className="absolute right-0 top-0 z-50 min-h-full w-full max-w-[600px] bg-blue-600 pb-12 pl-[84px] pr-5 pt-6 md:pt-[42px] xl:pb-[50px] xl:pl-36">
-                <div className="relative z-40 mb-[60px] flex items-center justify-end gap-x-10">
+                <div className="mb-15 relative z-40 flex items-center justify-end gap-x-10">
                   <LanguageToggle color="white" />
 
                   <Button

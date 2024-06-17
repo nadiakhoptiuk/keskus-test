@@ -57,6 +57,13 @@ const config: Config = {
       screens: {
         sm: '480px',
       },
+
+      spacing: {
+        15: '3.75rem',
+        25: '6.25rem',
+        30: '7.5rem',
+        400: '100rem',
+      },
     },
   },
 

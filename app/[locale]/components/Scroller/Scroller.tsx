@@ -37,9 +37,9 @@ export const Scroller: FC = () => {
         {Array.from({ length: 10 }).map((_, index) => (
           <SwiperSlide
             key={index}
-            className="flex !h-[60px] !w-[220px] shrink-0 items-center justify-center"
+            className="!h-15 flex !w-[220px] shrink-0 items-center justify-center"
           >
-            <PartnerLogo className="h-[60px] w-[210px]" />
+            <PartnerLogo className="h-15 w-[210px]" />
           </SwiperSlide>
         ))}
       </Swiper>

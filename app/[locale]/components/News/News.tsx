@@ -14,7 +14,7 @@ export const News: FC<LocaleProps> = async ({ locale }) => {
   return (
     <Section>
       <Container>
-        <Typography as="h2" className="mb-10 md:mb-[60px]">
+        <Typography as="h2" className="md:mb-15 mb-10">
           {t('news')}
         </Typography>
 

@@ -14,8 +14,8 @@ export const Support: FC<LocaleProps> = async ({ locale }) => {
   const { t } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE]);
 
   return (
-    <Section className="relative bg-blue-600">
-      <Container className="mg:grid-cols-[336px_1fr] grid gap-[60px] md:gap-7 xl:grid-cols-[426px_1fr] xl:gap-[74px] 2xl:grid-cols-[600px_1fr]">
+    <Section className="relative bg-blue-600" fixedWith>
+      <Container className="mg:grid-cols-[336px_1fr] gap-15 grid md:gap-7 xl:grid-cols-[426px_1fr] xl:gap-[74px] 2xl:grid-cols-[600px_1fr]">
         <div className="space-y-10">
           <Typography className="text-zinc-50 md:mb-5" as="h2">
             {t('supportTitle')}

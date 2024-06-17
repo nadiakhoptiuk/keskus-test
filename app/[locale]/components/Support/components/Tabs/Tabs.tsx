@@ -13,7 +13,7 @@ export const Tabs: FC = () => {
   const { t } = useTranslation();
 
   return (
-    <TabGroup className="grid w-full gap-y-10 md:gap-y-[60px]">
+    <TabGroup className="md:gap-y-15 grid w-full gap-y-10">
       <TabList className="flex gap-2.5 md:gap-3">
         {paymentType.map(({ id, name, disabled }) => (
           <Tab key={id} disabled={disabled}>
