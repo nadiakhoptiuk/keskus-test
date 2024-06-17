@@ -14,7 +14,7 @@ export const Announcement: FC<LocaleProps> = async ({ locale }) => {
 
   return (
     <Section>
-      <Container className="decorBorderBottom relative grid grid-cols-announcementSm grid-rows-announcementSm grid-areas-announcementSm md:grid-cols-announcementMd md:grid-rows-announcementMd md:gap-y-15 md:grid-areas-announcementMd xl:grid-cols-announcementXl xl:grid-rows-announcementXl xl:gap-x-[78px] xl:grid-areas-announcementXl">
+      <Container className="decor-border-bottom relative grid grid-cols-announcementSm grid-rows-announcementSm grid-areas-announcementSm md:grid-cols-announcementMd md:grid-rows-announcementMd md:gap-y-15 md:grid-areas-announcementMd xl:grid-cols-announcementXl xl:grid-rows-announcementXl xl:gap-x-[78px] xl:grid-areas-announcementXl">
         <div className="grid-in-title md:mr-8 xl:mr-0">
           <Typography as="h2" className="mb-10 md:mb-15">
             {t('announcementTitle')}

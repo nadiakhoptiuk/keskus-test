@@ -55,7 +55,7 @@ export const LanguageToggle: FC<Props> = ({ color, className }) => {
                     key={option.id}
                     value={option}
                     disabled={option.unavailable}
-                    className="baseTransition block w-full cursor-pointer p-2 text-center text-base font-medium uppercase text-blue-600 hover:bg-blue-600 hover:text-zinc-50"
+                    className="base-transition block w-full cursor-pointer p-2 text-center text-base font-medium uppercase text-blue-600 hover:bg-blue-600 hover:text-zinc-50"
                   >
                     {option.value}
                   </ListboxOption>

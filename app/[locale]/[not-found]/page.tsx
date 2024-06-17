@@ -26,7 +26,7 @@ export default async function Page({ params: { locale } }: PageProps) {
       </Typography>
 
       <Link
-        className="baseTransition text-wrap rounded bg-yellow-400 px-15 py-4 font-semibold text-blue-600 transition-colors duration-300 ease-in-out hover:bg-zinc-50 focus:bg-zinc-50"
+        className="base-transition text-wrap rounded bg-yellow-400 px-15 py-4 font-semibold text-blue-600 transition-colors duration-300 ease-in-out hover:bg-zinc-50 focus:bg-zinc-50"
         href={`${RoutesEnum.HOME}`}
       >
         {t('backToHome')}

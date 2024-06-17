@@ -1,6 +1,5 @@
+import { LocaleEnum } from '@/app/(shared)/types/enums';
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
-
-import { LocaleProps } from '@/app/(shared)/types/i18n.types';
 
 export type WithChildren = {
   children: ReactNode;
@@ -16,7 +15,12 @@ export type WithError = {
 
 export type RootLayoutProps = WithChildren & PageProps;
 
-export type PageProps = { params: LocaleProps };
+export type PageProps = {
+  params: {
+    locale: LocaleEnum;
+    slug?: string;
+  };
+};
 
 export type Inputs = Record<string, string>;
 

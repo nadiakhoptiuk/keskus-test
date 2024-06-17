@@ -13,36 +13,58 @@
 }
 
 @layer components {
+  /*Base Grid*/
+  .base-grid {
+    @apply grid gap-8 md:grid-cols-2 xl:grid-cols-3;
+  }
+
   /*Base animation transition*/
-  .baseTransition {
+  .base-transition {
     @apply duration-200 ease-in-out;
   }
 
   /* Form */
-  .inputDefault {
+  .default-input {
     @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm placeholder:text-sm placeholder:text-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
   }
 
-  .inputError {
+  .error-input {
     @apply border-rose-500 focus:border-rose-300 focus:ring-rose-200;
   }
 
   /* Buttons*/
-  .btnPrimary {
+  .btn-primary {
     @apply rounded bg-blue-600 px-6 py-2 text-lg font-semibold text-zinc-50 hover:bg-blue-900;
   }
 
-  .btnOutline {
+  .btn-outline {
     @apply rounded border border-blue-600 px-6 py-2 text-lg font-semibold text-blue-600 hover:bg-blue-600 hover:text-zinc-50;
   }
 
   /* Decor Border*/
-  .decorBorderTop {
+  .decor-border-top {
     @apply before:absolute before:-top-10 before:left-1/2 before:block before:h-[1px] before:w-[calc(100%-40px)] before:-translate-x-1/2 before:bg-black/20 before:content-[''] md:before:-top-15 xl:before:w-full;
   }
 
-  .decorBorderBottom {
+  .decor-border-bottom {
     @apply after:absolute after:-bottom-15 after:left-1/2 after:block after:h-[1px] after:w-[calc(100%-40px)] after:-translate-x-1/2 after:bg-black/20 after:content-[''] md:after:-bottom-25 xl:after:w-full;
+  }
+
+/*  News Prose Defaults*/
+  .news-h1 {
+    @apply prose-h1:mb-10 prose-h1:w-full prose-h1:font-kyiv-type-sans prose-h1:text-xl prose-h1:font-bold prose-h1:text-black prose-h1:md:mb-15 prose-h1:md:max-w-[414px] prose-h1:md:text-[32px] prose-h1:md:leading-normal prose-h1:xl:max-w-[904px] prose-h1:xl:text-[40px];
+  }
+
+  .news-h2 {
+    @apply mb-10 font-kyiv-type-sans text-xl font-bold text-black md:mb-15 md:text-[32px] md:leading-normal xl:text-[40px];
+  }
+
+  .news-img {
+    @apply prose-img:mx-auto prose-img:first:max-w-full prose-img:first:rounded prose-p:md:text-lg;
+  }
+
+  .news-p {
+    @apply prose-p:mx-auto prose-p:max-w-screen-lg prose-p:text-base prose-p:text-black;
   }
 }
 

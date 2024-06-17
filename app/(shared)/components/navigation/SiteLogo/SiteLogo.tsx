@@ -14,7 +14,11 @@ export const SiteLogo: FC<WithClassName> = ({ className }) => {
   return (
     <Link
       href={RoutesEnum.HOME}
-      className={classnames(pathname === RoutesEnum.HOME && 'pointer-events-none', className)}
+      className={classnames(
+        'base-transition opacity-100 hover:opacity-50',
+        pathname === RoutesEnum.HOME && 'pointer-events-none',
+        className,
+      )}
     >
       <CustomIcon icon="logo-sm" />
       <CustomIcon icon="logo" />

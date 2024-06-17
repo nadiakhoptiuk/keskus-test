@@ -16,7 +16,7 @@ export const Footer: FC = ({ ...props }) => {
 
   return (
     <footer className="py-10 md:py-15" {...props}>
-      <Container className="decorBorderTop relative grid grid-cols-sm grid-rows-sm justify-items-center gap-x-10 gap-y-10 text-center grid-areas-footerSm md:grid-cols-md md:grid-rows-md md:items-start md:justify-items-stretch md:gap-x-[134px] md:text-left md:grid-areas-footerMd xl:md:gap-x-[290px] xl:grid-cols-xl xl:grid-rows-xl xl:grid-areas-footerXl">
+      <Container className="decor-border-top relative grid grid-cols-sm grid-rows-sm justify-items-center gap-x-10 gap-y-10 text-center grid-areas-footerSm md:grid-cols-md md:grid-rows-md md:items-start md:justify-items-stretch md:gap-x-[134px] md:text-left md:grid-areas-footerMd xl:md:gap-x-[290px] xl:grid-cols-xl xl:grid-rows-xl xl:grid-areas-footerXl">
         <SiteLogo className="grid-in-footerLogo" />
 
         <nav className="grid w-full grid-cols-2 grid-rows-4 items-center justify-center gap-y-3.5  grid-in-footerNav md:gap-x-10">
@@ -27,13 +27,13 @@ export const Footer: FC = ({ ...props }) => {
 
         <address className="grid gap-y-3.5 font-fixel font-normal not-italic grid-in-contacts">
           <a
-            className="baseTransition hover:text-yellow-400 focus:text-yellow-400"
+            className="base-transition hover:text-yellow-400 focus:text-yellow-400"
             href="tel:58289515"
           >
             582 89 515 - {t('contactName')}
           </a>
           <a
-            className="baseTransition hover:text-yellow-400 focus:text-yellow-400"
+            className="base-transition hover:text-yellow-400 focus:text-yellow-400"
             href="mailto:ukrainakeskus@gmail.com"
           >
             ukrainakeskus@gmail.com

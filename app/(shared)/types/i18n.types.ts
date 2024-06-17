@@ -10,4 +10,5 @@ export enum i18nNamespaces {
   FOOTER = 'footer',
   METADATA = 'metadata',
   NOT_FOUND = 'not-found',
+  NEWS = 'news',
 }
