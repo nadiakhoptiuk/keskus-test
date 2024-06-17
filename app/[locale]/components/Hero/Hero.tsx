@@ -2,6 +2,7 @@ import { FC } from 'react';
 import Image from 'next/image';
 
 import { Button } from '@/app/(shared)/components/ui/Button';
+import { Container } from '@/app/(shared)/components/ui/Container/Container';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
@@ -12,9 +13,9 @@ export const Hero: FC<LocaleProps> = async ({ locale }) => {
   const { t } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE]);
 
   return (
-    <section className="grid md:mx-auto md:max-w-screen-md md:grid-cols-[446px_auto] xl:max-w-[1440px] xl:grid-cols-[764px_auto]">
-      <div className="bg-yellow-400 px-5 py-10 md:pb-[100px] md:pl-8 md:pt-[60px] xl:pb-[94px] xl:pl-20 xl:pr-[62px] xl:pt-[86px]">
-        <div className="space-y-10 xl:space-y-11">
+    <section className="bg-gradient-to-b from-yellow-400 from-[56.6%] to-zinc-50 to-[56.6%] md:bg-gradient-to-r md:from-[56.6%] md:to-[56.6%] lg:from-[55%] lg:to-[55%] xl:from-[52%] xl:to-[52%] 2xl:from-[51.6%] 2xl:to-[51.6%]">
+      <Container className="grid grid-rows-2 items-center md:grid-cols-[1fr_1fr] md:grid-rows-1 md:gap-4 xl:gap-[62px]">
+        <div className="space-y-10 md:pb-[100px] md:pt-[60px] xl:space-y-11 xl:p-0">
           <Typography as="h1">{t('heroTitle')}</Typography>
 
           <Typography>{t('heroSubtitle')}</Typography>
@@ -24,20 +25,15 @@ export const Hero: FC<LocaleProps> = async ({ locale }) => {
             {t('heroButton')}
           </Button>
         </div>
-      </div>
 
-      <div className="relative">
-        <Image
-          src={Banner}
-          alt="hero image"
-          style={{
-            objectFit: 'cover',
-            objectPosition: 'center',
-            width: '100%',
-            height: '100%',
-          }}
-        />
-      </div>
+        <div className="relative shrink-0">
+          <Image
+            src={Banner}
+            alt="hero image"
+            className="h-full w-full object-cover object-center"
+          />
+        </div>
+      </Container>
     </section>
   );
 };
