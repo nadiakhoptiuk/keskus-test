@@ -50,7 +50,7 @@
     @apply after:absolute after:-bottom-15 after:left-1/2 after:block after:h-[1px] after:w-[calc(100%-40px)] after:-translate-x-1/2 after:bg-black/20 after:content-[''] md:after:-bottom-25 xl:after:w-full;
   }
 
-/*  News Prose Defaults*/
+  /*  News Prose Defaults*/
   .news-h1 {
     @apply prose-h1:mb-10 prose-h1:w-full prose-h1:font-kyiv-type-sans prose-h1:text-xl prose-h1:font-bold prose-h1:text-black prose-h1:md:mb-15 prose-h1:md:max-w-[414px] prose-h1:md:text-[32px] prose-h1:md:leading-normal prose-h1:xl:max-w-[904px] prose-h1:xl:text-[40px];
   }
