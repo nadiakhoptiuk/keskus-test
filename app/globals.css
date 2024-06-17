@@ -4,11 +4,11 @@
 
 @layer base {
   html {
-    @apply scroll-smooth h-full;
+    @apply h-full scroll-smooth;
   }
 
   body {
-    @apply bg-zinc-50 font-fixel font-normal text-black h-full;
+    @apply h-full bg-zinc-50 font-fixel font-normal text-black;
   }
 }
 

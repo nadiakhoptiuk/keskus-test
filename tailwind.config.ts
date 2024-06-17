@@ -63,6 +63,7 @@ const config: Config = {
         25: '6.25rem',
         30: '7.5rem',
         400: '100rem',
+        450: '112.5rem',
       },
     },
   },

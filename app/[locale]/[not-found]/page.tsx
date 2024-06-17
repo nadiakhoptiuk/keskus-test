@@ -15,7 +15,7 @@ export default async function Page({ params: { locale } }: PageProps) {
   return (
     <Section
       variant="custom"
-      className="pt-15 xl:pt-30 relative flex h-full flex-col items-center justify-center bg-blue-600 pb-[192px] md:pt-20 xl:pb-[152px]"
+      className="relative flex h-full flex-col items-center justify-center bg-blue-600 pb-[192px] pt-15 md:pt-20 xl:pb-[152px] xl:pt-30"
     >
       <Typography className="font-kyiv-type-sans text-[140px] font-bold leading-none text-zinc-50 md:text-[240px] xl:text-[240px]">
         404
@@ -26,7 +26,7 @@ export default async function Page({ params: { locale } }: PageProps) {
       </Typography>
 
       <Link
-        className="baseTransition px-15 text-wrap rounded bg-yellow-400 py-4 font-semibold text-blue-600 transition-colors duration-300 ease-in-out hover:bg-zinc-50 focus:bg-zinc-50"
+        className="baseTransition text-wrap rounded bg-yellow-400 px-15 py-4 font-semibold text-blue-600 transition-colors duration-300 ease-in-out hover:bg-zinc-50 focus:bg-zinc-50"
         href={`${RoutesEnum.HOME}`}
       >
         {t('backToHome')}
