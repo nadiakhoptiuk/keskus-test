@@ -1,9 +1,9 @@
-import { Section } from '@/app/(shared)/components/ui/Section';
 import { FC } from 'react';
 import Image from 'next/image';
 
 import { Button } from '@/app/(shared)/components/ui/Button';
 import { Container } from '@/app/(shared)/components/ui/Container';
+import { Section } from '@/app/(shared)/components/ui/Section';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
@@ -20,7 +20,7 @@ export const Hero: FC<LocaleProps> = async ({ locale }) => {
       fixedWith
     >
       <Container className="grid grid-rows-2 items-center md:grid-cols-[1fr_1fr] md:grid-rows-1 md:gap-4 xl:gap-[62px]">
-        <div className="space-y-10 md:pb-25 md:pt-15 xl:space-y-11 xl:p-0">
+        <div className="md:pb-25 md:pt-15 space-y-10 xl:space-y-11 xl:p-0">
           <Typography as="h1">{t('heroTitle')}</Typography>
 
           <Typography>{t('heroSubtitle')}</Typography>
