@@ -4,6 +4,12 @@ const nextConfig = {
 
   images: {
     formats: ['image/webp'],
+    remotePatterns: [{
+      protocol: 'https',
+      hostname: 'picsum.photos',
+      port: '',
+      pathname: '/seed/**',
+    }]
   },
 
   webpack: config => {

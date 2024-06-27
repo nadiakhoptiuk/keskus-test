@@ -18,8 +18,8 @@ export const Typography: FC<Props> = ({ as, children, className }) => {
         'font-normal text-black',
         as === 'h1' && 'font-kyiv-type-sans text-[44px] font-bold md:text-6xl xl:text-[68px]',
         as === 'h2' && 'font-kyiv-type-sans text-[32px] font-bold leading-none md:text-[40px]',
-        as === 'h3' && 'font-fixel  text-[28px] font-bold',
-        as === 'p' && 'font-fixel  text-base',
+        as === 'h3' && 'font-fixel text-[28px] font-bold',
+        as === 'p' && 'font-fixel text-base',
         className,
       )}
     >

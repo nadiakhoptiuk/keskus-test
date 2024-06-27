@@ -41,6 +41,10 @@
     @apply rounded border border-blue-600 px-6 py-2 text-lg font-semibold text-blue-600 hover:bg-blue-600 hover:text-zinc-50;
   }
 
+  .single-page-title {
+    @apply mb-10 w-full font-kyiv-type-sans text-xl font-bold text-black md:mb-15 md:max-w-[414px] md:text-[32px] md:leading-normal xl:max-w-[904px] xl:text-[40px];
+  }
+
   /* Decor Border*/
   .decor-border-top {
     @apply before:absolute before:-top-10 before:left-1/2 before:block before:h-[1px] before:w-[calc(100%-40px)] before:-translate-x-1/2 before:bg-black/20 before:content-[''] md:before:-top-15 xl:before:w-full;

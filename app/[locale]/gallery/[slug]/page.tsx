@@ -1,3 +1,4 @@
+import { Gallery } from '@/app/[locale]/gallery/components/Gallery';
 import { SinglePageWrapper } from '@/app/(shared)/components/ui/SinglePageWrapper';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
@@ -10,7 +11,11 @@ export default async function Page({ params: { locale } }: PageProps) {
 
   return (
     <SinglePageWrapper goBackLink={RoutesEnum.GALLERY} linkText={t('goBack')}>
-      <>gallery</>
+      <h1 className="single-page-title">
+        {'Кінопоказ фільму "Культура проти війни". Річниця Українського кіноклубу в Естонії'}
+      </h1>
+
+      <Gallery data={Array.from({ length: 12 })} locale={locale} onlyImage />
     </SinglePageWrapper>
   );
 }
