@@ -33,7 +33,7 @@ export const Footer: FC = ({ ...props }) => {
           <ul className="grid gap-y-3.5 font-fixel font-normal not-italic">
             <li>
               <a
-                className="base-transition hocus:text-yellow-400 inline focus:text-yellow-400"
+                className="base-transition inline focus:text-yellow-400 hocus:text-yellow-400"
                 href="tel:58289515"
               >
                 582 89 515 - {t('contactName')}
@@ -41,7 +41,7 @@ export const Footer: FC = ({ ...props }) => {
             </li>
             <li>
               <a
-                className="base-transition hocus:text-yellow-400 inline focus:text-yellow-400"
+                className="base-transition inline focus:text-yellow-400 hocus:text-yellow-400"
                 href="mailto:ukrainakeskus@gmail.com"
               >
                 ukrainakeskus@gmail.com
