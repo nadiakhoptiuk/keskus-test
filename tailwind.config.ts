@@ -1,6 +1,9 @@
 import type { Config } from 'tailwindcss';
 
 require('tailwindcss/colors');
+import plugin from 'tailwindcss/plugin';
+
+import { PluginUtils } from './app/(shared)/types/common.types';
 
 const config: Config = {
   content: ['./app/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}'],
@@ -72,6 +75,9 @@ const config: Config = {
     require('@tailwindcss/forms'),
     require('@savvywombat/tailwindcss-grid-areas'),
     require('@tailwindcss/typography'),
+    plugin(function ({ addVariant }: PluginUtils) {
+      addVariant('hocus', ['&:hover', '&:focus']);
+    }),
   ],
 };
 export default config;

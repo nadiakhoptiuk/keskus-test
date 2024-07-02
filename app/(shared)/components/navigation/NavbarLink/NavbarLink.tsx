@@ -10,7 +10,7 @@ export const NavbarLink: FC<NavbarLinkProps & LinkProps> = ({ title, href, varia
     return (
       <Link
         href={href}
-        className="base-transition truncate text-nowrap text-base font-medium hover:text-yellow-400 focus:text-yellow-400"
+        className="base-transition md:font-regular truncate text-nowrap text-base hover:text-yellow-400 focus:text-yellow-400 max-md:font-medium"
         {...props}
       >
         {title}

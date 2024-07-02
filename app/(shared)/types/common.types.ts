@@ -35,3 +35,7 @@ export interface NavbarLinkProps {
   href: string;
   variant: 'header' | 'footer';
 }
+
+export interface PluginUtils {
+  addVariant: (name: string, definition: string | string[]) => void;
+}

@@ -19,25 +19,35 @@ export const Footer: FC = ({ ...props }) => {
       <Container className="decor-border-top relative grid grid-cols-sm grid-rows-sm justify-items-center gap-x-10 gap-y-10 text-center grid-areas-footerSm md:grid-cols-md md:grid-rows-md md:items-start md:justify-items-stretch md:gap-x-[134px] md:text-left md:grid-areas-footerMd xl:md:gap-x-[290px] xl:grid-cols-xl xl:grid-rows-xl xl:grid-areas-footerXl">
         <SiteLogo className="grid-in-footerLogo" />
 
-        <nav className="grid w-full grid-cols-2 grid-rows-4 items-center justify-center gap-y-3.5  grid-in-footerNav md:gap-x-10">
-          {menuItems.map(({ title, href }) => (
-            <NavbarLink key={title.toLowerCase()} href={href} title={title} variant="footer" />
-          ))}
+        <nav className="w-full grid-in-footerNav md:w-[203px]">
+          <ul className="grid grid-cols-2 grid-rows-4 items-center justify-center gap-y-3.5  md:gap-x-10">
+            {menuItems.map(({ title, href }) => (
+              <li key={title.toLowerCase()}>
+                <NavbarLink href={href} title={title} variant="footer" />
+              </li>
+            ))}
+          </ul>
         </nav>
 
-        <address className="grid gap-y-3.5 font-fixel font-normal not-italic grid-in-contacts">
-          <a
-            className="base-transition hover:text-yellow-400 focus:text-yellow-400"
-            href="tel:58289515"
-          >
-            582 89 515 - {t('contactName')}
-          </a>
-          <a
-            className="base-transition hover:text-yellow-400 focus:text-yellow-400"
-            href="mailto:ukrainakeskus@gmail.com"
-          >
-            ukrainakeskus@gmail.com
-          </a>
+        <address className="grid-in-contacts">
+          <ul className="grid gap-y-3.5 font-fixel font-normal not-italic">
+            <li>
+              <a
+                className="base-transition hocus:text-yellow-400 inline focus:text-yellow-400"
+                href="tel:58289515"
+              >
+                582 89 515 - {t('contactName')}
+              </a>
+            </li>
+            <li>
+              <a
+                className="base-transition hocus:text-yellow-400 inline focus:text-yellow-400"
+                href="mailto:ukrainakeskus@gmail.com"
+              >
+                ukrainakeskus@gmail.com
+              </a>
+            </li>
+          </ul>
         </address>
 
         <ul className="inline-flex items-center gap-x-3.5">

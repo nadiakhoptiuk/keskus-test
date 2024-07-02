@@ -29,12 +29,12 @@ export const LanguageToggle: FC<Props> = ({ color, className }) => {
           <div className={classnames('relative', className)}>
             <ListboxButton
               className={classnames(
-                'baseTransition inline-flex w-20 items-center justify-center gap-x-1 rounded-full border px-5 py-1 text-base font-medium uppercase',
+                'baseTransition inline-flex w-20 items-center justify-center gap-x-1 rounded-full border px-5 py-1 text-base font-medium uppercase transition-colors',
                 open && 'pointer-events-none',
                 color === 'blue' &&
-                  'border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-zinc-50',
+                  'border-blue-600 bg-zinc-50 text-blue-600 hocus:bg-blue-600 hocus:text-zinc-50',
                 color === 'white' &&
-                  'border-zinc-50 text-zinc-50 hover:bg-zinc-50 hover:text-blue-600',
+                  'border-zinc-50 bg-blue-600 text-zinc-50 hocus:bg-zinc-50 hocus:text-blue-600',
               )}
             >
               {currentLocale}
@@ -45,7 +45,7 @@ export const LanguageToggle: FC<Props> = ({ color, className }) => {
             <TransitionDropdown>
               <ListboxOptions
                 className={classnames(
-                  'absolute left-1/2 z-50 mt-2 w-full -translate-x-1/2 overflow-hidden rounded-xl border shadow-sm',
+                  'absolute z-50 mt-9 w-full overflow-hidden rounded-xl border shadow-sm',
                   color === 'blue' && 'border-blue-600 bg-zinc-50',
                   color === 'white' && 'border-zinc-50 bg-zinc-50',
                 )}
@@ -55,7 +55,7 @@ export const LanguageToggle: FC<Props> = ({ color, className }) => {
                     key={option.id}
                     value={option}
                     disabled={option.unavailable}
-                    className="base-transition block w-full cursor-pointer p-2 text-center text-base font-medium uppercase text-blue-600 hover:bg-blue-600 hover:text-zinc-50"
+                    className="base-transition block w-full cursor-pointer p-2 text-center text-base font-medium uppercase text-blue-600 hocus:bg-blue-600 hocus:text-zinc-50"
                   >
                     {option.value}
                   </ListboxOption>

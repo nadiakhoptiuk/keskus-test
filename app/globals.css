@@ -34,11 +34,11 @@
 
   /* Buttons*/
   .btn-primary {
-    @apply rounded bg-blue-600 px-6 py-2 text-lg font-semibold text-zinc-50 hover:bg-blue-900;
+    @apply rounded bg-blue-600 px-6 py-2 text-lg font-semibold text-zinc-50 hocus:bg-blue-900;
   }
 
   .btn-outline {
-    @apply rounded border border-blue-600 px-6 py-2 text-lg font-semibold text-blue-600 hover:bg-blue-600 hover:text-zinc-50;
+    @apply rounded border border-blue-600 px-6 py-2 text-lg font-semibold text-blue-600 hocus:bg-blue-600 hocus:text-zinc-50;
   }
 
   .single-page-title {
