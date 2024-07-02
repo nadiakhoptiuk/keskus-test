@@ -19,6 +19,7 @@ export const CustomIcon: FC<CustomIconProps> = ({ icon, className }) => {
         icon === 'arrow' && 'size-6',
         icon === 'arrow-sm' && 'size-3',
         (icon === 'facebook' || icon === 'telegram' || icon === 'viber') && 'size-8',
+        (icon === 'support' || icon === 'adaptation' || icon === 'values') && 'xl:size-18 size-12',
         className,
       )}
     />

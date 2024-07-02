@@ -1,0 +1,49 @@
+{
+  "infoSection": {
+    "title": "About us",
+    "aboutParagraph1": "Public organization \"The Ukrainian Center\" was founded on December 1, 2023.",
+    "aboutParagraph2": "We joined forces to make this project a reality. Thanks to the support of the USF Foundation and its founder with a big heart, Agnes Sirg, who has been helping Ukrainian women and children since the first days of the full-scale invasion, we began to actively work on the development of the Ukrainian community in Pärnu."
+  },
+  "areasSection": {
+    "subtitle": "Main areas \nof activity:",
+    "areas": [
+      {
+        "heading": "Support",
+        "icon": "support",
+        "options": [
+          "Resource base",
+          "Information consultations",
+          "Seminars and trainings",
+          "Cultural and social events"
+        ]
+      },
+      {
+        "heading": "Adaptation",
+        "icon": "adaptation",
+        "options": [
+          "Psychological assistance",
+          "Language circles",
+          "Friendly meetings",
+          "Community support",
+          "Socio-cultural integration",
+          "Organization of excursions and trips"
+        ]
+      },
+      {
+        "heading": "Preservation of cultural values",
+        "icon": "values",
+        "options": [
+          "Master classes",
+          "Traditional holidays",
+          "Ukrainian library",
+          "Movie screenings",
+          "Cultural evenings and performances"
+        ]
+      }
+    ]
+  },
+  "partners": {
+    "subtitle": "Our partners",
+    "icons": []
+  }
+}

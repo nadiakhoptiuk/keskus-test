@@ -39,3 +39,9 @@ export interface NavbarLinkProps {
 export interface PluginUtils {
   addVariant: (name: string, definition: string | string[]) => void;
 }
+
+export interface ActivityAreaCardType {
+  heading: string;
+  icon: 'support' | 'adaptation' | 'values';
+  options: string[];
+}

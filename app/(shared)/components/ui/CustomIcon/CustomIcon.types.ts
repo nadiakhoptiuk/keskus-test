@@ -11,7 +11,12 @@ import LogoSm from '@/public/icons/logo-sm.svg';
 import Telegram from '@/public/icons/telegram.svg';
 import Viber from '@/public/icons/viber.svg';
 
+import Support from '@/public/icons/support.svg';
+import Adaptation from '@/public/icons/adaptation.svg';
+import Values from '@/public/icons/values.svg';
+
 export const icons = {
+  adaptation: Adaptation,
   arrow: Arrow,
   'arrow-sm': ArrowSm,
   burger: Burger,
@@ -20,7 +25,9 @@ export const icons = {
   facebook: Facebook,
   logo: Logo,
   'logo-sm': LogoSm,
+  support: Support,
   telegram: Telegram,
+  values: Values,
   viber: Viber,
 };
 

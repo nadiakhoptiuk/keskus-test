@@ -13,6 +13,7 @@ import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 export default async function Page({ params: { locale } }: PageProps) {
   const { resources } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE]);
 
+
   return (
     <TranslationsProvider
       namespaces={[i18nNamespaces.HOMEPAGE]}
