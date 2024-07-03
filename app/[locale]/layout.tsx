@@ -86,7 +86,7 @@ export default async function RootLayout({ children, params: { locale } }: RootL
         className={classnames(
           kyivSans.variable,
           fixel.variable,
-          'flex h-full min-h-screen flex-col bg-slate-50',
+          'flex h-full min-h-screen flex-col bg-zinc-50',
         )}
       >
         <link rel="icon" href="/favicon.png" sizes="any" />

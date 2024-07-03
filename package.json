@@ -51,6 +51,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",
     "react-i18next": "^14.1.2",
+    "react-markdown": "^9.0.1",
     "react-use": "^17.4.2",
     "sharp": "^0.33.1",
     "swiper": "^11.1.4",

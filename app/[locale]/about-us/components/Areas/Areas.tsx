@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Section } from '@/app/(shared)/components/ui/Section';
 import { Container } from '@/app/(shared)/components/ui/Container';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
-import { ActivityAreaList } from '@/app/(shared)/components/ui/ActivityAreaList/ActivityAreaList';
+import { ActivityAreaList } from '@/app/(shared)/components/ui/ActivityAreaList';
 
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
@@ -15,11 +15,11 @@ export const Areas: FC<LocaleProps> = async ({ locale }) => {
   const areas: ActivityAreaCardType[] = t('areasSection.areas', { returnObjects: true });
 
   return (
-    <Section className="!pt-0 md:mt-[-72px] xl:mt-[-96px]">
-      <Container className="">
+    <Section className="areas-section !pt-0 pb-[274px] md:mt-[-77px] md:pb-[345px] xl:mt-[-96px] xl:pb-[600px]">
+      <Container>
         <Typography
           as="h2"
-          className="mb-10 whitespace-break-spaces md:mb-15 md:ml-auto md:w-[321px] md:text-left md:text-[32px] md:leading-[1.2] xl:mb-[100px] xl:w-[544px] xl:text-[40px] 2xl:w-[766px]"
+          className="mb-10 whitespace-break-spaces md:mb-15 md:ml-auto md:w-[321px] md:text-left md:text-[32px] md:leading-[1.2] xl:mb-25 xl:w-[544px] xl:text-[40px] 2xl:w-[766px]"
         >
           {t('areasSection.subtitle')}
         </Typography>

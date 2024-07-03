@@ -1,5 +1,6 @@
 import { Info } from './components/Info';
 import { Areas } from './components/Areas';
+import { Partners } from './components/Partners';
 
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 import { TranslationsProvider } from '@/app/i18n/extensions/TranslationsProvider';
@@ -18,6 +19,7 @@ export default async function Page({ params: { locale } }: PageProps) {
     >
       <Info locale={locale} />
       <Areas locale={locale} />
+      <Partners locale={locale} />
     </TranslationsProvider>
   );
 }

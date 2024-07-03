@@ -44,6 +44,6 @@
   },
   "partners": {
     "subtitle": "Our partners",
-    "icons": []
+    "icons": ["partner1", "partner2", "partner3", "partner4", "partner5"]
   }
 }

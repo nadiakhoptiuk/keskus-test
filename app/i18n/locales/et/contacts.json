@@ -1,0 +1,55 @@
+{
+  "title": "Kontaktid",
+  "address": [
+    {
+      "id": "tel",
+      "heading": "Telefon:",
+      "content": "582 89 515 - Yuliia",
+      "href": "+37258289515"
+    },
+    {
+      "id": "address",
+      "heading": "Aadress:",
+      "content": "Pärnu, Savi 7",
+      "href": "https://www.google.com/maps/search/%D0%9F%D1%8F%D1%80%D0%BD%D1%83+%D0%B2%D1%83%D0%BB+%D0%A1%D0%B0%D0%B2%D0%B8+7/@58.4054832,24.5080664,19.22z?entry=ttu"
+    },
+    {
+      "id": "email",
+      "heading": "Post:",
+      "content": "ukrainakeskus@gmail.com",
+      "href": "ukrainakeskus@gmail.com"
+    }
+  ],
+  "founders": [
+    {
+      "imgSrc": "/images/polina@2x.jpg",
+      "name": "Polina Vitiuk",
+      "details": "Pärnu ukraina kogukonna laste tegevuste juht. Ta on Eestis alates märtsist 2022. Ta on pärit Dnipro piirkonnast. Ta on defektoloog ja eelkooliõpetaja. Aktiivne ühiskonnategelane, koordinaator, vabatahtlik. «Usuga südames võidule!»",
+      "email": "polina.vitiuk@ukrainakeskus.ee",
+      "tel": "582 89 515"
+    },
+    {
+      "imgSrc": "/images/victoria@2x.jpg",
+      "name": "Viktoriia Kuzmenko",
+      "details": "Haridusprojektide koordinaator, 1.-4. klassi õpetaja, inglise keele õpetaja, aktiivne ühiskonnategelane.",
+      "email": "viktoriia.kuzmenko@ukrainakeskus.ee",
+      "tel": "582 89 515"
+    },
+    {
+      "imgSrc": "/images/tetiana@2x.jpg",
+      "name": "Tetiana Podolska",
+      "details": "Integratsiooniprojektide juht, migratsiooni- ja piirivalveameti ukrainlastega tehtava töö koordinaator (2022-2024), avaliku elu tegelane, vabatahtlik",
+      "email": "tetiana.podolska@ukrainakeskus.ee",
+      "tel": "582 89 515"
+    }
+  ],
+  "description": "Kõik organisatsiooni asutajad töötasid aktiivselt Pärnu ukraina kogukonna moodustamise ja toetamise nimel.\n\nNad aitasid paberimajandusega, infoplatvormide loomisega ning hõlbustasid naiste ja laste psühholoogilist kohanemist ning kavatsevad seda teha ka edaspidi, et edukalt integreerida ja toetada oma kodumaise kultuuri-, loome- ja hariduskeskuse tegevust Eestis.\n\nOn aeg ühineda kultuuri, keele ja traditsioonide säilitamise nimel. Meie ühiskond on avatud uutele partnerlusprojektidele ja värsketele ideedele)))",
+  "imageSrc": "/images/portrait-of-siblings-standing-on-field@2x.jpg",
+  "imageAlt": "Portree kahest vennast, kes seisavad põllul",
+  "decorLeftSrc": "/decor/grain-left-decor.svg",
+  "decorRightSrc": "/decor/grain-right-decor.svg",
+  "contactUs": {
+    "contactUsDescription": "Võite saata meile oma ettepanekuid, võttes meiega ühendust asutajate Facebooki lehekülje kaudu või saates meile e-kirja:",
+    "contactUsEmail": "ukrainakeskus@gmail.com"
+  }
+}

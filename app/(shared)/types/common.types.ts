@@ -1,5 +1,7 @@
-import { LocaleEnum } from '@/app/(shared)/types/enums';
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
+
+import { LocaleEnum } from '@/app/(shared)/types/enums';
+import { icons } from '../components/ui/CustomIcon/CustomIcon.types';
 
 export type WithChildren = {
   children: ReactNode;
@@ -42,6 +44,6 @@ export interface PluginUtils {
 
 export interface ActivityAreaCardType {
   heading: string;
-  icon: 'support' | 'adaptation' | 'values';
+  icon: keyof typeof icons;
   options: string[];
 }

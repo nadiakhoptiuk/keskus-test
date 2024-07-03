@@ -10,15 +10,16 @@ export const ActivityAreaCard: FC<ActivityAreaCardType> = ({ heading, icon, opti
     <>
       <CustomIcon icon={icon} className="mb-7 md:mb-11" />
 
-      <Typography as="h3" className="mb-7 font-fixel text-[20px] font-bold leading-[1.4]">
+      <Typography as="h3" className="mb-7 font-fixel text-[20px] font-bold leading-[1.4] md:mb-6">
         {heading}
       </Typography>
 
       <ul className="grid gap-y-3">
         {options.map((option, index) => {
           return (
-            <li key={index} className="font-regular font-fixel text-[16px] leading-[1.5]">
-              {option}
+            <li key={index} className="font-regular flex font-fixel text-[16px] leading-[1.5]">
+              <CustomIcon icon="arrow-sm" className="mt-1 shrink-0 -rotate-90 text-blue-600" />
+              <span className="ml-2">{option}</span>
             </li>
           );
         })}
