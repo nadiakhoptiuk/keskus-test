@@ -1,0 +1,49 @@
+{
+  "infoSection": {
+    "title": "Meie kohta",
+    "aboutParagraph1": "Avalik organisatsioon \"Ukraina Keskus\" asutati 1. detsembril 2023.",
+    "aboutParagraph2": "Me ühendasime jõud, et see projekt teoks teha. Tänu USF Foundationi ja selle suure südamega asutaja Agnes Sirgi toetusele, kes on aidanud Ukraina naisi ja lapsi alates esimestest päevadest pärast täiemahulist sissetungi, oleme aktiivselt tegelenud Pärnu ukraina kogukonna arendamisega."
+  },
+  "areasSection": {
+    "subtitle": "Peamised \ntegevusvaldkonnad:",
+    "areas": [
+      {
+        "heading": "Toetus",
+        "icon": "support",
+        "options": [
+          "Ressursibaas",
+          "Teavituskonsultatsioonid",
+          "Seminarid ja õpitoad",
+          "Kultuuri- ja ühiskondlikud üritused"
+        ]
+      },
+      {
+        "heading": "Kohandamine",
+        "icon": "adaptation",
+        "options": [
+          "Psühholoogiline abi",
+          "Keeluringid",
+          "Sõbralikud kohtumised",
+          "Ühenduse toetus",
+          "Sotsiokultuuriline integratsioon",
+          "Ekskursioonide ja reiside korraldamine"
+        ]
+      },
+      {
+        "heading": "Kultuuriväärtuste säilitamine",
+        "icon": "values",
+        "options": [
+          "Meistriklassid",
+          "Traditsioonilised pühad",
+          "Ukraina raamatukogu",
+          "Filmilinastused",
+          "Kultuuriõhtud ja etendused"
+        ]
+      }
+    ]
+  },
+  "partners": {
+    "subtitle": "Meie partnerid",
+    "icons": ["partner1", "partner2", "partner3", "partner4", "partner5"]
+  }
+}

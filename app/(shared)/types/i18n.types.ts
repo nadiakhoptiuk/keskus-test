@@ -5,6 +5,8 @@ export type LocaleProps = {
 };
 
 export enum i18nNamespaces {
+  ABOUT_US_PAGE = 'about-us',
+  CONTACTS = 'contacts',
   FOOTER = 'footer',
   GALLERY = 'gallery',
   HEADER = 'header',
@@ -12,4 +14,5 @@ export enum i18nNamespaces {
   METADATA = 'metadata',
   NEWS = 'news',
   NOT_FOUND = 'not-found',
+  SERVICES = 'services',
 }

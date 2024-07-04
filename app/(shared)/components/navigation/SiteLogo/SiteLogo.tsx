@@ -15,7 +15,7 @@ export const SiteLogo: FC<WithClassName> = ({ className }) => {
     <Link
       href={RoutesEnum.HOME}
       className={classnames(
-        'base-transition opacity-100 hover:opacity-50',
+        'base-transition opacity-100 hocus:opacity-50',
         pathname === RoutesEnum.HOME && 'pointer-events-none',
         className,
       )}

@@ -31,7 +31,7 @@ export const Clipboard: FC<Props> = ({ label, value, className }) => {
         />
 
         <Button
-          className="absolute right-4 top-1/2 -translate-y-1/2 transform text-blue-600 hover:text-yellow-400"
+          className="absolute right-4 top-1/2 -translate-y-1/2 transform text-blue-600 hocus:text-yellow-400"
           onClick={handleCopy}
         >
           <CustomIcon icon="clipboard" />

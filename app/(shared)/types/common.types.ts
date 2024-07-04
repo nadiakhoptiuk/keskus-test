@@ -1,5 +1,7 @@
-import { LocaleEnum } from '@/app/(shared)/types/enums';
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
+
+import { LocaleEnum } from '@/app/(shared)/types/enums';
+import { icons } from '../components/ui/CustomIcon/CustomIcon.types';
 
 export type WithChildren = {
   children: ReactNode;
@@ -34,4 +36,14 @@ export interface NavbarLinkProps {
   title: string;
   href: string;
   variant: 'header' | 'footer';
+}
+
+export interface PluginUtils {
+  addVariant: (name: string, definition: string | string[]) => void;
+}
+
+export interface ActivityAreaCardType {
+  heading: string;
+  icon: keyof typeof icons;
+  options: string[];
 }

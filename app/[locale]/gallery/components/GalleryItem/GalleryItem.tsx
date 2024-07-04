@@ -54,7 +54,7 @@ export const GalleryItem: FC<Props> = async ({
           <h2 className="max-w-[280px] text-balance font-fixel text-xl font-bold">{title}</h2>
 
           <Link
-            className="base-transition ml-auto mt-auto inline-flex items-center gap-x-1 text-base font-medium hover:text-yellow-400 focus:text-yellow-400"
+            className="base-transition ml-auto mt-auto inline-flex items-center gap-x-1 text-base font-medium hocus:text-yellow-400"
             href={link}
           >
             {t('watchAllPhotos')}

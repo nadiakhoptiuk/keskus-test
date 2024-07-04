@@ -1,0 +1,50 @@
+{
+  "title": "Contacts",
+  "address": [
+    { "id": "tel", "heading": "Phone:", "content": "582 89 515 - Yuliia", "href": "+37258289515" },
+    {
+      "id": "address",
+      "heading": "Address:",
+      "content": "7 Sava Street, Pärnu",
+      "href": "https://www.google.com/maps/search/%D0%9F%D1%8F%D1%80%D0%BD%D1%83+%D0%B2%D1%83%D0%BB+%D0%A1%D0%B0%D0%B2%D0%B8+7/@58.4054832,24.5080664,19.22z?entry=ttu"
+    },
+    {
+      "id": "email",
+      "heading": "Mail:",
+      "content": "ukrainakeskus@gmail.com",
+      "href": "ukrainakeskus@gmail.com"
+    }
+  ],
+  "founders": [
+    {
+      "imgSrc": "/images/polina@2x.jpg",
+      "name": "Polina Vitiuk",
+      "details": "Head of children's activities in the Ukrainian community in Pärnu. She has been in Estonia since March 2022. She came from the Dnipro region. She is a teacher-defectologist, preschool teacher. Active public figure, coordinator, volunteer. «With faith in our hearts, to victory!»",
+      "email": "polina.vitiuk@ukrainakeskus.ee",
+      "tel": "582 89 515"
+    },
+    {
+      "imgSrc": "/images/victoria@2x.jpg",
+      "name": "Viktoriia Kuzmenko",
+      "details": "Coordinator of educational projects, teacher of grades 1-4, teacher of English, active public figure",
+      "email": "viktoriia.kuzmenko@ukrainakeskus.ee",
+      "tel": "582 89 515"
+    },
+    {
+      "imgSrc": "/images/tetiana@2x.jpg",
+      "name": "Tetiana Podolska",
+      "details": "Head of Integration Projects, Coordinator for Work with Ukrainians at the Department of Migration and Border Guard Service (2022-2024), public figure, volunteer",
+      "email": "tetiana.podolska@ukrainakeskus.ee",
+      "tel": "582 89 515"
+    }
+  ],
+  "description": "All the founders of the organization actively worked on the formation and support of the Ukrainian community in Pärnu.\n\nThey assisted with paperwork, the formation of information platforms, and contributed to the psychological adaptation of women and children, and plan to continue to do so for the successful integration and support of their native cultural, creative, and educational center in Estonia.\n\nIt's time to unite to preserve culture, language, and traditions. Our society is open to new partnership projects and fresh ideas)))",
+  "imageSrc": "/images/portrait-of-siblings-standing-on-field@2x.jpg",
+  "imageAlt": "Portrait of two siblings standing on field",
+  "decorLeftSrc": "/decor/grain-left-decor.svg",
+  "decorRightSrc": "/decor/grain-right-decor.svg",
+  "contactUs": {
+    "contactUsDescription": "You can send us your suggestions by contacting us via the founders' Facebook pages or by sending us an email:",
+    "contactUsEmail": "ukrainakeskus@gmail.com"
+  }
+}

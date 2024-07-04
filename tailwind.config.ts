@@ -1,6 +1,9 @@
 import type { Config } from 'tailwindcss';
 
 require('tailwindcss/colors');
+import plugin from 'tailwindcss/plugin';
+
+import { PluginUtils } from './app/(shared)/types/common.types';
 
 const config: Config = {
   content: ['./app/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}'],
@@ -65,6 +68,100 @@ const config: Config = {
         400: '100rem',
         450: '112.5rem',
       },
+
+      content: {
+        'grain-left-blue': 'url("/decor/grain-left-blue-decor.svg")',
+        'grain-right-blue': 'url("/decor/grain-right-blue-decor.svg")',
+      },
+
+      fontSize: {
+        // reg_16 - 400 16px
+
+        // ----------------------------- REGULAR -----------------------------
+        ui_reg_16: [
+          '16px',
+          {
+            lineHeight: '1.5',
+            fontWeight: '400',
+          },
+        ],
+
+        ui_reg_18: [
+          '18px',
+          {
+            lineHeight: '1.56',
+            fontWeight: '400',
+          },
+        ],
+
+        // ----------------------------- MEDIUM -----------------------------
+
+        ui_med_18: [
+          '18px',
+          {
+            lineHeight: '1.56',
+            fontWeight: '500',
+          },
+        ],
+
+        // ----------------------------- BOLD -----------------------------
+
+        ui_bold_20: [
+          '20px',
+          {
+            lineHeight: '1.4',
+            fontWeight: '700',
+          },
+        ],
+
+        ui_bold_28: [
+          '28px',
+          {
+            lineHeight: '1.14',
+            fontWeight: '700',
+          },
+        ],
+
+        ui_bold_32: [
+          '32px',
+          {
+            lineHeight: '1.13',
+            fontWeight: '700',
+          },
+        ],
+
+        ui_bold_40: [
+          '40px',
+          {
+            lineHeight: '1.2',
+            fontWeight: '700',
+          },
+        ],
+
+        ui_bold_44: [
+          '44px',
+          {
+            lineHeight: '1.18',
+            fontWeight: '700',
+          },
+        ],
+
+        ui_bold_60: [
+          '60px',
+          {
+            lineHeight: '1',
+            fontWeight: '700',
+          },
+        ],
+
+        ui_bold_68: [
+          '68px',
+          {
+            lineHeight: '1.18',
+            fontWeight: '700',
+          },
+        ],
+      },
     },
   },
 
@@ -72,6 +169,9 @@ const config: Config = {
     require('@tailwindcss/forms'),
     require('@savvywombat/tailwindcss-grid-areas'),
     require('@tailwindcss/typography'),
+    plugin(function ({ addVariant }: PluginUtils) {
+      addVariant('hocus', ['&:hover', '&:focus']);
+    }),
   ],
 };
 export default config;

@@ -1,0 +1,15 @@
+{
+  "title": "Toetus",
+  "services": [
+    {
+      "icon": "support-info",
+      "heading": "Infotugi:",
+      "content": "Ukraina kodanikele pakutakse tasuta infokonsultatsioone Eestis viibimise, kohanemise ja integreerumise kohta telefoni, e-posti ja kohapealse nõustamise teel (eelneval kokkuleppel)."
+    },
+    {
+      "icon": "support-psycho",
+      "heading": "Psühholoogiline tugi ja grupiteraapia:",
+      "content": "Psühholoogiline abi lastele, noorukitele ja täiskasvanutele, kellel on psühholoogilisi probleeme, kohanemisprobleeme töökohal, koolis, lasteaias, on raskusi kodus, esineb kurbust, ärevust, unetust."
+    }
+  ]
+}
