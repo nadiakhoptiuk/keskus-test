@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Section } from '@/app/(shared)/components/ui/Section';
 import { Container } from '@/app/(shared)/components/ui/Container';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
-import { ActivityAreaList } from '@/app/(shared)/components/ui/ActivityAreaList';
+import { ActivityAreaList } from '@/app/[locale]/about-us/components/ActivityAreaList';
 
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 

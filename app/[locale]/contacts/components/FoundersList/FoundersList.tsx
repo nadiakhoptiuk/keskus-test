@@ -10,14 +10,10 @@ type Props = {
 
 export const FoundersList: FC<Props> = ({ list }) => {
   return (
-    <ul className="mb-10 grid gap-y-8 md:mb-15 md:grid-cols-2 md:gap-8 xl:grid-cols-3 2xl:gap-15">
-      {list.map(({ ...properties }, index) => {
-        return (
-          <li key={index} className="space-y-3.5">
-            <FounderCard {...properties} />
-          </li>
-        );
-      })}
+    <ul className="mb-10 grid gap-y-8 md:mb-15 md:grid-cols-2 md:gap-8 xl:grid-cols-3 2xl:gap-10">
+      {list.map(({ ...properties }, index) => (
+        <FounderCard key={index} {...properties} />
+      ))}
     </ul>
   );
 };

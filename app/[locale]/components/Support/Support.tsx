@@ -8,7 +8,7 @@ import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
 import { i18nNamespaces, LocaleProps } from '@/app/(shared)/types/i18n.types';
-import SupportDecor from '@/public/images/support-decor.png';
+import SupportDecor from '@/public/decor/support-decor.png';
 
 export const Support: FC<LocaleProps> = async ({ locale }) => {
   const { t } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE]);

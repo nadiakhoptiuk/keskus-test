@@ -14,4 +14,5 @@ export enum i18nNamespaces {
   METADATA = 'metadata',
   NEWS = 'news',
   NOT_FOUND = 'not-found',
+  SERVICES = 'services',
 }

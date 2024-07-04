@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { Typography } from '../Typography';
+import { Typography } from '../../../../(shared)/components/ui/Typography';
 
 import { ActivityAreaCardType } from '@/app/(shared)/types/common.types';
-import { CustomIcon } from '../CustomIcon';
+import { CustomIcon } from '../../../../(shared)/components/ui/CustomIcon';
 
 export const ActivityAreaCard: FC<ActivityAreaCardType> = ({ heading, icon, options }) => {
   return (

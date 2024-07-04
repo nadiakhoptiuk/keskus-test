@@ -1,7 +1,7 @@
 import { Section } from '@/app/(shared)/components/ui/Section';
 import { Container } from '@/app/(shared)/components/ui/Container';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
-import { ContactsList } from '@/app/(shared)/components/ui/ContactsList';
+import { ContactsList } from '@/app/[locale]/contacts/components/ContactsList';
 import { FoundersList } from './components/FoundersList';
 import { GeneralInfo } from './components/GeneralInfo';
 import { FounderCardType } from './components/FounderCard/FounderCard.types';
@@ -11,7 +11,7 @@ import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
-import { ContactItemType } from '@/app/(shared)/components/ui/ContactItem/ContactItem.types';
+import { ContactItemType } from '@/app/[locale]/contacts/components/ContactItem/ContactItem.types';
 
 export default async function Page({ params: { locale } }: PageProps) {
   const { t } = await initTranslations(locale, [i18nNamespaces.CONTACTS]);

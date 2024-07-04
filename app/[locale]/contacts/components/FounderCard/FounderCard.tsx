@@ -5,14 +5,14 @@ import { FounderCardType } from './FounderCard.types';
 
 export const FounderCard: FC<FounderCardType> = ({ imgSrc, name, details, email, tel }) => {
   return (
-    <>
-      <div className="aspect-[320/280] h-auto w-full overflow-hidden rounded md:h-[280px] md:w-[336px] xl:w-[384px] 2xl:aspect-[440/321] 2xl:h-[321px] 2xl:w-[440px]">
+    <li className="space-y-3.5">
+      <div className="aspect-[320/280] h-auto w-full overflow-hidden rounded md:h-[280px] md:w-full xl:aspect-[384/280] xl:h-auto 2xl:aspect-[454/331]">
         <Image
           src={imgSrc}
           alt={`photo of ${name}`}
           width={440}
           height={368}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-top"
         />
       </div>
 
@@ -23,6 +23,6 @@ export const FounderCard: FC<FounderCardType> = ({ imgSrc, name, details, email,
         <p className="text-ui_reg_16">{email}</p>
         <p className="text-ui_reg_16">{tel}</p>
       </div>
-    </>
+    </li>
   );
 };

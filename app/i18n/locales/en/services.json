@@ -1,0 +1,15 @@
+{
+  "title": "Support",
+  "services": [
+    {
+      "icon": "support-info",
+      "heading": "Information support:",
+      "content": "Information consultations are provided to Ukrainian citizens regarding their stay, adaptation and integration in Estonia free of charge by phone, e-mail and on-site (by prior arrangement)"
+    },
+    {
+      "icon": "support-psycho",
+      "heading": "Psychological support and group therapy:",
+      "content": "Psychological assistance to children, adolescents and adults who have psychological problems, problems with adaptation at the workplace, school, kindergarten, have difficulties at home, experience sadness, anxiety, insomnia"
+    }
+  ]
+}
