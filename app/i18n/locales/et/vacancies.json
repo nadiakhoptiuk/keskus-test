@@ -1,0 +1,22 @@
+{
+  "title": "Vabad töökohad",
+  "description": "Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae.",
+  "buttons": [
+    { "id": "externalLink", "buttonTitle": "Vastata" },
+    { "id": "linkToSinglePage", "buttonTitle": "Rohkem infot" }
+  ],
+  "vacancies": [
+    {
+      "positionTitle": "Juht",
+      "description": "Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae. Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae",
+      "type": "Eemalt",
+      "location": "Eesti"
+    },
+    {
+      "positionTitle": "Juht",
+      "description": "Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae. Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae",
+      "type": "Eemalt",
+      "location": "Eesti"
+    }
+  ]
+}

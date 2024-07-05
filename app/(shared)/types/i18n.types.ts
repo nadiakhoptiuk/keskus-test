@@ -15,4 +15,5 @@ export enum i18nNamespaces {
   NEWS = 'news',
   NOT_FOUND = 'not-found',
   SERVICES = 'services',
+  VACANCIES = 'vacancies',
 }

@@ -1,0 +1,22 @@
+{
+  "title": "Vacancies",
+  "description": "Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae.",
+  "buttons": [
+    { "id": "externalLink", "buttonTitle": "Apply" },
+    { "id": "linkToSinglePage", "buttonTitle": "Learn more" }
+  ],
+  "vacancies": [
+    {
+      "positionTitle": "Manager",
+      "description": "Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae. Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae",
+      "type": "Remote",
+      "location": "Estonia"
+    },
+    {
+      "positionTitle": "Manager",
+      "description": "Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae. Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae",
+      "type": "Remote",
+      "location": "Estonia"
+    }
+  ]
+}

@@ -10,6 +10,7 @@ export const FounderCard: FC<FounderCardType> = ({ imgSrc, name, details, email,
         <Image
           src={imgSrc}
           alt={`photo of ${name}`}
+          priority
           width={440}
           height={368}
           className="h-full w-full object-cover object-top"

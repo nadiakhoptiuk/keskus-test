@@ -179,6 +179,32 @@
   }
 }
 
+.vacancies-section {
+  @apply bg-[length:767px_428px] bg-right-top bg-no-repeat;
+  background-image: image-set(
+    url(/images/vacancies-bg-mob.webp) type('image/webp') 1x,
+    url(/images/vacancies-bg-mob@2x.webp) type('image/webp') 2x
+  );
+}
+@media screen and (min-width: 768px) {
+  .vacancies-section {
+    @apply bg-[length:1279px_368px];
+    background-image: image-set(
+      url(/images/vacancies-bg-tab.webp) type('image/webp') 1x,
+      url(/images/vacancies-bg-tab@2x.webp) type('image/webp') 2x
+    );
+  }
+}
+@media screen and (min-width: 1280px) {
+  .vacancies-section {
+    @apply bg-[length:1800px_368px] bg-[center_top];
+    background-image: image-set(
+      url(/images/vacancies-bg-desk.webp) type('image/webp') 1x,
+      url(/images/vacancies-bg-desk@2x.webp) type('image/webp') 2x
+    );
+  }
+}
+
 .service-card {
   @apply bg-[length:143px_243px] bg-right-bottom bg-no-repeat;
   background-image: image-set(

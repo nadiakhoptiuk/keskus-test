@@ -1,0 +1,22 @@
+{
+  "title": "Вакансії",
+  "description": "Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae.",
+  "buttons": [
+    { "id": "externalLink", "buttonTitle": "Відгукнутись" },
+    { "id": "linkToSinglePage", "buttonTitle": "Дізнатися більше" }
+  ],
+  "vacancies": [
+    {
+      "positionTitle": "Менеджер",
+      "description": "Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae. Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae",
+      "type": "Віддалено",
+      "location": "Естонія"
+    },
+    {
+      "positionTitle": "Менеджер",
+      "description": "Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae. Lorem ipsum dolor sit amet consectetur. Vitae sollicitudin in interdum lobortis. In velit molestie congue massa viverra imperdiet tristique. Facilisi non amet risus in egestas nunc. Mauris ac morbi laoreet vitae",
+      "type": "Віддалено",
+      "location": "Естонія"
+    }
+  ]
+}
