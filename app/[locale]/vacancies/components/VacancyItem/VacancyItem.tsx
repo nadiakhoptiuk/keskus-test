@@ -12,7 +12,7 @@ type Props = {
 };
 
 export const VacancyItem: FC<Props> = async ({ vacancy, buttonsData }) => {
-  const { positionTitle, type, location, description } = vacancy;
+  const { positionTitle, type, location, shortDescription, slug } = vacancy;
 
   return (
     <li className=" decor-border-bottom relative after:bottom-[-40px] after:w-full last:after:hidden">
@@ -39,10 +39,10 @@ export const VacancyItem: FC<Props> = async ({ vacancy, buttonsData }) => {
       </div>
 
       <Typography as="p" className="mb-10 max-xl:text-ui_reg_16 xl:max-w-[90%] xl:text-ui_reg_18">
-        {description}
+        {shortDescription}
       </Typography>
 
-      <VacancyButtons buttonsData={buttonsData} />
+      <VacancyButtons buttonsData={buttonsData} slug={slug} />
     </li>
   );
 };

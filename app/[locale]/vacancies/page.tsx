@@ -1,7 +1,7 @@
 import { Container } from '@/app/(shared)/components/ui/Container';
 import { Section } from '@/app/(shared)/components/ui/Section';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
-import { VacanciesList } from './VacanciesList/VacanciesList';
+import { VacanciesList } from './components/VacanciesList/VacanciesList';
 
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
@@ -15,9 +15,9 @@ export default async function Page({ params: { locale } }: PageProps) {
   const buttons: ButtonInfoType[] = t('buttons', { returnObjects: true });
 
   return (
-    <Section fixedWith={true} className="vacancies-section pb-10 pt-[30px] md:py-15 xl:pt-[84px]">
-      <Container>
-        <div className="mb-15 h-[398px] md:mb-25 md:h-[308px] xl:h-[284px]">
+    <Section fixedWith={true} className="!pt-0 pb-10">
+      <div className="vacancies-section mb-15 min-h-[428px] w-full bg-yellow-400 pb-15 pt-[30px] md:mb-25 md:min-h-[368px] md:py-15 md:pt-15 xl:pt-[84px]">
+        <Container>
           <Typography as="h1" className="mb-10 text-left text-black">
             {t('title')}
           </Typography>
@@ -28,8 +28,14 @@ export default async function Page({ params: { locale } }: PageProps) {
           >
             {t('description')}
           </Typography>
-        </div>
+        </Container>
+      </div>
 
+      {/* <div className="mb-15 h-[398px] md:mb-25 md:h-[308px] xl:h-[284px]">
+          
+        </div> */}
+
+      <Container>
         <VacanciesList vacancies={vacancies} buttonsData={buttons} />
       </Container>
     </Section>

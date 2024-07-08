@@ -1,8 +1,10 @@
 export interface VacancyItemType {
   positionTitle: string;
-  description: string;
+  shortDescription: string;
+  fullDescription: string;
   type: string;
   location: string;
+  slug: string;
 }
 
 export interface ButtonInfoType {

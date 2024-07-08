@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { VacancyItem } from '../components/VacancyItem';
+import { VacancyItem } from '../VacancyItem';
 
-import { ButtonInfoType, VacancyItemType } from '../components/VacancyItem/VacancyItem.types';
+import { ButtonInfoType, VacancyItemType } from '../VacancyItem/VacancyItem.types';
 
 type Props = {
   vacancies: VacancyItemType[];
