@@ -1,0 +1,54 @@
+{
+  "title": "Current projects",
+  "filter": [
+    { "type": "regular", "tag": "Regular", "label": "Regularly" },
+    { "type": "irregular", "tag": "Irregular", "label": "Irregularly" }
+  ],
+  "events": [
+    {
+      "type": "regular",
+      "heading": "Women's club",
+      "details": "Weekly meetings, communication in the Ukrainian-speaking environment, thematic events, psychological games, art therapy, trainings, communication with representatives of Estonian public and private institutions.",
+      "schedule": "Weekends (once a week)",
+      "href": "/images/woman-club.jpg"
+    },
+    {
+      "type": "regular",
+      "heading": "Ukrainian Day Center",
+      "details": "Ukrainian Day Center: operates on a permanent basis, where children aged 3-14 can stay. The center provides a Ukrainian-language environment and access to Ukrainian literature. Creative workshops and themed days are held.",
+      "schedule": "5 days a week, except weekends from 10:00 to 16:00",
+      "href": "/images/portrait-of-siblings-standing-on-field@2x.jpg"
+    },
+    {
+      "type": "regular",
+      "heading": "Yoga",
+      "details": "Lorem ipsum dolor sit amet consectetur. Facilisis lorem id varius ullamcorper aliquet massa mauris vulputate.",
+      "schedule": "2 times a week",
+      "href": "/images/yoga.jpg"
+    },
+    {
+      "type": "regular",
+      "heading": "Children's fitness",
+      "details": "Joint creative projects to further develop small businesses: teaching beadwork, making souvenirs, candles, preparing and participating in folk art fairs. Under appropriate conditions, culinary projects, such as making dumplings and holding master classes in traditional Ukrainian cuisine.",
+      "href": "/images/childrens-fitness.jpg"
+    },
+    {
+      "type": "irregular",
+      "heading": "«Golden hands»",
+      "details": "Joint creative projects to further develop small businesses: teaching beadwork, making souvenirs, candles, preparing and participating in folk art fairs. Under appropriate conditions, culinary projects, such as making dumplings and holding master classes in traditional Ukrainian cuisine.",
+      "href": "/images/golden-hands.jpg"
+    },
+    {
+      "type": "irregular",
+      "heading": "Children's camps",
+      "details": "Together with Estonian children, lorem ipsum dolor sit amet consectetur. Facilisis lorem id varius ullamcorper aliquet massa mauris vulputate. Lorem ipsum dolor sit amet consectetur. Facilisis lorem id varius ullamcorper aliquet massa mauris vulputate.",
+      "href": "/images/portrait-of-siblings-standing-on-field@2x.jpg"
+    },
+    {
+      "type": "irregular",
+      "heading": "«Discovering Estonia»",
+      "details": "Lorem ipsum dolor sit amet consectetur. Facilisis lorem id varius ullamcorper aliquet massa mauris vulputate.",
+      "href": "/images/discovering-estonia.jpg"
+    }
+  ]
+}
