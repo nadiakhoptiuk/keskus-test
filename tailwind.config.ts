@@ -96,11 +96,29 @@ const config: Config = {
 
         // ----------------------------- MEDIUM -----------------------------
 
+        ui_med_16: [
+          '16px',
+          {
+            lineHeight: '1.5',
+            fontWeight: '500',
+          },
+        ],
+
         ui_med_18: [
           '18px',
           {
             lineHeight: '1.56',
             fontWeight: '500',
+          },
+        ],
+
+        // ----------------------------- SEMIBOLD -----------------------------
+
+        ui_semibold_18: [
+          '18px',
+          {
+            lineHeight: '1.56',
+            fontWeight: '600',
           },
         ],
 

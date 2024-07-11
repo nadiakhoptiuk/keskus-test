@@ -34,11 +34,11 @@
 
   /* Buttons*/
   .btn-primary {
-    @apply rounded bg-blue-600 px-6 py-2 text-lg font-semibold text-zinc-50 hocus:bg-blue-900;
+    @apply rounded bg-blue-600 px-6 py-2 text-lg font-semibold text-zinc-50 hover:bg-blue-900 focus-visible:bg-blue-900;
   }
 
   .btn-outline {
-    @apply rounded border border-blue-600 px-6 py-2 text-lg font-semibold text-blue-600 hocus:bg-blue-600 hocus:text-zinc-50;
+    @apply rounded border border-blue-600 px-6 py-2 text-lg font-semibold text-blue-600 hover:bg-blue-600 hover:text-zinc-50 focus-visible:bg-blue-600 focus-visible:text-zinc-50;
   }
 
   .single-page-title {
@@ -175,6 +175,41 @@
     background-image: image-set(
       url(/images/contacts-bg-desk.webp) type('image/webp') 1x,
       url(/images/contacts-bg-desk@2x.webp) type('image/webp') 2x
+    );
+  }
+}
+
+.vacancies-section {
+  @apply bg-[length:767px_428px] bg-right-bottom bg-no-repeat;
+  background-image: image-set(
+    url(/images/vacancies-bg-mob.webp) type('image/webp') 1x,
+    url(/images/vacancies-bg-mob@2x.webp) type('image/webp') 2x
+  );
+}
+@media screen and (min-width: 768px) {
+  .vacancies-section {
+    @apply bg-[length:1280px_368px];
+    background-image: image-set(
+      url(/images/vacancies-bg-tab.webp) type('image/webp') 1x,
+      url(/images/vacancies-bg-tab@2x.webp) type('image/webp') 2x
+    );
+  }
+}
+@media screen and (min-width: 1280px) {
+  .vacancies-section {
+    @apply bg-[length:1440px_368px];
+    background-image: image-set(
+      url(/images/vacancies-bg-desk-small.webp) type('image/webp') 1x,
+      url(/images/vacancies-bg-desk-small@2x.webp) type('image/webp') 2x
+    );
+  }
+}
+@media screen and (min-width: 1440px) {
+  .vacancies-section {
+    @apply bg-[length:1800px_368px] bg-[center_bottom];
+    background-image: image-set(
+      url(/images/vacancies-bg-desk.webp) type('image/webp') 1x,
+      url(/images/vacancies-bg-desk@2x.webp) type('image/webp') 2x
     );
   }
 }
