@@ -31,7 +31,7 @@ export const Navbar: FC = () => {
   return (
     <>
       <Button
-        className="transition-color size-8 py-0.5 leading-none text-blue-600 hocus:text-yellow-400"
+        className="transition-color size-8 py-0.5 leading-none text-blue-600 hover:text-yellow-400 focus-visible:text-yellow-400"
         onClick={openMenu}
       >
         <CustomIcon icon="burger" />
