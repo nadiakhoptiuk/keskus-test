@@ -11,42 +11,57 @@ type Props = {
 
 export const TestGalleryBlock: FC<Props> = ({ list, position }) => {
   return (
-    <div className="grid grid-cols-3 grid-rows-[244px_244px_244px] gap-8">
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 xl:grid-rows-[244px_244px_244px] 2xl:grid-rows-[291px_291px_291px]">
       {list.map(({ src, heading, imageOrientation, order }, index) => {
         const oddItemClassName = {
-          'row-span-2 row-start-1 row-end-2 col-start-1':
+          'xl:row-span-2 xl:row-start-1 xl:col-start-1':
             imageOrientation === 'vertical' && order === 1,
-          'row-span-2 row-start-1 row-end-2 col-start-2':
+          'xl:row-span-2 xl:row-start-1 xl:col-start-2':
             imageOrientation === 'vertical' && order === 2,
-          'row-start-1 row-span-1 col-start-3 row-span-1':
+          'xl:row-start-1 xl:row-span-1 xl:col-start-3 xl:row-span-1':
             imageOrientation === 'horizontal' && order === 3,
-          'row-start-2 row-span-1 col-start-3 row-span-1':
+          'xl:row-start-2 xl:row-span-1 xl:col-start-3 xl:row-span-1':
             imageOrientation === 'horizontal' && order === 4,
-          'col-start-1 row-start-3 row-span-1': imageOrientation === 'horizontal' && order === 5,
-          'col-start-2 row-start-3 row-span-1': imageOrientation === 'horizontal' && order === 6,
-          'col-start-3 row-start-3 row-span-1': imageOrientation === 'horizontal' && order === 7,
+          'xl:col-start-1 xl:row-start-3 xl:row-span-1':
+            imageOrientation === 'horizontal' && order === 5,
+          'xl:col-start-2 xl:row-start-3 xl:row-span-1':
+            imageOrientation === 'horizontal' && order === 6,
+          'xl:col-start-3 xl:row-start-3 xl:row-span-1':
+            imageOrientation === 'horizontal' && order === 7,
         };
 
         const evenItemClassName = {
-          'row-span-2 row-start-1 row-end-2 col-start-2':
+          'xl:row-span-2 xl:row-start-1 xl:col-start-2':
             imageOrientation === 'vertical' && order === 1,
-          'row-span-2 row-start-1 row-end-2 col-start-3':
+          'xl:row-span-2 xl:row-start-1 xl:col-start-3':
             imageOrientation === 'vertical' && order === 2,
-          'row-start-1 row-span-1 col-start-1 row-span-1':
+          'xl:row-start-1 xl:row-span-1 xl:col-start-1 xl:row-span-1':
             imageOrientation === 'horizontal' && order === 3,
-          'row-start-2 row-span-1 col-start-1 row-span-1':
+          'xl:row-start-2 xl:row-span-1 xl:col-start-1 xl:row-span-1':
             imageOrientation === 'horizontal' && order === 4,
-          'col-start-1 row-start-3 row-span-1': imageOrientation === 'horizontal' && order === 5,
-          'col-start-2 row-start-3 row-span-1': imageOrientation === 'horizontal' && order === 6,
-          'col-start-3 row-start-3 row-span-1': imageOrientation === 'horizontal' && order === 7,
+          'xl:col-start-1 xl:row-start-3 xl:row-span-1':
+            imageOrientation === 'horizontal' && order === 5,
+          'xl:col-start-2 xl:row-start-3 xl:row-span-1':
+            imageOrientation === 'horizontal' && order === 6,
+          'xl:col-start-3 xl:row-start-3 xl:row-span-1':
+            imageOrientation === 'horizontal' && order === 7,
         };
 
         return (
           <div
             key={index}
-            className={classnames(position === 'even' ? evenItemClassName : oddItemClassName)}
+            className={classnames(
+              position === 'even' ? evenItemClassName : oddItemClassName,
+              ' overflow-x-hidden',
+            )}
           >
-            <Image src={src} alt={heading} width={600} height={500} />
+            <Image
+              src={src}
+              alt={heading}
+              width={600}
+              height={500}
+              className="h-full w-full object-cover object-top"
+            />
           </div>
         );
       })}
