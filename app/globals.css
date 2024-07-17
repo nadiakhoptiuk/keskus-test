@@ -110,6 +110,17 @@
   @apply pointer-events-none bg-blue-50 text-zinc-400;
 }
 
+/* NEWS SLIDER */
+
+.slider-news__nav-button {
+  @apply size-10 cursor-pointer bg-white md:size-[36px];
+}
+
+.slider-news__nav-button--next:disabled,
+.slider-news__nav-button--prev:disabled {
+  @apply opacity-50;
+}
+
 .infoSection {
   @apply bg-[length:767px_280px];
   background-image: image-set(
