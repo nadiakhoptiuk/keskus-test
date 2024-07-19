@@ -18,9 +18,9 @@ export const TestGalleryBlock: FC<Props> = ({ list, position }) => {
             imageOrientation === 'vertical' && order === 1,
           'xl:row-span-2 xl:row-start-1 xl:col-start-2':
             imageOrientation === 'vertical' && order === 2,
-          'xl:row-start-1 xl:row-span-1 xl:col-start-3 xl:row-span-1':
+          'xl:row-start-1 xl:col-start-3 xl:row-span-1':
             imageOrientation === 'horizontal' && order === 3,
-          'xl:row-start-2 xl:row-span-1 xl:col-start-3 xl:row-span-1':
+          'xl:row-start-2 xl:col-start-3 xl:row-span-1':
             imageOrientation === 'horizontal' && order === 4,
           'xl:col-start-1 xl:row-start-3 xl:row-span-1':
             imageOrientation === 'horizontal' && order === 5,

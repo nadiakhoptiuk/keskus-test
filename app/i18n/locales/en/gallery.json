@@ -3,93 +3,101 @@
   "title": "Gallery",
   "watchAllPhotos": "Watch all photos",
   "galleryList": [
-    [
-      {
-        "src": "/images/gallery/gallery1.jpg",
-        "heading": "Кінопоказ 1",
-        "imageOrientation": "vertical",
-        "order": 1
-      },
-      {
-        "src": "/images/gallery/gallery2.jpg",
-        "heading": "Кінопоказ 2",
-        "imageOrientation": "vertical",
-        "order": 2
-      },
-      {
-        "src": "/images/gallery/gallery3.jpg",
-        "heading": "Кінопоказ 3",
-        "imageOrientation": "horizontal",
-        "order": 3
-      },
-      {
-        "src": "/images/gallery/gallery4.jpg",
-        "heading": "Кінопоказ 4",
-        "imageOrientation": "horizontal",
-        "order": 4
-      },
-      {
-        "src": "/images/gallery/gallery5.jpg",
-        "heading": "Кінопоказ 5",
-        "imageOrientation": "horizontal",
-        "order": 5
-      },
-      {
-        "src": "/images/gallery/gallery6.jpg",
-        "heading": "Кінопоказ 6",
-        "imageOrientation": "horizontal",
-        "order": 6
-      },
-      {
-        "src": "/images/gallery/gallery7.jpg",
-        "heading": "Кінопоказ 7",
-        "imageOrientation": "horizontal",
-        "order": 7
-      }
-    ],
-    [
-      {
-        "src": "/images/gallery/gallery1.jpg",
-        "heading": "Кінопоказ 1",
-        "imageOrientation": "vertical",
-        "order": 1
-      },
-      {
-        "src": "/images/gallery/gallery2.jpg",
-        "heading": "Кінопоказ 2",
-        "imageOrientation": "vertical",
-        "order": 2
-      },
-      {
-        "src": "/images/gallery/gallery3.jpg",
-        "heading": "Кінопоказ 3",
-        "imageOrientation": "horizontal",
-        "order": 3
-      },
-      {
-        "src": "/images/gallery/gallery4.jpg",
-        "heading": "Кінопоказ 4",
-        "imageOrientation": "horizontal",
-        "order": 4
-      },
-      {
-        "src": "/images/gallery/gallery5.jpg",
-        "heading": "Кінопоказ 5",
-        "imageOrientation": "horizontal",
-        "order": 5
-      },
-      {
-        "src": "/images/gallery/gallery6.jpg",
-        "heading": "Кінопоказ 6",
-        "imageOrientation": "horizontal",
-        "order": 6
-      },
-      {
-        "src": "/images/gallery/gallery7.jpg",
-        "heading": "Кінопоказ 7",
-        "imageOrientation": "horizontal",
-        "order": 7
-      }
-    ]
+    {
+      "src": "/images/gallery/gallery1.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "vertical",
+      "order": 1
+    },
+    {
+      "src": "/images/gallery/gallery2.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "vertical",
+      "order": 2
+    },
+    {
+      "src": "/images/gallery/gallery3.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "horizontal",
+      "order": 3
+    },
+    {
+      "src": "/images/gallery/gallery4.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "horizontal",
+      "order": 4
+    },
+    {
+      "src": "/images/gallery/gallery5.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "horizontal",
+      "order": 5
+    },
+    {
+      "src": "/images/gallery/gallery6.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "horizontal",
+      "order": 6
+    },
+    {
+      "src": "/images/gallery/gallery7.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "horizontal",
+      "order": 7
+    },
+    {
+      "src": "/images/gallery/gallery1.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "vertical",
+      "order": 1
+    },
+    {
+      "src": "/images/gallery/gallery2.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "vertical",
+      "order": 2
+    },
+    {
+      "src": "/images/gallery/gallery3.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "horizontal",
+      "order": 3
+    },
+    {
+      "src": "/images/gallery/gallery4.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "horizontal",
+      "order": 4
+    },
+    {
+      "src": "/images/gallery/gallery5.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "horizontal",
+      "order": 5
+    },
+    {
+      "src": "/images/gallery/gallery6.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "horizontal",
+      "order": 6
+    },
+    {
+      "src": "/images/gallery/gallery7.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "horizontal",
+      "order": 7
+    },
+    {
+      "src": "/images/gallery/gallery6.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "horizontal",
+      "order": 6
+    },
+    {
+      "src": "/images/gallery/gallery7.jpg",
+      "heading": "Screening of the film \"Culture Against War\". Anniversary of the Ukrainian Film Club in Estonia",
+      "imageOrientation": "horizontal",
+      "order": 7
+    }
   ]
 }

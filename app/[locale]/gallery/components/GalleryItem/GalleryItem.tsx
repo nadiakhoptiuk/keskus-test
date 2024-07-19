@@ -10,7 +10,7 @@ import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
 
 type Props = {
-  title?: string;
+  title: string;
   link: string;
   image: string;
   locale: LocaleEnum;
@@ -28,25 +28,25 @@ export const GalleryItem: FC<Props> = async ({
 
   if (onlyImage)
     return (
-      <li className="overflow-hidden shadow-sm">
+      <li className="gallery-item overflow-hidden shadow-sm">
         <Image
-          className="aspect-square h-full w-full object-cover"
+          className="h-full w-full object-cover"
           src={image}
           width={700}
           height={400}
-          alt="gallery item"
+          alt={title}
         />
       </li>
     );
 
   return (
-    <li className="group relative overflow-hidden shadow-sm" tabIndex={0}>
+    <li className="gallery-item group relative overflow-hidden shadow-sm" tabIndex={0}>
       <Image
         className="relative z-0 aspect-square h-full w-full object-cover"
         src={image}
+        alt={title}
         width={700}
         height={400}
-        alt="gallery item"
       />
 
       <div className="base-transition absolute inset-0 z-10 h-full w-full translate-y-full bg-black bg-opacity-85 p-5 text-zinc-50 opacity-0 transition-[opacity,transform] group-hover:translate-y-0 group-hover:opacity-100 group-focus:translate-y-0 group-focus:opacity-100">

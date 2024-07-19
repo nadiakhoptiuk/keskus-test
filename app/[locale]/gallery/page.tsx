@@ -6,12 +6,11 @@ import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
-import { TestGalleryItem } from './components/TestGallery/TestGallery.types';
-import { TestGalleryList } from './components/TestGallery';
+import { GalleryItemType } from './components/GalleryItem/GalleryItem.types';
 
 export default async function Page({ params: { locale } }: PageProps) {
   const { t } = await initTranslations(locale, [i18nNamespaces.GALLERY]);
-  const gallery: TestGalleryItem[][] = t('galleryList', { returnObjects: true });
+  const gallery: GalleryItemType[] = t('galleryList', { returnObjects: true });
 
   return (
     <Section>
@@ -20,9 +19,9 @@ export default async function Page({ params: { locale } }: PageProps) {
           {t('title')}
         </Typography>
 
-        <TestGalleryList list={gallery} />
+        {/* <TestGalleryList list={gallery} /> */}
 
-        <Gallery data={Array.from({ length: 12 })} locale={locale} />
+        <Gallery data={gallery} locale={locale} />
       </Container>
     </Section>
   );
