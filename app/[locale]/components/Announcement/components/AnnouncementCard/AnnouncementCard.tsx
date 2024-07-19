@@ -3,25 +3,18 @@ import Image from 'next/image';
 
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 
-import AnnouncementImage from '@/public/images/announcement.jpg';
+import { AnnouncementCardType } from './AnnouncementCard.types';
 
 type Props = {
-  image?: string;
-  date?: string;
-  title?: string;
-  description?: string;
+  card: AnnouncementCardType;
+  Tag?: 'div' | 'li';
 };
 
-export const AnnouncementCard: FC<Props> = async ({
-  image = AnnouncementImage,
-  date = '12.02.2024',
-  title = 'Золоті руки',
-  description = `Спільні творчі проекти, з метою подальшого розвитку дрібного бізнесу: навчання
-  бісероплетіння, виготовлення сувенірів, свічок, підготовки та участь у ярмарках народної
-  творчості. За відповідних умов можливість отримання грантів для розвитку свого бізнесу.`,
-}) => {
+export const AnnouncementCard: FC<Props> = ({ card, Tag = 'div' }) => {
+  const { image, date, title, description } = card;
+
   return (
-    <li className="md:flex md:items-stretch md:gap-x-10">
+    <Tag className="w-full md:flex md:items-stretch md:gap-x-10">
       <div className="grid gap-y-4 pb-5 md:pb-0">
         <Typography as="span" className="text-sm font-light text-zinc-500">
           {date}
@@ -32,10 +25,12 @@ export const AnnouncementCard: FC<Props> = async ({
         <Typography className="line-clamp-4">{description}</Typography>
       </div>
 
-      <div className="shrink-0 rounded">
+      <div className="h-[184px] shrink-0 overflow-hidden rounded">
         <Image
           src={image}
           alt="new image"
+          width={440}
+          height={320}
           style={{
             objectFit: 'cover',
             objectPosition: 'center',
@@ -44,6 +39,6 @@ export const AnnouncementCard: FC<Props> = async ({
           }}
         />
       </div>
-    </li>
+    </Tag>
   );
 };

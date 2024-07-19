@@ -1,16 +1,23 @@
-import { FC } from 'react';
+'use client';
 
-import { AnnouncementCard } from '@/app/[locale]/components/Announcement/components/AnnouncementCard';
+import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useMedia } from 'react-use';
+
 import { Calendar } from '@/app/[locale]/components/Announcement/components/Calendar';
 import { Container } from '@/app/(shared)/components/ui/Container';
 import { Section } from '@/app/(shared)/components/ui/Section';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
-import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
 import { i18nNamespaces, LocaleProps } from '@/app/(shared)/types/i18n.types';
+import { AnnouncementCardType } from './components/AnnouncementCard/AnnouncementCard.types';
+import { AnnouncementList } from './components/AnnouncementList/AnnouncementList';
+import { AnnouncementSlider } from '@/app/(shared)/components/ui/AnnouncementSlider';
 
-export const Announcement: FC<LocaleProps> = async ({ locale }) => {
-  const { t } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE]);
+export const Announcement: FC<LocaleProps> = ({ locale }) => {
+  const { t } = useTranslation([i18nNamespaces.HOMEPAGE]);
+  const announcementData: AnnouncementCardType[] = t('announcement', { returnObjects: true });
+  const isMobile = useMedia('(max-width: 767px)', false);
 
   return (
     <Section>
@@ -31,10 +38,8 @@ export const Announcement: FC<LocaleProps> = async ({ locale }) => {
           locale={locale}
         />
 
-        <ul className="grid w-full gap-y-10 grid-in-announcements">
-          <AnnouncementCard />
-          <AnnouncementCard />
-        </ul>
+        {isMobile && <AnnouncementSlider locale={locale} data={announcementData} />}
+        {!isMobile && <AnnouncementList list={announcementData} />}
       </Container>
     </Section>
   );

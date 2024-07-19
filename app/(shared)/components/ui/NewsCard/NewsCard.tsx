@@ -5,22 +5,22 @@ import Link from 'next/link';
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 
-import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
+import { RoutesEnum } from '@/app/(shared)/types/enums';
 import { NewsCardType } from './NewsCard.types';
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 import { useTranslation } from 'react-i18next';
 
 type Props = {
-  locale: LocaleEnum;
   card: NewsCardType;
+  Tag?: 'li' | 'div';
 };
 
-export const NewsCard: FC<Props> = ({ card }) => {
+export const NewsCard: FC<Props> = ({ card, Tag = 'div' }) => {
   const { t } = useTranslation([i18nNamespaces.NEWS]);
   const { image, date, title, description, slug } = card;
 
   return (
-    <li>
+    <Tag>
       <div className="rounded">
         <Image
           src={image}
@@ -56,6 +56,6 @@ export const NewsCard: FC<Props> = ({ card }) => {
           <CustomIcon className="-rotate-90 text-blue-600" icon="arrow-sm" />
         </Link>
       </div>
-    </li>
+    </Tag>
   );
 };

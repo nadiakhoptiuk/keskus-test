@@ -17,11 +17,7 @@ export default async function Page({ params: { locale } }: PageProps) {
           {t('news')}
         </Typography>
 
-        <NewsList
-          className="gap-x-8 gap-y-10 md:gap-y-15"
-          locale={locale}
-          data={Array.from({ length: 9 })}
-        />
+        <NewsList className="gap-x-8 gap-y-10 md:gap-y-15" data={Array.from({ length: 9 })} />
       </Container>
     </Section>
   );

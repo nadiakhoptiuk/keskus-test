@@ -8,7 +8,7 @@ import { classnames } from '@/app/(shared)/utils/classnames';
 import { CustomIcon } from '../CustomIcon';
 
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
-import { SliderButtonIdType, SliderButtonType } from './NewsSlider.types';
+import { SliderButtonIdType, SliderButtonType } from '../NewsSlider/NewsSlider.types';
 
 type Props = {
   swiper: SwiperType | null;

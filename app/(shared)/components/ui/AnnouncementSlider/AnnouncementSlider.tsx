@@ -4,25 +4,25 @@ import { FC, useState } from 'react';
 import { Swiper as SwiperType } from 'swiper';
 import 'swiper/css/navigation';
 
-import { NewsCard } from '@/app/(shared)/components/ui/NewsCard';
 import { BaseSlider } from '../BaseSlider';
+import { AnnouncementCard } from '@/app/[locale]/components/Announcement/components/AnnouncementCard';
 
 import { LocaleEnum } from '@/app/(shared)/types/enums';
-import { NewsCardType } from '../NewsCard/NewsCard.types';
+import { AnnouncementCardType } from '@/app/[locale]/components/Announcement/components/AnnouncementCard/AnnouncementCard.types';
 
 type Props = {
-  data: NewsCardType[];
+  data: AnnouncementCardType[];
   locale: LocaleEnum;
 };
 
-export const NewsSlider: FC<Props> = ({ data = [], locale }) => {
+export const AnnouncementSlider: FC<Props> = ({ data = [], locale }) => {
   const [newsSwiperInstance, setNewsSwiperInstance] = useState<SwiperType | null>(null);
 
   return (
     <BaseSlider
       data={data}
       locale={locale}
-      Component={NewsCard}
+      Component={AnnouncementCard}
       swiperInstance={newsSwiperInstance}
       setSwiperInstance={setNewsSwiperInstance}
     />

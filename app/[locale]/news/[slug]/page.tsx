@@ -76,7 +76,7 @@ export default async function Page({ params: { locale } }: PageProps) {
 
       <div className="py-15 md:py-25">
         <h2 className="news-h2">{t('anotherNews')}</h2>
-        <NewsList locale={locale} data={Array.from({ length: 3 })} />
+        <NewsList data={Array.from({ length: 3 })} />
       </div>
     </SinglePageWrapper>
   );
