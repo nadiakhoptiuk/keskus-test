@@ -1,5 +1,91 @@
 {
   "goBack": "Mine tagasi",
   "title": "Galerii",
-  "watchAllPhotos": "Vaata kõiki fotosid"
+  "watchAllPhotos": "Vaata kõiki fotosid",
+  "galleryList": [
+    {
+      "src": "/images/gallery/gallery1.jpg",
+      "heading": "Filmi \"Kultuur sõja vastu\" linastus. Ukraina filmiklubi aastapäev Eestis",
+      "imageOrientation": "vertical",
+      "order": 1
+    },
+    {
+      "src": "/images/gallery/gallery2.jpg",
+      "heading": "Filmi \"Kultuur sõja vastu\" linastus. Ukraina filmiklubi aastapäev Eestis",
+      "imageOrientation": "vertical",
+      "order": 2
+    },
+    {
+      "src": "/images/gallery/gallery3.jpg",
+      "heading": "Filmi \"Kultuur sõja vastu\" linastus. Ukraina filmiklubi aastapäev Eestis",
+      "imageOrientation": "horizontal",
+      "order": 3
+    },
+    {
+      "src": "/images/gallery/gallery4.jpg",
+      "heading": "Filmi \"Kultuur sõja vastu\" linastus. Ukraina filmiklubi aastapäev Eestis",
+      "imageOrientation": "horizontal",
+      "order": 4
+    },
+    {
+      "src": "/images/gallery/gallery5.jpg",
+      "heading": "Filmi \"Kultuur sõja vastu\" linastus. Ukraina filmiklubi aastapäev Eestis",
+      "imageOrientation": "horizontal",
+      "order": 5
+    },
+    {
+      "src": "/images/gallery/gallery6.jpg",
+      "heading": "Filmi \"Kultuur sõja vastu\" linastus. Ukraina filmiklubi aastapäev Eestis",
+      "imageOrientation": "horizontal",
+      "order": 6
+    },
+    {
+      "src": "/images/gallery/gallery7.jpg",
+      "heading": "Filmi \"Kultuur sõja vastu\" linastus. Ukraina filmiklubi aastapäev Eestis",
+      "imageOrientation": "horizontal",
+      "order": 7
+    },
+    {
+      "src": "/images/gallery/gallery1.jpg",
+      "heading": "Filmi \"Kultuur sõja vastu\" linastus. Ukraina filmiklubi aastapäev Eestis",
+      "imageOrientation": "vertical",
+      "order": 1
+    },
+    {
+      "src": "/images/gallery/gallery2.jpg",
+      "heading": "Filmi \"Kultuur sõja vastu\" linastus. Ukraina filmiklubi aastapäev Eestis",
+      "imageOrientation": "vertical",
+      "order": 2
+    },
+    {
+      "src": "/images/gallery/gallery3.jpg",
+      "heading": "Filmi \"Kultuur sõja vastu\" linastus. Ukraina filmiklubi aastapäev Eestis",
+      "imageOrientation": "horizontal",
+      "order": 3
+    },
+    {
+      "src": "/images/gallery/gallery4.jpg",
+      "heading": "Filmi \"Kultuur sõja vastu\" linastus. Ukraina filmiklubi aastapäev Eestis",
+      "imageOrientation": "horizontal",
+      "order": 4
+    },
+    {
+      "src": "/images/gallery/gallery5.jpg",
+      "heading": "Filmi \"Kultuur sõja vastu\" linastus. Ukraina filmiklubi aastapäev Eestis",
+      "imageOrientation": "horizontal",
+      "order": 5
+    },
+    {
+      "src": "/images/gallery/gallery6.jpg",
+      "heading": "Filmi \"Kultuur sõja vastu\" linastus. Ukraina filmiklubi aastapäev Eestis",
+      "imageOrientation": "horizontal",
+      "order": 6
+    },
+    {
+      "src": "/images/gallery/gallery7.jpg",
+      "heading": "Filmi \"Kultuur sõja vastu\" linastus. Ukraina filmiklubi aastapäev Eestis",
+      "imageOrientation": "horizontal",
+      "order": 7
+    }
+  ]
 }

@@ -1,16 +1,22 @@
 import { NewsList } from '@/app/(shared)/components/ui/NewsList';
 import { SinglePageWrapper } from '@/app/(shared)/components/ui/SinglePageWrapper';
-import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
 import { RoutesEnum } from '@/app/(shared)/types/enums';
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
+import { NewsCardType } from '@/app/(shared)/components/ui/NewsCard/NewsCard.types';
+
+import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
 export default async function Page({ params: { locale } }: PageProps) {
-  const { t } = await initTranslations(locale, [i18nNamespaces.NEWS]);
+  const { t } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE, i18nNamespaces.NEWS]);
+  const newsData: NewsCardType[] = t('news', { returnObjects: true });
 
   return (
-    <SinglePageWrapper goBackLink={`${RoutesEnum.NEWS}`} linkText={t('goBack')}>
+    <SinglePageWrapper
+      goBackLink={`${RoutesEnum.NEWS}`}
+      linkText={t('goBack', { ns: i18nNamespaces.NEWS })}
+    >
       <div className="news-h1 news-img news-p prose max-w-full">
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         <h1>Кінопоказ фільму "Культура проти війни". Річниця Українського кіноклубу в Естонії</h1>
@@ -75,8 +81,8 @@ export default async function Page({ params: { locale } }: PageProps) {
       </div>
 
       <div className="py-15 md:py-25">
-        <h2 className="news-h2">{t('anotherNews')}</h2>
-        <NewsList locale={locale} data={Array.from({ length: 3 })} />
+        <h2 className="news-h2">{t('anotherNews', { ns: i18nNamespaces.NEWS })}</h2>
+        <NewsList locale={locale} data={newsData} />
       </div>
     </SinglePageWrapper>
   );

@@ -4,39 +4,31 @@ import Link from 'next/link';
 
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
+
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
-import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
-import NewsImage from '@/public/images/news.jpg';
+import { NewsCardType } from './NewsCard.types';
+import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 
 type Props = {
   locale: LocaleEnum;
-  image?: string;
-  date?: string;
-  title?: string;
-  description?: string;
-  link?: string;
+  card: NewsCardType;
+  Tag?: 'li' | 'div';
 };
 
-export const NewsCard: FC<Props> = async ({
-  locale,
-  image = NewsImage,
-  date = '12.02.2024',
-  title = 'Золоті руки',
-  description = `Спільні творчі проекти, з метою подальшого розвитку дрібного бізнесу: навчання
-  бісероплетіння, виготовлення сувенірів, свічок, підготовки та участь у ярмарках народної
-  творчості. За відповідних умов можливість отримання грантів для розвитку свого бізнесу.`,
-  link = RoutesEnum.HOME,
-}) => {
-  const { t } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE]);
+export const NewsCard: FC<Props> = async ({ locale, card, Tag = 'div' }) => {
+  const { t } = await initTranslations(locale, [i18nNamespaces.NEWS]);
+  const { image, date, title, description, slug } = card;
 
   return (
-    <li>
+    <Tag>
       <div className="rounded">
         <Image
           src={image}
           alt="new image"
+          width={384}
+          height={320}
           style={{
             objectFit: 'cover',
             objectPosition: 'center',
@@ -57,7 +49,7 @@ export const NewsCard: FC<Props> = async ({
 
         <Link
           className="base-transition ml-auto inline-flex items-center gap-x-1 hover:text-blue-600 focus:text-blue-600"
-          href={link}
+          href={`${RoutesEnum.NEWS}/${slug}`}
         >
           <Typography className="text-inherit" as="span">
             {t('readMore')}
@@ -66,6 +58,6 @@ export const NewsCard: FC<Props> = async ({
           <CustomIcon className="-rotate-90 text-blue-600" icon="arrow-sm" />
         </Link>
       </div>
-    </li>
+    </Tag>
   );
 };

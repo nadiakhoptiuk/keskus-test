@@ -19,7 +19,8 @@ export const FilterButtons: FC<Props> = ({ buttonsData, setEventsType, eventsTyp
           <Button
             key={type}
             variant={type === eventsType ? 'primary' : 'outline'}
-            className="h-10 !leading-[1.0] max-md:min-w-[150px] md:min-w-[170px]"
+            className={`h-10 !leading-[1.0] max-md:min-w-[150px] md:min-w-[170px] ${type === eventsType ? '!pointer-events-none' : ''}`}
+            disabled={type === eventsType}
             onClick={() => setEventsType(type)}
           >
             {tag}

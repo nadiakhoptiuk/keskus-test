@@ -17,7 +17,10 @@ export const Partners: FC<LocaleProps> = async ({ locale }) => {
   return (
     <Section>
       <Container>
-        <Typography as="h2" className="mb-10 !leading-[1.2]">
+        <Typography
+          as="h2"
+          className="mb-10 !leading-[1.2] max-xl:!text-ui_bold_32 xl:!text-ui_bold_40"
+        >
           {t('partners.subtitle')}
         </Typography>
 
