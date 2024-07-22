@@ -18,7 +18,7 @@ type Props = {
 };
 
 export const NewsCard: FC<Props> = async ({ locale, card, Tag = 'div' }) => {
-  const { t } = await initTranslations(locale, [i18nNamespaces.NEWS]);
+  const { t } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE]);
   const { image, date, title, description, slug } = card;
 
   return (

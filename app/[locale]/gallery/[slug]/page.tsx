@@ -8,11 +8,14 @@ import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 import { GalleryItemType } from '../components/GalleryItem/GalleryItem.types';
 
 export default async function Page({ params: { locale } }: PageProps) {
-  const { t } = await initTranslations(locale, [i18nNamespaces.GALLERY]);
+  const { t } = await initTranslations(locale, [i18nNamespaces.GALLERY, i18nNamespaces.HOMEPAGE]);
   const gallery: GalleryItemType[] = t('galleryList', { returnObjects: true });
 
   return (
-    <SinglePageWrapper goBackLink={RoutesEnum.GALLERY} linkText={t('goBack')}>
+    <SinglePageWrapper
+      goBackLink={RoutesEnum.GALLERY}
+      linkText={t('goBack', { ns: i18nNamespaces.HOMEPAGE })}
+    >
       <h1 className="single-page-title">
         {'Кінопоказ фільму "Культура проти війни". Річниця Українського кіноклубу в Естонії'}
       </h1>
