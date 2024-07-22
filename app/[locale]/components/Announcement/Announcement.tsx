@@ -1,5 +1,3 @@
-'use client';
-
 import { FC } from 'react';
 
 import { Calendar } from '@/app/[locale]/components/Announcement/components/Calendar';

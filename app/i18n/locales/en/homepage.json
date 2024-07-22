@@ -31,6 +31,8 @@
     }
   ],
 
+  "goBack": "Go back",
+
   "newsTitle": "News",
   "readMore": "Read more",
   "news": [

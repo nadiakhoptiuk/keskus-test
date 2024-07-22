@@ -17,7 +17,7 @@ export const Scroller: FC = () => {
         centeredSlides={true}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         modules={[Autoplay]}
-        className="mx-auto max-w-[1440px]"
+        className="mx-auto max-w-[1800px]"
         loop={true}
         breakpoints={{
           480: {
@@ -29,12 +29,12 @@ export const Scroller: FC = () => {
             spaceBetween: 20,
           },
           1280: {
-            slidesPerView: 6,
+            slidesPerView: 8,
             spaceBetween: 20,
           },
         }}
       >
-        {Array.from({ length: 10 }).map((_, index) => (
+        {Array.from({ length: 20 }).map((_, index) => (
           <SwiperSlide
             key={index}
             className="flex !h-15 !w-[220px] shrink-0 items-center justify-center"
