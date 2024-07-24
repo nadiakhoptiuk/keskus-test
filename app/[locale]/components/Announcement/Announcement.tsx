@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Link from 'next/link';
 
 import { Calendar } from '@/app/[locale]/components/Announcement/components/Calendar';
 import { Container } from '@/app/(shared)/components/ui/Container';
@@ -8,8 +9,9 @@ import { AnnouncementList } from './components/AnnouncementList/AnnouncementList
 
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
-import { i18nNamespaces, LocaleProps } from '@/app/(shared)/types/i18n.types';
 import { AnnouncementCardType } from './components/AnnouncementCard/AnnouncementCard.types';
+import { i18nNamespaces, LocaleProps } from '@/app/(shared)/types/i18n.types';
+import { RoutesEnum } from '@/app/(shared)/types/enums';
 
 export const Announcement: FC<LocaleProps> = async ({ locale }) => {
   const { t } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE]);
@@ -35,6 +37,12 @@ export const Announcement: FC<LocaleProps> = async ({ locale }) => {
         />
 
         <AnnouncementList list={announcementData} />
+        <Link
+          href={RoutesEnum.EVENTS}
+          className="base-transition btn-primary col-span-2 mx-auto flex min-h-[60px] w-max min-w-[220px] items-center justify-center px-8 py-4 text-ui_semibold_18 max-md:mt-15 md:mt-0 xl:mt-10"
+        >
+          {t('announcementLearnMore')}
+        </Link>
       </Container>
     </Section>
   );

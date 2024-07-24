@@ -31,10 +31,6 @@ export default async function Page({ params: { locale } }: PageProps) {
         </Container>
       </div>
 
-      {/* <div className="mb-15 h-[398px] md:mb-25 md:h-[308px] xl:h-[284px]">
-          
-        </div> */}
-
       <Container>
         <VacanciesList vacancies={vacancies} buttonsData={buttons} />
       </Container>
