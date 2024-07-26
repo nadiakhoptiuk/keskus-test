@@ -3,7 +3,7 @@ import { classnames } from '@/app/(shared)/utils/classnames';
 
 import { ContactItem } from '../ContactItem/ContactItem';
 
-import { ContactItemType } from '../ContactItem/ContactItem.types';
+import { ContactItemType } from '@/app/(shared)/types/common.types';
 
 type Props = {
   list: ContactItemType[];

@@ -4,31 +4,29 @@ import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { ContactsList } from '@/app/[locale]/contacts/components/ContactsList';
 import { FoundersList } from './components/FoundersList';
 import { GeneralInfo } from './components/GeneralInfo';
-import { FounderCardType } from './components/FounderCard/FounderCard.types';
 import { SendSuggestions } from './components/SendSuggestions';
 
-import { initTranslations } from '@/app/i18n/extensions/initTranslations';
+import { fetchContactsPage } from '@/requests/fetchContactsPage';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
-import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
-import { ContactItemType } from '@/app/[locale]/contacts/components/ContactItem/ContactItem.types';
 
 export default async function Page({ params: { locale } }: PageProps) {
-  const { t } = await initTranslations(locale, [i18nNamespaces.CONTACTS]);
-  const address: ContactItemType[] = t('address', { returnObjects: true });
-  const founders: FounderCardType[] = t('founders', { returnObjects: true });
+  const pageData = await fetchContactsPage(locale);
+  if (!pageData) return null;
+
+  const { page_title, contacts, text_description, contact_us_text_yellow_block } = pageData;
 
   return (
     <Section fixedWith={true} className="contacts-section py-10 md:py-15 xl:pt-[84px]">
       <Container>
         <Typography as="h1" className="mb-10 text-left text-zinc-50 md:mb-15 xl:mb-[10px]">
-          {t('title')}
+          {page_title}
         </Typography>
 
-        <ContactsList list={address} className="max-md:mb-15 md:mb-32 xl:mb-[104px]" />
-        <FoundersList list={founders} />
-        <GeneralInfo locale={locale} />
-        <SendSuggestions locale={locale} />
+        <ContactsList list={contacts} className="max-md:mb-15 md:mb-32 xl:mb-[104px]" />
+        <FoundersList locale={locale} />
+        <GeneralInfo locale={locale} text={text_description} />
+        <SendSuggestions text={contact_us_text_yellow_block} contacts={contacts} />
       </Container>
     </Section>
   );

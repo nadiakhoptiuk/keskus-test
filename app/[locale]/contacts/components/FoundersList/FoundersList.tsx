@@ -2,17 +2,17 @@ import { FC } from 'react';
 
 import { FounderCard } from '../FounderCard';
 
-import { FounderCardType } from '../FounderCard/FounderCard.types';
+import { fetchFounders } from '@/requests/fetchFounders';
 
-type Props = {
-  list: FounderCardType[];
-};
+import { LocaleProps } from '@/app/(shared)/types/i18n.types';
 
-export const FoundersList: FC<Props> = ({ list }) => {
+export const FoundersList: FC<LocaleProps> = async ({ locale }) => {
+  const founders = await fetchFounders(locale);
+
   return (
     <ul className="mb-10 grid gap-y-8 md:mb-15 md:grid-cols-2 md:gap-8 xl:grid-cols-3 2xl:gap-10">
-      {list.map(({ ...properties }, index) => (
-        <FounderCard key={index} {...properties} />
+      {founders.map(({ id, attributes }) => (
+        <FounderCard key={id} {...attributes} />
       ))}
     </ul>
   );
