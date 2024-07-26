@@ -1,16 +1,16 @@
 import { FC } from 'react';
+import Markdown from 'react-markdown';
 
 import { Section } from '@/app/(shared)/components/ui/Section';
 import { Container } from '@/app/(shared)/components/ui/Container';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 
-import { initTranslations } from '@/app/i18n/extensions/initTranslations';
+type Props = {
+  title: string;
+  text: string;
+};
 
-import { LocaleProps, i18nNamespaces } from '@/app/(shared)/types/i18n.types';
-
-export const Info: FC<LocaleProps> = async ({ locale }) => {
-  const { t } = await initTranslations(locale, [i18nNamespaces.ABOUT_US_PAGE]);
-
+export const Info: FC<Props> = async ({ title, text }) => {
   return (
     <Section
       fixedWith={true}
@@ -18,16 +18,13 @@ export const Info: FC<LocaleProps> = async ({ locale }) => {
     >
       <Container className="md:grid md:grid-cols-[255px_276px] md:gap-x-[138px] xl:grid-cols-[391px_544px] xl:gap-x-[281px]">
         <Typography as="h1" className="max-md:mb-[248px] md:w-[391px]">
-          {t('infoSection.title')}
+          {title}
         </Typography>
 
         <div className="xl:w-[512px] xl:pt-[102px]">
-          <Typography className="mb-8 text-[16px] md:text-[18px]">
-            {t('infoSection.aboutParagraph1')}
-          </Typography>
-          <Typography className="text-[16px] md:text-[18px]">
-            {t('infoSection.aboutParagraph2')}
-          </Typography>
+          <Markdown className="prose prose-p:mb-8 prose-p:mt-0 prose-p:text-[16px] last:prose-p:mb-0 md:prose-p:text-[18px]">
+            {text}
+          </Markdown>
         </div>
       </Container>
     </Section>

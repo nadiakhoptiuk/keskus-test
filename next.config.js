@@ -6,9 +6,8 @@ const nextConfig = {
     formats: ['image/webp'],
     remotePatterns: [{
       protocol: 'https',
-      hostname: 'picsum.photos',
+      hostname: "res.cloudinary.com",
       port: '',
-      pathname: '/seed/**',
     }]
   },
 

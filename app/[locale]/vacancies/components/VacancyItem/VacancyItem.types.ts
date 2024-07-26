@@ -2,8 +2,6 @@ export interface VacancyItemType {
   positionTitle: string;
   shortDescription: string;
   fullDescription: string;
-  type: string;
-  location: string;
   slug: string;
 }
 

@@ -1,27 +1,32 @@
 import { FC } from 'react';
 
-import { ContactItemType } from './ContactItem.types';
+import { ContactItemType } from '@/app/(shared)/types/common.types';
 
-export const ContactItem: FC<ContactItemType> = ({ id, href, heading, content }) => {
+export const ContactItem: FC<ContactItemType> = ({
+  contact_type,
+  contact_title,
+  content,
+  link,
+}) => {
   return (
     <>
       <p className="font-regular mb-1 text-[18px] leading-[1.6] text-zinc-50 opacity-50">
-        {heading}
+        {contact_title}
       </p>
 
-      {id === 'tel' && (
-        <a href={`tel:${href}`} className="font-regular text-[18px] leading-[1.6] text-zinc-50">
+      {contact_type === 'phone' && (
+        <a href={`tel:${link}`} className="font-regular text-[18px] leading-[1.6] text-zinc-50">
           {content}
         </a>
       )}
-      {id === 'email' && (
-        <a href={`mailto:${href}`} className="font-regular text-[18px] leading-[1.6] text-zinc-50">
+      {contact_type === 'email' && (
+        <a href={`mailto:${link}`} className="font-regular text-[18px] leading-[1.6] text-zinc-50">
           {content}
         </a>
       )}
-      {id === 'address' && (
+      {contact_type === 'address' && (
         <a
-          href={href}
+          href={link}
           target="_blank"
           rel="noopener noreferrer nofollow"
           className="font-regular text-[18px] leading-[1.6] text-zinc-50"

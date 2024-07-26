@@ -5,15 +5,14 @@ import { Container } from '@/app/(shared)/components/ui/Container';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { PartnersList } from '@/app/(shared)/components/ui/PartnersList';
 
-import { initTranslations } from '@/app/i18n/extensions/initTranslations';
+import { PartnerLogoType } from '@/app/(shared)/types/common.types';
 
-import { LocaleProps, i18nNamespaces } from '@/app/(shared)/types/i18n.types';
-import { icons } from '@/app/(shared)/components/ui/CustomIcon/CustomIcon.types';
+type Props = {
+  title: string;
+  list: PartnerLogoType[];
+};
 
-export const Partners: FC<LocaleProps> = async ({ locale }) => {
-  const { t } = await initTranslations(locale, [i18nNamespaces.ABOUT_US_PAGE]);
-  const partners: (keyof typeof icons)[] = t('partners.icons', { returnObjects: true });
-
+export const Partners: FC<Props> = async ({ title, list }) => {
   return (
     <Section>
       <Container>
@@ -21,10 +20,10 @@ export const Partners: FC<LocaleProps> = async ({ locale }) => {
           as="h2"
           className="mb-10 !leading-[1.2] max-xl:!text-ui_bold_32 xl:!text-ui_bold_40"
         >
-          {t('partners.subtitle')}
+          {title}
         </Typography>
 
-        <PartnersList partners={partners} />
+        <PartnersList partners={list} />
       </Container>
     </Section>
   );

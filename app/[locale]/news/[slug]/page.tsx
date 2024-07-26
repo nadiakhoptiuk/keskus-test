@@ -15,7 +15,7 @@ export default async function Page({ params: { locale } }: PageProps) {
   return (
     <SinglePageWrapper
       goBackLink={`${RoutesEnum.NEWS}`}
-      linkText={t('goBack', { ns: i18nNamespaces.HOMEPAGE })}
+      linkText={t('viewAll', { ns: i18nNamespaces.NEWS })}
     >
       <div className="news-h1 news-img news-p prose max-w-full">
         {/* eslint-disable-next-line react/no-unescaped-entities */}
