@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import Markdown from 'react-markdown';
 
-import { NewsList } from '@/app/(shared)/components/ui/NewsList';
 import { SinglePageWrapper } from '@/app/(shared)/components/ui/SinglePageWrapper';
+import { NewsList } from '@/app/(shared)/components/ui/NewsList';
+import { Typography } from '@/app/(shared)/components/ui/Typography';
 
 import { fetchAllNewsSlugs } from '@/requests/fetchAllNewsSlugs';
 import { fetchSingleNewsPageData } from '@/requests/fetchSingleNewsPageData';
@@ -55,9 +56,14 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
   return (
     <SinglePageWrapper goBackLink={`${RoutesEnum.NEWS}`} linkText={see_all_news_link}>
       <div className="max-w-full">
-        <h1>{title}</h1>
+        <Typography
+          as="h1"
+          className="w-[83%] max-md:mb-10 max-md:!text-ui_bold_20 md:mb-15 md:w-[58%] md:!text-ui_bold_32 xl:w-[904px] xl:!text-ui_bold_40"
+        >
+          {title}
+        </Typography>
 
-        <div className="mb-15 overflow-hidden md:mb-25 xl:h-[480px] xl:w-[1216px]">
+        <div className="mb-15 overflow-hidden rounded md:mb-25 xl:h-[480px] xl:w-[1216px] 2xl:h-[570px] 2xl:w-[1440px]">
           <Image
             src={url}
             alt={alt}
@@ -67,12 +73,44 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
           />
         </div>
 
-        <Markdown className="prose mx-auto max-w-[1008px] xl:w-[1008px]">{content}</Markdown>
+        <Markdown
+          components={{
+            h1: 'p',
+            h2: 'p',
+            h3: 'p',
+            h4: 'p',
+            h5: 'p',
+            h6: 'p',
+            a(props) {
+              const { href, children, ...rest } = props;
+              return (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer noopener nofollow"
+                  {...rest}
+                  className="base-transition font-bold hocus:text-blue-600"
+                >
+                  {children}
+                </a>
+              );
+            },
+          }}
+          className="prose mx-auto max-w-[1008px] pb-15 prose-p:mb-15 prose-p:mt-0 prose-p:text-ui_reg_16 last:prose-p:mb-0 prose-img:my-0 md:pb-25 md:prose-p:mb-20 md:prose-p:text-ui_reg_18 xl:w-[1008px]"
+        >
+          {content}
+        </Markdown>
       </div>
 
       {lastThreeNews && lastThreeNews.length > 0 && (
-        <div className="py-15 md:py-25">
-          <h2 className="news-h2">{subtitile_another_news}</h2>
+        <div className="pt-15 md:pt-25">
+          <Typography
+            as="h2"
+            className="mb-10 font-kyiv-type-sans max-xl:text-ui_bold_32 md:mb-15 xl:text-ui_bold_40"
+          >
+            {subtitile_another_news}
+          </Typography>
+
           <NewsList data={lastThreeNews} readMoreText={read_more_button} />
         </div>
       )}

@@ -26,7 +26,7 @@ export default async function Page({ params: { locale } }: PageProps) {
 
         <NewsList
           readMoreText={read_more_button}
-          data={[...news, ...news, ...news].slice(1)}
+          data={news}
           className="gap-x-8 gap-y-10 md:gap-y-15"
         />
       </Container>

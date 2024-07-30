@@ -16,6 +16,7 @@ export const getNewsPage = gql`
         attributes {
           title
           slug
+          date
           image {
             alt
             image {
