@@ -1,32 +1,44 @@
 import { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+// import { format } from 'date-fns';
 
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 
-import { initTranslations } from '@/app/i18n/extensions/initTranslations';
-
-import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
-import { NewsCardType } from './NewsCard.types';
-import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
+import { RoutesEnum } from '@/app/(shared)/types/enums';
+import { SingleNewDataType } from '@/app/(shared)/types/common.types';
 
 type Props = {
-  locale: LocaleEnum;
-  card: NewsCardType;
+  card: SingleNewDataType;
+  readMoreText: string;
   Tag?: 'li' | 'div';
 };
 
-export const NewsCard: FC<Props> = async ({ locale, card, Tag = 'div' }) => {
-  const { t } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE]);
-  const { image, date, title, description, slug } = card;
+export const NewsCard: FC<Props> = async ({ card, readMoreText, Tag = 'div' }) => {
+  const {
+    attributes: {
+      title,
+      slug,
+      // date,
+      image: {
+        alt,
+        image: {
+          data: {
+            attributes: { url },
+          },
+        },
+      },
+      content,
+    },
+  } = card;
 
   return (
     <Tag>
       <div className="rounded">
         <Image
-          src={image}
-          alt="new image"
+          src={url}
+          alt={alt}
           width={384}
           height={320}
           style={{
@@ -39,20 +51,20 @@ export const NewsCard: FC<Props> = async ({ locale, card, Tag = 'div' }) => {
       </div>
 
       <div className="grid gap-y-4 pt-5">
-        <Typography as="span" className="text-sm font-light text-zinc-500">
-          {date}
-        </Typography>
+        {/* <Typography as="span" className="text-sm font-light text-zinc-500">
+          {format(new Date(date), 'd.MM.y')}
+        </Typography> */}
 
         <Typography as="h3">{title}</Typography>
 
-        <Typography className="line-clamp-4">{description}</Typography>
+        <Typography className="line-clamp-4">{content}</Typography>
 
         <Link
           className="base-transition ml-auto inline-flex items-center gap-x-1 hover:text-blue-600 focus:text-blue-600"
           href={`${RoutesEnum.NEWS}/${slug}`}
         >
           <Typography className="text-inherit" as="span">
-            {t('readMore')}
+            {readMoreText}
           </Typography>
 
           <CustomIcon className="-rotate-90 text-blue-600" icon="arrow-sm" />

@@ -2,18 +2,22 @@ import { FC } from 'react';
 
 import { AnnouncementCard } from '../AnnouncementCard';
 
-import { AnnouncementCardType } from '../AnnouncementCard/AnnouncementCard.types';
+import { ActivityIrregularType } from '@/app/(shared)/types/common.types';
 
 type Props = {
-  list: AnnouncementCardType[];
+  list: ActivityIrregularType[] | null;
 };
 
 export const AnnouncementList: FC<Props> = ({ list }) => {
   return (
-    <ul className="grid w-full gap-y-10 grid-in-announcements">
-      {list.map((event, index) => (
-        <AnnouncementCard key={index} card={event} Tag="li" />
-      ))}
-    </ul>
+    <>
+      {list && list?.length !== 0 && (
+        <ul className="grid w-full gap-y-10 grid-in-announcements">
+          {list.map(activity => (
+            <AnnouncementCard key={activity.id} card={activity} Tag="li" />
+          ))}
+        </ul>
+      )}
+    </>
   );
 };

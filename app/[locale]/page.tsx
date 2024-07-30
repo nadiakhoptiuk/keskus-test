@@ -4,26 +4,46 @@ import { News } from '@/app/[locale]/components/News';
 import { Scroller } from '@/app/[locale]/components/Scroller';
 import { Support } from '@/app/[locale]/components/Support';
 
-import { PageProps } from '@/app/(shared)/types/common.types';
-import { initTranslations } from '@/app/i18n/extensions/initTranslations';
-import { TranslationsProvider } from '@/app/i18n/extensions/TranslationsProvider';
+import { fetchHomePage } from '@/requests/fetchHomePage';
 
-import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
+import { PageProps } from '@/app/(shared)/types/common.types';
 
 export default async function Page({ params: { locale } }: PageProps) {
-  const { resources } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE]);
+  const pageData = await fetchHomePage(locale);
+
+  if (!pageData) return null;
+
+  const {
+    homepage: {
+      page_title,
+      hero_text,
+      hero_button,
+      financial_support_subtitle,
+      financial_support_text,
+      announcement_subtitle,
+      announcement_button_today,
+      announcement_button_all_events,
+    },
+    irregularActivities,
+  } = pageData;
 
   return (
-    <TranslationsProvider
-      namespaces={[i18nNamespaces.HOMEPAGE]}
-      locale={locale}
-      resources={resources}
-    >
-      <Hero locale={locale} />
+    <>
+      <Hero locale={locale} pageTitle={page_title} text={hero_text} buttonText={hero_button} />
+
       <Scroller />
-      <Support locale={locale} />
-      <Announcement locale={locale} />
+
+      <Support title={financial_support_subtitle} text={financial_support_text} />
+
+      <Announcement
+        locale={locale}
+        title={announcement_subtitle}
+        btnToday={announcement_button_today}
+        allEventsBtnText={announcement_button_all_events}
+        allIrregularActivities={irregularActivities}
+      />
+
       <News locale={locale} />
-    </TranslationsProvider>
+    </>
   );
 }
