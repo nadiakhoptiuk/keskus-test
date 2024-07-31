@@ -14,6 +14,10 @@ export type WithError = {
   error?: string;
 };
 
+export type WithId = {
+  id: string;
+};
+
 export type RootLayoutProps = WithChildren & PageProps;
 
 export type PageProps = {
@@ -297,6 +301,27 @@ export type NewsGeneralDataType = {
   see_all_news_link: string;
   subtitile_another_news: string;
 };
+
+export type ServicesPageData = {
+  servicesPage: {
+    data: {
+      attributes: ServicesPageDataType;
+    };
+  };
+};
+
+export type ServicesPageDataType = {
+  page_title: string;
+  services_cards: ServiceCardTypeWithId[];
+};
+
+export type ServiceCardType = {
+  title: string;
+  icon: ImageComponentFromStrapi;
+  description: string;
+};
+
+export type ServiceCardTypeWithId = ServiceCardType & WithId;
 
 export type ActivityAreaType = {
   id: string;
