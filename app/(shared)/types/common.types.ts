@@ -108,6 +108,104 @@ export interface ActivityAreaCardType {
   list: string;
 }
 
+export interface ActivitiesData {
+  activities: {
+    data: ActivityCommonType[];
+  };
+}
+
+export interface ActivityCommonType {
+  id: string;
+  attributes: {
+    title: string;
+    description: string;
+    image: ImageComponentFromStrapi;
+    type: 'regular' | 'irregular';
+    activity_type: RegularActivityType[] | IrregularActivityType[];
+  };
+}
+
+export interface ActivityIrregularType {
+  id: string;
+  attributes: {
+    title: string;
+    description: string;
+    image: ImageComponentFromStrapi;
+    type: 'irregular';
+    activity_type: IrregularActivityType[];
+  };
+}
+
+interface ActivityInstanceType {
+  id: string;
+  typename: string;
+}
+
+export interface RegularActivityType extends ActivityInstanceType {
+  schedule: string;
+}
+
+export interface IrregularActivityType extends ActivityInstanceType {
+  date: Date;
+}
+
+type ValuePiece = Date | null;
+
+export type Value = ValuePiece;
+
+export type HomePageFetchData =
+  | {
+      homepage: HomePageType;
+      irregularActivities: ActivityIrregularType[];
+    }
+  | undefined;
+
+export type HomePageType = {
+  page_title: string;
+  hero_text: string;
+  hero_button: string;
+  financial_support_subtitle: string;
+  financial_support_text: string;
+  announcement_subtitle: string;
+  announcement_button_today: string;
+  announcement_button_all_events: string;
+};
+
+export type HomePageData = {
+  homePage: {
+    data: {
+      attributes: HomePageType;
+    };
+  };
+  activities: {
+    data: ActivityIrregularType[];
+  };
+};
+
+export type NewsSectionFetchData = {
+  newsPage: {
+    data: {
+      attributes: {
+        page_title: string;
+        read_more_button: string;
+      };
+    };
+  };
+  news: {
+    data: SingleNewDataType[];
+  };
+};
+
+export type NewsSectionDataType =
+  | {
+      generalInfo: {
+        page_title: string;
+        read_more_button: string;
+      };
+      lastThreeNews: SingleNewDataType[];
+    }
+  | undefined;
+
 export type AboutPageType =
   | {
       page_title: string;
@@ -125,6 +223,79 @@ export type AboutPageData = {
       attributes: AboutPageType;
     };
   };
+};
+
+export type AllNewsSlugsType = {
+  slug: string;
+}[];
+
+export type AllNewsSlugsData = {
+  news: {
+    data: slugType[];
+  };
+};
+
+type slugType = {
+  attributes: {
+    slug: string;
+  };
+};
+
+export type SingleNewsPageData = {
+  newsPage: {
+    data: {
+      attributes: NewsGeneralDataType;
+    };
+  };
+  currentNewsData: {
+    data: SingleNewDataType[];
+  };
+  lastThreeNews: {
+    data: SingleNewDataType[];
+  };
+};
+
+export type NewsPageData = {
+  newsPage: {
+    data: {
+      attributes: NewsGeneralDataType;
+    };
+  };
+  news: {
+    data: SingleNewDataType[];
+  };
+};
+
+export type SingleNewDataType = {
+  id: string;
+  attributes: {
+    title: string;
+    slug: string;
+    date: Date;
+    image: ImageComponentFromStrapi;
+    content: string;
+  };
+};
+
+export type SingleNewsPageDataType = {
+  generalInfo: NewsGeneralDataType;
+  currentNewsData: SingleNewDataType;
+  lastThreeNews: SingleNewDataType[];
+};
+
+export type NewsPageFetchData = {
+  newspage: {
+    page_title: string;
+    read_more_button: string;
+  };
+  news: SingleNewDataType[];
+};
+
+export type NewsGeneralDataType = {
+  page_title: string;
+  read_more_button: string;
+  see_all_news_link: string;
+  subtitile_another_news: string;
 };
 
 export type ActivityAreaType = {

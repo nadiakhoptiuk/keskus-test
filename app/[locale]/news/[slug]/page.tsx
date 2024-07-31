@@ -1,89 +1,119 @@
-import { NewsList } from '@/app/(shared)/components/ui/NewsList';
+import Image from 'next/image';
+import Markdown from 'react-markdown';
+
 import { SinglePageWrapper } from '@/app/(shared)/components/ui/SinglePageWrapper';
+import { NewsList } from '@/app/(shared)/components/ui/NewsList';
+import { Typography } from '@/app/(shared)/components/ui/Typography';
+
+import { fetchAllNewsSlugs } from '@/requests/fetchAllNewsSlugs';
+import { fetchSingleNewsPageData } from '@/requests/fetchSingleNewsPageData';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
-import { RoutesEnum } from '@/app/(shared)/types/enums';
-import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
-import { NewsCardType } from '@/app/(shared)/components/ui/NewsCard/NewsCard.types';
+import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
 
-import { initTranslations } from '@/app/i18n/extensions/initTranslations';
-
-export default async function Page({ params: { locale } }: PageProps) {
-  const { t } = await initTranslations(locale, [i18nNamespaces.HOMEPAGE, i18nNamespaces.NEWS]);
-  const newsData: NewsCardType[] = t('news', { returnObjects: true });
+export async function generateStaticParams({
+  params: { locale },
+}: {
+  params: { locale: LocaleEnum };
+}): Promise<Array<{ locale: LocaleEnum }>> {
+  const newsSlugsData = await fetchAllNewsSlugs(locale);
 
   return (
-    <SinglePageWrapper
-      goBackLink={`${RoutesEnum.NEWS}`}
-      linkText={t('viewAll', { ns: i18nNamespaces.NEWS })}
-    >
-      <div className="news-h1 news-img news-p prose max-w-full">
-        {/* eslint-disable-next-line react/no-unescaped-entities */}
-        <h1>Кінопоказ фільму "Культура проти війни". Річниця Українського кіноклубу в Естонії</h1>
+    newsSlugsData.map(news_item => {
+      return {
+        locale: locale,
+        slug: news_item.slug,
+      };
+    }) || []
+  );
+}
 
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/news-poster.jpeg" alt="" />
+export default async function Page({ params: { locale, slug } }: PageProps) {
+  if (!slug) return null;
 
-        <p>
-          Lorem ipsum dolor sit amet consectetur. Orci amet sodales et tellus consequat senectus
-          tincidunt. Mauris et sapien amet sed vitae ullamcorper neque. Egestas nunc id tortor purus
-          purus aliquet facilisi. Venenatis id amet sollicitudin vel. Commodo augue mattis hac
-          aliquam at. Dictumst sagittis felis sed rhoncus. Est nisl at commodo tellus sit eleifend a
-          risus. Et tellus faucibus ut pharetra quis et quisque egestas. Eu in eget ut iaculis ut.
-          Semper diam tellus dictum odio duis. Purus ut malesuada morbi integer sit in metus augue
-          quam. Lobortis massa vestibulum dictumst massa erat mattis risus aliquam. Et convallis
-          porttitor phasellus elit diam commodo erat. Nibh duis nibh congue turpis eget turpis
-          facilisi amet. Pharetra mauris orci tempus arcu ac curabitur sed ridiculus. Fermentum
-          dictum quis cursus quisque nibh integer ipsum. Lacus sit parturient vitae aliquet dolor.
-          Rhoncus neque pharetra facilisis ut tellus lacus id. Augue nunc semper metus integer diam
-          egestas risus. Lorem ipsum dolor sit amet consectetur. Orci amet sodales et tellus
-          consequat senectus tincidunt. Mauris et sapien amet sed vitae ullamcorper neque. Egestas
-          nunc id tortor purus purus aliquet facilisi. Venenatis id amet sollicitudin vel. Commodo
-          augue mattis hac aliquam at. Dictumst sagittis felis sed rhoncus. Est nisl at commodo
-          tellus sit eleifend a risus. Et tellus faucibus ut pharetra quis et quisque egestas. Eu in
-          eget ut iaculis ut. Semper diam tellus dictum odio duis. Purus ut malesuada morbi integer
-          sit in metus augue quam. Lobortis massa vestibulum dictumst massa erat mattis risus
-          aliquam. Et convallis porttitor phasellus elit diam commodo erat. Nibh duis nibh congue
-          turpis eget turpis facilisi amet. Pharetra mauris orci tempus arcu ac curabitur sed
-          ridiculus. Fermentum dictum quis cursus quisque nibh integer ipsum. Lacus sit parturient
-          vitae aliquet dolor. Rhoncus neque pharetra facilisis ut tellus lacus id. Augue nunc
-          semper metus integer diam egestas risus.
-        </p>
+  const pageData = await fetchSingleNewsPageData(locale, slug);
+  if (!pageData) return null;
 
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/news-second-img.jpeg" alt="" />
+  const {
+    generalInfo: { read_more_button, subtitile_another_news, see_all_news_link },
+    currentNewsData: {
+      attributes: {
+        title,
+        content,
+        image: {
+          alt,
+          image: {
+            data: {
+              attributes: { url },
+            },
+          },
+        },
+      },
+    },
+    lastThreeNews,
+  } = pageData;
 
-        <p>
-          Lorem ipsum dolor sit amet consectetur. Orci amet sodales et tellus consequat senectus
-          tincidunt. Mauris et sapien amet sed vitae ullamcorper neque. Egestas nunc id tortor purus
-          purus aliquet facilisi. Venenatis id amet sollicitudin vel. Commodo augue mattis hac
-          aliquam at. Dictumst sagittis felis sed rhoncus. Est nisl at commodo tellus sit eleifend a
-          risus. Et tellus faucibus ut pharetra quis et quisque egestas. Eu in eget ut iaculis ut.
-          Semper diam tellus dictum odio duis. Purus ut malesuada morbi integer sit in metus augue
-          quam. Lobortis massa vestibulum dictumst massa erat mattis risus aliquam. Et convallis
-          porttitor phasellus elit diam commodo erat. Nibh duis nibh congue turpis eget turpis
-          facilisi amet. Pharetra mauris orci tempus arcu ac curabitur sed ridiculus. Fermentum
-          dictum quis cursus quisque nibh integer ipsum. Lacus sit parturient vitae aliquet dolor.
-          Rhoncus neque pharetra facilisis ut tellus lacus id. Augue nunc semper metus integer diam
-          egestas risus. Lorem ipsum dolor sit amet consectetur. Orci amet sodales et tellus
-          consequat senectus tincidunt. Mauris et sapien amet sed vitae ullamcorper neque. Egestas
-          nunc id tortor purus purus aliquet facilisi. Venenatis id amet sollicitudin vel. Commodo
-          augue mattis hac aliquam at. Dictumst sagittis felis sed rhoncus. Est nisl at commodo
-          tellus sit eleifend a risus. Et tellus faucibus ut pharetra quis et quisque egestas. Eu in
-          eget ut iaculis ut. Semper diam tellus dictum odio duis. Purus ut malesuada morbi integer
-          sit in metus augue quam. Lobortis massa vestibulum dictumst massa erat mattis risus
-          aliquam. Et convallis porttitor phasellus elit diam commodo erat. Nibh duis nibh congue
-          turpis eget turpis facilisi amet. Pharetra mauris orci tempus arcu ac curabitur sed
-          ridiculus. Fermentum dictum quis cursus quisque nibh integer ipsum. Lacus sit parturient
-          vitae aliquet dolor. Rhoncus neque pharetra facilisis ut tellus lacus id. Augue nunc
-          semper metus integer diam egestas risus.
-        </p>
+  return (
+    <SinglePageWrapper goBackLink={`${RoutesEnum.NEWS}`} linkText={see_all_news_link}>
+      <div className="max-w-full">
+        <Typography
+          as="h1"
+          className="w-[83%] max-md:mb-10 max-md:!text-ui_bold_20 md:mb-15 md:w-[58%] md:!text-ui_bold_32 xl:w-[904px] xl:!text-ui_bold_40"
+        >
+          {title}
+        </Typography>
+
+        <div className="mb-15 overflow-hidden rounded md:mb-25 xl:h-[480px] xl:w-[1216px] 2xl:h-[570px] 2xl:w-[1440px]">
+          <Image
+            src={url}
+            alt={alt}
+            width={1216}
+            height={480}
+            className="my-0 h-full w-full object-cover object-center"
+          />
+        </div>
+
+        <Markdown
+          components={{
+            h1: 'p',
+            h2: 'p',
+            h3: 'p',
+            h4: 'p',
+            h5: 'p',
+            h6: 'p',
+            a(props) {
+              const { href, children, ...rest } = props;
+              return (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer noopener nofollow"
+                  {...rest}
+                  className="base-transition font-bold hocus:text-blue-600"
+                >
+                  {children}
+                </a>
+              );
+            },
+          }}
+          className="prose mx-auto max-w-[1008px] pb-15 prose-p:mb-15 prose-p:mt-0 prose-p:text-ui_reg_16 last:prose-p:mb-0 prose-img:my-0 md:pb-25 md:prose-p:mb-20 md:prose-p:text-ui_reg_18 xl:w-[1008px]"
+        >
+          {content}
+        </Markdown>
       </div>
 
-      <div className="py-15 md:py-25">
-        <h2 className="news-h2">{t('anotherNews', { ns: i18nNamespaces.NEWS })}</h2>
-        <NewsList locale={locale} data={newsData} />
-      </div>
+      {lastThreeNews && lastThreeNews.length > 0 && (
+        <div className="pt-15 md:pt-25">
+          <Typography
+            as="h2"
+            className="mb-10 font-kyiv-type-sans max-xl:text-ui_bold_32 md:mb-15 xl:text-ui_bold_40"
+          >
+            {subtitile_another_news}
+          </Typography>
+
+          <NewsList data={lastThreeNews} readMoreText={read_more_button} />
+        </div>
+      )}
     </SinglePageWrapper>
   );
 }
