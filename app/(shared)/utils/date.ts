@@ -2,7 +2,7 @@ import { LocaleEnum } from '@/app/(shared)/types/enums';
 import { format } from 'date-fns';
 import { enUS, uk, et } from 'date-fns/locale';
 
-const getCurrentLocale = (locale: LocaleEnum) => {
+export const getCurrentLocale = (locale: LocaleEnum | string) => {
   switch (locale) {
     case LocaleEnum.EN:
       return enUS;

@@ -1,24 +1,26 @@
 'use client';
 
-import { FC } from 'react';
-import ReactCalendar from 'react-calendar';
+import { FC, useState } from 'react';
+import { DayPicker } from 'react-day-picker';
+import { format, startOfMonth } from 'date-fns';
 import { classnames } from '@/app/(shared)/utils/classnames';
+import 'react-day-picker/style.css';
 
 import { Button } from '@/app/(shared)/components/ui/Button';
-import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { Spinner } from '@/app/(shared)/components/ui/Spinner/Spinner';
 
-import { getMonthWithYear } from '@/app/(shared)/utils/date';
+import { getCurrentLocale } from '@/app/(shared)/utils/date';
 import { useClient } from '@/app/(shared)/hooks/useClient';
 
 import { LocaleEnum } from '@/app/(shared)/types/enums';
-import { Value, WithClassName } from '@/app/(shared)/types/common.types';
+import { WithClassName } from '@/app/(shared)/types/common.types';
 
 type Props = WithClassName & {
   locale: LocaleEnum;
   btnToday: string;
-  calendarValue: Value;
-  onDateChange: (value: Value) => void;
+  calendarValue: Date;
+  onDateChange: (date: Date) => void;
+  availableDatesAtCalendar: Date[];
 };
 
 export const Calendar: FC<Props> = ({
@@ -27,8 +29,10 @@ export const Calendar: FC<Props> = ({
   className,
   calendarValue,
   onDateChange,
+  availableDatesAtCalendar,
 }) => {
   const { isBrowser } = useClient();
+  const [month, setMonth] = useState<Date>(startOfMonth(new Date()));
 
   if (!isBrowser)
     return (
@@ -46,31 +50,45 @@ export const Calendar: FC<Props> = ({
     );
 
   return (
-    <div className={classnames('my-10 grid gap-y-5 md:my-0 md:gap-y-6', className)}>
-      <div className="h-max md:flex md:items-center md:justify-between">
-        <Typography as="h3" className="font-fixel !text-ui_bold_20 first-letter:capitalize">
-          {getMonthWithYear(locale)}
-        </Typography>
+    <div className={classnames('relative my-10 grid gap-y-5 md:my-0 md:gap-y-6', className)}>
+      <Button
+        variant="outline"
+        className="absolute right-0 top-0 z-[1] min-w-[127px] bg-blue-50 text-ui_med_16 max-md:hidden"
+        onClick={() => {
+          onDateChange(new Date());
+          setMonth(new Date());
+        }}
+      >
+        {btnToday}
+      </Button>
 
-        <Button
-          variant="outline"
-          className="min-w-[127px] bg-blue-50 text-ui_med_16 max-md:hidden"
-          onClick={() => {
-            onDateChange(new Date());
-          }}
-        >
-          {btnToday}
-        </Button>
-      </div>
-
-      <ReactCalendar
-        value={calendarValue}
-        onChange={value => onDateChange(value as Value)}
-        calendarType="iso8601"
-        defaultView="month"
-        locale={locale}
-        showNavigation={false}
-        view="month"
+      <DayPicker
+        mode="single"
+        onSelect={onDateChange}
+        selected={calendarValue}
+        required={true}
+        locale={getCurrentLocale(locale)}
+        weekStartsOn={1}
+        month={month}
+        onMonthChange={setMonth}
+        hideNavigation={true}
+        captionLayout="dropdown"
+        startMonth={new Date()}
+        endMonth={new Date(2045, 12)}
+        showOutsideDays={true}
+        formatters={{
+          formatCaption: (date, options) => format(date, 'LLLL yyyy', options),
+        }}
+        modifiers={{
+          available: availableDatesAtCalendar,
+        }}
+        modifiersClassNames={{
+          available: 'day-with-available-event',
+        }}
+        classNames={{
+          today: `text-blue-600 !font-bold`,
+          selected: `!bg-blue-600 text-white !rounded-none`,
+        }}
       />
     </div>
   );

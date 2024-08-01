@@ -221,32 +221,42 @@
 }
 
 /*React Calendar*/
-.react-calendar__viewContainer {
-  @apply w-full max-w-[336px] border-none bg-transparent text-center font-kyiv-type-sans text-sm font-normal text-black xl:max-w-[442px];
+.rdp-day {
+  @apply border-[1px] border-grey;
+}
+.rdp-day_button {
+  @apply !rounded-none border-[1px] border-grey !font-fixel text-black max-xl:!text-ui_reg_14 max-md:!h-11 max-md:!w-11 md:h-[48px] md:w-[48px] xl:!h-[64px] xl:!w-[64px];
+}
+.rdp-selected .rdp-day_button {
+  @apply !border-none bg-blue-600 !text-white;
+}
+.rdp-day.rdp-outside {
+  @apply pointer-events-none !bg-[#EFF6FF] text-[#A8A8A8];
+}
+.rdp-weekday {
+  @apply !capitalize !text-black !opacity-100 max-xl:!text-ui_semibold_16 max-md:!h-11 max-md:!w-11 md:h-[48px] md:w-[48px] xl:!h-[64px] xl:!w-[64px] xl:!text-ui_semibold_18;
+}
+.rdp-caption_label {
+  @apply font-fixel !capitalize max-xl:!text-ui_bold_20 xl:!text-ui_bold_28;
+}
+.rdp-month_caption {
+  @apply mb-[23px];
+}
+.rdp-dropdowns {
+  @apply !gap-2;
+}
+.rdp-dropdown_root {
+  @apply flex cursor-pointer !items-start justify-center gap-1;
+}
+.rdp-dropdown_root svg {
+  @apply !hidden;
+}
+.rdp-dropdown_root::after {
+  @apply relative right-0 top-0 size-5 !text-blue-600 content-arrow-dropdown;
 }
 
-.react-calendar__month-view__weekdays {
-  @apply py-5;
-}
-
-.react-calendar__month-view__weekdays abbr {
-  @apply text-sm font-semibold no-underline first:capitalize;
-}
-
-.react-calendar__tile {
-  @apply border-b border-r border-zinc-200 py-3 xl:py-5;
-}
-
-.react-calendar__tile--active {
-  @apply border-b border-r border-zinc-200 bg-blue-600 py-3 text-zinc-50 xl:py-5;
-}
-
-.react-calendar__month-view__days {
-  @apply border border-b-0 border-r-0 border-zinc-200;
-}
-
-.react-calendar__month-view__days__day--neighboringMonth {
-  @apply bg-blue-50 text-zinc-400;
+.rdp-day.day-with-available-event {
+  @apply rounded-full bg-blue-200;
 }
 
 /* NEWS SLIDER */

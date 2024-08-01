@@ -32,7 +32,7 @@ export const Hero: FC<Props> = async ({ locale, pageTitle, text, buttonText }) =
     >
       <div className="w-full bg-yellow-400 max-md:py-10 md:bg-transparent">
         <Container className="relative grid grid-rows-1 from-yellow-400 to-zinc-50 md:grid-cols-[1fr_1fr] md:grid-rows-1 md:gap-4 md:bg-gradient-to-r md:from-[446px] md:to-[446px] md:pb-25 md:pt-15 xl:gap-[62px] xl:from-[654px] xl:to-[654px] xl:pb-[94px] xl:pt-[86px]">
-          <div className="space-y-10 xl:w-[547px] xl:space-y-11 xl:p-0">
+          <div className="space-y-10 xl:min-h-[525px] xl:w-[540px] xl:space-y-11 xl:p-0">
             <Typography as="h1">{pageTitle}</Typography>
 
             <Markdown className="prose-p:font-regular prose prose-p:mb-10 prose-p:font-fixel prose-p:text-[18px] prose-p:leading-[1.6] last:prose-p:mb-0 xl:prose-p:mb-11">

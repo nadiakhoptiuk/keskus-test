@@ -26,18 +26,18 @@ export const AnnouncementCard: FC<Props> = ({ card, Tag = 'div' }) => {
   } = card.attributes;
 
   return (
-    <Tag className="w-full md:flex md:items-stretch md:gap-x-10 xl:h-[184px]">
-      <div className="grid gap-y-4 pb-5 md:pb-0">
+    <Tag className="w-full md:flex md:items-center md:gap-x-10 xl:h-[184px]">
+      <div className="grid h-max gap-y-4 pb-5 md:pb-0">
         <Typography as="span" className="text-sm font-light text-zinc-500">
           {format(new Date(activity_type[0].date), 'MMMM d, y')}
         </Typography>
 
         <Typography as="h3">{title}</Typography>
 
-        <Typography className="line-clamp-4">{description}</Typography>
+        <Typography className="max-md:line-clamp-6 md:line-clamp-4">{description}</Typography>
       </div>
 
-      <div className="h-[184px] w-[224px] shrink-0 overflow-hidden rounded">
+      <div className="h-[184px] shrink-0 overflow-hidden rounded max-md:w-full md:w-[233px] xl:w-[224px]">
         <Image
           src={url}
           alt="new image"

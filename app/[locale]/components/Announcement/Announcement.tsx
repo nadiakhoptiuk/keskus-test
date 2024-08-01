@@ -11,7 +11,7 @@ import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { AnnouncementList } from './components/AnnouncementList/AnnouncementList';
 
 import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
-import { ActivityIrregularType, Value } from '@/app/(shared)/types/common.types';
+import { ActivityIrregularType } from '@/app/(shared)/types/common.types';
 
 type Props = {
   locale: LocaleEnum;
@@ -19,6 +19,7 @@ type Props = {
   btnToday: string;
   allEventsBtnText: string;
   allIrregularActivities: ActivityIrregularType[];
+  availableDatesAtCalendar: Date[];
 };
 
 export const Announcement: FC<Props> = ({
@@ -27,8 +28,9 @@ export const Announcement: FC<Props> = ({
   btnToday,
   allEventsBtnText,
   allIrregularActivities,
+  availableDatesAtCalendar,
 }) => {
-  const [value, onChange] = useState<Value>(new Date());
+  const [value, onChange] = useState<Date>(new Date());
   const [announcementData, setAnnouncementData] = useState<ActivityIrregularType[] | null>(null);
 
   useEffect(() => {
@@ -56,11 +58,12 @@ export const Announcement: FC<Props> = ({
         </div>
 
         <Calendar
-          className="max-h-[442px] shrink-0 grid-in-calendar max-md:mx-auto md:ml-auto xl:-mt-10"
+          className="shrink-0 grid-in-calendar max-md:mx-auto md:ml-auto xl:-mt-10"
           locale={locale}
           btnToday={btnToday}
           calendarValue={value}
           onDateChange={onChange}
+          availableDatesAtCalendar={availableDatesAtCalendar}
         />
 
         <AnnouncementList list={announcementData} />

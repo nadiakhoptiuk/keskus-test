@@ -1,12 +1,11 @@
 import { FC } from 'react';
 
-import { FilterButtonType } from '../FilterButtons/FilterButtons.types';
-import { EventCardType } from '../EventCard/EventCard.types';
 import { EventCard } from '../EventCard';
+import { ActivityCommonType, EventLabelType } from '@/app/(shared)/types/common.types';
 
 type Props = {
-  buttonsData: FilterButtonType[];
-  events: EventCardType[];
+  buttonsData: EventLabelType[];
+  events: ActivityCommonType[];
 };
 
 export const EventsList: FC<Props> = ({ buttonsData, events }) => {
