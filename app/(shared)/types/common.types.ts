@@ -118,14 +118,16 @@ export interface ActivitiesData {
   };
 }
 
+export type ActivityType = 'regular' | 'irregular';
+
 export interface ActivityCommonType {
   id: string;
   attributes: {
     title: string;
     description: string;
     image: ImageComponentFromStrapi;
-    type: 'regular' | 'irregular';
-    activity_type: RegularActivityType[] | IrregularActivityType[];
+    type: ActivityType;
+    activity_type: RegularActivityTypeWithId[] | IrregularActivityTypeWithId[];
   };
 }
 
@@ -136,21 +138,21 @@ export interface ActivityIrregularType {
     description: string;
     image: ImageComponentFromStrapi;
     type: 'irregular';
-    activity_type: IrregularActivityType[];
+    activity_type: IrregularActivityTypeWithId[];
   };
 }
 
-interface ActivityInstanceType {
-  id: string;
-  typename: string;
-}
+export type RegularActivityTypeWithId = RegularActivityType & WithId;
+export type IrregularActivityTypeWithId = IrregularActivityType & WithId;
 
-export interface RegularActivityType extends ActivityInstanceType {
+export interface RegularActivityType {
   schedule: string;
+  typename: 'ComponentActivitiesRegularActivity';
 }
 
-export interface IrregularActivityType extends ActivityInstanceType {
+export interface IrregularActivityType {
   date: Date;
+  typename: 'ComponentActivitiesIrregularActivities';
 }
 
 type ValuePiece = Date | null;
@@ -322,6 +324,37 @@ export type ServiceCardType = {
 };
 
 export type ServiceCardTypeWithId = ServiceCardType & WithId;
+
+export type EventsPageData = {
+  eventsPage: {
+    data: {
+      attributes: {
+        page_title: string;
+        labels: EventLabelType[];
+        read_more_button: string;
+      };
+    };
+  };
+  activities: {
+    data: ActivityCommonType[];
+  };
+};
+
+export type EventsPageDataType = {
+  generalInfo: {
+    page_title: string;
+    labels: EventLabelType[];
+    read_more_button: string;
+  };
+  activities: ActivityCommonType[];
+};
+
+export type EventLabelType = {
+  id: string;
+  type_of_activity: ActivityType;
+  label_at_image: string;
+  filter_button_label: string;
+};
 
 export type ActivityAreaType = {
   id: string;

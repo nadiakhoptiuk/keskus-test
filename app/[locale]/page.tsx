@@ -5,6 +5,7 @@ import { Scroller } from '@/app/[locale]/components/Scroller';
 import { Support } from '@/app/[locale]/components/Support';
 
 import { fetchHomePage } from '@/requests/fetchHomePage';
+import { availableEventsDates } from '../(shared)/utils/availableEventsDates';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
 
@@ -27,6 +28,8 @@ export default async function Page({ params: { locale } }: PageProps) {
     irregularActivities,
   } = pageData;
 
+  const availableDatesAtCalendar = availableEventsDates(irregularActivities);
+
   return (
     <>
       <Hero locale={locale} pageTitle={page_title} text={hero_text} buttonText={hero_button} />
@@ -41,6 +44,7 @@ export default async function Page({ params: { locale } }: PageProps) {
         btnToday={announcement_button_today}
         allEventsBtnText={announcement_button_all_events}
         allIrregularActivities={irregularActivities}
+        availableDatesAtCalendar={availableDatesAtCalendar}
       />
 
       <News locale={locale} />

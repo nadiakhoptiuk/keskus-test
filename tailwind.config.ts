@@ -12,6 +12,7 @@ const config: Config = {
     extend: {
       colors: {
         black: '#0A0A0A',
+        grey: '#D5D4DF',
         blue: {
           600: '#2E58A1',
         },
@@ -72,12 +73,21 @@ const config: Config = {
       content: {
         'grain-left-blue': 'url("/decor/grain-left-blue-decor.svg")',
         'grain-right-blue': 'url("/decor/grain-right-blue-decor.svg")',
+        'arrow-dropdown': 'url("/icons/arrow-dropdown.svg")',
       },
 
       fontSize: {
         // reg_16 - 400 16px
 
         // ----------------------------- REGULAR -----------------------------
+        ui_reg_14: [
+          '14px',
+          {
+            lineHeight: '1.14',
+            fontWeight: '400',
+          },
+        ],
+
         ui_reg_16: [
           '16px',
           {
@@ -113,6 +123,22 @@ const config: Config = {
         ],
 
         // ----------------------------- SEMIBOLD -----------------------------
+
+        ui_semibold_14: [
+          '14px',
+          {
+            lineHeight: '1.14',
+            fontWeight: '600',
+          },
+        ],
+
+        ui_semibold_16: [
+          '16px',
+          {
+            lineHeight: '1.14',
+            fontWeight: '600',
+          },
+        ],
 
         ui_semibold_18: [
           '18px',

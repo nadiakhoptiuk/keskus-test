@@ -1,6 +1,5 @@
 'use client';
 import { FC, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { Section } from '@/app/(shared)/components/ui/Section';
 import { Container } from '@/app/(shared)/components/ui/Container';
@@ -8,52 +7,46 @@ import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { FilterButtons } from '../FilterButtons';
 import { EventsList } from '../EventsList';
 
-import { FilterButtonType } from '../FilterButtons/FilterButtons.types';
-import { EventCardTagType, EventCardType } from '../EventCard/EventCard.types';
-import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
+import {
+  ActivityCommonType,
+  ActivityType,
+  EventsPageDataType,
+} from '@/app/(shared)/types/common.types';
 
-export const Events: FC = () => {
-  const [filterData, setFilterData] = useState<FilterButtonType[] | null>(null);
-  const [allEvents, setAllEvents] = useState<EventCardType[] | null>(null);
-  const [filteredEvents, setFilteredEvents] = useState<EventCardType[] | null>(null);
-  const [eventsType, setEventsType] = useState<EventCardTagType>('regular');
-  const { t, i18n } = useTranslation([i18nNamespaces.EVENTS]);
-
-  useEffect(() => {
-    if (!t) return;
-
-    const filter: FilterButtonType[] = t('filter', { returnObjects: true });
-    const events: EventCardType[] = t('events', { returnObjects: true });
-
-    setFilterData(filter);
-    setAllEvents(events);
-  }, [i18n.language, t]);
+export const Events: FC<EventsPageDataType> = ({
+  generalInfo: { page_title, labels },
+  activities,
+}) => {
+  const [filteredEvents, setFilteredEvents] = useState<ActivityCommonType[] | null>(null);
+  const [eventsType, setEventsType] = useState<ActivityType>('regular');
 
   useEffect(() => {
-    if (!allEvents) return;
-    const filteredEvents = allEvents.filter(({ type }) => type === eventsType);
+    if (!activities || activities.length === 0) return;
+    const filteredEvents = activities.filter(({ attributes: { type } }) => type === eventsType);
 
     setFilteredEvents(filteredEvents);
-  }, [allEvents, eventsType]);
+  }, [activities, eventsType]);
 
   return (
     <Section className="py-10 md:py-15 xl:pt-[84px]">
       <Container>
-        {filterData && filteredEvents && t && (
+        {labels && filteredEvents && (
           <>
             <div className="xl:mb-15 xl:flex xl:items-center xl:justify-between">
               <Typography as="h1" className="mb-10 text-left text-black md:mb-15 xl:mb-0">
-                {t('title')}
+                {page_title}
               </Typography>
 
+              {/* {eventsType === 'irregular' && <DateFilter />} */}
+
               <FilterButtons
-                buttonsData={filterData}
+                buttonsData={labels}
                 setEventsType={setEventsType}
                 eventsType={eventsType}
               />
             </div>
 
-            <EventsList buttonsData={filterData} events={filteredEvents} />
+            <EventsList buttonsData={labels} events={filteredEvents} />
           </>
         )}
       </Container>

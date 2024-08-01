@@ -19,10 +19,10 @@ export const Footer: FC = ({ ...props }) => {
       <Container className="decor-border-top relative grid grid-cols-sm grid-rows-sm justify-items-center gap-x-10 gap-y-10 text-center grid-areas-footerSm md:grid-cols-md md:grid-rows-md md:items-start md:justify-items-stretch md:gap-x-[134px] md:text-left md:grid-areas-footerMd xl:md:gap-x-[290px] xl:grid-cols-xl xl:grid-rows-xl xl:grid-areas-footerXl">
         <SiteLogo className="grid-in-footerLogo" />
 
-        <nav className="w-full grid-in-footerNav md:w-[203px]">
-          <ul className="grid grid-cols-2 grid-rows-4 items-center justify-center gap-y-3.5  md:gap-x-10">
+        <nav className="min-w-[200px] max-w-max grid-in-footerNav">
+          <ul className="grid grid-cols-2 grid-rows-4 items-center justify-center gap-y-3.5 max-md:gap-x-25 md:gap-x-10 xl:gap-x-20">
             {menuItems.map(({ title, href }) => (
-              <li key={title.toLowerCase()}>
+              <li className="w-max" key={title.toLowerCase()}>
                 <NavbarLink href={href} title={title} variant="footer" />
               </li>
             ))}
