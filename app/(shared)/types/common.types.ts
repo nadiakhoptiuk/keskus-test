@@ -147,12 +147,12 @@ export type IrregularActivityTypeWithId = IrregularActivityType & WithId;
 
 export interface RegularActivityType {
   schedule: string;
-  typename: 'ComponentActivitiesRegularActivity';
+  __typename: 'ComponentActivitiesRegularActivity';
 }
 
 export interface IrregularActivityType {
   date: Date;
-  typename: 'ComponentActivitiesIrregularActivities';
+  __typename: 'ComponentActivitiesIrregularActivities';
 }
 
 type ValuePiece = Date | null;
@@ -328,11 +328,7 @@ export type ServiceCardTypeWithId = ServiceCardType & WithId;
 export type EventsPageData = {
   eventsPage: {
     data: {
-      attributes: {
-        page_title: string;
-        labels: EventLabelType[];
-        read_more_button: string;
-      };
+      attributes: EventsPageGeneralData;
     };
   };
   activities: {
@@ -341,12 +337,14 @@ export type EventsPageData = {
 };
 
 export type EventsPageDataType = {
-  generalInfo: {
-    page_title: string;
-    labels: EventLabelType[];
-    read_more_button: string;
-  };
+  generalInfo: EventsPageGeneralData;
   activities: ActivityCommonType[];
+};
+
+export type EventsPageGeneralData = {
+  page_title: string;
+  labels: EventLabelType[];
+  read_more_button: string;
 };
 
 export type EventLabelType = {

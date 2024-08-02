@@ -240,7 +240,7 @@
   @apply font-fixel !capitalize max-xl:!text-ui_bold_20 xl:!text-ui_bold_28;
 }
 .rdp-month_caption {
-  @apply mb-[23px];
+  @apply mb-5;
 }
 .rdp-dropdowns {
   @apply !gap-2;
@@ -257,6 +257,16 @@
 
 .rdp-day.day-with-available-event {
   @apply rounded-full bg-blue-200;
+}
+
+/* DatePicker */
+
+.datePicker .rdp-day_button {
+  @apply max-md:!h-9 max-md:!w-9;
+}
+
+.dayPicker .rdp-weekday {
+  @apply max-md:!h-9 max-md:!w-9;
 }
 
 /* NEWS SLIDER */

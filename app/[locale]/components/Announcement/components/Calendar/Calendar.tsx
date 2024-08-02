@@ -21,6 +21,7 @@ type Props = WithClassName & {
   calendarValue: Date;
   onDateChange: (date: Date) => void;
   availableDatesAtCalendar: Date[];
+  btnTodayClassName?: string;
 };
 
 export const Calendar: FC<Props> = ({
@@ -30,6 +31,7 @@ export const Calendar: FC<Props> = ({
   calendarValue,
   onDateChange,
   availableDatesAtCalendar,
+  btnTodayClassName: buttonTodayClassName = '',
 }) => {
   const { isBrowser } = useClient();
   const [month, setMonth] = useState<Date>(startOfMonth(new Date()));
@@ -50,10 +52,15 @@ export const Calendar: FC<Props> = ({
     );
 
   return (
-    <div className={classnames('relative my-10 grid gap-y-5 md:my-0 md:gap-y-6', className)}>
+    <div
+      className={classnames('relative my-10 grid max-w-max gap-y-5 md:my-0 md:gap-y-6', className)}
+    >
       <Button
         variant="outline"
-        className="absolute right-0 top-0 z-[1] min-w-[127px] bg-blue-50 text-ui_med_16 max-md:hidden"
+        className={classnames(
+          'absolute right-0 top-0 z-[1] bg-blue-50 text-ui_med_16 max-md:min-w-max max-md:px-4 md:min-w-[127px]',
+          buttonTodayClassName,
+        )}
         onClick={() => {
           onDateChange(new Date());
           setMonth(new Date());

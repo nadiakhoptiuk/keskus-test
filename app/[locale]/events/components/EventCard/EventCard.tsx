@@ -58,7 +58,7 @@ export const EventCard: FC<Props> = ({ event, filterData }) => {
         <h2 className="mb-[18px] text-ui_bold_28">{title}</h2>
         <Typography as="p">{description}</Typography>
 
-        {activity_type[0].typename === 'ComponentActivitiesRegularActivity' && (
+        {activity_type[0].__typename === 'ComponentActivitiesRegularActivity' && (
           <div className="mt-7 grid grid-cols-[12px_auto] items-start gap-2 md:mt-auto">
             <CustomIcon
               icon="arrow-sm"
