@@ -5,7 +5,7 @@ import { Scroller } from '@/app/[locale]/components/Scroller';
 import { Support } from '@/app/[locale]/components/Support';
 
 import { fetchHomePage } from '@/requests/fetchHomePage';
-import { availableEventsDates } from '../(shared)/utils/availableEventsDates';
+import { availableIrregularEventsDates } from '../(shared)/utils/availableEventsDates';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
 
@@ -28,7 +28,7 @@ export default async function Page({ params: { locale } }: PageProps) {
     irregularActivities,
   } = pageData;
 
-  const availableDatesAtCalendar = availableEventsDates(irregularActivities);
+  const availableDatesAtCalendar = availableIrregularEventsDates(irregularActivities);
 
   return (
     <>

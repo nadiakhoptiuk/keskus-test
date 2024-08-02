@@ -14,6 +14,7 @@ const config: Config = {
         black: '#0A0A0A',
         grey: '#D5D4DF',
         blue: {
+          50: '#EFF6FF',
           600: '#2E58A1',
         },
         yellow: {
@@ -74,6 +75,10 @@ const config: Config = {
         'grain-left-blue': 'url("/decor/grain-left-blue-decor.svg")',
         'grain-right-blue': 'url("/decor/grain-right-blue-decor.svg")',
         'arrow-dropdown': 'url("/icons/arrow-dropdown.svg")',
+      },
+
+      dropShadow: {
+        xl: 'box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25)',
       },
 
       fontSize: {

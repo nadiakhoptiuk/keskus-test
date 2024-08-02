@@ -3,7 +3,9 @@ import { WithClassName } from '@/app/(shared)/types/common.types';
 import Adaptation from '@/public/icons/adaptation.svg';
 import Arrow from '@/public/icons/arrow-up.svg';
 import ArrowSm from '@/public/icons/arrow-sm.svg';
+import ArrowDropdown from '@/public/icons/arrow-dropdown.svg';
 import Burger from '@/public/icons/burger.svg';
+import Calendar from '@/public/icons/calendar.svg';
 import Clipboard from '@/public/icons/clipboard.svg';
 import CloseMenu from '@/public/icons/close-menu.svg';
 import Facebook from '@/public/icons/facebook.svg';
@@ -26,7 +28,9 @@ export const icons = {
   adaptation: Adaptation,
   arrow: Arrow,
   'arrow-sm': ArrowSm,
+  'arrow-md': ArrowDropdown,
   burger: Burger,
+  calendar: Calendar,
   clipboard: Clipboard,
   closeMenu: CloseMenu,
   facebook: Facebook,
