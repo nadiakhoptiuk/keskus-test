@@ -11,7 +11,6 @@ export const getHomePage = gql`
           financial_support_subtitle
           financial_support_text
           announcement_subtitle
-          announcement_button_today
           announcement_button_all_events
         }
       }
@@ -47,6 +46,7 @@ export const getHomePage = gql`
               date
             }
           }
+          slug
         }
       }
     }
@@ -54,7 +54,6 @@ export const getHomePage = gql`
       data {
         attributes {
           page_title
-          read_more_button
         }
       }
     }

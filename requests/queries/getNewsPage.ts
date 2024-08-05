@@ -6,7 +6,6 @@ export const getNewsPage = gql`
       data {
         attributes {
           page_title
-          read_more_button
         }
       }
     }

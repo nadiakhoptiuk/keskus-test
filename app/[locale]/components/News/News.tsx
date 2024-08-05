@@ -1,11 +1,15 @@
 import { FC } from 'react';
 
+import { initTranslations } from '@/app/i18n/extensions/initTranslations';
+import { fetchLastThreeNews } from '@/requests/fetchLastThreeNews';
+
 import { Container } from '@/app/(shared)/components/ui/Container/Container';
 import { NewsList } from '@/app/(shared)/components/ui/NewsList';
 import { Section } from '@/app/(shared)/components/ui/Section';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
-import { fetchLastThreeNews } from '@/requests/fetchLastThreeNews';
+
 import { LocaleEnum } from '@/app/(shared)/types/enums';
+import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 
 type Props = {
   locale: LocaleEnum;
@@ -14,9 +18,10 @@ type Props = {
 export const News: FC<Props> = async ({ locale }) => {
   const newsSectionData = await fetchLastThreeNews(locale);
   if (!newsSectionData) return null;
+  const { t } = await initTranslations(locale, [i18nNamespaces.COMMON]);
 
   const {
-    generalInfo: { page_title: sectionTitle, read_more_button },
+    generalInfo: { page_title: sectionTitle },
     lastThreeNews,
   } = newsSectionData;
 
@@ -27,7 +32,7 @@ export const News: FC<Props> = async ({ locale }) => {
           {sectionTitle}
         </Typography>
 
-        <NewsList data={lastThreeNews} readMoreText={read_more_button} />
+        <NewsList data={lastThreeNews} readMoreText={t('read_more_btn')} />
       </Container>
     </Section>
   );

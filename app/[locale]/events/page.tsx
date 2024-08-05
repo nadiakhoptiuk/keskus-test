@@ -28,7 +28,7 @@ export default async function Page({ params: { locale } }: PageProps) {
         activities={activities}
         locale={locale}
         datesForCalendar={datesForCalendar}
-        btnTodayLabel={t('btnToday')}
+        btnTodayLabel={t('btn_today')}
       />
     </TranslationsProvider>
   );

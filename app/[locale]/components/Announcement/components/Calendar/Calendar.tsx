@@ -33,8 +33,9 @@ export const Calendar: FC<Props> = ({
   availableDatesAtCalendar,
   btnTodayClassName: buttonTodayClassName = '',
 }) => {
+  const today = new Date();
   const { isBrowser } = useClient();
-  const [month, setMonth] = useState<Date>(startOfMonth(new Date()));
+  const [month, setMonth] = useState<Date>(startOfMonth(today));
 
   if (!isBrowser)
     return (
@@ -62,8 +63,8 @@ export const Calendar: FC<Props> = ({
           buttonTodayClassName,
         )}
         onClick={() => {
-          onDateChange(new Date());
-          setMonth(new Date());
+          onDateChange(today);
+          setMonth(today);
         }}
       >
         {btnToday}
@@ -71,6 +72,7 @@ export const Calendar: FC<Props> = ({
 
       <DayPicker
         mode="single"
+        disabled={{ before: today }}
         onSelect={onDateChange}
         selected={calendarValue}
         required={true}

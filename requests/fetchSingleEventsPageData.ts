@@ -3,14 +3,14 @@ import { request } from 'graphql-request';
 import { getSingleEventPageData } from './queries/getSingleEventPageData';
 
 import { LocaleEnum } from '@/app/(shared)/types/enums';
-import { ActivitiesData, ActivityCommonType } from '@/app/(shared)/types/common.types';
+import { EventSinglePageData, EventSinglePageDataType } from '@/app/(shared)/types/common.types';
 
 export const fetchSingleEventPageData = async (
   locale: LocaleEnum,
   slug: string,
-): Promise<ActivityCommonType | undefined> => {
+): Promise<EventSinglePageDataType | undefined> => {
   try {
-    const data: ActivitiesData = await request(
+    const data: EventSinglePageData = await request(
       process.env.API_BASE_URL as string,
       getSingleEventPageData,
       {
@@ -19,7 +19,10 @@ export const fetchSingleEventPageData = async (
       },
     );
 
-    return data.activities.data[0];
+    return {
+      labels: data.eventsPage.data.attributes.labels,
+      event: data.activities.data[0],
+    };
   } catch {
     return undefined;
   }

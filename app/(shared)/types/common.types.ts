@@ -177,7 +177,6 @@ export type HomePageType = {
   financial_support_subtitle: string;
   financial_support_text: string;
   announcement_subtitle: string;
-  announcement_button_today: string;
   announcement_button_all_events: string;
 };
 
@@ -192,12 +191,29 @@ export type HomePageData = {
   };
 };
 
+export type EventSinglePageDataType = {
+  labels: EventLabelType[];
+  event: ActivityCommonType;
+};
+
+export type EventSinglePageData = {
+  eventsPage: {
+    data: {
+      attributes: {
+        labels: EventLabelType[];
+      };
+    };
+  };
+  activities: {
+    data: ActivityCommonType[];
+  };
+};
+
 export type NewsSectionFetchData = {
   newsPage: {
     data: {
       attributes: {
         page_title: string;
-        read_more_button: string;
       };
     };
   };
@@ -210,7 +226,6 @@ export type NewsSectionDataType =
   | {
       generalInfo: {
         page_title: string;
-        read_more_button: string;
       };
       lastThreeNews: SingleNewDataType[];
     }
@@ -302,15 +317,12 @@ export type SingleNewsPageDataType = {
 export type NewsPageFetchData = {
   newspage: {
     page_title: string;
-    read_more_button: string;
   };
   news: SingleNewDataType[];
 };
 
 export type NewsGeneralDataType = {
   page_title: string;
-  read_more_button: string;
-  see_all_news_link: string;
   subtitile_another_news: string;
 };
 
@@ -354,7 +366,6 @@ export type EventsPageDataType = {
 export type EventsPageGeneralData = {
   page_title: string;
   labels: EventLabelType[];
-  read_more_button: string;
 };
 
 export type EventLabelType = {
