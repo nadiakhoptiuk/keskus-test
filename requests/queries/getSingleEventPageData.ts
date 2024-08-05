@@ -1,22 +1,8 @@
 import { gql } from 'graphql-request';
 
-export const getEventsPage = gql`
-  query ($locale: I18NLocaleCode) {
-    eventsPage(locale: $locale) {
-      data {
-        attributes {
-          page_title
-          labels {
-            id
-            type_of_activity
-            label_at_image
-            filter_button_label
-          }
-          read_more_button
-        }
-      }
-    }
-    activities(locale: $locale, pagination: { limit: 100 }) {
+export const getSingleEventPageData = gql`
+  query ($locale: I18NLocaleCode, $slug: String) {
+    activities(locale: $locale, filters: { slug: { eq: $slug } }) {
       data {
         id
         attributes {
@@ -45,6 +31,7 @@ export const getEventsPage = gql`
             }
           }
           slug
+          registration_url
         }
       }
     }

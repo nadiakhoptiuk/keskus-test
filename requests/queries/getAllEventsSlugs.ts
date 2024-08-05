@@ -1,8 +1,8 @@
 import { gql } from 'graphql-request';
 
-export const getAllNewsSlugs = gql`
+export const getAllEventsSlugs = gql`
   query ($locale: I18NLocaleCode) {
-    news(locale: $locale, pagination: { limit: 100 }) {
+    activities(locale: $locale, pagination: { limit: 100 }) {
       data {
         attributes {
           slug

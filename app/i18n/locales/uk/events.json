@@ -1,55 +1,5 @@
 {
   "title": "Діючі проєкти",
-  "filter": [
-    { "type": "regular", "tag": "Регулярні", "label": "Регулярно" },
-    { "type": "irregular", "tag": "Нерегулярні", "label": "Нерегулярно" }
-  ],
-  "events": [
-    {
-      "type": "regular",
-      "heading": "Жіночий клуб",
-      "details": "Щотижневі зустрічі, спілкування в україномовному середовищі, проведення тематичних заходів, психологічних ігор, арт-терапії, тренінгів, спілкування з представниками естонських державних та приватних структур.",
-      "schedule": "Вихідні Дні (один раз на тиждень)",
-      "href": "/images/woman-club.jpg"
-    },
-    {
-      "type": "regular",
-      "heading": "Український денний центр",
-      "details": "Український денний центр: працює на постійній основі, де можуть перебувати діти у віці 3-14 років. У центрі забезпечується україномовне середовище, доступ до української літератури. Проходять творчі майстер-класи, тематичні дні.",
-      "schedule": "5 днів на тиждень, крім вихідних з 10:00 до 16:00",
-      "href": "/images/portrait-of-siblings-standing-on-field@2x.jpg"
-    },
-    {
-      "type": "regular",
-      "heading": "Йога",
-      "details": "Lorem ipsum dolor sit amet consectetur. Facilisis lorem id varius ullamcorper aliquet massa mauris vulputate.",
-      "schedule": "2 рази на тиждень",
-      "href": "/images/yoga.jpg"
-    },
-    {
-      "type": "regular",
-      "heading": "Дитячий фітнес",
-      "details": "Спільні творчі проекти, з метою подальшого розвитку дрібного бізнесу: навчання бісероплетіння, виготовлення сувенірів, свічок, підготовки та участь у ярмарках народної творчості. За відповідних умов – кулінарні проекти – ліплення вареників, проведення майстер-класів українською традиційною кухнею.",
-      "schedule": "1 раз на тиждень",
-      "href": "/images/childrens-fitness.jpg"
-    },
-    {
-      "type": "irregular",
-      "heading": "«Золоті руки»",
-      "details": "Спільні творчі проекти, з метою подальшого розвитку дрібного бізнесу: навчання бісероплетіння, виготовлення сувенірів, свічок, підготовки та участь у ярмарках народної творчості. За відповідних умов – кулінарні проекти – ліплення вареників, проведення майстер-класів українською традиційною кухнею.",
-      "href": "/images/golden-hands.jpg"
-    },
-    {
-      "type": "irregular",
-      "heading": "Дитячі табори",
-      "details": "Разом з естонськими дітьми lorem ipsum dolor sit amet consectetur. Facilisis lorem id varius ullamcorper aliquet massa mauris vulputate. Lorem ipsum dolor sit amet consectetur. Facilisis lorem id varius ullamcorper aliquet massa mauris vulputate.",
-      "href": "/images/portrait-of-siblings-standing-on-field@2x.jpg"
-    },
-    {
-      "type": "irregular",
-      "heading": "«Відкриваючи Естонію»",
-      "details": "Lorem ipsum dolor sit amet consectetur. Facilisis lorem id varius ullamcorper aliquet massa mauris vulputate.",
-      "href": "/images/discovering-estonia.jpg"
-    }
-  ]
+  "registration_btn": "Реєстрація",
+  "go_back_link": "Повернутися до всіх заходів"
 }

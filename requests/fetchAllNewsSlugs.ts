@@ -3,9 +3,9 @@ import { request } from 'graphql-request';
 import { getAllNewsSlugs } from './queries/getAllNewsSlugs';
 
 import { LocaleEnum } from '@/app/(shared)/types/enums';
-import { AllNewsSlugsData, AllNewsSlugsType } from '@/app/(shared)/types/common.types';
+import { AllNewsSlugsData, AllSlugsCommonType } from '@/app/(shared)/types/common.types';
 
-export const fetchAllNewsSlugs = async (locale: LocaleEnum): Promise<AllNewsSlugsType> => {
+export const fetchAllNewsSlugs = async (locale: LocaleEnum): Promise<AllSlugsCommonType> => {
   try {
     const data: AllNewsSlugsData = await request(
       process.env.API_BASE_URL as string,

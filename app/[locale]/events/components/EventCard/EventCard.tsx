@@ -1,17 +1,21 @@
 import { FC } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { format } from 'date-fns';
 
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
 
 import { ActivityCommonType, EventLabelType } from '@/app/(shared)/types/common.types';
+import { RoutesEnum } from '@/app/(shared)/types/enums';
 
 type Props = {
   event: ActivityCommonType;
   filterData: EventLabelType[];
+  readMoreText: string;
 };
 
-export const EventCard: FC<Props> = ({ event, filterData }) => {
+export const EventCard: FC<Props> = ({ event, filterData, readMoreText }) => {
   const {
     attributes: {
       title,
@@ -26,6 +30,7 @@ export const EventCard: FC<Props> = ({ event, filterData }) => {
       },
       activity_type,
       type,
+      slug,
     },
   } = event;
 
@@ -56,19 +61,29 @@ export const EventCard: FC<Props> = ({ event, filterData }) => {
 
       <div className="flex flex-col">
         <h2 className="mb-[18px] text-ui_bold_28">{title}</h2>
-        <Typography as="p">{description}</Typography>
 
-        {activity_type[0].__typename === 'ComponentActivitiesRegularActivity' && (
-          <div className="mt-7 grid grid-cols-[12px_auto] items-start gap-2 md:mt-auto">
-            <CustomIcon
-              icon="arrow-sm"
-              className="mt-1 inline-flex shrink-0 -rotate-90 text-blue-600"
-            />
-            <Typography as="p" className="">
-              {activity_type[0].schedule}
-            </Typography>
-          </div>
-        )}
+        <div className="mb-[18px] w-full bg-blue-50 px-2 py-1">
+          <Typography as="span" className="!text-ui_med_16 text-blue-600">
+            {activity_type[0].__typename === 'ComponentActivitiesRegularActivity'
+              ? activity_type[0].schedule
+              : format(new Date(activity_type[0].date), 'dd.MM.y')}
+          </Typography>
+        </div>
+
+        <Typography as="p" className="mb-[28px] line-clamp-5">
+          {description}
+        </Typography>
+
+        <Link
+          href={`${RoutesEnum.EVENTS}/${slug}`}
+          className="ml-auto mt-auto flex items-center gap-1"
+        >
+          <span>{readMoreText}</span>
+          <CustomIcon
+            icon="arrow-sm"
+            className="inline-flex !size-[14px] shrink-0 -rotate-90 text-blue-600"
+          />
+        </Link>
       </div>
     </li>
   );

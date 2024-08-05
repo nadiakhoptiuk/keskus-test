@@ -128,6 +128,8 @@ export interface ActivityCommonType {
     image: ImageComponentFromStrapi;
     type: ActivityType;
     activity_type: RegularActivityTypeWithId[] | IrregularActivityTypeWithId[];
+    slug: string;
+    registration_url: string;
   };
 }
 
@@ -139,6 +141,8 @@ export interface ActivityIrregularType {
     image: ImageComponentFromStrapi;
     type: 'irregular';
     activity_type: IrregularActivityTypeWithId[];
+    slug: string;
+    registration_url: string;
   };
 }
 
@@ -231,12 +235,18 @@ export type AboutPageData = {
   };
 };
 
-export type AllNewsSlugsType = {
+export type AllSlugsCommonType = {
   slug: string;
 }[];
 
 export type AllNewsSlugsData = {
   news: {
+    data: slugType[];
+  };
+};
+
+export type AllEventsSlugsData = {
+  activities: {
     data: slugType[];
   };
 };
