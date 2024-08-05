@@ -22,13 +22,8 @@ export const Clipboard: FC<Props> = ({ label, value, className }) => {
         {label}
       </Typography>
 
-      <div className="relative">
-        <input
-          className="block w-full text-wrap border-transparent bg-blue-50 py-3 pl-4 pr-14 text-base font-normal text-black shadow-sm focus:border-blue-50 focus:ring-0"
-          type="text"
-          defaultValue={value}
-          disabled
-        />
+      <div className="relative w-fit border-transparent bg-blue-50 py-3 pl-4 pr-14 shadow-sm">
+        <span className="block w-fit !text-wrap text-base font-normal text-black">{value}</span>
 
         <Button
           className="absolute right-4 top-1/2 -translate-y-1/2 transform text-blue-600 hocus:text-yellow-400"

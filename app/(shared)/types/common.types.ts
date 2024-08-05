@@ -166,6 +166,7 @@ export type Value = ValuePiece;
 export type HomePageFetchData =
   | {
       homepage: HomePageType;
+      tabPanels: TabPanelType[];
       irregularActivities: ActivityIrregularType[];
     }
   | undefined;
@@ -186,9 +187,24 @@ export type HomePageData = {
       attributes: HomePageType;
     };
   };
+  tabPanels: { data: TabPanelType[] };
   activities: {
     data: ActivityIrregularType[];
   };
+};
+
+export type TabPanelType = {
+  id: string;
+  attributes: {
+    payment_system: string;
+    tab_clipboard: TabClipboardType[];
+  };
+};
+
+export type TabClipboardType = {
+  id: string;
+  title: string;
+  content: string;
 };
 
 export type EventSinglePageDataType = {

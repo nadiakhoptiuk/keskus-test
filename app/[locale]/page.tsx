@@ -28,6 +28,7 @@ export default async function Page({ params: { locale } }: PageProps) {
       announcement_subtitle,
       announcement_button_all_events,
     },
+    tabPanels,
     irregularActivities,
   } = pageData;
 
@@ -39,7 +40,11 @@ export default async function Page({ params: { locale } }: PageProps) {
 
       <Scroller />
 
-      <Support title={financial_support_subtitle} text={financial_support_text} />
+      <Support
+        title={financial_support_subtitle}
+        text={financial_support_text}
+        tabsData={tabPanels}
+      />
 
       <Announcement
         locale={locale}

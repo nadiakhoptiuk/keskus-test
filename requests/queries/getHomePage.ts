@@ -15,6 +15,19 @@ export const getHomePage = gql`
         }
       }
     }
+    tabPanels(locale: $locale, pagination: { limit: 10 }) {
+      data {
+        id
+        attributes {
+          payment_system
+          tab_clipboard {
+            id
+            title
+            content
+          }
+        }
+      }
+    }
     activities(
       locale: $locale
       pagination: { limit: 100 }
@@ -47,34 +60,6 @@ export const getHomePage = gql`
             }
           }
           slug
-        }
-      }
-    }
-    newsPage(locale: $locale) {
-      data {
-        attributes {
-          page_title
-        }
-      }
-    }
-    news(locale: $locale, sort: "date:desc", pagination: { limit: 3 }) {
-      data {
-        id
-        attributes {
-          title
-          slug
-          date
-          image {
-            alt
-            image {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-          }
-          content
         }
       }
     }
