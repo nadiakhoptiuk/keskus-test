@@ -41,6 +41,7 @@ export default async function Page({ params: { locale } }: PageProps) {
       <Scroller />
 
       <Support
+        locale={locale}
         title={financial_support_subtitle}
         text={financial_support_text}
         tabsData={tabPanels}

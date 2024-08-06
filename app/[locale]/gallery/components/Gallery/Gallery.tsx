@@ -3,27 +3,44 @@ import { FC } from 'react';
 import { GalleryItem } from '@/app/[locale]/gallery/components/GalleryItem';
 
 import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
-import { TestGalleryItem } from '../TestGallery/TestGallery.types';
+import { SingleGalleryEventItemTypeWithId } from '@/app/(shared)/types/common.types';
 
 type Props = {
-  data: TestGalleryItem[];
+  data: SingleGalleryEventItemTypeWithId[];
   locale: LocaleEnum;
-  onlyImage?: boolean;
 };
 
-export const Gallery: FC<Props> = ({ data, locale, onlyImage = false }) => {
+export const Gallery: FC<Props> = ({ data, locale }) => {
   return (
     <ul className="gallery-grid">
-      {data.map(({ src, heading }, index) => (
-        <GalleryItem
-          key={index}
-          title={heading}
-          image={src}
-          locale={locale}
-          link={`${RoutesEnum.GALLERY}/${index + 1}`}
-          onlyImage={onlyImage}
-        />
-      ))}
+      {data.map(
+        ({
+          id,
+          attributes: {
+            title,
+            slug,
+            main_image: {
+              alt,
+              image: {
+                data: {
+                  attributes: { url },
+                },
+              },
+            },
+            gallery,
+          },
+        }) => (
+          <GalleryItem
+            key={id}
+            alt={alt}
+            title={title}
+            image={url}
+            locale={locale}
+            link={`${RoutesEnum.GALLERY}/${slug}`}
+            galleryLength={gallery.length}
+          />
+        ),
+      )}
     </ul>
   );
 };

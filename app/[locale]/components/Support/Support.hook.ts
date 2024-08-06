@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useCopyToClipboard } from 'react-use';
 
 const INTERVAL = 2500;
@@ -7,7 +6,6 @@ const INTERVAL = 2500;
 export const useClipboard = (value: string) => {
   const [_, copyToClipboard] = useCopyToClipboard();
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const { t } = useTranslation();
 
   const handleCopy = () => {
     copyToClipboard(value);
@@ -27,6 +25,5 @@ export const useClipboard = (value: string) => {
   return {
     handleCopy,
     isVisible,
-    t,
   };
 };

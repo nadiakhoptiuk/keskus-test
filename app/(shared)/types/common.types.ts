@@ -282,10 +282,62 @@ export type AllEventsSlugsData = {
   };
 };
 
+export type AllGalleryEventsSlugsData = {
+  galleryEvents: {
+    data: slugType[];
+  };
+};
+
 type slugType = {
   attributes: {
     slug: string;
   };
+};
+
+export type MainGalleryImage = {
+  main_image: ImageComponentFromStrapi;
+};
+
+export type SingleGalleryEventType = {
+  title: string;
+  gallery: GalleryItemType[];
+};
+
+export type SingleGalleryEventItemTypeWithId = SingleGalleryEventItemType & WithId;
+
+export type SingleGalleryEventItemType = {
+  attributes: {
+    title: string;
+    slug: string;
+    main_image: ImageComponentFromStrapi;
+    gallery: GalleryItemType[];
+  };
+};
+
+export type GalleryItemType = ImageComponentFromStrapi & WithId;
+
+export type GalleryPageData = {
+  galleryPage: {
+    data: {
+      attributes: {
+        page_title: string;
+      };
+    };
+  };
+  galleryEvents: {
+    data: SingleGalleryEventItemTypeWithId[];
+  };
+};
+
+export type GalleryEventsFetchData = {
+  galleryEvents: {
+    data: SingleGalleryEventItemTypeWithId[];
+  };
+};
+
+export type GalleryPageFetchData = {
+  page_title: string;
+  gallery: SingleGalleryEventItemTypeWithId[];
 };
 
 export type SingleNewsPageData = {

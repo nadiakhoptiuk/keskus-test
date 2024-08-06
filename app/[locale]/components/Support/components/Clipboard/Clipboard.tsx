@@ -1,20 +1,22 @@
 import { FC } from 'react';
 
+import { useClipboard } from '@/app/[locale]/components/Support/Support.hook';
+
 import { Button } from '@/app/(shared)/components/ui/Button';
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { classnames } from '@/app/(shared)/utils/classnames';
-import { useClipboard } from '@/app/[locale]/components/Support/Support.hook';
 
 import { WithClassName } from '@/app/(shared)/types/common.types';
 
 type Props = WithClassName & {
   label: string;
   value: string;
+  clipboardNotificate: string;
 };
 
-export const Clipboard: FC<Props> = ({ label, value, className }) => {
-  const { handleCopy, isVisible, t } = useClipboard(value);
+export const Clipboard: FC<Props> = ({ label, value, className, clipboardNotificate }) => {
+  const { handleCopy, isVisible } = useClipboard(value);
 
   return (
     <div className={classnames('w-full max-w-[280px] space-y-1', className)}>
@@ -40,7 +42,7 @@ export const Clipboard: FC<Props> = ({ label, value, className }) => {
             )}
             role="tooltip"
           >
-            {t('clipboardSuccess')}
+            {clipboardNotificate}
           </span>
         )}
       </div>

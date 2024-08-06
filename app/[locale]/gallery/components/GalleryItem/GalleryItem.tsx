@@ -1,50 +1,40 @@
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
-import Link from 'next/link';
 import { FC } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
-import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
+import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
+
 import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
+import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 
 type Props = {
   title: string;
+  alt: string;
   link: string;
   image: string;
   locale: LocaleEnum;
-  onlyImage?: boolean;
+  galleryLength: number;
 };
 
 export const GalleryItem: FC<Props> = async ({
-  title = 'Кінопоказ фільму "Культура проти війни". Річниця Українського кіноклубу в Естонії',
+  title,
+  alt,
   image,
   locale,
   link = RoutesEnum.HOME,
-  onlyImage = false,
+  galleryLength,
 }) => {
   const { t } = await initTranslations(locale, [i18nNamespaces.GALLERY]);
-
-  if (onlyImage)
-    return (
-      <li className="gallery-item overflow-hidden shadow-sm">
-        <Image
-          className="h-full w-full object-cover"
-          src={image}
-          width={700}
-          height={400}
-          alt={title}
-        />
-      </li>
-    );
 
   return (
     <li className="gallery-item group relative overflow-hidden shadow-sm" tabIndex={0}>
       <Image
         className="relative z-0 aspect-square h-full w-full object-cover"
         src={image}
-        alt={title}
+        alt={alt}
         width={700}
         height={400}
       />
@@ -53,14 +43,16 @@ export const GalleryItem: FC<Props> = async ({
         <div className="flex h-full flex-col">
           <h2 className="max-w-[280px] text-balance font-fixel text-xl font-bold">{title}</h2>
 
-          <Link
-            className="base-transition ml-auto mt-auto inline-flex items-center gap-x-1 text-base font-medium hocus:text-yellow-400"
-            href={link}
-          >
-            {t('watchAllPhotos')}
+          {galleryLength > 0 && (
+            <Link
+              className="base-transition ml-auto mt-auto inline-flex items-center gap-x-1 text-base font-medium hocus:text-yellow-400"
+              href={link}
+            >
+              {t('watchAllPhotos')}
 
-            <CustomIcon className="-rotate-90 text-yellow-400" icon="arrow-sm" />
-          </Link>
+              <CustomIcon className="-rotate-90 text-yellow-400" icon="arrow-sm" />
+            </Link>
+          )}
         </div>
       </div>
     </li>

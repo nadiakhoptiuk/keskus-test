@@ -10,9 +10,10 @@ import { TabPanelType } from '@/app/(shared)/types/common.types';
 
 type Props = {
   tabsData: TabPanelType[];
+  clipboardNotificate: string;
 };
 
-export const Tabs: FC<Props> = ({ tabsData }) => {
+export const Tabs: FC<Props> = ({ tabsData, clipboardNotificate }) => {
   return (
     <TabGroup className="flex h-fit w-full flex-col max-md:min-h-[370px] max-md:gap-10 md:gap-15">
       <TabList className="flex h-fit gap-2.5 md:gap-3">
@@ -31,6 +32,7 @@ export const Tabs: FC<Props> = ({ tabsData }) => {
                   className="w-full max-w-[500px]"
                   label={title}
                   value={content}
+                  clipboardNotificate={clipboardNotificate}
                 />
               ))}
             </div>

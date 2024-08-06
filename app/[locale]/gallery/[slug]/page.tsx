@@ -1,26 +1,45 @@
-import { Gallery } from '@/app/[locale]/gallery/components/Gallery';
 import { SinglePageWrapper } from '@/app/(shared)/components/ui/SinglePageWrapper';
+import { SinglePageGallery } from '../components/SinglePageGallery';
+
+import { fetchAllGalleryEventsSlugs } from '@/requests/fetchAllGalleryEventsSlugs';
+import { fetchSingleGalleryEvent } from '@/requests/fetchSingleGalleryEvent';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
-import { RoutesEnum } from '@/app/(shared)/types/enums';
+import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
-import { GalleryItemType } from '../components/GalleryItem/GalleryItem.types';
 
-export default async function Page({ params: { locale } }: PageProps) {
-  const { t } = await initTranslations(locale, [i18nNamespaces.GALLERY, i18nNamespaces.HOMEPAGE]);
-  const gallery: GalleryItemType[] = t('galleryList', { returnObjects: true });
+export async function generateStaticParams({
+  params: { locale },
+}: {
+  params: { locale: LocaleEnum };
+}): Promise<Array<{ locale: LocaleEnum }>> {
+  const galleryEventsSlugsData = await fetchAllGalleryEventsSlugs(locale);
 
   return (
-    <SinglePageWrapper
-      goBackLink={RoutesEnum.GALLERY}
-      linkText={t('goBack', { ns: i18nNamespaces.HOMEPAGE })}
-    >
-      <h1 className="single-page-title">
-        {'Кінопоказ фільму "Культура проти війни". Річниця Українського кіноклубу в Естонії'}
-      </h1>
+    galleryEventsSlugsData.map(galleryEvent => {
+      return {
+        locale: locale,
+        slug: galleryEvent.slug,
+      };
+    }) || []
+  );
+}
 
-      <Gallery data={gallery} locale={locale} onlyImage />
+export default async function Page({ params: { locale, slug } }: PageProps) {
+  if (!slug) return null;
+  const pageData = await fetchSingleGalleryEvent(locale, slug);
+  if (!pageData) return null;
+
+  const { title, gallery } = pageData;
+
+  const { t } = await initTranslations(locale, [i18nNamespaces.GALLERY]);
+
+  return (
+    <SinglePageWrapper goBackLink={RoutesEnum.GALLERY} linkText={t('goBack')}>
+      <h1 className="single-page-title">{title}</h1>
+
+      <SinglePageGallery data={gallery} />
     </SinglePageWrapper>
   );
 }
