@@ -75,6 +75,7 @@ const config: Config = {
         'grain-left-blue': 'url("/decor/grain-left-blue-decor.svg")',
         'grain-right-blue': 'url("/decor/grain-right-blue-decor.svg")',
         'arrow-dropdown': 'url("/icons/arrow-dropdown.svg")',
+        'arrow-gallery': 'url("/icons/arrow-gallery.svg")',
       },
 
       dropShadow: {

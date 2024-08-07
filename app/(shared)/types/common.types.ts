@@ -314,7 +314,19 @@ export type SingleGalleryEventItemType = {
   };
 };
 
-export type GalleryItemType = ImageComponentFromStrapi & WithId;
+export type GalleryItemType = {
+  id: string;
+  alt: string;
+  image: {
+    data: {
+      attributes: {
+        url: string;
+        width: number;
+        height: number;
+      };
+    };
+  };
+};
 
 export type GalleryPageData = {
   galleryPage: {

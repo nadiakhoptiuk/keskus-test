@@ -14,6 +14,8 @@ export const getSingleGalleryEvent = gql`
               data {
                 attributes {
                   url
+                  width
+                  height
                 }
               }
             }

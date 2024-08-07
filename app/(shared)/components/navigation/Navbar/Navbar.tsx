@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState } from 'react';
 import { Dialog, DialogPanel, Transition } from '@headlessui/react';
 
 import { Button } from '@/app/(shared)/components/ui/Button';
@@ -8,25 +8,26 @@ import { NavbarLink } from '@/app/(shared)/components/navigation/NavbarLink';
 import { Overlay } from '@/app/(shared)/components/ui/Overlay';
 import { TransitionNavbarChild } from '@/app/(shared)/components/animations/Transitions';
 import { useNavbarItems } from '@/app/(shared)/hooks/useNavbarItems';
+import useBlockScroll from '@/app/(shared)/hooks/useBlockScroll';
 
 export const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  useBlockScroll(isOpen);
+  const menuItems = useNavbarItems();
 
   const openMenu = () => setIsOpen(true);
   const closeMenu = () => setIsOpen(false);
 
-  useEffect(() => {
-    const scrollbarWidth = window.innerWidth - document.documentElement.offsetWidth;
-    document.documentElement.style.paddingRight = isOpen ? `${scrollbarWidth}px` : '0px';
-    document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+  // useEffect(() => {
+  //   const scrollbarWidth = window.innerWidth - document.documentElement.offsetWidth;
+  //   document.documentElement.style.paddingRight = isOpen ? `${scrollbarWidth}px` : '0px';
+  //   document.documentElement.style.overflow = isOpen ? 'hidden' : '';
 
-    return () => {
-      document.documentElement.style.overflow = '';
-      document.documentElement.style.paddingRight = '0px';
-    };
-  }, [isOpen]);
-
-  const menuItems = useNavbarItems();
+  //   return () => {
+  //     document.documentElement.style.overflow = '';
+  //     document.documentElement.style.paddingRight = '0px';
+  //   };
+  // }, [isOpen]);
 
   return (
     <>
