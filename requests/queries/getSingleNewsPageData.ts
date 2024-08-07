@@ -6,9 +6,7 @@ export const getSingleNewsPageData = gql`
       data {
         attributes {
           page_title
-          read_more_button
           subtitile_another_news
-          see_all_news_link
         }
       }
     }

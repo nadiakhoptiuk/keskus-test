@@ -128,6 +128,8 @@ export interface ActivityCommonType {
     image: ImageComponentFromStrapi;
     type: ActivityType;
     activity_type: RegularActivityTypeWithId[] | IrregularActivityTypeWithId[];
+    slug: string;
+    registration_url: string;
   };
 }
 
@@ -139,6 +141,8 @@ export interface ActivityIrregularType {
     image: ImageComponentFromStrapi;
     type: 'irregular';
     activity_type: IrregularActivityTypeWithId[];
+    slug: string;
+    registration_url: string;
   };
 }
 
@@ -162,6 +166,7 @@ export type Value = ValuePiece;
 export type HomePageFetchData =
   | {
       homepage: HomePageType;
+      tabPanels: TabPanelType[];
       irregularActivities: ActivityIrregularType[];
     }
   | undefined;
@@ -173,7 +178,6 @@ export type HomePageType = {
   financial_support_subtitle: string;
   financial_support_text: string;
   announcement_subtitle: string;
-  announcement_button_today: string;
   announcement_button_all_events: string;
 };
 
@@ -183,8 +187,41 @@ export type HomePageData = {
       attributes: HomePageType;
     };
   };
+  tabPanels: { data: TabPanelType[] };
   activities: {
     data: ActivityIrregularType[];
+  };
+};
+
+export type TabPanelType = {
+  id: string;
+  attributes: {
+    payment_system: string;
+    tab_clipboard: TabClipboardType[];
+  };
+};
+
+export type TabClipboardType = {
+  id: string;
+  title: string;
+  content: string;
+};
+
+export type EventSinglePageDataType = {
+  labels: EventLabelType[];
+  event: ActivityCommonType;
+};
+
+export type EventSinglePageData = {
+  eventsPage: {
+    data: {
+      attributes: {
+        labels: EventLabelType[];
+      };
+    };
+  };
+  activities: {
+    data: ActivityCommonType[];
   };
 };
 
@@ -193,7 +230,6 @@ export type NewsSectionFetchData = {
     data: {
       attributes: {
         page_title: string;
-        read_more_button: string;
       };
     };
   };
@@ -206,7 +242,6 @@ export type NewsSectionDataType =
   | {
       generalInfo: {
         page_title: string;
-        read_more_button: string;
       };
       lastThreeNews: SingleNewDataType[];
     }
@@ -231,7 +266,7 @@ export type AboutPageData = {
   };
 };
 
-export type AllNewsSlugsType = {
+export type AllSlugsCommonType = {
   slug: string;
 }[];
 
@@ -241,10 +276,80 @@ export type AllNewsSlugsData = {
   };
 };
 
+export type AllEventsSlugsData = {
+  activities: {
+    data: slugType[];
+  };
+};
+
+export type AllGalleryEventsSlugsData = {
+  galleryEvents: {
+    data: slugType[];
+  };
+};
+
 type slugType = {
   attributes: {
     slug: string;
   };
+};
+
+export type MainGalleryImage = {
+  main_image: ImageComponentFromStrapi;
+};
+
+export type SingleGalleryEventType = {
+  title: string;
+  gallery: GalleryItemType[];
+};
+
+export type SingleGalleryEventItemTypeWithId = SingleGalleryEventItemType & WithId;
+
+export type SingleGalleryEventItemType = {
+  attributes: {
+    title: string;
+    slug: string;
+    main_image: ImageComponentFromStrapi;
+    gallery: GalleryItemType[];
+  };
+};
+
+export type GalleryItemType = {
+  id: string;
+  alt: string;
+  image: {
+    data: {
+      attributes: {
+        url: string;
+        width: number;
+        height: number;
+      };
+    };
+  };
+};
+
+export type GalleryPageData = {
+  galleryPage: {
+    data: {
+      attributes: {
+        page_title: string;
+      };
+    };
+  };
+  galleryEvents: {
+    data: SingleGalleryEventItemTypeWithId[];
+  };
+};
+
+export type GalleryEventsFetchData = {
+  galleryEvents: {
+    data: SingleGalleryEventItemTypeWithId[];
+  };
+};
+
+export type GalleryPageFetchData = {
+  page_title: string;
+  gallery: SingleGalleryEventItemTypeWithId[];
 };
 
 export type SingleNewsPageData = {
@@ -292,15 +397,12 @@ export type SingleNewsPageDataType = {
 export type NewsPageFetchData = {
   newspage: {
     page_title: string;
-    read_more_button: string;
   };
   news: SingleNewDataType[];
 };
 
 export type NewsGeneralDataType = {
   page_title: string;
-  read_more_button: string;
-  see_all_news_link: string;
   subtitile_another_news: string;
 };
 
@@ -344,7 +446,6 @@ export type EventsPageDataType = {
 export type EventsPageGeneralData = {
   page_title: string;
   labels: EventLabelType[];
-  read_more_button: string;
 };
 
 export type EventLabelType = {

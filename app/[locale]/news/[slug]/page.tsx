@@ -7,9 +7,11 @@ import { Typography } from '@/app/(shared)/components/ui/Typography';
 
 import { fetchAllNewsSlugs } from '@/requests/fetchAllNewsSlugs';
 import { fetchSingleNewsPageData } from '@/requests/fetchSingleNewsPageData';
+import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
 import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
+import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 
 export async function generateStaticParams({
   params: { locale },
@@ -34,8 +36,10 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
   const pageData = await fetchSingleNewsPageData(locale, slug);
   if (!pageData) return null;
 
+  const { t } = await initTranslations(locale, [i18nNamespaces.COMMON, i18nNamespaces.NEWS]);
+
   const {
-    generalInfo: { read_more_button, subtitile_another_news, see_all_news_link },
+    generalInfo: { subtitile_another_news },
     currentNewsData: {
       attributes: {
         title,
@@ -54,7 +58,10 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
   } = pageData;
 
   return (
-    <SinglePageWrapper goBackLink={`${RoutesEnum.NEWS}`} linkText={see_all_news_link}>
+    <SinglePageWrapper
+      goBackLink={`${RoutesEnum.NEWS}`}
+      linkText={t('go_back_link', { ns: i18nNamespaces.NEWS })}
+    >
       <div className="max-w-full">
         <Typography
           as="h1"
@@ -111,7 +118,10 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
             {subtitile_another_news}
           </Typography>
 
-          <NewsList data={lastThreeNews} readMoreText={read_more_button} />
+          <NewsList
+            data={lastThreeNews}
+            readMoreText={t('read_more_btn', { ns: i18nNamespaces.COMMON })}
+          />
         </div>
       )}
     </SinglePageWrapper>

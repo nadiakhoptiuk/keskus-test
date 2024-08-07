@@ -1,14 +1,14 @@
 'use client';
-
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { useNavbarItems } from '@/app/(shared)/hooks/useNavbarItems';
 
 import { Container } from '@/app/(shared)/components/ui/Container';
 import { NavbarLink } from '@/app/(shared)/components/navigation/NavbarLink';
 import { SiteLogo } from '@/app/(shared)/components/navigation/SiteLogo';
 import { SocialLink } from '@/app/(shared)/components/navigation/SocialLink';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
-import { useNavbarItems } from '@/app/(shared)/hooks/useNavbarItems';
-import { useTranslation } from 'react-i18next';
 
 export const Footer: FC = ({ ...props }) => {
   const { t } = useTranslation();

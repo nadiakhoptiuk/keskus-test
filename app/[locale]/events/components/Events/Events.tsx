@@ -17,6 +17,8 @@ import {
   EventsPageGeneralData,
 } from '@/app/(shared)/types/common.types';
 import { LocaleEnum } from '@/app/(shared)/types/enums';
+import { useTranslation } from 'react-i18next';
+import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 
 type Props = {
   locale: LocaleEnum;
@@ -33,6 +35,7 @@ export const Events: FC<Props> = ({
   datesForCalendar,
   btnTodayLabel,
 }) => {
+  const { t } = useTranslation();
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [filteredEvents, setFilteredEvents] = useState<ActivityCommonType[] | null>(null);
   const [eventsType, setEventsType] = useState<ActivityType>('regular');
@@ -48,7 +51,7 @@ export const Events: FC<Props> = ({
   }, [activities, eventsType]);
 
   return (
-    <Section className="py-10 md:py-15 xl:pt-[84px]">
+    <Section className="py-10 md:min-h-[688px] md:py-15 xl:pt-[84px]">
       <Container>
         {labels && filteredEvents && (
           <>
@@ -57,7 +60,7 @@ export const Events: FC<Props> = ({
                 {page_title}
               </Typography>
 
-              <div className="md:mb-15 md:flex md:gap-x-10 xl:mb-0 xl:flex-row-reverse xl:items-center">
+              <div className="max-md:mb-15 md:mb-15 md:flex md:gap-x-10 xl:mb-0 xl:flex-row-reverse xl:items-center">
                 <FilterButtons
                   buttonsData={labels}
                   setEventsType={setEventsType}
@@ -78,7 +81,11 @@ export const Events: FC<Props> = ({
               </div>
             </div>
 
-            <EventsList buttonsData={labels} events={filteredEvents} />
+            <EventsList
+              buttonsData={labels}
+              events={filteredEvents}
+              readMoreText={t('read_more_btn', { ns: i18nNamespaces.COMMON })}
+            />
           </>
         )}
       </Container>

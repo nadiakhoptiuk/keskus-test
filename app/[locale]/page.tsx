@@ -6,13 +6,17 @@ import { Support } from '@/app/[locale]/components/Support';
 
 import { fetchHomePage } from '@/requests/fetchHomePage';
 import { availableIrregularEventsDates } from '../(shared)/utils/availableEventsDates';
+import { initTranslations } from '../i18n/extensions/initTranslations';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
+import { i18nNamespaces } from '../(shared)/types/i18n.types';
 
 export default async function Page({ params: { locale } }: PageProps) {
   const pageData = await fetchHomePage(locale);
 
   if (!pageData) return null;
+
+  const { t } = await initTranslations(locale, [i18nNamespaces.COMMON]);
 
   const {
     homepage: {
@@ -22,9 +26,9 @@ export default async function Page({ params: { locale } }: PageProps) {
       financial_support_subtitle,
       financial_support_text,
       announcement_subtitle,
-      announcement_button_today,
       announcement_button_all_events,
     },
+    tabPanels,
     irregularActivities,
   } = pageData;
 
@@ -36,15 +40,21 @@ export default async function Page({ params: { locale } }: PageProps) {
 
       <Scroller />
 
-      <Support title={financial_support_subtitle} text={financial_support_text} />
+      <Support
+        locale={locale}
+        title={financial_support_subtitle}
+        text={financial_support_text}
+        tabsData={tabPanels}
+      />
 
       <Announcement
         locale={locale}
         title={announcement_subtitle}
-        btnToday={announcement_button_today}
+        btnToday={t('btn_today')}
         allEventsBtnText={announcement_button_all_events}
         allIrregularActivities={irregularActivities}
         availableDatesAtCalendar={availableDatesAtCalendar}
+        readMoreText={t('read_more_btn')}
       />
 
       <News locale={locale} />

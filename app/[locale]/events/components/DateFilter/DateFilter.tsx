@@ -72,10 +72,10 @@ export const DateFilter: FC<Props> = ({
   }, [irregularEvents, selectedDate, setFilteredEvents]);
 
   return (
-    <Popover className="xl:after:content-[' '] md:before:content-[' '] relative max-md:mb-15 md:h-max md:before:absolute md:before:left-[-20px] md:before:h-10 md:before:w-[1px] md:before:bg-grey xl:before:hidden xl:after:absolute xl:after:right-[-20px] xl:after:top-0 xl:after:h-10 xl:after:w-[1px] xl:after:bg-grey">
+    <Popover className="xl:after:content-[' '] md:before:content-[' '] relative md:h-max md:before:absolute md:before:left-[-20px] md:before:h-10 md:before:w-[1px] md:before:bg-grey xl:before:hidden xl:after:absolute xl:after:right-[-20px] xl:after:top-0 xl:after:h-10 xl:after:w-[1px] xl:after:bg-grey">
       {({ close }) => (
         <>
-          <PopoverButton className="flex h-11 items-center justify-between rounded bg-blue-50 px-6 py-2 text-ui_med_18 max-md:w-full">
+          <PopoverButton className="flex h-11 items-center justify-between rounded bg-blue-50 px-6 py-2 text-ui_med_18 max-md:mt-5 max-md:w-full">
             <span className="flex items-end gap-x-3">
               <CustomIcon icon="calendar" className="!size-5 text-black" />
               <span className="leading-[1.0]"> {inputValue}</span>
@@ -85,7 +85,7 @@ export const DateFilter: FC<Props> = ({
 
           <PopoverPanel
             anchor="bottom"
-            className="datePicker flex flex-col rounded bg-[#fff] px-4 py-5 shadow-[0_4px_8px_0_rgba(0,0,0,0.25)] max-md:w-[calc(100%-40px)] max-md:!max-w-[440px]"
+            className="datePicker flex flex-col rounded bg-[#fff] px-4 py-5 shadow-[0_4px_8px_0_rgba(0,0,0,0.25)] max-md:w-[calc(100%-40px)] max-md:!max-w-[440px] md:px-5"
           >
             <Calendar
               className="relative mx-auto my-0"

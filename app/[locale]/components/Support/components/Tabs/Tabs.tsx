@@ -1,49 +1,43 @@
 'use client';
 
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
-
-import { Clipboard } from '@/app/[locale]/components/Support/components/Clipboard';
 import { TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
 
+import { Clipboard } from '@/app/[locale]/components/Support/components/Clipboard';
 import { Tab } from '@/app/[locale]/components/Support/components/Tab';
-import { paymentType } from '@/app/[locale]/components/Support/Support.constants';
 
-export const Tabs: FC = () => {
-  const { t } = useTranslation();
+import { TabPanelType } from '@/app/(shared)/types/common.types';
 
+type Props = {
+  tabsData: TabPanelType[];
+  clipboardNotificate: string;
+};
+
+export const Tabs: FC<Props> = ({ tabsData, clipboardNotificate }) => {
   return (
-    <TabGroup className="grid w-full gap-y-10 md:gap-y-15">
-      <TabList className="flex gap-2.5 md:gap-3">
-        {paymentType.map(({ id, name, disabled }) => (
-          <Tab key={id} disabled={disabled}>
-            {name}
-          </Tab>
+    <TabGroup className="flex h-fit w-full flex-col max-md:min-h-[370px] max-md:gap-10 md:gap-15">
+      <TabList className="flex h-fit gap-2.5 md:gap-3">
+        {tabsData.map(({ id, attributes: { payment_system } }) => (
+          <Tab key={id}>{payment_system}</Tab>
         ))}
       </TabList>
 
       <TabPanels>
-        <TabPanel>
-          <div className="grid gap-y-5">
-            <Clipboard label={t('recipient')} value="MTÜ Ukraina Keskus" />
-
-            <Clipboard label={t('accountNumber')} value="EE711010220300696227" />
-
-            <Clipboard
-              className="max-w-[500px]"
-              label={t('explanationOfPayment')}
-              value="Toetus MTÜ põhikirjaliste eesmärkide saavutamiseks test"
-            />
-          </div>
-        </TabPanel>
-
-        <TabPanel>
-          <p>Two</p>
-        </TabPanel>
-
-        <TabPanel>
-          <p>Three</p>
-        </TabPanel>
+        {tabsData.map(({ id, attributes: { tab_clipboard } }) => (
+          <TabPanel key={id}>
+            <div className="grid gap-y-5">
+              {tab_clipboard.map(({ id, title, content }) => (
+                <Clipboard
+                  key={id}
+                  className="w-full max-w-[500px]"
+                  label={title}
+                  value={content}
+                  clipboardNotificate={clipboardNotificate}
+                />
+              ))}
+            </div>
+          </TabPanel>
+        ))}
       </TabPanels>
     </TabGroup>
   );

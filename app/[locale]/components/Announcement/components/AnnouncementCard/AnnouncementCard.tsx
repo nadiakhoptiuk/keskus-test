@@ -1,17 +1,21 @@
 import { FC } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { format } from 'date-fns';
 
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 
 import { ActivityIrregularType } from '@/app/(shared)/types/common.types';
+import { RoutesEnum } from '@/app/(shared)/types/enums';
+import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
 
 type Props = {
   card: ActivityIrregularType;
+  readMoreText: string;
   Tag?: 'div' | 'li';
 };
 
-export const AnnouncementCard: FC<Props> = ({ card, Tag = 'div' }) => {
+export const AnnouncementCard: FC<Props> = ({ card, readMoreText, Tag = 'div' }) => {
   const {
     title,
     description,
@@ -22,6 +26,7 @@ export const AnnouncementCard: FC<Props> = ({ card, Tag = 'div' }) => {
         },
       },
     },
+    slug,
     activity_type,
   } = card.attributes;
 
@@ -34,10 +39,21 @@ export const AnnouncementCard: FC<Props> = ({ card, Tag = 'div' }) => {
 
         <Typography as="h3">{title}</Typography>
 
-        <Typography className="max-md:line-clamp-6 md:line-clamp-4">{description}</Typography>
+        <Typography className="max-md:line-clamp-6 md:line-clamp-3">{description}</Typography>
+
+        <Link
+          href={`${RoutesEnum.EVENTS}/${slug}`}
+          className="base-transition ml-auto mt-auto flex items-center gap-1 hocus:text-blue-600"
+        >
+          <span>{readMoreText}</span>
+          <CustomIcon
+            icon="arrow-sm"
+            className="inline-flex !size-[14px] shrink-0 -rotate-90 text-blue-600"
+          />
+        </Link>
       </div>
 
-      <div className="h-[184px] shrink-0 overflow-hidden rounded max-md:w-full md:w-[233px] xl:w-[224px]">
+      <div className="h-[184px] shrink-0 overflow-hidden rounded max-md:w-full md:h-[200px] md:w-[233px] xl:w-[224px]">
         <Image
           src={url}
           alt="new image"

@@ -53,7 +53,7 @@ export const NewsCard: FC<Props> = async ({ card, readMoreText, Tag = 'div' }) =
 
       <div className="grid gap-y-4 pt-5">
         <Typography as="span" className="text-sm font-light text-zinc-500">
-          {format(new Date(date), 'd.MM.y')}
+          {format(new Date(date), 'dd.MM.y')}
         </Typography>
 
         <Typography as="h3" className="font-fixel !text-ui_bold_28 md:min-h-[96px]">

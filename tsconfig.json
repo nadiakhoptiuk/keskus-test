@@ -28,7 +28,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "jest.setup.js",
-    "app/[locale]/gallery/components/TestGallery/reduceForGallery.js"
+    "app/[locale]/gallery/components/TestGallery/reduceForGallery.js",
+    "app/[locale]/gallery/components/SinglePageGalleryItem"
   ],
   "exclude": ["node_modules"]
 }

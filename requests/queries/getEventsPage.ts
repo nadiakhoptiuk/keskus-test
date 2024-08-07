@@ -12,7 +12,6 @@ export const getEventsPage = gql`
             label_at_image
             filter_button_label
           }
-          read_more_button
         }
       }
     }
@@ -44,6 +43,7 @@ export const getEventsPage = gql`
               date
             }
           }
+          slug
         }
       }
     }

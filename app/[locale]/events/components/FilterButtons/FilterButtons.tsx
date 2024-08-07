@@ -14,7 +14,7 @@ type Props = {
 
 export const FilterButtons: FC<Props> = ({ buttonsData, setEventsType, eventsType, className }) => {
   return (
-    <div className={classnames('flex h-max gap-5 max-md:mb-5', className)}>
+    <div className={classnames('flex h-max gap-5', className)}>
       {buttonsData.map(({ id, type_of_activity, filter_button_label }) => {
         return (
           <Button

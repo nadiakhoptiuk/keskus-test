@@ -11,8 +11,20 @@ export const getHomePage = gql`
           financial_support_subtitle
           financial_support_text
           announcement_subtitle
-          announcement_button_today
           announcement_button_all_events
+        }
+      }
+    }
+    tabPanels(locale: $locale, pagination: { limit: 10 }) {
+      data {
+        id
+        attributes {
+          payment_system
+          tab_clipboard {
+            id
+            title
+            content
+          }
         }
       }
     }
@@ -47,35 +59,7 @@ export const getHomePage = gql`
               date
             }
           }
-        }
-      }
-    }
-    newsPage(locale: $locale) {
-      data {
-        attributes {
-          page_title
-          read_more_button
-        }
-      }
-    }
-    news(locale: $locale, sort: "date:desc", pagination: { limit: 3 }) {
-      data {
-        id
-        attributes {
-          title
           slug
-          date
-          image {
-            alt
-            image {
-              data {
-                attributes {
-                  url
-                }
-              }
-            }
-          }
-          content
         }
       }
     }

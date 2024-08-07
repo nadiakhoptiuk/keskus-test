@@ -3,9 +3,10 @@
 import { FC, Fragment } from 'react';
 import { Dialog, DialogPanel, TransitionChild, Transition } from '@headlessui/react';
 
-import { CustomIcon } from '../CustomIcon';
-
+import useBlockScroll from '@/app/(shared)/hooks/useBlockScroll';
 import { classnames } from '@/app/(shared)/utils/classnames';
+
+import { CustomIcon } from '../CustomIcon';
 
 import { WithChildren } from '@/app/(shared)/types/common.types';
 
@@ -31,6 +32,8 @@ export const BaseModal: FC<Props & WithChildren> = ({
   closeButtonClassName = '',
   hideCloseButton = false,
 }) => {
+  useBlockScroll(isOpen);
+
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -48,11 +51,16 @@ export const BaseModal: FC<Props & WithChildren> = ({
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-100 opacity-0"
           >
-            <div className="bg-ui_overlay fixed inset-0 z-30" />
+            <div
+              className={classnames(
+                'fixed inset-0 bottom-0 left-0 right-0 top-0 bg-black/25 backdrop-blur-sm',
+                overlayClassName,
+              )}
+            />
           </TransitionChild>
 
-          <div className={classnames('fixed inset-0 z-30 overflow-y-auto', overlayClassName)}>
-            <div className="flex min-h-full text-center">
+          <div className="fixed inset-0 bottom-0 left-0 right-0 top-0 z-30 h-full w-full overflow-y-hidden bg-[rgba(0,0,0,0.5)]">
+            <div className="flex text-center">
               <TransitionChild
                 as={Fragment}
                 enter="transition duration-200 ease-out"
@@ -62,7 +70,12 @@ export const BaseModal: FC<Props & WithChildren> = ({
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
               >
-                <DialogPanel className={modalClassName}>
+                <DialogPanel
+                  className={classnames(
+                    'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 ',
+                    modalClassName,
+                  )}
+                >
                   <div className={classnames('relative h-full', containerClassName)}>
                     {children}
                     <button
