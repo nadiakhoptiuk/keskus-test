@@ -282,6 +282,12 @@ export type AllEventsSlugsData = {
   };
 };
 
+export type AllVacanciesSlugsData = {
+  vacancies: {
+    data: slugType[];
+  };
+};
+
 export type AllGalleryEventsSlugsData = {
   galleryEvents: {
     data: slugType[];
@@ -350,6 +356,72 @@ export type GalleryEventsFetchData = {
 export type GalleryPageFetchData = {
   page_title: string;
   gallery: SingleGalleryEventItemTypeWithId[];
+};
+
+export type VacanciesPageFetchData = {
+  vacanciesPage: VacanciesPageType;
+  vacancies: VacancyShortTypeWithId[];
+};
+
+export type VacanciesPageData = {
+  vacanciesPage: {
+    data: {
+      attributes: VacanciesPageType;
+    };
+  };
+  vacancies: {
+    data: VacancyShortTypeWithId[];
+  };
+};
+
+export type VacanciesPageType = {
+  page_title: string;
+  description: string;
+  link_to_apply_label: string;
+  link_to_read_more_label: string;
+};
+
+export type VacancyShortTypeWithId = VacancyShortType & WithId;
+
+export type VacancyShortType = {
+  attributes: VacancySingleShortType;
+};
+
+export type VacancySingleShortType = {
+  title: string;
+  slug: string;
+  short_description: string;
+  link_to_apply: string;
+};
+
+export type VacancySingleFullType = {
+  attributes: VacancySingleFullDataType;
+};
+
+export type VacancySingleFullDataType = {
+  title: string;
+  slug: string;
+  short_description: string;
+  long_description: string;
+  link_to_apply: string;
+};
+
+export type SinglePageVacancyData = {
+  vacanciesPage: {
+    data: {
+      attributes: {
+        link_to_apply_label: string;
+      };
+    };
+  };
+  vacancies: {
+    data: VacancySingleFullType[];
+  };
+};
+
+export type SinglePageVacancyDataType = {
+  applyLabel: string;
+  vacancy: VacancySingleFullDataType;
 };
 
 export type SingleNewsPageData = {

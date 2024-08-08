@@ -5,32 +5,22 @@ import { ButtonInfoType } from '../VacancyItem/VacancyItem.types';
 
 type Props = {
   buttonsData: ButtonInfoType[];
-  slug?: string;
-  returnOnlyApplyBtn?: boolean;
+  applyLabel: string;
+  applyLink: string;
+  slug: string;
+  readMoreLabel: string;
 };
 
-export const VacancyButtons: FC<Props> = ({ buttonsData, slug, returnOnlyApplyBtn }) => {
-  if (returnOnlyApplyBtn) {
-    const applyButtonData: ButtonInfoType | undefined = buttonsData.find(
-      ({ id }) => id === 'externalLink',
-    );
-
-    if (applyButtonData)
-      return (
-        <a
-          href="https://www.google.com/"
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-          className="btn-primary base-transition inline-flex h-15 min-w-[220px] items-center justify-center text-ui_semibold_18"
-        >
-          {applyButtonData.buttonTitle}
-        </a>
-      );
-  }
-
+export const VacancyButtons: FC<Props> = ({
+  buttonsData,
+  slug,
+  applyLabel,
+  applyLink,
+  readMoreLabel,
+}) => {
   return (
     <div className="flex gap-8 max-md:flex-col">
-      {buttonsData.map(({ id, buttonTitle }) => {
+      {buttonsData.map(({ id }) => {
         return (
           <Fragment key={id}>
             {id === 'linkToSinglePage' && (
@@ -38,18 +28,18 @@ export const VacancyButtons: FC<Props> = ({ buttonsData, slug, returnOnlyApplyBt
                 href={`/vacancies/${slug}`}
                 className="btn-outline base-transition inline-flex h-15 items-center justify-center text-ui_semibold_18 md:min-w-[220px]"
               >
-                {buttonTitle}
+                {readMoreLabel}
               </Link>
             )}
 
             {id === 'externalLink' && (
               <a
-                href="https://www.google.com/"
+                href={applyLink}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="btn-primary base-transition inline-flex h-15 items-center justify-center text-ui_semibold_18 md:min-w-[220px]"
               >
-                {buttonTitle}
+                {applyLabel}
               </a>
             )}
           </Fragment>
