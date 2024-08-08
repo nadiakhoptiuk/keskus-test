@@ -2,18 +2,27 @@ import { FC } from 'react';
 
 import { VacancyItem } from '../VacancyItem';
 
-import { ButtonInfoType, VacancyItemType } from '../VacancyItem/VacancyItem.types';
+import { ButtonInfoType } from '../VacancyItem/VacancyItem.types';
+import { VacancyShortTypeWithId } from '@/app/(shared)/types/common.types';
 
 type Props = {
-  vacancies: VacancyItemType[];
+  vacancies: VacancyShortTypeWithId[];
   buttonsData: ButtonInfoType[];
+  applyLabel: string;
+  readMoreLabel: string;
 };
 
-export const VacanciesList: FC<Props> = ({ vacancies, buttonsData }) => {
+export const VacanciesList: FC<Props> = ({ vacancies, buttonsData, applyLabel, readMoreLabel }) => {
   return (
     <ul className="space-y-[72px] md:space-y-25">
-      {vacancies.map((vacancy, index) => (
-        <VacancyItem key={index} vacancy={vacancy} buttonsData={buttonsData} />
+      {vacancies.map(vacancy => (
+        <VacancyItem
+          key={vacancy.id}
+          vacancy={vacancy}
+          buttonsData={buttonsData}
+          applyLabel={applyLabel}
+          readMoreLabel={readMoreLabel}
+        />
       ))}
     </ul>
   );
