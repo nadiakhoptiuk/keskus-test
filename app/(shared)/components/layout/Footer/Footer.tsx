@@ -10,9 +10,9 @@ import { useNavbarItems } from '@/app/(shared)/hooks/useNavbarItems';
 import { Container } from '@/app/(shared)/components/ui/Container';
 import { NavbarLink } from '@/app/(shared)/components/navigation/NavbarLink';
 import { SiteLogo } from '@/app/(shared)/components/navigation/SiteLogo';
-import { SocialLink } from '@/app/(shared)/components/navigation/SocialLink';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { ContactsList } from '@/app/[locale]/contacts/components/ContactsList';
+import { SocialList } from '../../ui/SocialList';
 
 import { RoutesEnum } from '@/app/(shared)/types/enums';
 import { FooterDataFetchType, SocialAriaLabelsType } from '@/app/(shared)/types/common.types';
@@ -42,27 +42,17 @@ export const Footer: FC<Props> = ({ footerData }) => {
           </ul>
         </nav>
 
-        <address className="grid-in-contacts">
-          {footerData?.contacts && (
+        {footerData?.contacts && footerData.contacts.length > 0 && (
+          <address className="grid-in-contacts">
             <ContactsList
               list={footerData.contacts.filter(({ contact_type }) => contact_type !== 'address')}
               variant="footer"
             />
-          )}
-        </address>
+          </address>
+        )}
 
-        {footerData?.socials && (
-          <ul className="inline-flex items-center gap-x-3.5">
-            {footerData.socials.map(({ social_network, link }, index) => (
-              <li key={index} className="inline-flex items-end">
-                <SocialLink
-                  href={link}
-                  to={social_network}
-                  aria={socialAriaLabels[social_network]}
-                />
-              </li>
-            ))}
-          </ul>
+        {footerData?.socials && footerData.socials.length > 0 && (
+          <SocialList list={footerData.socials} ariaLabels={socialAriaLabels} />
         )}
 
         <div className="flex basis-full flex-col gap-y-3 md:ml-auto md:mt-auto md:w-fit md:flex-row md:gap-x-5 xl:ml-0 xl:grid-in-copyright">
@@ -71,7 +61,7 @@ export const Footer: FC<Props> = ({ footerData }) => {
             {t('copyright')}
           </Typography>
 
-          {pathname !== '/privacy-policy' && (
+          {pathname !== RoutesEnum.PRIVACY_POLICY && (
             <Link
               href={`${RoutesEnum.PRIVACY_POLICY}`}
               className="base-transition shrink-0 font-fixel text-ui_light_12 text-black hocus:text-yellow-400"
