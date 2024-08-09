@@ -13,6 +13,7 @@ import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 import { PageProps, RootLayoutProps } from '@/app/(shared)/types/common.types';
+import { fetchFooterData } from '@/requests/fetchFooterData';
 
 const kyivSans = localFont({
   src: [
@@ -75,6 +76,8 @@ export const generateMetadata = async ({ params: { locale } }: PageProps) => {
 };
 
 export default async function RootLayout({ children, params: { locale } }: RootLayoutProps) {
+  const footerData = await fetchFooterData(locale);
+
   const { resources } = await initTranslations(locale, [
     i18nNamespaces.HEADER,
     i18nNamespaces.FOOTER,
@@ -108,7 +111,7 @@ export default async function RootLayout({ children, params: { locale } }: RootL
           locale={locale}
           resources={resources}
         >
-          <Footer />
+          <Footer footerData={footerData} />
         </TranslationsProvider>
       </body>
     </html>

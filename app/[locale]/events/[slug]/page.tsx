@@ -114,7 +114,7 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
                 );
               },
             }}
-            className="mb-[18px]"
+            className="mb-[18px] prose-p:whitespace-pre-wrap"
           >
             {description}
           </Markdown>

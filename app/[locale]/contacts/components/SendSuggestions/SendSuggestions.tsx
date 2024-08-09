@@ -18,7 +18,10 @@ export const SendSuggestions: FC<Props> = async ({ text, contacts }) => {
         {text}
       </p>
 
-      <a href={`mailto:${emailData?.link}`} className="text-ui_bold_20 md:text-ui_bold_28 ">
+      <a
+        href={`mailto:${emailData?.link}`}
+        className="base-transition text-ui_bold_20 hocus:text-blue-600 md:text-ui_bold_28"
+      >
         {emailData?.link}
       </a>
     </div>

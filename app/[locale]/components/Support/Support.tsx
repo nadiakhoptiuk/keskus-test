@@ -32,7 +32,7 @@ export const Support: FC<Props> = async ({ locale, title, text, tabsData }) => {
             {title}
           </Typography>
 
-          <Markdown className="prose-p:font-regular prose prose-p:mb-10 prose-p:font-fixel prose-p:text-ui_reg_16 prose-p:text-zinc-50 last:prose-p:mb-0">
+          <Markdown className="prose-p:font-regular prose prose-p:mb-10 prose-p:whitespace-pre-wrap prose-p:font-fixel prose-p:text-ui_reg_16 prose-p:text-zinc-50 last:prose-p:mb-0">
             {text}
           </Markdown>
         </div>

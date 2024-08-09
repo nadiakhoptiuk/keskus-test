@@ -1,4 +1,9 @@
 {
   "copyright": "Kõik õigused kaitstud",
-  "contactName": "Julia"
+  "privacyPolicy": "Privaatsuspoliitika",
+  "socialLinkAria": {
+    "telegram": "Link telegrammile",
+    "viber": "Link viberile",
+    "facebook": "Link facebooki"
+  }
 }

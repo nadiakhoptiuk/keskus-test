@@ -1,4 +1,9 @@
 {
   "copyright": "All rights reserved",
-  "contactName": "Julia"
+  "privacyPolicy": "Privacy policy",
+  "socialLinkAria": {
+    "telegram": "Link to telegram",
+    "viber": "Link to viber",
+    "facebook": "Link to facebook"
+  }
 }

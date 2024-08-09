@@ -6,13 +6,8 @@ import { ServicesList } from './components/ServicesList';
 import { fetchServicesPage } from '@/requests/fetchServicesPage';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
-// import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
-// import { ServiceCardType } from './components/ServiceCard/ServiceCard.types';
 
 export default async function Page({ params: { locale } }: PageProps) {
-  // const { t } = await initTranslations(locale, [i18nNamespaces.SERVICES]);
-  // const services: ServiceCardType[] = t('services', { returnObjects: true });
-
   const pageData = await fetchServicesPage(locale);
   if (!pageData) return null;
 

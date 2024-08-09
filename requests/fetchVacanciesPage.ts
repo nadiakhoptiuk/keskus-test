@@ -1,5 +1,3 @@
-getVacanciesPage;
-
 import { request } from 'graphql-request';
 
 import { getVacanciesPage } from './queries/getVacanciesPage';

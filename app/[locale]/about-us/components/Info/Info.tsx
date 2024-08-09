@@ -22,7 +22,7 @@ export const Info: FC<Props> = async ({ title, text }) => {
         </Typography>
 
         <div className="xl:w-[512px] xl:pt-[102px]">
-          <Markdown className="prose prose-p:mb-8 prose-p:mt-0 prose-p:text-[16px] last:prose-p:mb-0 md:prose-p:text-[18px]">
+          <Markdown className="prose prose-p:mb-8 prose-p:mt-0 prose-p:whitespace-pre-wrap prose-p:text-[16px] last:prose-p:mb-0 md:prose-p:text-[18px]">
             {text}
           </Markdown>
         </div>

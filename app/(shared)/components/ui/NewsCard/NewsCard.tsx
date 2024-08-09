@@ -87,7 +87,7 @@ export const NewsCard: FC<Props> = async ({ card, readMoreText, Tag = 'div' }) =
               );
             },
           }}
-          className="prose line-clamp-6 font-fixel !text-ui_reg_16 prose-p:my-0 xl:line-clamp-5"
+          className="prose line-clamp-6 font-fixel !text-ui_reg_16 prose-p:my-0 prose-p:whitespace-pre-wrap xl:line-clamp-5"
         >
           {content}
         </Markdown>

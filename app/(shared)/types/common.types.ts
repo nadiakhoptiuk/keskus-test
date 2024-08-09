@@ -86,6 +86,45 @@ export type ContactItemType = {
   link: string;
 };
 
+export type FooterDataType = {
+  socialNetwork: {
+    data: {
+      attributes: {
+        socials: SocialItemType[];
+      };
+    };
+  };
+  policyPage: {
+    data: {
+      attributes: {
+        page_title: string;
+      };
+    };
+  };
+  contactsPage: {
+    data: {
+      attributes: {
+        contacts: ContactItemType[];
+      };
+    };
+  };
+};
+
+export type FooterDataFetchType = {
+  socials: SocialItemType[];
+  policyTitle: string;
+  contacts: ContactItemType[];
+};
+
+export type SocialNetworkType = 'facebook' | 'telegram' | 'viber';
+
+export type SocialItemType = {
+  link: string;
+  social_network: SocialNetworkType;
+};
+
+export type SocialAriaLabelsType = Record<SocialNetworkType, string>;
+
 export type FoundersData = {
   founders: {
     data: FounderType[];
@@ -422,6 +461,22 @@ export type SinglePageVacancyData = {
 export type SinglePageVacancyDataType = {
   applyLabel: string;
   vacancy: VacancySingleFullDataType;
+};
+
+export type PrivacyPolicyDataType = {
+  policyPage: {
+    data: {
+      attributes: {
+        page_title: string;
+        content: string;
+      };
+    };
+  };
+};
+
+export type PrivacyPolicyPageData = {
+  page_title: string;
+  content: string;
 };
 
 export type SingleNewsPageData = {
