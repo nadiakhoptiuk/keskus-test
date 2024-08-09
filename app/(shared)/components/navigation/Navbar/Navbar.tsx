@@ -18,17 +18,6 @@ export const Navbar: FC = () => {
   const openMenu = () => setIsOpen(true);
   const closeMenu = () => setIsOpen(false);
 
-  // useEffect(() => {
-  //   const scrollbarWidth = window.innerWidth - document.documentElement.offsetWidth;
-  //   document.documentElement.style.paddingRight = isOpen ? `${scrollbarWidth}px` : '0px';
-  //   document.documentElement.style.overflow = isOpen ? 'hidden' : '';
-
-  //   return () => {
-  //     document.documentElement.style.overflow = '';
-  //     document.documentElement.style.paddingRight = '0px';
-  //   };
-  // }, [isOpen]);
-
   return (
     <>
       <Button

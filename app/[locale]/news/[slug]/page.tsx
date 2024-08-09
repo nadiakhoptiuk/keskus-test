@@ -103,7 +103,7 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
               );
             },
           }}
-          className="prose mx-auto max-w-[1008px] pb-15 prose-p:mb-15 prose-p:mt-0 prose-p:text-ui_reg_16 last:prose-p:mb-0 prose-img:my-0 md:pb-25 md:prose-p:mb-20 md:prose-p:text-ui_reg_18 xl:w-[1008px]"
+          className="prose mx-auto max-w-[1008px] pb-15 prose-p:mb-15 prose-p:mt-0 prose-p:whitespace-pre-wrap prose-p:text-ui_reg_16 last:prose-p:mb-0 prose-img:my-0 md:pb-25 md:prose-p:mb-20 md:prose-p:text-ui_reg_18 xl:w-[1008px]"
         >
           {content}
         </Markdown>

@@ -16,7 +16,7 @@ export const GeneralInfo: FC<Props> = async ({ locale, text }) => {
 
   return (
     <div className="decor-border-top relative grid py-15 before:top-0 before:w-full md:grid-cols-2 md:gap-8 md:py-25 xl:grid-cols-[572px_591px] xl:gap-[52px] 2xl:grid-cols-[600px_auto] 2xl:gap-15">
-      <Markdown className="my-auto prose-p:mb-10 prose-p:text-ui_reg_16 last:prose-p:mb-0 max-md:mb-8">
+      <Markdown className="my-auto prose-p:mb-10 prose-p:whitespace-pre-wrap prose-p:text-ui_reg_16 last:prose-p:mb-0 max-md:mb-8">
         {text}
       </Markdown>
 

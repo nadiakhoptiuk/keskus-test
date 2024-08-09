@@ -1,5 +1,8 @@
 'use client';
+
 import { FC } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
 import { useNavbarItems } from '@/app/(shared)/hooks/useNavbarItems';
@@ -7,15 +10,25 @@ import { useNavbarItems } from '@/app/(shared)/hooks/useNavbarItems';
 import { Container } from '@/app/(shared)/components/ui/Container';
 import { NavbarLink } from '@/app/(shared)/components/navigation/NavbarLink';
 import { SiteLogo } from '@/app/(shared)/components/navigation/SiteLogo';
-import { SocialLink } from '@/app/(shared)/components/navigation/SocialLink';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
+import { ContactsList } from '@/app/[locale]/contacts/components/ContactsList';
+import { SocialList } from '../../ui/SocialList';
 
-export const Footer: FC = ({ ...props }) => {
+import { RoutesEnum } from '@/app/(shared)/types/enums';
+import { FooterDataFetchType, SocialAriaLabelsType } from '@/app/(shared)/types/common.types';
+
+type Props = {
+  footerData: FooterDataFetchType | undefined;
+};
+
+export const Footer: FC<Props> = ({ footerData }) => {
   const { t } = useTranslation();
+  const socialAriaLabels: SocialAriaLabelsType = t('socialLinkAria', { returnObjects: true });
   const menuItems = useNavbarItems();
+  const pathname = usePathname();
 
   return (
-    <footer className="py-10 md:py-15" {...props}>
+    <footer className="py-10 md:py-15">
       <Container className="decor-border-top relative grid grid-cols-sm grid-rows-sm justify-items-center gap-x-10 gap-y-10 text-center grid-areas-footerSm md:grid-cols-md md:grid-rows-md md:items-start md:justify-items-stretch md:gap-x-[134px] md:text-left md:grid-areas-footerMd xl:md:gap-x-[290px] xl:grid-cols-xl xl:grid-rows-xl xl:grid-areas-footerXl">
         <SiteLogo className="grid-in-footerLogo" />
 
@@ -29,44 +42,34 @@ export const Footer: FC = ({ ...props }) => {
           </ul>
         </nav>
 
-        <address className="grid-in-contacts">
-          <ul className="grid gap-y-3.5 font-fixel font-normal not-italic">
-            <li>
-              <a
-                className="base-transition inline focus:text-yellow-400 hocus:text-yellow-400"
-                href="tel:58289515"
-              >
-                582 89 515 - {t('contactName')}
-              </a>
-            </li>
-            <li>
-              <a
-                className="base-transition inline focus:text-yellow-400 hocus:text-yellow-400"
-                href="mailto:ukrainakeskus@gmail.com"
-              >
-                ukrainakeskus@gmail.com
-              </a>
-            </li>
-          </ul>
-        </address>
+        {footerData?.contacts && footerData.contacts.length > 0 && (
+          <address className="grid-in-contacts">
+            <ContactsList
+              list={footerData.contacts.filter(({ contact_type }) => contact_type !== 'address')}
+              variant="footer"
+            />
+          </address>
+        )}
 
-        <ul className="inline-flex items-center gap-x-3.5">
-          <li className="inline-flex items-end">
-            <SocialLink href="https://www.facebook.com/" to="facebook" />
-          </li>
+        {footerData?.socials && footerData.socials.length > 0 && (
+          <SocialList list={footerData.socials} ariaLabels={socialAriaLabels} />
+        )}
 
-          <li className="inline-flex items-end">
-            <SocialLink href="https://web.telegram.org/a/" to="telegram" />
-          </li>
+        <div className="flex basis-full flex-col gap-y-3 md:ml-auto md:mt-auto md:w-fit md:flex-row md:gap-x-5 xl:ml-0 xl:grid-in-copyright">
+          <Typography className="inline-flex shrink-0 font-fixel !text-ui_light_12 text-black md:self-end">
+            &copy; 2024{new Date().getFullYear() > 2024 ? `-${new Date().getFullYear()} ` : ' '}
+            {t('copyright')}
+          </Typography>
 
-          <li className="inline-flex items-end">
-            <SocialLink href="https://www.viber.com/en/" to="viber" />
-          </li>
-        </ul>
-
-        <Typography className="inline-flex font-fixel text-sm font-light text-black grid-in-copyright md:self-end">
-          &copy; {new Date().getFullYear()} {t('copyright')}
-        </Typography>
+          {pathname !== RoutesEnum.PRIVACY_POLICY && (
+            <Link
+              href={`${RoutesEnum.PRIVACY_POLICY}`}
+              className="base-transition shrink-0 font-fixel text-ui_light_12 text-black hocus:text-yellow-400"
+            >
+              {footerData?.policyTitle || t('privacyPolicy')}
+            </Link>
+          )}
+        </div>
       </Container>
     </footer>
   );

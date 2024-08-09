@@ -2,15 +2,19 @@ import { useEffect } from 'react';
 
 const useBlockScroll = (isOpen: boolean) => {
   useEffect(() => {
+    const scrollbarWidth = window.innerWidth - document.documentElement.offsetWidth;
+
     if (isOpen) {
+      document.documentElement.style.paddingRight = `${scrollbarWidth}px`;
       document.documentElement.classList.add('no-scroll');
     } else {
+      document.documentElement.style.paddingRight = '0px';
       document.documentElement.classList.remove('no-scroll');
     }
 
-    // Функція очищення для скидання класу
     return () => {
       document.documentElement.classList.remove('no-scroll');
+      document.documentElement.style.paddingRight = '0px';
     };
   }, [isOpen]);
 };

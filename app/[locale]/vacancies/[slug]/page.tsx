@@ -78,7 +78,7 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
                 );
               },
             }}
-            className="prose-h2:mb-10 prose-h2:font-kyiv-type-sans prose-h2:text-ui_bold_32 prose-p:mb-10 prose-p:text-ui_reg_16 last:prose-p:mb-0 xl:max-w-[91.5%] xl:prose-h2:text-ui_bold_40"
+            className="prose-h2:mb-10 prose-h2:font-kyiv-type-sans prose-h2:text-ui_bold_32 prose-p:mb-10 prose-p:whitespace-pre-wrap prose-p:text-ui_reg_16 last:prose-p:mb-0 xl:max-w-[91.5%] xl:prose-h2:text-ui_bold_40"
           >
             {long_description}
           </Markdown>

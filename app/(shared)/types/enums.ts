@@ -7,6 +7,7 @@ export enum RoutesEnum {
   NEWS = '/news',
   VACANCIES = '/vacancies',
   CONTACTS = '/contacts',
+  PRIVACY_POLICY = '/privacy-policy',
 }
 
 export enum LocaleEnum {

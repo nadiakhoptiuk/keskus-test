@@ -3,14 +3,15 @@ import { FC } from 'react';
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
 import { classnames } from '@/app/(shared)/utils/classnames';
 
-import { WithClassName } from '@/app/(shared)/types/common.types';
+import { SocialNetworkType, WithClassName } from '@/app/(shared)/types/common.types';
 
 type Props = WithClassName & {
   href: string;
-  to: 'facebook' | 'telegram' | 'viber';
+  to: SocialNetworkType;
+  aria: string;
 };
 
-export const SocialLink: FC<Props> = ({ className, href, to }) => {
+export const SocialLink: FC<Props> = ({ className, href, to, aria }) => {
   return (
     <a
       className={classnames(
@@ -20,7 +21,7 @@ export const SocialLink: FC<Props> = ({ className, href, to }) => {
       href={href}
       target="_blank"
       rel="nofollow noopener noreferrer"
-      aria-label="Social link"
+      aria-label={aria}
     >
       <CustomIcon icon={to} />
     </a>

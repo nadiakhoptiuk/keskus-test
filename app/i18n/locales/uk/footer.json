@@ -1,4 +1,9 @@
 {
   "copyright": "Всі права захищені",
-  "contactName": "Юлія"
+  "privacyPolicy": "Політика конфіденційності",
+  "socialLinkAria": {
+    "telegram": "Посилання на telegram",
+    "viber": "Посилання на viber",
+    "facebook": "Посилання на facebook"
+  }
 }
