@@ -10,6 +10,7 @@ export enum i18nNamespaces {
   CONTACTS = 'contacts',
   EVENTS = 'events',
   FOOTER = 'footer',
+  FORM = 'form',
   GALLERY = 'gallery',
   HEADER = 'header',
   HOMEPAGE = 'homepage',

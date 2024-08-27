@@ -81,6 +81,7 @@ export default async function RootLayout({ children, params: { locale } }: RootL
   const { resources } = await initTranslations(locale, [
     i18nNamespaces.HEADER,
     i18nNamespaces.FOOTER,
+    i18nNamespaces.FORM,
   ]);
 
   return (
@@ -95,7 +96,7 @@ export default async function RootLayout({ children, params: { locale } }: RootL
         <link rel="icon" href="/favicon.png" sizes="any" />
 
         <TranslationsProvider
-          namespaces={[i18nNamespaces.HEADER]}
+          namespaces={[i18nNamespaces.HEADER, i18nNamespaces.FORM]}
           locale={locale}
           resources={resources}
         >

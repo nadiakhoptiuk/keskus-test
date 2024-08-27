@@ -1,14 +1,16 @@
 import { FC, useState } from 'react';
 import { Dialog, DialogPanel, Transition } from '@headlessui/react';
 
+import { useNavbarItems } from '@/app/(shared)/hooks/useNavbarItems';
+import useBlockScroll from '@/app/(shared)/hooks/useBlockScroll';
+
 import { Button } from '@/app/(shared)/components/ui/Button';
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
 import { LanguageToggle } from '@/app/(shared)/components/ui/LanguageToggle';
 import { NavbarLink } from '@/app/(shared)/components/navigation/NavbarLink';
 import { Overlay } from '@/app/(shared)/components/ui/Overlay';
 import { TransitionNavbarChild } from '@/app/(shared)/components/animations/Transitions';
-import { useNavbarItems } from '@/app/(shared)/hooks/useNavbarItems';
-import useBlockScroll from '@/app/(shared)/hooks/useBlockScroll';
+import { ContactUsButton } from '../../ui/ContactUsButton';
 
 export const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -33,10 +35,14 @@ export const Navbar: FC = () => {
 
           <div className="fixed inset-0 z-10 w-screen overflow-y-auto overflow-x-hidden">
             <TransitionNavbarChild>
-              <DialogPanel className="absolute right-0 top-0 z-50 min-h-full w-full max-w-[600px] bg-blue-600 pb-12 pl-[84px] pr-5 pt-6 md:pr-8 md:pt-[42px] xl:pb-[50px] xl:pl-36 xl:pr-28">
-                <div className="relative z-40 mb-15 flex items-center justify-end gap-x-10">
-                  <LanguageToggle color="white" />
+              <DialogPanel className="absolute right-0 top-0 z-50 min-h-full w-full max-w-[600px] bg-blue-600 pb-12 pl-10 pr-5 pt-6 md:px-20 md:pt-[42px] xl:pb-[50px] xl:pl-20 xl:pr-28">
+                <div className="relative z-40 mb-15 flex items-center justify-end max-md:gap-x-8 md:gap-x-[36px] xl:gap-x-10">
+                  <ContactUsButton className="with-divider mr-[36px] hidden !bg-white !text-blue-600 after:right-[-36px] after:bg-grey hocus:!bg-yellow-400 md:inline-flex" />
 
+                  <LanguageToggle
+                    color="white"
+                    listboxClassName="max-md:h-7 max-md:w-15 max-md:px-2 max-md:text-ui_med_14 max-md:py-1"
+                  />
                   <Button
                     className="text-zinc-50 transition-all duration-300 hover:text-yellow-400 focus:text-yellow-400"
                     onClick={closeMenu}
@@ -45,7 +51,7 @@ export const Navbar: FC = () => {
                   </Button>
                 </div>
 
-                <nav className="relative z-10 grid gap-y-8 md:gap-y-10">
+                <nav className="relative z-10 grid gap-y-8 pl-11 md:gap-y-10">
                   {menuItems.map(({ title, href }) => (
                     <NavbarLink
                       key={title.toLowerCase()}
@@ -56,6 +62,8 @@ export const Navbar: FC = () => {
                     />
                   ))}
                 </nav>
+
+                <ContactUsButton className="mt-15 w-full max-w-[233px] border-[1px]  !bg-white !text-blue-600 hocus:!bg-yellow-400 md:hidden" />
               </DialogPanel>
             </TransitionNavbarChild>
           </div>

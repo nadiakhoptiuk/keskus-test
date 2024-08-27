@@ -17,6 +17,9 @@ const config: Config = {
           50: '#EFF6FF',
           600: '#2E58A1',
         },
+        red: {
+          500: '#F43F5E',
+        },
         yellow: {
           400: '#F7D747',
         },
@@ -74,6 +77,8 @@ const config: Config = {
       content: {
         'grain-left-blue': 'url("/decor/grain-left-blue-decor.svg")',
         'grain-right-blue': 'url("/decor/grain-right-blue-decor.svg")',
+        'grain-left-yellow': 'url("/decor/grain-left-decor.svg")',
+        'grain-right-yellow': 'url("/decor/grain-right-decor.svg")',
         'arrow-dropdown': 'url("/icons/arrow-dropdown.svg")',
         'arrow-gallery': 'url("/icons/arrow-gallery.svg")',
       },
@@ -88,6 +93,14 @@ const config: Config = {
         // ----------------------------- LIGHT -----------------------------
         ui_light_12: [
           '12px',
+          {
+            lineHeight: '1.33',
+            fontWeight: '300',
+          },
+        ],
+
+        ui_light_14: [
+          '14px',
           {
             lineHeight: '1.33',
             fontWeight: '300',
@@ -120,6 +133,14 @@ const config: Config = {
         ],
 
         // ----------------------------- MEDIUM -----------------------------
+
+        ui_med_14: [
+          '14px',
+          {
+            lineHeight: '1.5',
+            fontWeight: '500',
+          },
+        ],
 
         ui_med_16: [
           '16px',
@@ -169,6 +190,14 @@ const config: Config = {
           '20px',
           {
             lineHeight: '1.4',
+            fontWeight: '700',
+          },
+        ],
+
+        ui_bold_24: [
+          '24px',
+          {
+            lineHeight: '1.14',
             fontWeight: '700',
           },
         ],

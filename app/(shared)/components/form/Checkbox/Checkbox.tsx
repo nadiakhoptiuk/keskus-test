@@ -2,11 +2,11 @@ import { ForwardedRef, forwardRef } from 'react';
 
 import { classnames } from '@/app/(shared)/utils/classnames';
 
-import { InputProps } from '@/app/(shared)/types/common.types';
+import { CheckboxProps } from '@/app/(shared)/types/common.types';
 
 export const Checkbox = forwardRef(
   (
-    { error, className, labelText, ...props }: InputProps & { labelText?: string },
+    { error, className, labelText, ...props }: CheckboxProps & { labelText?: string },
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     return (
@@ -15,9 +15,12 @@ export const Checkbox = forwardRef(
           ref={ref}
           type="checkbox"
           className={classnames(
-            'rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 focus:ring-offset-0',
+            "base-transition h-5 w-5 rounded-sm border-blue-600 !text-blue-600 !accent-blue-600 shadow-sm checked:!bg-blue-50 checked:!bg-[url('/icons/checkbox.svg')]  focus:ring-2  focus:ring-offset-0",
             {
-              'border-rose-500 focus:border-rose-300 focus:ring-rose-200': error,
+              'focus:bg-blue-50  focus:ring-blue-200': !error,
+            },
+            {
+              'border-red-500 focus:border-red-500 focus:bg-red-100 focus:ring-red-200': error,
             },
             className,
           )}
@@ -26,8 +29,8 @@ export const Checkbox = forwardRef(
         />
 
         <span
-          className={classnames('ml-2', {
-            'text-rose-500': error,
+          className={classnames('!text-ui_light_12 text-black', {
+            '!text-ui_light_12 text-red-500': error,
           })}
         >
           {labelText}
