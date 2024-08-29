@@ -15,3 +15,15 @@ export enum LocaleEnum {
   EN = 'en',
   ET = 'et',
 }
+
+export enum PageNameVariableEnum {
+  HOME = 'homePage',
+  ABOUT_US = 'aboutUsPage',
+  GALLERY = 'galleryPage',
+  SERVICES = 'servicesPage',
+  EVENTS = 'eventsPage',
+  NEWS = 'newsPage',
+  VACANCIES = 'vacanciesPage',
+  CONTACTS = 'contactsPage',
+  PRIVACY_POLICY = 'policyPage',
+}

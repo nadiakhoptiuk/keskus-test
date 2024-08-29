@@ -4,11 +4,24 @@ import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { VacanciesList } from './components/VacanciesList/VacanciesList';
 
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
+import { fetchVacanciesPage } from '@/requests/fetchVacanciesPage';
+import { generatePageMetaData } from '@/app/(shared)/utils/generatePageMetaData';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 import { ButtonInfoType } from './components/VacancyItem/VacancyItem.types';
-import { fetchVacanciesPage } from '@/requests/fetchVacanciesPage';
+import { Metadata } from 'next';
+import { PageNameVariableEnum, RoutesEnum } from '@/app/(shared)/types/enums';
+
+export const generateMetadata = async ({ params: { locale } }: PageProps): Promise<Metadata> => {
+  const args = {
+    locale,
+    pageName: PageNameVariableEnum.VACANCIES,
+    route: RoutesEnum.VACANCIES,
+  };
+
+  return await generatePageMetaData(args);
+};
 
 export default async function Page({ params: { locale } }: PageProps) {
   const { t } = await initTranslations(locale, [i18nNamespaces.VACANCIES]);

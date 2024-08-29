@@ -628,3 +628,33 @@ export type InputDataType = {
   type: 'text' | 'email' | 'tel' | 'textarea';
   name: string;
 };
+
+export type MetaImageType = {
+  url: string;
+  width: string;
+  height: string;
+};
+
+export type PageMetaDataType = {
+  data: {
+    attributes: {
+      seo: {
+        metaTitle: string;
+        metaDescription: string;
+        metaImage: {
+          data: {
+            attributes: MetaImageType;
+          };
+        };
+        keywords: string;
+      };
+    };
+  };
+};
+
+export type FinalPageMetaDataType = {
+  metaTitle: string;
+  metaDescription: string;
+  metaImage: MetaImageType;
+  keywords: string;
+};

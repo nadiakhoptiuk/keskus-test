@@ -1,15 +1,49 @@
+import { Metadata } from 'next';
+
 import { Announcement } from '@/app/[locale]/components/Announcement';
 import { Hero } from '@/app/[locale]/components/Hero';
 import { News } from '@/app/[locale]/components/News';
 import { Scroller } from '@/app/[locale]/components/Scroller';
 import { Support } from '@/app/[locale]/components/Support';
 
+import { fetchMetaData } from '@/requests/fetchMetaData';
 import { fetchHomePage } from '@/requests/fetchHomePage';
 import { availableIrregularEventsDates } from '../(shared)/utils/availableEventsDates';
 import { initTranslations } from '../i18n/extensions/initTranslations';
+import {
+  transformMetaFacebook,
+  transformMetaTwitter,
+} from '../(shared)/utils/transformMetaSocials';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
 import { i18nNamespaces } from '../(shared)/types/i18n.types';
+import { LocaleEnum, PageNameVariableEnum } from '../(shared)/types/enums';
+
+export const generateMetadata = async ({ params: { locale } }: PageProps): Promise<Metadata> => {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL as string;
+
+  const metaData = await fetchMetaData(locale, PageNameVariableEnum.HOME);
+
+  const { t } = await initTranslations(locale, [i18nNamespaces.METADATA]);
+  const defaultMeta: Metadata = t('meta', { returnObjects: true });
+
+  if (!metaData) {
+    return defaultMeta;
+  }
+
+  const { metaTitle: title, metaDescription: description, metaImage, keywords } = metaData;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `${baseUrl}/${locale === LocaleEnum.UK ? '' : locale}`,
+    },
+    keywords,
+    twitter: transformMetaTwitter(metaImage, title, description),
+    openGraph: transformMetaFacebook(metaImage, title, description, baseUrl, locale),
+  };
+};
 
 export default async function Page({ params: { locale } }: PageProps) {
   const pageData = await fetchHomePage(locale);
