@@ -10,14 +10,12 @@ import { fetchMetaData } from '@/requests/fetchMetaData';
 import { fetchHomePage } from '@/requests/fetchHomePage';
 import { availableIrregularEventsDates } from '../(shared)/utils/availableEventsDates';
 import { initTranslations } from '../i18n/extensions/initTranslations';
-import {
-  transformMetaFacebook,
-  transformMetaTwitter,
-} from '../(shared)/utils/transformMetaSocials';
+import { transformMetaFacebook, transformMetaTwitter } from '../(shared)/utils/transformMeta';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
 import { i18nNamespaces } from '../(shared)/types/i18n.types';
 import { LocaleEnum, PageNameVariableEnum } from '../(shared)/types/enums';
+import { languages } from '../(shared)/utils/constants';
 
 export const generateMetadata = async ({ params: { locale } }: PageProps): Promise<Metadata> => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL as string;
@@ -28,7 +26,13 @@ export const generateMetadata = async ({ params: { locale } }: PageProps): Promi
   const defaultMeta: Metadata = t('meta', { returnObjects: true });
 
   if (!metaData) {
-    return defaultMeta;
+    return {
+      ...defaultMeta,
+      alternates: {
+        canonical: `${baseUrl}/${locale === LocaleEnum.UK ? '' : locale}`,
+        languages: languages,
+      },
+    };
   }
 
   const { metaTitle: title, metaDescription: description, metaImage, keywords } = metaData;
@@ -38,6 +42,7 @@ export const generateMetadata = async ({ params: { locale } }: PageProps): Promi
     description,
     alternates: {
       canonical: `${baseUrl}/${locale === LocaleEnum.UK ? '' : locale}`,
+      languages: languages,
     },
     keywords,
     twitter: transformMetaTwitter(metaImage, title, description),
