@@ -1,4 +1,73 @@
 {
-  "title": "Ukraina Keskus",
-  "description": "Український Центр - це об'єднання, створене українками для підтримки та допомоги українцям в Естоні.Ми об'єдналися для збереження української мови, культури та традицій, покращення життя української спільноти в Естонії та пошуку кращих шляхів в самовизначенні, творчій реалізації українців за кордоном."
+  "meta": {
+    "title": "Український Центр",
+    "description": "Об'єднання, створене для допомоги українцям в Естонії.",
+    "manifest": "/meta/site.webmanifest",
+    "robots": {
+      "index": true,
+      "follow": true
+    },
+    "twitter": {
+      "title": "Український Центр",
+      "description": "Об'єднання, створене для допомоги українцям в Естонії.",
+      "card": "summary_large_image",
+      "images": [
+        {
+          "url": "/meta/ogp-image.jpg",
+          "width": 1200,
+          "height": 630,
+          "alt": "Український Центр. Об'єднання, створене для допомоги українцям в Естонії."
+        }
+      ]
+    },
+    "openGraph": {
+      "title": "Український Центр",
+      "description": "Об'єднання, створене для допомоги українцям в Естонії.",
+      "siteName": "Український Центр",
+      "locale": "uk_UA",
+      "type": "website",
+      "images": [
+        {
+          "url": "/meta/ogp-image.jpg",
+          "width": 1200,
+          "height": 630,
+          "alt": "Український Центр. Об'єднання, створене для допомоги українцям в Естонії."
+        }
+      ]
+    },
+    "keywords": "Український центр, об'єднання для допомоги українцям в Естонії, збереження української мови, збереження українських традицій",
+    "icons": {
+      "icon": [
+        {
+          "url": "/meta/favicon.ico"
+        },
+        {
+          "url": "/meta/favicon-16x16.png",
+          "sizes": "16x16",
+          "type": "image/png"
+        },
+        {
+          "url": "/meta/favicon-32x32.png",
+          "sizes": "32x32",
+          "type": "image/png"
+        },
+        {
+          "url": "/meta/android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "url": "/meta/android-chrome-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ],
+      "shortcut": "/meta/favicon.ico",
+      "apple": "/meta/apple-touch-icon.png",
+      "other": {
+        "rel": "/meta/apple-touch-icon.png",
+        "url": "/meta/apple-touch-icon.png"
+      }
+    }
+  }
 }

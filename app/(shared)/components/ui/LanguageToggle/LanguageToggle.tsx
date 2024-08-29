@@ -17,9 +17,10 @@ const options = [
 
 type Props = WithClassName & {
   color: 'blue' | 'white';
+  listboxClassName?: string;
 };
 
-export const LanguageToggle: FC<Props> = ({ color, className }) => {
+export const LanguageToggle: FC<Props> = ({ color, className, listboxClassName = '' }) => {
   const { currentLocale, handleChange } = useLanguageToggle();
 
   return (
@@ -29,15 +30,16 @@ export const LanguageToggle: FC<Props> = ({ color, className }) => {
           <div className={classnames('relative', className)}>
             <ListboxButton
               className={classnames(
-                'baseTransition inline-flex w-20 items-center justify-center gap-x-1 rounded-full border px-5 py-1 text-base font-medium uppercase transition-colors',
+                'baseTransition inline-flex h-10 w-[72px] items-baseline justify-center gap-x-1 rounded border px-4 py-2 text-base font-medium uppercase transition-colors',
                 open && 'pointer-events-none',
                 color === 'blue' &&
                   'border-blue-600 bg-zinc-50 text-blue-600 hocus:bg-blue-600 hocus:text-zinc-50',
                 color === 'white' &&
                   'border-zinc-50 bg-blue-600 text-zinc-50 hocus:bg-zinc-50 hocus:text-blue-600',
+                listboxClassName,
               )}
             >
-              {currentLocale}
+              <span>{currentLocale === 'uk' ? 'UA' : currentLocale}</span>
 
               <CustomIcon icon="arrow-sm" className="size-3" />
             </ListboxButton>
@@ -45,7 +47,7 @@ export const LanguageToggle: FC<Props> = ({ color, className }) => {
             <TransitionDropdown>
               <ListboxOptions
                 className={classnames(
-                  'absolute z-50 mt-9 w-full overflow-hidden rounded-xl border shadow-sm',
+                  'absolute z-50 mt-11 w-full overflow-hidden rounded border shadow-sm',
                   color === 'blue' && 'border-blue-600 bg-zinc-50',
                   color === 'white' && 'border-zinc-50 bg-zinc-50',
                 )}
@@ -57,7 +59,7 @@ export const LanguageToggle: FC<Props> = ({ color, className }) => {
                     disabled={option.unavailable}
                     className="base-transition block w-full cursor-pointer p-2 text-center text-base font-medium uppercase text-blue-600 hocus:bg-blue-600 hocus:text-zinc-50"
                   >
-                    {option.value}
+                    {option.value === 'uk' ? 'ua' : option.value}
                   </ListboxOption>
                 ))}
               </ListboxOptions>

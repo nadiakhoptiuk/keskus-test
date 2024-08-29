@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Markdown from 'react-markdown';
 
 import { Section } from '@/app/(shared)/components/ui/Section';
@@ -7,8 +8,10 @@ import { ApplyButton } from '../components/ApplyButton';
 
 import { fetchSingleVacancy } from '@/requests/fetchSingleVacancy';
 import { fetchAllVacanciesSlugs } from '@/requests/fetchAllVacanciesSlugs';
+import { generatePageMetaData } from '@/app/(shared)/utils/generatePageMetaData';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
+import { PageNameVariableEnum, RoutesEnum } from '@/app/(shared)/types/enums';
 
 export async function generateStaticParams({ params: { locale } }: PageProps) {
   const vacanciesSlugsData = await fetchAllVacanciesSlugs(locale);
@@ -22,6 +25,18 @@ export async function generateStaticParams({ params: { locale } }: PageProps) {
     }) || []
   );
 }
+
+export const generateMetadata = async ({
+  params: { locale, slug },
+}: PageProps): Promise<Metadata> => {
+  const args = {
+    locale,
+    pageName: PageNameVariableEnum.VACANCIES,
+    route: `${RoutesEnum.VACANCIES}/${slug}`,
+  };
+
+  return await generatePageMetaData(args);
+};
 
 export default async function Page({ params: { locale, slug } }: PageProps) {
   if (!slug) return null;

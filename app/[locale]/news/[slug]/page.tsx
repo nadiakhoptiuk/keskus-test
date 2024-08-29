@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Markdown from 'react-markdown';
 
@@ -8,9 +9,10 @@ import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { fetchAllNewsSlugs } from '@/requests/fetchAllNewsSlugs';
 import { fetchSingleNewsPageData } from '@/requests/fetchSingleNewsPageData';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
+import { generatePageMetaData } from '@/app/(shared)/utils/generatePageMetaData';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
-import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
+import { LocaleEnum, PageNameVariableEnum, RoutesEnum } from '@/app/(shared)/types/enums';
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 
 export async function generateStaticParams({
@@ -29,6 +31,18 @@ export async function generateStaticParams({
     }) || []
   );
 }
+
+export const generateMetadata = async ({
+  params: { locale, slug },
+}: PageProps): Promise<Metadata> => {
+  const args = {
+    locale,
+    pageName: PageNameVariableEnum.NEWS,
+    route: `${RoutesEnum.NEWS}/${slug}`,
+  };
+
+  return await generatePageMetaData(args);
+};
 
 export default async function Page({ params: { locale, slug } }: PageProps) {
   if (!slug) return null;

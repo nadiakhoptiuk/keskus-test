@@ -1,0 +1,36 @@
+{
+  "formTitle": "Võta meiega ühendust!",
+  "inputs": [
+    { "label": "Nimi*", "placeholder": "Sisestage nimi", "type": "text", "name": "name" },
+    {
+      "label": "Telefoninumber*",
+      "placeholder": "Sisestage oma telefoninumber",
+      "type": "tel",
+      "name": "phone"
+    },
+    {
+      "label": "E-post*",
+      "placeholder": "Sisestage oma e-posti aadress",
+      "type": "email",
+      "name": "email"
+    },
+    {
+      "label": "Sõnumid",
+      "placeholder": "Sisestage sõnum",
+      "type": "textarea",
+      "name": "details"
+    }
+  ],
+  "checkbox": "Käesolevas taotluses esitatud andmete esitamisega annate nõusoleku teie esitatud isikuandmete kogumiseks ja töötlemiseks.",
+  "submitBtn": "Esita",
+  "result": {
+    "success": {
+      "title": "Aitäh!",
+      "details": "Andmed on edukalt saadetud ja me võtame teiega peagi ühendust"
+    },
+    "error": {
+      "title": "Vabandust :(",
+      "details": "Me ei suutnud andmeid saata. Palun proovige hiljem uuesti"
+    }
+  }
+}

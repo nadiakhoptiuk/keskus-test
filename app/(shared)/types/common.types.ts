@@ -1,6 +1,7 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 import { LocaleEnum } from '@/app/(shared)/types/enums';
+import { FieldError } from 'react-hook-form';
 
 export type WithChildren = {
   children: ReactNode;
@@ -11,7 +12,7 @@ export type WithClassName = {
 };
 
 export type WithError = {
-  error?: string;
+  error?: FieldError;
 };
 
 export type WithId = {
@@ -29,9 +30,29 @@ export type PageProps = {
 
 export type Inputs = Record<string, string>;
 
+export type SubmitStatusType = 'idle' | 'success' | 'error';
+
 export type ButtonProps = ComponentPropsWithoutRef<'button'> & WithChildren & WithClassName;
 
-export type InputProps = ComponentPropsWithoutRef<'input'> & WithClassName & WithError;
+export type InputBaseProps = {
+  placeholder?: string;
+  value?: string;
+};
+
+export type InputBasePropsWithType = {
+  type: 'text' | 'tel' | 'email';
+};
+
+export type InputProps = InputBaseProps &
+  InputBasePropsWithType &
+  ComponentPropsWithoutRef<'input'> &
+  WithClassName &
+  WithError;
+
+export type CheckboxProps = InputBaseProps &
+  ComponentPropsWithoutRef<'input'> &
+  WithClassName &
+  WithError;
 
 export type TextAreaProps = ComponentPropsWithoutRef<'textarea'> & WithClassName & WithError;
 
@@ -599,4 +620,41 @@ export type PartnerLogoType = {
     };
   };
   alt: string;
+};
+
+export type InputDataType = {
+  label: string;
+  placeholder: string;
+  type: 'text' | 'email' | 'tel' | 'textarea';
+  name: string;
+};
+
+export type MetaImageType = {
+  url: string;
+  width: string;
+  height: string;
+};
+
+export type PageMetaDataType = {
+  data: {
+    attributes: {
+      seo: {
+        metaTitle: string;
+        metaDescription: string;
+        metaImage: {
+          data: {
+            attributes: MetaImageType;
+          };
+        };
+        keywords: string;
+      };
+    };
+  };
+};
+
+export type FinalPageMetaDataType = {
+  metaTitle: string;
+  metaDescription: string;
+  metaImage: MetaImageType;
+  keywords: string;
 };

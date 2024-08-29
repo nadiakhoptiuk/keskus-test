@@ -1,4 +1,73 @@
 {
-  "title": "Ukraina Keskus",
-  "description": "Ukraina Keskus on Ukraina naiste loodud ühendus ukrainlaste toetamiseks ja abistamiseks Eestis. Oleme ühinenud, et säilitada ukraina keelt, kultuuri ja traditsioone, parandada ukraina kogukonna elu Eestis ning leida paremaid võimalusi ukrainlaste enesemääratlemiseks ja loominguliseks eneseteostuseks välismaal."
+  "meta": {
+    "title": "Ukraina Keskus",
+    "description": "Eestis elavate ukrainlaste abistamiseks loodud ühing.",
+    "manifest": "/meta/site.webmanifest",
+    "robots": {
+      "index": true,
+      "follow": true
+    },
+    "twitter": {
+      "title": "Ukraina Keskus",
+      "description": "Eestis elavate ukrainlaste abistamiseks loodud ühing.",
+      "card": "summary_large_image",
+      "images": [
+        {
+          "url": "/meta/ogp-image.jpg",
+          "width": 1200,
+          "height": 630,
+          "alt": "Ukraina Keskus. Eestis elavate ukrainlaste abistamiseks loodud ühing."
+        }
+      ]
+    },
+    "openGraph": {
+      "title": "Ukraina Keskus",
+      "description": "Eestis elavate ukrainlaste abistamiseks loodud ühing.",
+      "siteName": "Ukraina Keskus",
+      "locale": "et_EE",
+      "type": "website",
+      "images": [
+        {
+          "url": "/meta/ogp-image.jpg",
+          "width": 1200,
+          "height": 630,
+          "alt": "Ukraina Keskus. Eestis elavate ukrainlaste abistamiseks loodud ühing."
+        }
+      ]
+    },
+    "keywords": "Ukraina Keskus, ühing ukrainlaste abistamiseks Eestis, ukraina keele säilitamiseks ja ukraina traditsioonide hoidmiseks",
+    "icons": {
+      "icon": [
+        {
+          "url": "/meta/favicon.ico"
+        },
+        {
+          "url": "/meta/favicon-16x16.png",
+          "sizes": "16x16",
+          "type": "image/png"
+        },
+        {
+          "url": "/meta/favicon-32x32.png",
+          "sizes": "32x32",
+          "type": "image/png"
+        },
+        {
+          "url": "/meta/android-chrome-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        },
+        {
+          "url": "/meta/android-chrome-512x512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ],
+      "shortcut": "/meta/favicon.ico",
+      "apple": "/meta/apple-touch-icon.png",
+      "other": {
+        "rel": "/meta/apple-touch-icon.png",
+        "url": "/meta/apple-touch-icon.png"
+      }
+    }
+  }
 }

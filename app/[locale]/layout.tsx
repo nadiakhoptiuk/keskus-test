@@ -1,4 +1,5 @@
 import localFont from 'next/font/local';
+import { Metadata } from 'next';
 import 'swiper/css';
 import '@/app/globals.css';
 
@@ -6,14 +7,21 @@ import { dir } from 'i18next';
 
 import { Footer } from '@/app/(shared)/components/layout/Footer';
 import { Header } from '@/app/(shared)/components/layout/Header';
+
 import { TranslationsProvider } from '@/app/i18n/extensions/TranslationsProvider';
 import { classnames } from '@/app/(shared)/utils/classnames';
 import { i18nConfig } from '@/app/i18n/config';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
+import { fetchFooterData } from '@/requests/fetchFooterData';
+import { fetchMetaData } from '@/requests/fetchMetaData';
+import {
+  transformMetaFacebook,
+  transformMetaTwitter,
+} from '../(shared)/utils/transformMetaSocials';
 
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 import { PageProps, RootLayoutProps } from '@/app/(shared)/types/common.types';
-import { fetchFooterData } from '@/requests/fetchFooterData';
+import { LocaleEnum, PageNameVariableEnum } from '../(shared)/types/enums';
 
 const kyivSans = localFont({
   src: [
@@ -62,18 +70,46 @@ const fixel = localFont({
   variable: '--fonts-fixel',
 });
 
+export const generateMetadata = async ({ params: { locale } }: PageProps): Promise<Metadata> => {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL as string;
+
+  const metaData = await fetchMetaData(locale, PageNameVariableEnum.HOME);
+
+  const { t } = await initTranslations(locale, [i18nNamespaces.METADATA]);
+  const defaultMeta: Metadata = t('meta', { returnObjects: true });
+
+  if (!metaData) {
+    return defaultMeta;
+  }
+
+  const languages = {
+    'uk-UA': '/',
+    'en-US': '/en',
+    'et-EE': '/et',
+  };
+  const { manifest, icons, robots } = defaultMeta;
+  const { metaTitle: title, metaDescription: description, metaImage, keywords } = metaData;
+
+  return {
+    title,
+    description,
+    robots,
+    metadataBase: new URL(baseUrl),
+    manifest,
+    alternates: {
+      canonical: `${baseUrl}/${locale === LocaleEnum.UK ? '' : locale}`,
+      languages: languages,
+    },
+    keywords,
+    twitter: transformMetaTwitter(metaImage, title, description),
+    openGraph: transformMetaFacebook(metaImage, title, description, baseUrl, locale),
+    icons,
+  };
+};
+
 export function generateStaticParams() {
   return i18nConfig.locales.map(locale => ({ locale }));
 }
-
-export const generateMetadata = async ({ params: { locale } }: PageProps) => {
-  const { t } = await initTranslations(locale, [i18nNamespaces.METADATA]);
-
-  return {
-    title: t('title'),
-    description: t('description'),
-  };
-};
 
 export default async function RootLayout({ children, params: { locale } }: RootLayoutProps) {
   const footerData = await fetchFooterData(locale);
@@ -81,6 +117,7 @@ export default async function RootLayout({ children, params: { locale } }: RootL
   const { resources } = await initTranslations(locale, [
     i18nNamespaces.HEADER,
     i18nNamespaces.FOOTER,
+    i18nNamespaces.FORM,
   ]);
 
   return (
@@ -95,7 +132,7 @@ export default async function RootLayout({ children, params: { locale } }: RootL
         <link rel="icon" href="/favicon.png" sizes="any" />
 
         <TranslationsProvider
-          namespaces={[i18nNamespaces.HEADER]}
+          namespaces={[i18nNamespaces.HEADER, i18nNamespaces.FORM]}
           locale={locale}
           resources={resources}
         >

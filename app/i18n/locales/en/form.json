@@ -1,0 +1,21 @@
+{
+  "formTitle": "Contact us!",
+  "inputs": [
+    { "label": "Name*", "placeholder": "Enter a name", "type": "text", "name": "name" },
+    { "label": "Phone*", "placeholder": "Enter a phone", "type": "tel", "name": "phone" },
+    { "label": "Email*", "placeholder": "Enter an email", "type": "email", "name": "email" },
+    { "label": "Message", "placeholder": "Enter a message", "type": "textarea", "name": "details" }
+  ],
+  "checkbox": "By submitting the data in this application, you consent to the collection and processing of the personal data provided by you",
+  "submitBtn": "Send",
+  "result": {
+    "success": {
+      "title": "Thank you!",
+      "details": "The data has been successfully sent and we will contact you shortly"
+    },
+    "error": {
+      "title": "Sorry :(",
+      "details": "The data was not sent. Please try again later"
+    }
+  }
+}

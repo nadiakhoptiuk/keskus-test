@@ -1,3 +1,5 @@
+import { Metadata } from 'next';
+
 import { Section } from '@/app/(shared)/components/ui/Section';
 import { Container } from '@/app/(shared)/components/ui/Container';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
@@ -7,8 +9,20 @@ import { GeneralInfo } from './components/GeneralInfo';
 import { SendSuggestions } from './components/SendSuggestions';
 
 import { fetchContactsPage } from '@/requests/fetchContactsPage';
+import { generatePageMetaData } from '@/app/(shared)/utils/generatePageMetaData';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
+import { PageNameVariableEnum, RoutesEnum } from '@/app/(shared)/types/enums';
+
+export const generateMetadata = async ({ params: { locale } }: PageProps): Promise<Metadata> => {
+  const args = {
+    locale,
+    pageName: PageNameVariableEnum.CONTACTS,
+    route: RoutesEnum.CONTACTS,
+  };
+
+  return await generatePageMetaData(args);
+};
 
 export default async function Page({ params: { locale } }: PageProps) {
   const pageData = await fetchContactsPage(locale);

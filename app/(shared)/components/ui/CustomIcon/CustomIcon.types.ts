@@ -17,6 +17,7 @@ import Partner3 from '@/public/icons/partner3.svg';
 import Partner4 from '@/public/icons/partner4.svg';
 import Partner5 from '@/public/icons/partner5.svg';
 import Pin from '@/public/icons/pin.svg';
+import Spinner from '@/public/icons/spinner.svg';
 import Support from '@/public/icons/support.svg';
 import SupportInfo from '@/public/icons/support-info.svg';
 import SupportPsycho from '@/public/icons/support-psycho.svg';
@@ -42,6 +43,7 @@ export const icons = {
   partner4: Partner4,
   partner5: Partner5,
   pin: Pin,
+  spinner: Spinner,
   support: Support,
   'support-info': SupportInfo,
   'support-psycho': SupportPsycho,

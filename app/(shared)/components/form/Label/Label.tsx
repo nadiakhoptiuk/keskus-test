@@ -12,7 +12,8 @@ type Props = WithChildren &
 export const Label: FC<Props> = ({ labelText, children, className }) => {
   return (
     <label className={classnames('relative', className)}>
-      {labelText && <span className="text-gray-700">{labelText}</span>}
+      {labelText && <span className="text-black">{labelText}</span>}
+
       {children}
     </label>
   );

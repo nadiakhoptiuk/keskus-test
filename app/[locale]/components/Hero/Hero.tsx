@@ -62,6 +62,7 @@ export const Hero: FC<Props> = async ({ locale, pageTitle, text, buttonText }) =
       <div className="mx-auto shrink-0 max-md:aspect-[360/318] max-md:max-w-[480px] md:hidden">
         <Image
           src={Banner}
+          priority
           alt={t('heroImageAlt')}
           sizes="(min-width: 768px) 50vw, 100vw"
           className="h-full w-full object-center max-md:object-contain md:object-cover"

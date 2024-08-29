@@ -21,7 +21,7 @@ export const NavbarLink: FC<NavbarLinkProps & LinkProps> = ({ title, href, varia
   return (
     <Link
       href={href}
-      className="base-transition group relative font-kyiv-type-sans text-[28px] font-medium text-zinc-50 transition-colors hover:text-yellow-400 focus:outline-none focus-visible:text-yellow-400 focus-visible:ring-2 focus-visible:ring-white/75 md:text-4xl"
+      className="base-transition group relative !w-fit font-kyiv-type-sans text-[28px] font-medium text-zinc-50 transition-colors hover:text-yellow-400 focus:outline-none focus-visible:text-yellow-400 focus-visible:ring-2 focus-visible:ring-white/75 md:text-4xl"
       {...props}
     >
       <CustomIcon

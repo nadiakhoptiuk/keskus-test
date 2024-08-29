@@ -1,12 +1,25 @@
+import { Metadata } from 'next';
 import Markdown from 'react-markdown';
 
 import { fetchPrivacyPolicyPage } from '@/requests/fetchPrivacyPolicyPage';
+import { generatePageMetaData } from '@/app/(shared)/utils/generatePageMetaData';
 
 import { Container } from '@/app/(shared)/components/ui/Container';
 import { Section } from '@/app/(shared)/components/ui/Section';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
+import { PageNameVariableEnum, RoutesEnum } from '@/app/(shared)/types/enums';
+
+export const generateMetadata = async ({ params: { locale } }: PageProps): Promise<Metadata> => {
+  const args = {
+    locale,
+    pageName: PageNameVariableEnum.PRIVACY_POLICY,
+    route: RoutesEnum.PRIVACY_POLICY,
+  };
+
+  return await generatePageMetaData(args);
+};
 
 export default async function Page({ params: { locale } }: PageProps) {
   const pageData = await fetchPrivacyPolicyPage(locale);

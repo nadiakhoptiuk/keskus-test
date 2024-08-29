@@ -22,6 +22,10 @@
     @apply grid gap-8 md:grid-cols-2 xl:grid-cols-3;
   }
 
+  .with-divider {
+    @apply relative h-max after:pointer-events-none after:absolute after:right-[-20px] after:top-0 after:h-10 after:w-[1px] after:bg-grey after:content-[''];
+  }
+
   .gallery-grid {
     @apply grid gap-8 max-md:auto-rows-[244px] max-md:grid-cols-1 md:auto-rows-[213px] md:grid-cols-2 xl:auto-rows-[244px] xl:grid-cols-3 2xl:auto-rows-[291px];
   }
@@ -167,12 +171,9 @@
   }
 
   /* Form */
-  .default-input {
-    @apply mt-1 block w-full rounded-md border-gray-300 shadow-sm placeholder:text-sm placeholder:text-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
-  }
 
   .error-input {
-    @apply border-rose-500 focus:border-rose-300 focus:ring-rose-200;
+    @apply border-red-500 focus:border-red-300 focus:ring-red-200;
   }
 
   /* Buttons*/
