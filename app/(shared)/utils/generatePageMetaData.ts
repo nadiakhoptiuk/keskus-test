@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 import { fetchMetaData } from '@/requests/fetchMetaData';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
-import { transformMetaFacebook, transformMetaTwitter } from './transformMetaSocials';
+import { generateAlternate, transformMetaFacebook, transformMetaTwitter } from './transformMeta';
 
 import { LocaleEnum, PageNameVariableEnum, RoutesEnum } from '../types/enums';
 import { i18nNamespaces } from '../types/i18n.types';
@@ -24,9 +24,7 @@ export const generatePageMetaData = async ({ locale, pageName, route }: Argument
     return {
       title: defaultMeta.title,
       description: defaultMeta.description,
-      alternates: {
-        canonical: locale === LocaleEnum.UK ? `${baseUrl}${route}` : `${baseUrl}/${locale}${route}`,
-      },
+      alternates: generateAlternate({ locale, baseUrl, route }),
       twitter: defaultMeta.twitter,
       openGraph: defaultMeta.openGraph,
     };
@@ -37,9 +35,7 @@ export const generatePageMetaData = async ({ locale, pageName, route }: Argument
   return {
     title,
     description,
-    alternates: {
-      canonical: locale === LocaleEnum.UK ? `${baseUrl}${route}` : `${baseUrl}/${locale}${route}`,
-    },
+    alternates: generateAlternate({ locale, baseUrl, route }),
     keywords,
     twitter: transformMetaTwitter(metaImage, title, description),
     openGraph: transformMetaFacebook(metaImage, title, description, baseUrl, locale),

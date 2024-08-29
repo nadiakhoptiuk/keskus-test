@@ -14,14 +14,10 @@ import { i18nConfig } from '@/app/i18n/config';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 import { fetchFooterData } from '@/requests/fetchFooterData';
 import { fetchMetaData } from '@/requests/fetchMetaData';
-import {
-  transformMetaFacebook,
-  transformMetaTwitter,
-} from '../(shared)/utils/transformMetaSocials';
 
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 import { PageProps, RootLayoutProps } from '@/app/(shared)/types/common.types';
-import { LocaleEnum, PageNameVariableEnum } from '../(shared)/types/enums';
+import { PageNameVariableEnum } from '../(shared)/types/enums';
 
 const kyivSans = localFont({
   src: [
@@ -70,6 +66,10 @@ const fixel = localFont({
   variable: '--fonts-fixel',
 });
 
+export function generateStaticParams() {
+  return i18nConfig.locales.map(locale => ({ locale }));
+}
+
 export const generateMetadata = async ({ params: { locale } }: PageProps): Promise<Metadata> => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL as string;
 
@@ -82,13 +82,7 @@ export const generateMetadata = async ({ params: { locale } }: PageProps): Promi
     return defaultMeta;
   }
 
-  const languages = {
-    'uk-UA': '/',
-    'en-US': '/en',
-    'et-EE': '/et',
-  };
-  const { manifest, icons, robots } = defaultMeta;
-  const { metaTitle: title, metaDescription: description, metaImage, keywords } = metaData;
+  const { manifest, icons, robots, title, description } = defaultMeta;
 
   return {
     title,
@@ -96,20 +90,9 @@ export const generateMetadata = async ({ params: { locale } }: PageProps): Promi
     robots,
     metadataBase: new URL(baseUrl),
     manifest,
-    alternates: {
-      canonical: `${baseUrl}/${locale === LocaleEnum.UK ? '' : locale}`,
-      languages: languages,
-    },
-    keywords,
-    twitter: transformMetaTwitter(metaImage, title, description),
-    openGraph: transformMetaFacebook(metaImage, title, description, baseUrl, locale),
     icons,
   };
 };
-
-export function generateStaticParams() {
-  return i18nConfig.locales.map(locale => ({ locale }));
-}
 
 export default async function RootLayout({ children, params: { locale } }: RootLayoutProps) {
   const footerData = await fetchFooterData(locale);

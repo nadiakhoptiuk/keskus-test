@@ -1,5 +1,6 @@
 import { MetaImageType } from '../types/common.types';
-import { LocaleEnum } from '../types/enums';
+import { LocaleEnum, RoutesEnum } from '../types/enums';
+import { languages } from './constants';
 
 export const transformMetaTwitter = (data: MetaImageType, title: string, description: string) => {
   const { url, width, height } = data;
@@ -45,4 +46,27 @@ export const transformMetaFacebook = (
       },
     ],
   };
+};
+
+export const generateAlternate = ({
+  locale,
+  baseUrl,
+  route,
+}: {
+  locale: LocaleEnum;
+  baseUrl: string;
+  route: RoutesEnum | string;
+}) => {
+  return {
+    canonical: locale === LocaleEnum.UK ? `${baseUrl}${route}` : `${baseUrl}/${locale}${route}`,
+    languages: transformAlternates(languages, route),
+  };
+};
+
+const transformAlternates = (languages: Record<LocaleEnum, string>, route: string) => {
+  return Object.fromEntries(
+    Object.entries(languages).map(([lang, url]) => {
+      return lang === LocaleEnum.UK ? [lang, route] : [lang, `${url}${route}`];
+    }),
+  );
 };
