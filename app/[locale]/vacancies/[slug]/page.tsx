@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Markdown from 'react-markdown';
 
+import notFound from '@/app/[locale]/[not-found]/page';
 import { Section } from '@/app/(shared)/components/ui/Section';
 import { Container } from '@/app/(shared)/components/ui/Container';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
@@ -11,19 +12,24 @@ import { fetchAllVacanciesSlugs } from '@/requests/fetchAllVacanciesSlugs';
 import { generatePageMetaData } from '@/app/(shared)/utils/generatePageMetaData';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
-import { PageNameVariableEnum, RoutesEnum } from '@/app/(shared)/types/enums';
+import { LocaleEnum, PageNameVariableEnum, RoutesEnum } from '@/app/(shared)/types/enums';
 
-export async function generateStaticParams({ params: { locale } }: PageProps) {
+// eslint-disable-next-line unicorn/prevent-abbreviations
+export const dynamicParams = false;
+export const dynamic = 'error';
+export const revalidate = false;
+
+export async function generateStaticParams({
+  params: { locale },
+}: PageProps): Promise<Array<{ locale: LocaleEnum; slug: string }>> {
   const vacanciesSlugsData = await fetchAllVacanciesSlugs(locale);
 
-  return (
-    vacanciesSlugsData.map(vacancy => {
-      return {
-        locale: locale,
-        slug: vacancy.slug,
-      };
-    }) || []
-  );
+  return vacanciesSlugsData.map(vacancy => {
+    return {
+      locale: locale,
+      slug: vacancy.slug,
+    };
+  });
 }
 
 export const generateMetadata = async ({
@@ -42,7 +48,7 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
   if (!slug) return null;
 
   const pageData = await fetchSingleVacancy(locale, slug);
-  if (!pageData) return null;
+  if (!pageData) return notFound({ params: { locale: locale } });
 
   const {
     applyLabel,
