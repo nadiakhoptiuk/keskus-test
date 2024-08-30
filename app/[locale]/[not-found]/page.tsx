@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -6,8 +7,24 @@ import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
-import { RoutesEnum } from '@/app/(shared)/types/enums';
+import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
+import { languages } from '@/app/(shared)/utils/constants';
+
+export const generateMetadata = async ({ params: { locale } }: PageProps): Promise<Metadata> => {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL as string;
+
+  const { t } = await initTranslations(locale, [i18nNamespaces.METADATA]);
+  const defaultMeta: Metadata = t('meta', { returnObjects: true });
+
+  return {
+    ...defaultMeta,
+    alternates: {
+      canonical: `${baseUrl}/${locale === LocaleEnum.UK ? '' : locale}`,
+      languages: languages,
+    },
+  };
+};
 
 export default async function Page({ params: { locale } }: PageProps) {
   const { t } = await initTranslations(locale, [i18nNamespaces.NOT_FOUND]);
