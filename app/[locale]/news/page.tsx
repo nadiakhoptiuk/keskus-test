@@ -27,7 +27,7 @@ export default async function Page({ params: { locale } }: PageProps) {
   const pageData = await fetchNewsPage(locale);
   if (!pageData) return null;
 
-  const { t } = await initTranslations(locale, [i18nNamespaces.COMMON]);
+  const { t } = await initTranslations(locale, [i18nNamespaces.COMMON, i18nNamespaces.NEWS]);
 
   const {
     newspage: { page_title },
@@ -41,11 +41,17 @@ export default async function Page({ params: { locale } }: PageProps) {
           {page_title}
         </Typography>
 
-        <NewsList
-          readMoreText={t('read_more_btn')}
-          data={news}
-          className="gap-x-8 gap-y-10 md:gap-y-15"
-        />
+        {news.length > 0 ? (
+          <NewsList
+            readMoreText={t('read_more_btn')}
+            data={news}
+            className="gap-x-8 gap-y-10 md:gap-y-15"
+          />
+        ) : (
+          <Typography as="p" className="mb-10 md:mb-15 ">
+            {t('no_news', { ns: i18nNamespaces.NEWS })}
+          </Typography>
+        )}
       </Container>
     </Section>
   );

@@ -26,14 +26,18 @@ export const News: FC<Props> = async ({ locale }) => {
   } = newsSectionData;
 
   return (
-    <Section>
-      <Container>
-        <Typography as="h2" className="mb-10 md:mb-15">
-          {sectionTitle}
-        </Typography>
+    <>
+      {lastThreeNews.length > 0 && (
+        <Section>
+          <Container>
+            <Typography as="h2" className="mb-10 md:mb-15">
+              {sectionTitle}
+            </Typography>
 
-        <NewsList data={lastThreeNews} readMoreText={t('read_more_btn')} />
-      </Container>
-    </Section>
+            <NewsList data={lastThreeNews} readMoreText={t('read_more_btn')} />
+          </Container>
+        </Section>
+      )}
+    </>
   );
 };

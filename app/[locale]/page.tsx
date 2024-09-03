@@ -94,6 +94,7 @@ export default async function Page({ params: { locale } }: PageProps) {
         allIrregularActivities={irregularActivities}
         availableDatesAtCalendar={availableDatesAtCalendar}
         readMoreText={t('read_more_btn')}
+        noAnnouncement={t('no_announcement')}
       />
 
       <News locale={locale} />
