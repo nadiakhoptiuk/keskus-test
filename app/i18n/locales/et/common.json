@@ -1,4 +1,6 @@
 {
   "btn_today": "Täna",
-  "read_more_btn": "Loe edasi"
+  "read_more_btn": "Loe edasi",
+  "no_announcement": "Valitud päeval ei toimu ühtegi üritust...",
+  "no_gallery_events": "Kahjuks ei ole veel ühtegi fotoaruannet..."
 }

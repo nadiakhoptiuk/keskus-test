@@ -28,14 +28,18 @@ export default async function Page({ params: { locale } }: PageProps) {
   const { page_title, gallery } = pageData;
 
   return (
-    <Section>
-      <Container>
-        <Typography as="h1" className="mb-10 text-center md:mb-15">
-          {page_title}
-        </Typography>
+    <>
+      {gallery.length > 0 && (
+        <Section>
+          <Container>
+            <Typography as="h1" className="mb-10 text-center md:mb-15">
+              {page_title}
+            </Typography>
 
-        <Gallery data={gallery} locale={locale} />
-      </Container>
-    </Section>
+            <Gallery data={gallery} locale={locale} />
+          </Container>
+        </Section>
+      )}
+    </>
   );
 }

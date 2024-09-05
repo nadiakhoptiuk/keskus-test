@@ -225,6 +225,17 @@
   }
 }
 
+/* Scroller */
+.rfm-marquee-container {
+  @apply flex gap-x-20;
+}
+.rfm-marquee {
+  @apply flex gap-x-20;
+}
+.rfm-initial-child-container {
+  @apply flex gap-x-20;
+}
+
 /*React Calendar*/
 .rdp-day {
   @apply border-[1px] border-grey;

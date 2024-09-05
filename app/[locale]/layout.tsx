@@ -1,6 +1,5 @@
 import localFont from 'next/font/local';
 import { Metadata } from 'next';
-import 'swiper/css';
 import '@/app/globals.css';
 
 import { dir } from 'i18next';

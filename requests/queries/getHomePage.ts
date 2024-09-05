@@ -15,6 +15,23 @@ export const getHomePage = gql`
         }
       }
     }
+    aboutUsPage(locale: $locale) {
+      data {
+        attributes {
+          partner_logo {
+            id
+            image {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
+            alt
+          }
+        }
+      }
+    }
     tabPanels(locale: $locale, pagination: { limit: 10 }) {
       data {
         id

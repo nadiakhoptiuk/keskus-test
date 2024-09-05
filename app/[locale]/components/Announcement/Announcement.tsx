@@ -21,6 +21,7 @@ type Props = {
   allIrregularActivities: ActivityIrregularType[];
   availableDatesAtCalendar: Date[];
   readMoreText: string;
+  noAnnouncement: string;
 };
 
 export const Announcement: FC<Props> = ({
@@ -31,6 +32,7 @@ export const Announcement: FC<Props> = ({
   allIrregularActivities,
   availableDatesAtCalendar,
   readMoreText,
+  noAnnouncement,
 }) => {
   const [value, onChange] = useState<Date>(new Date());
   const [announcementData, setAnnouncementData] = useState<ActivityIrregularType[] | null>(null);
@@ -68,7 +70,17 @@ export const Announcement: FC<Props> = ({
           availableDatesAtCalendar={availableDatesAtCalendar}
         />
 
-        <AnnouncementList list={announcementData} readMoreText={readMoreText} />
+        {announcementData && announcementData?.length > 0 ? (
+          <AnnouncementList list={announcementData} readMoreText={readMoreText} />
+        ) : (
+          <Typography
+            as="p"
+            className="grid w-full gap-y-10 grid-in-announcements max-xl:text-center"
+          >
+            {noAnnouncement}
+          </Typography>
+        )}
+
         <Link
           href={RoutesEnum.EVENTS}
           className="base-transition btn-primary col-span-2 mx-auto flex min-h-[60px] w-max min-w-[220px] items-center justify-center px-8 py-4 text-ui_semibold_18 max-md:mt-15 md:mt-0 xl:mt-10"
