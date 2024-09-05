@@ -81,11 +81,15 @@ export const Events: FC<Props> = ({
               </div>
             </div>
 
-            <EventsList
-              buttonsData={labels}
-              events={filteredEvents}
-              readMoreText={t('read_more_btn', { ns: i18nNamespaces.COMMON })}
-            />
+            {filteredEvents.length > 0 ? (
+              <EventsList
+                buttonsData={labels}
+                events={filteredEvents}
+                readMoreText={t('read_more_btn', { ns: i18nNamespaces.COMMON })}
+              />
+            ) : (
+              <Typography as="p">{t('no_announcement')}</Typography>
+            )}
           </>
         )}
       </Container>

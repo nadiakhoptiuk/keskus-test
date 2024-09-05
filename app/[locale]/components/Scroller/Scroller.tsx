@@ -1,48 +1,38 @@
 'use client';
 
 import { FC } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import Image from 'next/image';
+import Marquee from 'react-fast-marquee';
 
 import { Section } from '@/app/(shared)/components/ui/Section';
 
-import PartnerLogo from '@/public/icons/partner-logo.svg';
+import { PartnerLogoType } from '@/app/(shared)/types/common.types';
 
-export const Scroller: FC = () => {
+type Props = {
+  data: PartnerLogoType[];
+};
+
+export const Scroller: FC<Props> = ({ data }) => {
   return (
-    <Section>
-      <Swiper
-        spaceBetween={10}
-        slidesPerView={1}
-        centeredSlides={true}
-        autoplay={{ delay: 2500, disableOnInteraction: false }}
-        modules={[Autoplay]}
+    <Section className="max-md:!h-[180px] md:!h-[260px]">
+      <Marquee
+        autoFill={true}
+        gradient={true}
+        gradientWidth={150}
         className="mx-auto max-w-[1800px]"
-        loop={true}
-        breakpoints={{
-          480: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-          },
-          768: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-          1280: {
-            slidesPerView: 8,
-            spaceBetween: 20,
-          },
-        }}
       >
-        {Array.from({ length: 20 }).map((_, index) => (
-          <SwiperSlide
-            key={index}
-            className="flex !h-15 !w-[220px] shrink-0 items-center justify-center"
-          >
-            <PartnerLogo className="h-15 w-[210px]" />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        {data.length > 0 &&
+          data.map(({ id, image, alt }) => (
+            <Image
+              key={id}
+              src={image.data.attributes.url}
+              alt={alt}
+              width={220}
+              height={60}
+              className="!h-15 !w-max grayscale"
+            />
+          ))}
+      </Marquee>
     </Section>
   );
 };

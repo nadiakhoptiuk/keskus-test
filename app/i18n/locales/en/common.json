@@ -1,5 +1,6 @@
 {
   "btn_today": "Today",
   "read_more_btn": "Read more",
-  "no_announcement": "No events on the selected day..."
+  "no_announcement": "No events on the selected day...",
+  "no_gallery_events": "Unfortunately, there are no photo reports yet..."
 }

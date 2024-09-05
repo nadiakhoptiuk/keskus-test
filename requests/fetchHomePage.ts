@@ -13,6 +13,7 @@ export const fetchHomePage = async (locale: LocaleEnum): Promise<HomePageFetchDa
 
     return {
       homepage: data.homePage.data.attributes,
+      partners: data.aboutUsPage.data.attributes.partner_logo,
       tabPanels: data.tabPanels.data,
       irregularActivities: data.activities.data,
     };

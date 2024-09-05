@@ -73,7 +73,10 @@ export const Announcement: FC<Props> = ({
         {announcementData && announcementData?.length > 0 ? (
           <AnnouncementList list={announcementData} readMoreText={readMoreText} />
         ) : (
-          <Typography as="p" className="grid w-full gap-y-10 grid-in-announcements">
+          <Typography
+            as="p"
+            className="grid w-full gap-y-10 grid-in-announcements max-xl:text-center"
+          >
             {noAnnouncement}
           </Typography>
         )}

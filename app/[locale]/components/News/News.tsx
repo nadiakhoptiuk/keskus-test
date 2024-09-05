@@ -18,6 +18,7 @@ type Props = {
 export const News: FC<Props> = async ({ locale }) => {
   const newsSectionData = await fetchLastThreeNews(locale);
   if (!newsSectionData) return null;
+
   const { t } = await initTranslations(locale, [i18nNamespaces.COMMON]);
 
   const {

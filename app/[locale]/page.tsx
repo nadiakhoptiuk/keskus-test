@@ -67,6 +67,7 @@ export default async function Page({ params: { locale } }: PageProps) {
       announcement_subtitle,
       announcement_button_all_events,
     },
+    partners,
     tabPanels,
     irregularActivities,
   } = pageData;
@@ -77,7 +78,7 @@ export default async function Page({ params: { locale } }: PageProps) {
     <>
       <Hero locale={locale} pageTitle={page_title} text={hero_text} buttonText={hero_button} />
 
-      <Scroller />
+      <Scroller data={partners} />
 
       <Support
         locale={locale}

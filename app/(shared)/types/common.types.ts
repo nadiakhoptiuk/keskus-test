@@ -226,6 +226,7 @@ export type Value = ValuePiece;
 export type HomePageFetchData =
   | {
       homepage: HomePageType;
+      partners: PartnerLogoType[];
       tabPanels: TabPanelType[];
       irregularActivities: ActivityIrregularType[];
     }
@@ -245,6 +246,11 @@ export type HomePageData = {
   homePage: {
     data: {
       attributes: HomePageType;
+    };
+  };
+  aboutUsPage: {
+    data: {
+      attributes: { partner_logo: PartnerLogoType[] };
     };
   };
   tabPanels: { data: TabPanelType[] };
