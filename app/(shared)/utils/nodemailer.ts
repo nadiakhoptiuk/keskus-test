@@ -1,17 +1,21 @@
-import nodemailer from 'nodemailer';
+import nodemailer, { SendMailOptions, Transporter } from 'nodemailer';
 
-const email = process.env.NEXT_PUBLIC_EMAIL;
-const pass = process.env.NEXT_PUBLIC_EMAIL_PASSWORD;
+const email: string = process.env.EMAIL_ACCOUNT!;
+const pass: string = process.env.EMAIL_PASSWORD!;
+const port: number = Number.parseInt(process.env.SMTP_PORT!, 10);
+const host: string = process.env.SMTP_SERVER!;
 
-export const transporter = nodemailer.createTransport({
-  service: 'gmail',
+export const transporter: Transporter = nodemailer.createTransport({
+  host,
+  port,
+  secure: true,
   auth: {
     user: email,
     pass,
   },
 });
 
-export const mailOptions = {
+export const mailOptions: SendMailOptions = {
   from: email,
   to: email,
   subject: 'Заявка з сайту Keskus Ukraina',

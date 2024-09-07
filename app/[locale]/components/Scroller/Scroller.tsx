@@ -18,6 +18,7 @@ export const Scroller: FC<Props> = ({ data }) => {
       <Marquee
         autoFill={true}
         gradient={true}
+        gradientColor="#FAFAFA"
         gradientWidth={150}
         className="mx-auto max-w-[1800px]"
       >

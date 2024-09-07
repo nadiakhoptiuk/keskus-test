@@ -1,8 +1,10 @@
+'use client';
+
 import { FC, useState } from 'react';
 import { Dialog, DialogPanel, Transition } from '@headlessui/react';
 
 import { useNavbarItems } from '@/app/(shared)/hooks/useNavbarItems';
-import useBlockScroll from '@/app/(shared)/hooks/useBlockScroll';
+import { useBlockScroll } from '@/app/(shared)/hooks/useBlockScroll';
 
 import { Button } from '@/app/(shared)/components/ui/Button';
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
@@ -63,7 +65,16 @@ export const Navbar: FC = () => {
                   ))}
                 </nav>
 
-                <ContactUsButton className="mt-15 w-full max-w-[233px] border-[1px]  !bg-white !text-blue-600 hocus:!bg-yellow-400 md:hidden" />
+                <a
+                  href={process.env.NEXT_PUBLIC_EVOLUNTEER_URL}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="base-transition mt-16 block w-fit text-ui_reg_18 text-yellow-400 hocus:text-white md:ml-auto md:text-ui_reg_18"
+                >
+                  E-VOLUNTEER
+                </a>
+
+                <ContactUsButton className="mt-15 flex w-full max-w-[233px] items-center border-[1px] !bg-white leading-[1.0] !text-blue-600 hocus:!bg-yellow-400 md:hidden" />
               </DialogPanel>
             </TransitionNavbarChild>
           </div>
