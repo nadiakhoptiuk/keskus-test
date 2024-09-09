@@ -1,5 +1,6 @@
 import localFont from 'next/font/local';
 import { Metadata } from 'next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import '@/app/globals.css';
 
 import { dir } from 'i18next';
@@ -95,6 +96,7 @@ export const generateMetadata = async ({ params: { locale } }: PageProps): Promi
 
 export default async function RootLayout({ children, params: { locale } }: RootLayoutProps) {
   const footerData = await fetchFooterData(locale);
+  const googleAnaliticsID = process.env.NEXT_PUBLIC_GA_ID!;
 
   const { resources } = await initTranslations(locale, [
     i18nNamespaces.HEADER,
@@ -133,6 +135,8 @@ export default async function RootLayout({ children, params: { locale } }: RootL
           <Footer footerData={footerData} />
         </TranslationsProvider>
       </body>
+
+      <GoogleAnalytics gaId={googleAnaliticsID} />
     </html>
   );
 }
