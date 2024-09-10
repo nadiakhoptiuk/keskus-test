@@ -69,12 +69,12 @@ export const Navbar: FC = () => {
                   href={process.env.NEXT_PUBLIC_EVOLUNTEER_URL}
                   target="_blank"
                   rel="noopener noreferrer nofollow"
-                  className="base-transition mt-16 block w-fit text-ui_reg_18 text-yellow-400 hocus:text-white md:ml-auto md:text-ui_reg_18"
+                  className="base-transition relative ml-11 mt-16 block w-fit font-kyiv-type-sans text-ui_med_20 text-yellow-400 before:absolute before:-top-8 before:left-0 before:h-[1px] before:w-[195px] before:bg-[#A3A3A3] before:opacity-50 before:content-[''] after:absolute after:-bottom-8 after:left-0 after:h-[1px] after:w-[195px] after:bg-[#A3A3A3] after:opacity-50 after:content-[''] hocus:text-white md:mt-20 md:text-ui_med_36 md:before:w-[345px] md:after:w-[345px]"
                 >
                   E-VOLUNTEER
                 </a>
 
-                <ContactUsButton className="mt-15 flex w-full max-w-[233px] items-center border-[1px] !bg-white leading-[1.0] !text-blue-600 hocus:!bg-yellow-400 md:hidden" />
+                <ContactUsButton className="mt-[104px] flex w-full max-w-[233px] items-center border-[1px] !bg-white leading-[1.0] !text-blue-600 hocus:!bg-yellow-400 md:hidden" />
               </DialogPanel>
             </TransitionNavbarChild>
           </div>

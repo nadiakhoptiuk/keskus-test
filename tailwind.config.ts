@@ -158,6 +158,22 @@ const config: Config = {
           },
         ],
 
+        ui_med_20: [
+          '20px',
+          {
+            lineHeight: '1.6',
+            fontWeight: '500',
+          },
+        ],
+
+        ui_med_36: [
+          '36px',
+          {
+            lineHeight: '1.1',
+            fontWeight: '500',
+          },
+        ],
+
         // ----------------------------- SEMIBOLD -----------------------------
 
         ui_semibold_14: [
