@@ -37,7 +37,7 @@ export const Navbar: FC = () => {
 
           <div className="fixed inset-0 z-10 w-screen overflow-y-auto overflow-x-hidden">
             <TransitionNavbarChild>
-              <DialogPanel className="absolute right-0 top-0 z-50 min-h-full w-full max-w-[600px] bg-blue-600 pb-12 pl-10 pr-5 pt-6 md:px-20 md:pt-[42px] xl:pb-[50px] xl:pl-20 xl:pr-28">
+              <DialogPanel className="absolute right-0 top-0 z-50 min-h-full w-full max-w-[600px] bg-blue-600 pl-10 pr-5 pt-6 max-md:pb-12 md:px-20 md:pb-[112px] md:pt-[42px] xl:pl-20 xl:pr-28">
                 <div className="relative z-40 mb-15 flex items-center justify-end max-md:gap-x-8 md:gap-x-[36px] xl:gap-x-10">
                   <ContactUsButton className="with-divider mr-[36px] hidden !bg-white !text-blue-600 after:right-[-36px] after:bg-grey hocus:!bg-yellow-400 md:inline-flex" />
 
