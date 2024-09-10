@@ -9,5 +9,7 @@
     "news": "Новини",
     "vacancies": "Вакансії",
     "contacts": "Контакти"
-  }
+  },
+  "navBtnAriaLabel": "Відкрити меню",
+  "logoAria": "Логотип сайту"
 }

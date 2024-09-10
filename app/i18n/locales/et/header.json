@@ -9,5 +9,7 @@
     "news": "Uudised",
     "vacancies": "Vabad töökohad",
     "contacts": "Kontaktid"
-  }
+  },
+  "navBtnAriaLabel": "Avage menüü",
+  "logoAria": "Saidi logo"
 }

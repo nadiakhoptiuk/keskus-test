@@ -1,3 +1,4 @@
+'use client';
 import { FC } from 'react';
 
 import { useClipboard } from '@/app/[locale]/components/Support/Support.hook';
@@ -13,9 +14,16 @@ type Props = WithClassName & {
   label: string;
   value: string;
   clipboardNotificate: string;
+  clipboardAria: string;
 };
 
-export const Clipboard: FC<Props> = ({ label, value, className, clipboardNotificate }) => {
+export const Clipboard: FC<Props> = ({
+  label,
+  value,
+  className,
+  clipboardNotificate,
+  clipboardAria,
+}) => {
   const { handleCopy, isVisible } = useClipboard(value);
 
   return (
@@ -28,8 +36,9 @@ export const Clipboard: FC<Props> = ({ label, value, className, clipboardNotific
         <span className="block w-fit !text-wrap text-base font-normal text-black">{value}</span>
 
         <Button
-          className="absolute right-4 top-1/2 -translate-y-1/2 transform text-blue-600 hocus:text-yellow-400"
+          className="absolute right-4 top-1/2 h-6 w-6 -translate-y-1/2 transform text-blue-600 hocus:text-yellow-400"
           onClick={handleCopy}
+          aria-label={clipboardAria}
         >
           <CustomIcon icon="clipboard" />
         </Button>

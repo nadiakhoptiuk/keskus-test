@@ -9,5 +9,7 @@
     "news": "News",
     "vacancies": "Vacancies",
     "contacts": "Contacts"
-  }
+  },
+  "navBtnAriaLabel": "Open the menu",
+  "logoAria": "Site logo"
 }

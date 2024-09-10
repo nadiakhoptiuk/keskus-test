@@ -38,7 +38,11 @@ export const Support: FC<Props> = async ({ locale, title, text, tabsData }) => {
         </div>
 
         <div className="relative z-10 rounded bg-zinc-50 px-5 py-5 md:px-7 2xl:px-10">
-          <Tabs tabsData={tabsData} clipboardNotificate={t('clipboardSuccess')} />
+          <Tabs
+            tabsData={tabsData}
+            clipboardNotificate={t('clipboardSuccess')}
+            clipboardAria={t('clipboardAria')}
+          />
         </div>
       </Container>
     </Section>

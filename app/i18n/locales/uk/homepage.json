@@ -9,5 +9,6 @@
   "sliderButtons": [
     { "id": "prev", "ariaLabel": "Попередній слайд" },
     { "id": "next", "ariaLabel": "Наступний слайд" }
-  ]
+  ],
+  "clipboardAria": "Скопіювати вміст"
 }

@@ -2,6 +2,7 @@
 
 import { FC, useState } from 'react';
 import { Dialog, DialogPanel, Transition } from '@headlessui/react';
+import { useTranslation } from 'react-i18next';
 
 import { useNavbarItems } from '@/app/(shared)/hooks/useNavbarItems';
 import { useBlockScroll } from '@/app/(shared)/hooks/useBlockScroll';
@@ -14,10 +15,13 @@ import { Overlay } from '@/app/(shared)/components/ui/Overlay';
 import { TransitionNavbarChild } from '@/app/(shared)/components/animations/Transitions';
 import { ContactUsButton } from '../../ui/ContactUsButton';
 
+import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
+
 export const Navbar: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   useBlockScroll(isOpen);
   const menuItems = useNavbarItems();
+  const { t } = useTranslation(i18nNamespaces.HEADER);
 
   const openMenu = () => setIsOpen(true);
   const closeMenu = () => setIsOpen(false);
@@ -27,6 +31,8 @@ export const Navbar: FC = () => {
       <Button
         className="transition-color size-8 py-0.5 leading-none text-blue-600 hover:text-yellow-400 focus-visible:text-yellow-400"
         onClick={openMenu}
+        aria-label={t('navBtnAriaLabel')}
+        aria-expanded={isOpen}
       >
         <CustomIcon icon="burger" />
       </Button>
