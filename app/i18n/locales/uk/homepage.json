@@ -4,6 +4,8 @@
 
   "clipboardSuccess": "Скопійовано",
 
+  "partnerSliderHeading": "Наші партнери",
+
   "sliderButtons": [
     { "id": "prev", "ariaLabel": "Попередній слайд" },
     { "id": "next", "ariaLabel": "Наступний слайд" }

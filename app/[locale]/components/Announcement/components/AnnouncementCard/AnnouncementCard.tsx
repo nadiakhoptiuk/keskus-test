@@ -20,6 +20,7 @@ export const AnnouncementCard: FC<Props> = ({ card, readMoreText, Tag = 'div' })
     title,
     description,
     image: {
+      alt,
       image: {
         data: {
           attributes: { url },
@@ -56,7 +57,7 @@ export const AnnouncementCard: FC<Props> = ({ card, readMoreText, Tag = 'div' })
       <div className="h-[184px] shrink-0 overflow-hidden rounded max-md:w-full md:h-[200px] md:w-[233px] xl:w-[224px]">
         <Image
           src={url}
-          alt="new image"
+          alt={alt}
           width={440}
           height={320}
           style={{

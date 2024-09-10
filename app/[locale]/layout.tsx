@@ -123,9 +123,7 @@ export default async function RootLayout({ children, params: { locale } }: RootL
           <Header />
         </TranslationsProvider>
 
-        <main className="flex-grow" role="main">
-          {children}
-        </main>
+        <main className="flex-grow">{children}</main>
 
         <TranslationsProvider
           namespaces={[i18nNamespaces.FOOTER]}

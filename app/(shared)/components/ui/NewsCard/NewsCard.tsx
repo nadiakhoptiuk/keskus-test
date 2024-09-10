@@ -68,9 +68,16 @@ export const NewsCard: FC<Props> = async ({ card, readMoreText, Tag = 'div' }) =
             h4: 'p',
             h5: 'p',
             h6: 'p',
-            img(props) {
-              // eslint-disable-next-line @next/next/no-img-element
-              return <img alt="alt" width={0} height={0} {...props} className="hidden" />;
+            img(props: React.ImgHTMLAttributes<HTMLImageElement>) {
+              return (
+                <Image
+                  alt={props?.alt ?? ''}
+                  width={0}
+                  height={0}
+                  src={props?.src ?? ''}
+                  className="hidden"
+                />
+              );
             },
 
             a(props) {

@@ -4,6 +4,8 @@
 
   "clipboardSuccess": "Copied",
 
+  "partnerSliderHeading": "Our partners",
+
   "sliderButtons": [
     { "id": "prev", "ariaLabel": "Previous slide" },
     { "id": "next", "ariaLabel": "Next slide" }

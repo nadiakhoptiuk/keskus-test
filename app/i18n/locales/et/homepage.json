@@ -4,6 +4,8 @@
 
   "clipboardSuccess": "Kopeeritud aadressilt",
 
+  "partnerSliderHeading": "Meie partnerid",
+
   "sliderButtons": [
     { "id": "prev", "ariaLabel": "Eelmine slaid" },
     { "id": "next", "ariaLabel": "Järgmine slaid" }
