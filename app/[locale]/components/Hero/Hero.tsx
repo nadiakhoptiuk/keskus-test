@@ -12,8 +12,6 @@ import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
 
-import Banner from '@/public/images/hero@2x.png';
-
 type Props = {
   locale: LocaleEnum;
   pageTitle: string;
@@ -49,10 +47,12 @@ export const Hero: FC<Props> = async ({ locale, pageTitle, text, buttonText }) =
 
           <div className="mx-auto shrink-0 max-md:hidden max-md:aspect-[360/318] max-md:max-w-[480px] md:absolute md:bottom-0 md:right-[-258px] md:w-[580px] xl:right-[-366px] xl:h-[674px] xl:w-[928px] 2xl:right-[-142px]">
             <Image
-              src={Banner}
+              src="/images/hero-big@2x.webp"
               priority
+              quality={100}
+              width={927}
+              height={804}
               alt={t('heroImageAlt')}
-              sizes="(min-width: 768px) 50vw, 100vw"
               className="h-full w-full object-center max-md:object-contain md:object-cover xl:object-top"
             />
           </div>
@@ -61,10 +61,12 @@ export const Hero: FC<Props> = async ({ locale, pageTitle, text, buttonText }) =
 
       <div className="mx-auto shrink-0 max-md:aspect-[360/318] max-md:max-w-[480px] md:hidden">
         <Image
-          src={Banner}
+          src="/images/hero-small@2x.webp"
           priority
+          quality={100}
+          width={360}
+          height={318}
           alt={t('heroImageAlt')}
-          sizes="(min-width: 768px) 50vw, 100vw"
           className="h-full w-full object-center max-md:object-contain md:object-cover"
         />
       </div>

@@ -1,11 +1,14 @@
 {
   "heroButton": "About us",
-  "heroImageAlt": "Kaks maali kunstinäitusel",
+  "heroImageAlt": "Nisu põllul päikeselisel suvepäeval",
 
   "clipboardSuccess": "Kopeeritud aadressilt",
+
+  "partnerSliderHeading": "Meie partnerid",
 
   "sliderButtons": [
     { "id": "prev", "ariaLabel": "Eelmine slaid" },
     { "id": "next", "ariaLabel": "Järgmine slaid" }
-  ]
+  ],
+  "clipboardAria": "Sisu kopeerimine"
 }

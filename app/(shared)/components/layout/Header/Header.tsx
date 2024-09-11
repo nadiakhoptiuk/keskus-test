@@ -10,7 +10,7 @@ import { ContactUsButton } from '../../ui/ContactUsButton';
 
 export const Header: FC = () => {
   return (
-    <header className="relative py-10" role="banner">
+    <header className="relative py-10">
       <Container className="flex items-center justify-between">
         <SiteLogo />
 

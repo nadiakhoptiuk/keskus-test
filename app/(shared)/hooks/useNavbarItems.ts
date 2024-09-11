@@ -20,8 +20,8 @@ export const useNavbarItems = () => {
       href: RoutesEnum.GALLERY,
     },
     {
-      title: t('navbar.services'),
-      href: RoutesEnum.SERVICES,
+      title: t('navbar.support'),
+      href: RoutesEnum.SUPPORT,
     },
     {
       title: t('navbar.events'),

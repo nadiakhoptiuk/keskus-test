@@ -53,14 +53,14 @@ export default async function Page({ params: { locale } }: PageProps) {
         src="/decor/grain-left-decor.svg"
         width={400}
         height={400}
-        alt="hero image"
+        alt={t('404heroImageAlt')}
         className="absolute bottom-0 left-0 z-0 w-[50%] md:w-[45%] xl:w-[40%] 2xl:w-[25%]"
       />
       <Image
         src="/decor/grain-right-decor.svg"
         width={400}
         height={400}
-        alt="hero image"
+        alt={t('404heroImageAlt')}
         className="absolute bottom-0 right-0 z-0 w-[50%] md:w-[45%] xl:w-[40%] 2xl:w-[25%]"
       />
     </Section>

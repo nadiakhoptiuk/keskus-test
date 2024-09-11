@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const useBlockScroll = (isOpen: boolean) => {
+export const useBlockScroll = (isOpen: boolean) => {
   useEffect(() => {
     const scrollbarWidth = window.innerWidth - document.documentElement.offsetWidth;
 
@@ -18,5 +18,3 @@ const useBlockScroll = (isOpen: boolean) => {
     };
   }, [isOpen]);
 };
-
-export default useBlockScroll;

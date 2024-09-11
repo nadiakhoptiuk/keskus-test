@@ -3,7 +3,7 @@
 import { FC, Fragment } from 'react';
 import { Dialog, DialogPanel, TransitionChild, Transition } from '@headlessui/react';
 
-import useBlockScroll from '@/app/(shared)/hooks/useBlockScroll';
+import { useBlockScroll } from '@/app/(shared)/hooks/useBlockScroll';
 import { classnames } from '@/app/(shared)/utils/classnames';
 
 import { CustomIcon } from '../CustomIcon';

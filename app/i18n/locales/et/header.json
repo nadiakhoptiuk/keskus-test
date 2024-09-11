@@ -4,10 +4,12 @@
     "home": "Kodu",
     "about_us": "Meie kohta",
     "gallery": "Galerii",
-    "services": "Teenused",
+    "support": "Toetus",
     "events": "Sündmused",
     "news": "Uudised",
     "vacancies": "Vabad töökohad",
     "contacts": "Kontaktid"
-  }
+  },
+  "navBtnAriaLabel": "Avage menüü",
+  "logoAria": "Saidi logo"
 }

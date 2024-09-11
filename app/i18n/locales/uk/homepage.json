@@ -1,11 +1,14 @@
 {
   "heroButton": "Про нас",
-  "heroImageAlt": "Дві картини на художній виставці",
+  "heroImageAlt": "Пшениця у полі в сонячний літній день",
 
   "clipboardSuccess": "Скопійовано",
+
+  "partnerSliderHeading": "Наші партнери",
 
   "sliderButtons": [
     { "id": "prev", "ariaLabel": "Попередній слайд" },
     { "id": "next", "ariaLabel": "Наступний слайд" }
-  ]
+  ],
+  "clipboardAria": "Скопіювати вміст"
 }

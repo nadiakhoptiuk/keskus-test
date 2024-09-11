@@ -56,6 +56,7 @@ export const getHomePage = gql`
           title
           description
           image {
+            alt
             image {
               data {
                 attributes {

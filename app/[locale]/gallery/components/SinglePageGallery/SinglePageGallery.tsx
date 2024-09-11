@@ -9,6 +9,8 @@ import { SinglePageGalleryItem } from '../SinglePageGalleryItem';
 
 import { GalleryItemType } from '@/app/(shared)/types/common.types';
 
+import s from '../../GalleryPage.module.css';
+
 type Props = {
   data: GalleryItemType[];
 };
@@ -38,13 +40,12 @@ export const SinglePageGallery: FC<Props> = ({ data }) => {
 
     return () => {
       lightbox.destroy();
-      // lightbox = null;
     };
   }, []);
 
   return (
     <>
-      <ul className="gallery-grid" id="gallery">
+      <ul className={s.galleryGrid} id="gallery">
         {data.map(
           ({
             id,

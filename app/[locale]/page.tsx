@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { Announcement } from '@/app/[locale]/components/Announcement';
 import { Hero } from '@/app/[locale]/components/Hero';
 import { News } from '@/app/[locale]/components/News';
+import { Section } from '../(shared)/components/ui/Section';
 import { Scroller } from '@/app/[locale]/components/Scroller';
 import { Support } from '@/app/[locale]/components/Support';
 
@@ -55,7 +56,7 @@ export default async function Page({ params: { locale } }: PageProps) {
 
   if (!pageData) return null;
 
-  const { t } = await initTranslations(locale, [i18nNamespaces.COMMON]);
+  const { t } = await initTranslations(locale, [i18nNamespaces.COMMON, i18nNamespaces.HOMEPAGE]);
 
   const {
     homepage: {
@@ -78,7 +79,12 @@ export default async function Page({ params: { locale } }: PageProps) {
     <>
       <Hero locale={locale} pageTitle={page_title} text={hero_text} buttonText={hero_button} />
 
-      <Scroller data={partners} />
+      <Section className="max-md:!h-[180px] md:!h-[260px]">
+        <h2 className="visually-hidden">
+          {t('partnerSliderHeading', { ns: i18nNamespaces.HOMEPAGE })}
+        </h2>
+        <Scroller data={partners} />
+      </Section>
 
       <Support
         locale={locale}

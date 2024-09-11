@@ -1,11 +1,14 @@
 {
   "heroButton": "About us",
-  "heroImageAlt": "Two paintings at the art exhibition",
+  "heroImageAlt": "Wheat in the field on a sunny summer day",
 
   "clipboardSuccess": "Copied",
+
+  "partnerSliderHeading": "Our partners",
 
   "sliderButtons": [
     { "id": "prev", "ariaLabel": "Previous slide" },
     { "id": "next", "ariaLabel": "Next slide" }
-  ]
+  ],
+  "clipboardAria": "Сopy content"
 }

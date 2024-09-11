@@ -14,8 +14,8 @@ import { PageNameVariableEnum, RoutesEnum } from '@/app/(shared)/types/enums';
 export const generateMetadata = async ({ params: { locale } }: PageProps): Promise<Metadata> => {
   const args = {
     locale,
-    pageName: PageNameVariableEnum.SERVICES,
-    route: RoutesEnum.SERVICES,
+    pageName: PageNameVariableEnum.SUPPORT,
+    route: RoutesEnum.SUPPORT,
   };
 
   return await generatePageMetaData(args);
