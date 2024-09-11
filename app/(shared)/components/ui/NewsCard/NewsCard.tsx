@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { format } from 'date-fns';
@@ -68,16 +68,15 @@ export const NewsCard: FC<Props> = async ({ card, readMoreText, Tag = 'div' }) =
             h4: 'p',
             h5: 'p',
             h6: 'p',
-            img(props: React.ImgHTMLAttributes<HTMLImageElement>) {
-              return (
-                <Image
-                  alt={props?.alt ?? ''}
-                  width={0}
-                  height={0}
-                  src={props?.src ?? ''}
-                  className="hidden"
-                />
+
+            p({ children }) {
+              const childrenArray = React.Children.toArray(children);
+
+              const hasOnlyImages = childrenArray.every(
+                child => React.isValidElement(child) && child.type === 'img',
               );
+
+              return hasOnlyImages ? <p className="hidden"></p> : <p>{children}</p>;
             },
 
             a(props) {

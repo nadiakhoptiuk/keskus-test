@@ -10,6 +10,8 @@ import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
 import { LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 
+import s from '../../GalleryPage.module.css';
+
 type Props = {
   title: string;
   alt: string;
@@ -30,7 +32,7 @@ export const GalleryItem: FC<Props> = async ({
   const { t } = await initTranslations(locale, [i18nNamespaces.GALLERY]);
 
   return (
-    <li className="gallery-item group relative overflow-hidden shadow-sm" tabIndex={0}>
+    <li className={`${s.galleryItem} group relative overflow-hidden shadow-sm`} tabIndex={0}>
       <Image
         className="relative z-0 aspect-square h-full w-full object-cover"
         src={image}

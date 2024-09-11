@@ -9,6 +9,8 @@ import { SingleGalleryEventItemTypeWithId } from '@/app/(shared)/types/common.ty
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
 
+import s from '../../GalleryPage.module.css';
+
 type Props = {
   data: SingleGalleryEventItemTypeWithId[];
   locale: LocaleEnum;
@@ -20,7 +22,7 @@ export const Gallery: FC<Props> = async ({ data, locale }) => {
   return (
     <>
       {data.length > 0 ? (
-        <ul className="gallery-grid">
+        <ul className={s.galleryGrid}>
           {data.map(
             ({
               id,
