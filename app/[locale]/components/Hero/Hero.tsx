@@ -33,7 +33,7 @@ export const Hero: FC<Props> = async ({ locale, pageTitle, text, buttonText }) =
           <div className="space-y-10 xl:min-h-[525px] xl:w-[540px] xl:space-y-11 xl:p-0">
             <Typography as="h1">{pageTitle}</Typography>
 
-            <Markdown className="prose-p:font-regular prose prose-p:mb-10 prose-p:whitespace-pre-wrap prose-p:font-fixel prose-p:text-[18px] prose-p:leading-[1.6] last:prose-p:mb-0 xl:prose-p:mb-11">
+            <Markdown className="prose-p:font-regular prose prose-p:mb-8 prose-p:whitespace-pre-wrap prose-p:font-fixel last:prose-p:mb-0 max-md:prose-p:text-ui_reg_16 md:prose-p:text-ui_reg_18 xl:prose-p:mb-11">
               {text}
             </Markdown>
 
