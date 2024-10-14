@@ -3,6 +3,7 @@ import { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { getImageBlurData } from '@/app/(shared)/utils/getImage';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
@@ -30,12 +31,15 @@ export const GalleryItem: FC<Props> = async ({
   galleryLength,
 }) => {
   const { t } = await initTranslations(locale, [i18nNamespaces.GALLERY]);
+  const { base64 } = await getImageBlurData(image);
 
   return (
     <li className={`${s.galleryItem} group relative overflow-hidden shadow-sm`} tabIndex={0}>
       <Image
         className="relative z-0 aspect-square h-full w-full object-cover"
         src={image}
+        placeholder="blur"
+        blurDataURL={base64}
         alt={alt}
         width={700}
         height={400}

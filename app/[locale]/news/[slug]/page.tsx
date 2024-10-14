@@ -88,13 +88,13 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
           {title}
         </Typography>
 
-        <div className="mb-15 overflow-hidden rounded md:mb-25 xl:h-[480px] xl:w-[1216px] 2xl:h-[570px] 2xl:w-[1440px]">
+        <div className="mb-15 overflow-hidden rounded xl:mb-25 xl:h-[480px] xl:w-[1216px] 2xl:h-[570px] 2xl:w-[1440px]">
           <Image
             src={url}
             alt={alt}
             width={1216}
             height={480}
-            className="my-0 h-full w-full object-cover object-center"
+            className="my-0 h-full w-full object-cover object-top"
           />
         </div>
 
@@ -121,14 +121,14 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
               );
             },
           }}
-          className="prose mx-auto max-w-[1008px] pb-15 prose-p:mb-15 prose-p:mt-0 prose-p:whitespace-pre-wrap prose-p:text-ui_reg_16 last:prose-p:mb-0 prose-img:my-0 md:pb-25 md:prose-p:mb-20 md:prose-p:text-ui_reg_18 xl:w-[1008px]"
+          className="prose mx-auto max-w-[1008px] pb-15 prose-p:mb-10 prose-p:mt-0 prose-p:whitespace-pre-wrap prose-p:text-ui_reg_16 last:prose-p:mb-0 prose-img:my-0 md:prose-p:text-ui_reg_18 xl:w-[1008px] xl:pb-25"
         >
           {content}
         </Markdown>
       </div>
 
       {lastThreeNews && lastThreeNews.length > 0 && (
-        <div className="pt-15 md:pt-25">
+        <div className="pt-15 xl:pt-25">
           <Typography
             as="h2"
             className="mb-10 font-kyiv-type-sans max-xl:text-ui_bold_32 md:mb-15 xl:text-ui_bold_40"
