@@ -20,8 +20,8 @@ export const SinglePageGalleryItem: FC<Props> = ({ alt, url, width, height, blur
           blurDataURL={blurDataUrl}
           className="h-full w-full object-cover"
           src={url}
-          width={width}
-          height={height}
+          width={2880}
+          height={2200}
           alt={alt}
         />
       </a>
