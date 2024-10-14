@@ -7,12 +7,12 @@ import 'photoswipe/style.css';
 
 import { SinglePageGalleryItem } from '../SinglePageGalleryItem';
 
-import { GalleryItemType } from '@/app/(shared)/types/common.types';
+import { GalleryItemWithBlurType } from '@/app/(shared)/types/common.types';
 
 import s from '../../GalleryPage.module.css';
 
 type Props = {
-  data: GalleryItemType[];
+  data: GalleryItemWithBlurType[];
 };
 
 export const SinglePageGallery: FC<Props> = ({ data }) => {
@@ -55,8 +55,16 @@ export const SinglePageGallery: FC<Props> = ({ data }) => {
                 attributes: { url, width, height },
               },
             },
+            blurDataUrl,
           }) => (
-            <SinglePageGalleryItem key={id} alt={alt} url={url} width={width} height={height} />
+            <SinglePageGalleryItem
+              key={id}
+              alt={alt}
+              url={url}
+              width={width}
+              height={height}
+              blurDataUrl={blurDataUrl}
+            />
           ),
         )}
       </ul>

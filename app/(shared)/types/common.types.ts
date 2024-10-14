@@ -400,6 +400,12 @@ export type GalleryItemType = {
   };
 };
 
+export type BlurDataUrlType = {
+  blurDataUrl: string;
+};
+
+export type GalleryItemWithBlurType = GalleryItemType & BlurDataUrlType;
+
 export type GalleryPageData = {
   galleryPage: {
     data: {
@@ -663,4 +669,10 @@ export type FinalPageMetaDataType = {
   metaDescription: string;
   metaImage: MetaImageType;
   keywords: string;
+};
+
+export type PlaceholderSourceType = {
+  src: string;
+  height: number;
+  width: number;
 };
