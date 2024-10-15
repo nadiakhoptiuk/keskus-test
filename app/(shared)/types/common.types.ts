@@ -398,6 +398,7 @@ export type GalleryItemType = {
       };
     };
   };
+  blurDataUrl?: string;
 };
 
 export type BlurDataUrlType = {

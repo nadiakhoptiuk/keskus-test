@@ -45,29 +45,31 @@ export const SinglePageGallery: FC<Props> = ({ data }) => {
 
   return (
     <>
-      <ul className={s.galleryGrid} id="gallery">
-        {data.map(
-          ({
-            id,
-            alt,
-            image: {
-              data: {
-                attributes: { url, width, height },
+      {data && data.length > 0 && (
+        <ul className={s.galleryGrid} id="gallery">
+          {data.map(
+            ({
+              id,
+              alt,
+              image: {
+                data: {
+                  attributes: { url, width, height },
+                },
               },
-            },
-            blurDataUrl,
-          }) => (
-            <SinglePageGalleryItem
-              key={id}
-              alt={alt}
-              url={url}
-              width={width}
-              height={height}
-              blurDataUrl={blurDataUrl}
-            />
-          ),
-        )}
-      </ul>
+              blurDataUrl,
+            }) => (
+              <SinglePageGalleryItem
+                key={id}
+                alt={alt}
+                url={url}
+                width={width}
+                height={height}
+                blurDataUrl={blurDataUrl}
+              />
+            ),
+          )}
+        </ul>
+      )}
     </>
   );
 };

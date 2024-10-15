@@ -61,7 +61,9 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
     <SinglePageWrapper goBackLink={RoutesEnum.GALLERY} linkText={t('goBack')}>
       <h1 className="single-page-title">{title}</h1>
 
-      <SinglePageGallery data={imagesWithBlurDataUrl} />
+      {imagesWithBlurDataUrl && imagesWithBlurDataUrl.length > 0 && (
+        <SinglePageGallery data={imagesWithBlurDataUrl} />
+      )}
     </SinglePageWrapper>
   );
 }

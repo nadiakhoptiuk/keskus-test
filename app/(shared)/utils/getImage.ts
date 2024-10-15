@@ -1,26 +1,43 @@
 import { getPlaiceholder } from 'plaiceholder';
-import { GalleryItemType } from '../types/common.types';
+import { GalleryItemType, GalleryItemWithBlurType } from '../types/common.types';
 
-export async function getImageBlurData(source: string) {
-  const buffer = await fetch(source).then(async result => Buffer.from(await result.arrayBuffer()));
+export async function getImageBlurData(imageUrl: string) {
+  try {
+    const response = await fetch(imageUrl);
 
-  const {
-    metadata: { height, width },
-    ...placeholder
-  } = await getPlaiceholder(buffer, { size: 10 });
+    if (!response.ok) {
+      throw new Error(`Failed to fetch blurred image: ${response.status} ${response.statusText}`);
+    }
 
-  return {
-    ...placeholder,
-    img: { src: source, height, width },
-  };
+    const buffer = await response.arrayBuffer();
+
+    const { base64 } = await getPlaiceholder(Buffer.from(buffer));
+
+    // console.log('base64 >>>', base64);
+    return base64;
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
+  }
 }
 
 export const getAllImagesWithBlurData = async (data: GalleryItemType[]) => {
-  return await Promise.all(
-    data.map(async (photo: GalleryItemType) => {
-      const { base64 } = await getImageBlurData(photo.image.data.attributes.url);
-
-      return { ...photo, blurDataUrl: base64 };
-    }),
+  const base64Promises = data.map((photo: GalleryItemType) =>
+    getImageBlurData(photo.image.data.attributes.url),
   );
+
+  const base64Results = await Promise.all(base64Promises);
+
+  return data.map((photo, index) => {
+    photo.blurDataUrl = base64Results[index];
+    return photo;
+  }) as GalleryItemWithBlurType[];
+
+  // return await Promise.all(
+  //   data.map(async (photo: GalleryItemType) => {
+  //     const { base64 } = await getImageBlurData(photo.image.data.attributes.url);
+
+  //     return { ...photo, blurDataUrl: base64 };
+  //   }),
+  // );
 };
