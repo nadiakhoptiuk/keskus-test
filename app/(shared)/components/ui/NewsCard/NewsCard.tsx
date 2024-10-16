@@ -7,6 +7,8 @@ import Markdown from 'react-markdown';
 import { CustomIcon } from '@/app/(shared)/components/ui/CustomIcon';
 import { Typography } from '@/app/(shared)/components/ui/Typography';
 
+import { getImageBlurData } from '@/app/(shared)/utils/getImage';
+
 import { RoutesEnum } from '@/app/(shared)/types/enums';
 import { SingleNewDataType } from '@/app/(shared)/types/common.types';
 
@@ -34,6 +36,8 @@ export const NewsCard: FC<Props> = async ({ card, readMoreText, Tag = 'div' }) =
     },
   } = card;
 
+  const base64 = await getImageBlurData(url);
+
   return (
     <Tag>
       <div className="h-[320px] overflow-hidden rounded">
@@ -42,6 +46,8 @@ export const NewsCard: FC<Props> = async ({ card, readMoreText, Tag = 'div' }) =
           alt={alt}
           width={384}
           height={320}
+          placeholder="blur"
+          blurDataURL={base64}
           style={{
             objectFit: 'cover',
             objectPosition: 'center',

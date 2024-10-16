@@ -4,6 +4,7 @@ import withPlaiceholder from '@plaiceholder/next';
 
 const nextConfig = {
   reactStrictMode: true,
+  staticPageGenerationTimeout: 120,
 
   images: {
     formats: ['image/avif', 'image/webp'],

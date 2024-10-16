@@ -8,7 +8,6 @@ import { fetchAllGalleryEventsSlugs } from '@/requests/fetchAllGalleryEventsSlug
 import { fetchSingleGalleryEvent } from '@/requests/fetchSingleGalleryEvent';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 import { generatePageMetaData } from '@/app/(shared)/utils/generatePageMetaData';
-import { getAllImagesWithBlurData } from '@/app/(shared)/utils/getImage';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
 import { LocaleEnum, PageNameVariableEnum, RoutesEnum } from '@/app/(shared)/types/enums';
@@ -53,17 +52,13 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
 
   const { title, gallery } = pageData;
 
-  const imagesWithBlurDataUrl = await getAllImagesWithBlurData(gallery);
-
   const { t } = await initTranslations(locale, [i18nNamespaces.GALLERY]);
 
   return (
     <SinglePageWrapper goBackLink={RoutesEnum.GALLERY} linkText={t('goBack')}>
       <h1 className="single-page-title">{title}</h1>
 
-      {imagesWithBlurDataUrl && imagesWithBlurDataUrl.length > 0 && (
-        <SinglePageGallery data={imagesWithBlurDataUrl} />
-      )}
+      {gallery && gallery.length > 0 && <SinglePageGallery data={gallery} />}
     </SinglePageWrapper>
   );
 }

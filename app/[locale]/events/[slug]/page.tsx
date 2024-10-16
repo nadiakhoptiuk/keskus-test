@@ -11,6 +11,7 @@ import { fetchAllEventsSlugs } from '@/requests/fetchAllEventsSlugs';
 import { fetchSingleEventPageData } from '@/requests/fetchSingleEventsPageData';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
 import { generatePageMetaData } from '@/app/(shared)/utils/generatePageMetaData';
+import { getImageBlurData } from '@/app/(shared)/utils/getImage';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
 import { LocaleEnum, PageNameVariableEnum, RoutesEnum } from '@/app/(shared)/types/enums';
@@ -77,6 +78,8 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
     },
   } = pageData;
 
+  const base64 = await getImageBlurData(url);
+
   const label = labels.find(filterButton => filterButton.type_of_activity === type)?.label_at_image;
 
   return (
@@ -102,6 +105,9 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
           <Image
             src={url}
             alt={alt}
+            priority
+            placeholder="blur"
+            blurDataURL={base64}
             width={500}
             height={600}
             className="h-full w-full object-cover"
