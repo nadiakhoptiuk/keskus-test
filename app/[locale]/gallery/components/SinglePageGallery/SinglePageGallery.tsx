@@ -83,8 +83,16 @@ export const SinglePageGallery: FC<Props> = ({ data }) => {
                   attributes: { url, width, height },
                 },
               },
+              blurDataUrl,
             }) => (
-              <SinglePageGalleryItem key={id} alt={alt} url={url} width={width} height={height} />
+              <SinglePageGalleryItem
+                key={id}
+                alt={alt}
+                url={url}
+                width={width}
+                height={height}
+                blurDataUrl={blurDataUrl}
+              />
             ),
           )}
       </ul>

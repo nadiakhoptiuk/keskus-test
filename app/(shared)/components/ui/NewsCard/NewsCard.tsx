@@ -62,7 +62,10 @@ export const NewsCard: FC<Props> = async ({ card, readMoreText, Tag = 'div' }) =
           {format(new Date(date), 'dd.MM.y')}
         </Typography>
 
-        <Typography as="h3" className="font-fixel !text-ui_bold_28 md:min-h-[96px]">
+        <Typography
+          as="h3"
+          className="font-fixel !text-ui_bold_28 md:!line-clamp-3 md:min-h-[96px]"
+        >
           {title}
         </Typography>
 
