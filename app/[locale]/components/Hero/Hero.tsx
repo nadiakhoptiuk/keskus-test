@@ -49,7 +49,7 @@ export const Hero: FC<Props> = async ({ locale, pageTitle, text, buttonText }) =
             <Image
               src="/images/hero-big@2x.webp"
               priority
-              quality={100}
+              quality={80}
               width={927}
               height={804}
               alt={t('heroImageAlt')}
@@ -63,7 +63,7 @@ export const Hero: FC<Props> = async ({ locale, pageTitle, text, buttonText }) =
         <Image
           src="/images/hero-small@2x.webp"
           priority
-          quality={100}
+          quality={80}
           width={360}
           height={318}
           alt={t('heroImageAlt')}

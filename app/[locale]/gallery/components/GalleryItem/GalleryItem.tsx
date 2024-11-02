@@ -31,7 +31,7 @@ export const GalleryItem: FC<Props> = async ({
   galleryLength,
 }) => {
   const { t } = await initTranslations(locale, [i18nNamespaces.GALLERY]);
-  const { base64 } = await getImageBlurData(image);
+  const base64 = await getImageBlurData(image);
 
   return (
     <li className={`${s.galleryItem} group relative overflow-hidden shadow-sm`} tabIndex={0}>

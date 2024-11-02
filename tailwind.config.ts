@@ -10,6 +10,10 @@ const config: Config = {
 
   theme: {
     extend: {
+      screens: {
+        sm: '480px',
+      },
+
       colors: {
         black: '#0A0A0A',
         grey: '#D5D4DF',
@@ -60,10 +64,6 @@ const config: Config = {
         announcementSm: 'auto auto auto',
         announcementMd: 'auto auto',
         announcementXl: 'auto auto',
-      },
-
-      screens: {
-        sm: '480px',
       },
 
       spacing: {

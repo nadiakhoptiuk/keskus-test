@@ -9,7 +9,7 @@ export const getGalleryPage = gql`
         }
       }
     }
-    galleryEvents(locale: $locale, pagination: { limit: 100 }) {
+    galleryEvents(locale: $locale, sort: "id:desc", pagination: { limit: 100 }) {
       data {
         id
         attributes {

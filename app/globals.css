@@ -304,11 +304,11 @@
 }
 
 .pswp__button--arrow--prev {
-  @apply !left-[50%] !top-[95%] after:absolute after:left-0 after:top-0 after:content-arrow-gallery max-xl:-translate-x-20 max-xl:after:!h-[48px] max-xl:after:!w-[48px] xl:!left-[7%] xl:!top-1/2 xl:after:h-15 xl:after:w-15;
+  @apply !left-[50%] !top-[98%] after:absolute after:left-0 after:top-0 after:content-arrow-gallery max-xl:-translate-x-20 max-xl:after:!h-[48px] max-xl:after:!w-[48px] xl:!left-[1%] xl:!top-1/2 xl:after:h-15 xl:after:w-15;
 }
 
 .pswp__button--arrow--next {
-  @apply !right-[50%] !top-[95%] after:absolute after:left-0 after:top-0 after:rotate-180 after:content-arrow-gallery max-xl:translate-x-20 max-xl:after:!h-[48px] max-xl:after:!w-[48px] xl:!right-[7%] xl:!top-1/2 xl:after:h-15 xl:after:w-15;
+  @apply !right-[50%] !top-[98%] after:absolute after:left-0 after:top-0 after:rotate-180 after:content-arrow-gallery max-xl:translate-x-20 max-xl:after:!h-[48px] max-xl:after:!w-[48px] xl:!right-[1%] xl:!top-1/2 xl:after:h-15 xl:after:w-15;
 }
 
 .pswp__custom-caption {

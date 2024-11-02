@@ -7,7 +7,7 @@ export const getSingleGalleryEvent = gql`
         attributes {
           title
           slug
-          gallery {
+          gallery(pagination: { limit: 100 }) {
             id
             alt
             image {
