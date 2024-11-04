@@ -92,6 +92,7 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
           <Image
             src={url}
             alt={alt}
+            sizes="100vw"
             width={1216}
             height={480}
             className="my-0 h-full w-full object-cover object-top"

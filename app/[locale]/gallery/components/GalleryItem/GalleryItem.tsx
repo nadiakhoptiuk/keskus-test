@@ -43,6 +43,7 @@ export const GalleryItem: FC<Props> = async ({
         alt={alt}
         width={700}
         height={400}
+        sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
       />
 
       <div className="base-transition absolute inset-0 z-10 h-full w-full translate-y-full bg-black bg-opacity-85 p-5 text-zinc-50 opacity-0 transition-[opacity,transform] group-hover:translate-y-0 group-hover:opacity-100 group-focus:translate-y-0 group-focus:opacity-100">

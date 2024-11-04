@@ -18,6 +18,7 @@ export const SinglePageGalleryItem: FC<Props> = ({ alt, url, width, height, blur
       <a href={url} data-pswp-width={width} data-pswp-height={height}>
         <Image
           className="h-full w-full object-cover"
+          sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
           src={url}
           placeholder="blur"
           blurDataURL={blurDataUrl}
