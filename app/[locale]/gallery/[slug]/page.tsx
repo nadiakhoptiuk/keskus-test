@@ -7,12 +7,17 @@ import { SinglePageGallery } from '../components/SinglePageGallery';
 import { fetchAllGalleryEventsSlugs } from '@/requests/fetchAllGalleryEventsSlugs';
 import { fetchSingleGalleryEvent } from '@/requests/fetchSingleGalleryEvent';
 import { initTranslations } from '@/app/i18n/extensions/initTranslations';
-import { generatePageMetaData } from '@/app/(shared)/utils/generatePageMetaData';
+import { generateSinglePageMetaData } from '@/app/(shared)/utils/generatePageMetaData';
 
-import { PageProps } from '@/app/(shared)/types/common.types';
-import { LocaleEnum, PageNameVariableEnum, RoutesEnum } from '@/app/(shared)/types/enums';
+import { PageProps, SinglePageProps } from '@/app/(shared)/types/common.types';
+import {
+  ChapterNameVariableEnum,
+  LocaleEnum,
+  RoutesEnum,
+  SinglePageNameVariableEnum,
+} from '@/app/(shared)/types/enums';
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
-import { getAllImagesWithBlurData } from '@/app/(shared)/utils/getImage';
+import { transformArrayOfImagesWithBlur } from '@/app/(shared)/utils/getImage';
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export const dynamicParams = false;
@@ -36,14 +41,16 @@ export async function generateStaticParams({
 
 export const generateMetadata = async ({
   params: { locale, slug },
-}: PageProps): Promise<Metadata> => {
+}: SinglePageProps): Promise<Metadata> => {
   const args = {
     locale,
-    pageName: PageNameVariableEnum.GALLERY,
+    pageName: SinglePageNameVariableEnum.GALLERY,
     route: `${RoutesEnum.GALLERY}/${slug}`,
+    chapterName: ChapterNameVariableEnum.GALLERY,
+    slug,
   };
 
-  return await generatePageMetaData(args);
+  return await generateSinglePageMetaData(args);
 };
 
 export default async function Page({ params: { locale, slug } }: PageProps) {
@@ -53,7 +60,7 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
 
   const { title, gallery } = pageData;
 
-  const galleryWithBlurData = await getAllImagesWithBlurData(gallery);
+  const galleryWithBlurData = transformArrayOfImagesWithBlur(gallery);
 
   const { t } = await initTranslations(locale, [i18nNamespaces.GALLERY]);
 

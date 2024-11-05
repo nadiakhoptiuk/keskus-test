@@ -27,3 +27,17 @@ export enum PageNameVariableEnum {
   CONTACTS = 'contactsPage',
   PRIVACY_POLICY = 'policyPage',
 }
+
+export enum ChapterNameVariableEnum {
+  GALLERY = 'galleryEvents',
+  EVENTS = 'activities',
+  NEWS = 'news',
+  VACANCIES = 'vacancies',
+}
+
+export enum SinglePageNameVariableEnum {
+  GALLERY = 'galleryPage',
+  EVENTS = 'eventsPage',
+  NEWS = 'newsPage',
+  VACANCIES = 'vacanciesPage',
+}

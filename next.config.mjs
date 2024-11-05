@@ -15,6 +15,7 @@ const nextConfig = {
         port: '',
       },
     ],
+    deviceSizes: [480, 768, 1080, 1280, 1440, 1920, 2048, 3840],
   },
 
   webpack: config => {
