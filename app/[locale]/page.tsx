@@ -11,12 +11,15 @@ import { fetchMetaData } from '@/requests/fetchMetaData';
 import { fetchHomePage } from '@/requests/fetchHomePage';
 import { availableIrregularEventsDates } from '../(shared)/utils/availableEventsDates';
 import { initTranslations } from '../i18n/extensions/initTranslations';
-import { transformMetaFacebook, transformMetaTwitter } from '../(shared)/utils/transformMeta';
+import {
+  generateAlternate,
+  transformMetaFacebook,
+  transformMetaTwitter,
+} from '../(shared)/utils/transformMeta';
 
 import { PageProps } from '@/app/(shared)/types/common.types';
 import { i18nNamespaces } from '../(shared)/types/i18n.types';
-import { LocaleEnum, PageNameVariableEnum } from '../(shared)/types/enums';
-import { languages } from '../(shared)/utils/constants';
+import { PageNameVariableEnum, RoutesEnum } from '../(shared)/types/enums';
 
 export const generateMetadata = async ({ params: { locale } }: PageProps): Promise<Metadata> => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL as string;
@@ -29,10 +32,7 @@ export const generateMetadata = async ({ params: { locale } }: PageProps): Promi
   if (!metaData) {
     return {
       ...defaultMeta,
-      alternates: {
-        canonical: `${baseUrl}/${locale === LocaleEnum.UK ? '' : locale}`,
-        languages: languages,
-      },
+      alternates: generateAlternate({ locale, baseUrl, route: RoutesEnum.HOME }),
     };
   }
 
@@ -41,13 +41,18 @@ export const generateMetadata = async ({ params: { locale } }: PageProps): Promi
   return {
     title,
     description,
-    alternates: {
-      canonical: `${baseUrl}/${locale === LocaleEnum.UK ? '' : locale}`,
-      languages: languages,
-    },
+    alternates: generateAlternate({ locale, baseUrl, route: RoutesEnum.HOME }),
     keywords,
-    twitter: transformMetaTwitter(metaImage, title, description),
-    openGraph: transformMetaFacebook(metaImage, title, description, baseUrl, locale),
+    twitter: transformMetaTwitter({ data: metaImage, title, description, isSinglePage: false }),
+    openGraph: transformMetaFacebook({
+      data: metaImage,
+      title,
+      description,
+      baseUrl,
+      locale,
+      route: RoutesEnum.HOME,
+      isSinglePage: false,
+    }),
   };
 };
 

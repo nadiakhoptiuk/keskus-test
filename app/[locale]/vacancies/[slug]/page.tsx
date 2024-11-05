@@ -9,10 +9,15 @@ import { ApplyButton } from '../components/ApplyButton';
 
 import { fetchSingleVacancy } from '@/requests/fetchSingleVacancy';
 import { fetchAllVacanciesSlugs } from '@/requests/fetchAllVacanciesSlugs';
-import { generatePageMetaData } from '@/app/(shared)/utils/generatePageMetaData';
+import { generateSinglePageMetaData } from '@/app/(shared)/utils/generatePageMetaData';
 
-import { PageProps } from '@/app/(shared)/types/common.types';
-import { LocaleEnum, PageNameVariableEnum, RoutesEnum } from '@/app/(shared)/types/enums';
+import { PageProps, SinglePageProps } from '@/app/(shared)/types/common.types';
+import {
+  ChapterNameVariableEnum,
+  LocaleEnum,
+  RoutesEnum,
+  SinglePageNameVariableEnum,
+} from '@/app/(shared)/types/enums';
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export const dynamicParams = false;
@@ -34,14 +39,16 @@ export async function generateStaticParams({
 
 export const generateMetadata = async ({
   params: { locale, slug },
-}: PageProps): Promise<Metadata> => {
+}: SinglePageProps): Promise<Metadata> => {
   const args = {
     locale,
-    pageName: PageNameVariableEnum.VACANCIES,
+    pageName: SinglePageNameVariableEnum.VACANCIES,
     route: `${RoutesEnum.VACANCIES}/${slug}`,
+    chapterName: ChapterNameVariableEnum.VACANCIES,
+    slug,
   };
 
-  return await generatePageMetaData(args);
+  return await generateSinglePageMetaData(args);
 };
 
 export default async function Page({ params: { locale, slug } }: PageProps) {

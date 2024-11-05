@@ -2,6 +2,29 @@ import { getPlaiceholder } from 'plaiceholder';
 
 import { GalleryItemType } from '../types/common.types';
 
+export const transformImageUrlWithBlur = (url: string) => {
+  const indexOfUploadString = url.indexOf('upload/');
+
+  if (indexOfUploadString === -1) return url;
+
+  const firstPartOfString = url.slice(0, indexOfUploadString + 7);
+  const secondPartOfString = url.slice(indexOfUploadString + 7);
+
+  return firstPartOfString + 'e_blur:2000/' + secondPartOfString;
+};
+
+export const transformArrayOfImagesWithBlur = (gallery: GalleryItemType[]) => {
+  const newGallery = [...gallery];
+
+  for (const image of newGallery) {
+    const url = image.image.data.attributes.url;
+
+    image.blurDataUrl = transformImageUrlWithBlur(url);
+  }
+
+  return newGallery;
+};
+
 export async function getImageBlurData(imageUrl: string) {
   try {
     const response = await fetch(imageUrl);

@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-import { LocaleEnum } from '@/app/(shared)/types/enums';
+import { ChapterNameVariableEnum, LocaleEnum, RoutesEnum } from '@/app/(shared)/types/enums';
 import { FieldError } from 'react-hook-form';
 
 export type WithChildren = {
@@ -26,6 +26,21 @@ export type PageProps = {
     locale: LocaleEnum;
     slug?: string;
   };
+};
+
+export type SinglePageProps = {
+  params: {
+    locale: LocaleEnum;
+    slug: string;
+  };
+};
+
+export type SlugArgumentType = {
+  slug: string;
+};
+
+export type ChapterNameArgumentType = {
+  chapterName: ChapterNameVariableEnum;
 };
 
 export type Inputs = Record<string, string>;
@@ -648,6 +663,12 @@ export type MetaImageType = {
   height: string;
 };
 
+export type TransformMetaOGPType = {
+  baseUrl: string;
+  locale: LocaleEnum;
+  route: RoutesEnum | string;
+};
+
 export type PageMetaDataType = {
   data: {
     attributes: {
@@ -661,6 +682,42 @@ export type PageMetaDataType = {
         };
         keywords: string;
       };
+    };
+  };
+};
+
+export type RequestGalleryDataType = {
+  commonData: PageMetaDataType;
+  singlePageData: SinglePageGalleryMetaDataType;
+};
+
+export type RequestCommonDataType = {
+  commonData: PageMetaDataType;
+  singlePageData: SinglePageCommonMetaDataType;
+};
+
+export type SinglePageGalleryMetaDataType = {
+  data: {
+    attributes: {
+      title: string;
+      main_image: MetaImageFromCollectionType;
+    };
+  }[];
+};
+
+export type SinglePageCommonMetaDataType = {
+  data: {
+    attributes: {
+      title: string;
+      image: MetaImageFromCollectionType;
+    };
+  }[];
+};
+
+export type MetaImageFromCollectionType = {
+  image: {
+    data: {
+      attributes: MetaImageType;
     };
   };
 };
