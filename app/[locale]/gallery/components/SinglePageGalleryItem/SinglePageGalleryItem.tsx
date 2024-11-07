@@ -1,4 +1,5 @@
 'use client';
+
 import { FC } from 'react';
 import Image from 'next/image';
 
@@ -9,10 +10,9 @@ type Props = {
   url: string;
   width: number;
   height: number;
-  blurDataUrl: string | undefined;
 };
 
-export const SinglePageGalleryItem: FC<Props> = ({ alt, url, width, height, blurDataUrl }) => {
+export const SinglePageGalleryItem: FC<Props> = ({ alt, url, width, height }) => {
   return (
     <li className={`${s.galleryItem} overflow-hidden bg-slate-200 shadow-sm`}>
       <a href={url} data-pswp-width={width} data-pswp-height={height}>
@@ -20,10 +20,8 @@ export const SinglePageGalleryItem: FC<Props> = ({ alt, url, width, height, blur
           className="h-full w-full object-cover"
           sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
           src={url}
-          placeholder="blur"
-          blurDataURL={blurDataUrl}
-          width={2880}
-          height={2200}
+          width={1440}
+          height={1100}
           alt={alt}
         />
       </a>
