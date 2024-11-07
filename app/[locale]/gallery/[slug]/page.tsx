@@ -17,7 +17,6 @@ import {
   SinglePageNameVariableEnum,
 } from '@/app/(shared)/types/enums';
 import { i18nNamespaces } from '@/app/(shared)/types/i18n.types';
-import { transformArrayOfImagesWithBlur } from '@/app/(shared)/utils/getImage';
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
 export const dynamicParams = false;
@@ -60,15 +59,13 @@ export default async function Page({ params: { locale, slug } }: PageProps) {
 
   const { title, gallery } = pageData;
 
-  const galleryWithBlurData = transformArrayOfImagesWithBlur(gallery);
-
   const { t } = await initTranslations(locale, [i18nNamespaces.GALLERY]);
 
   return (
     <SinglePageWrapper goBackLink={RoutesEnum.GALLERY} linkText={t('goBack')}>
       <h1 className="single-page-title">{title}</h1>
 
-      {gallery && gallery.length > 0 && <SinglePageGallery data={galleryWithBlurData} />}
+      {gallery && gallery.length > 0 && <SinglePageGallery data={gallery} />}
     </SinglePageWrapper>
   );
 }
